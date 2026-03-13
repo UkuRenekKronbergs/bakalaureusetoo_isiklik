@@ -1,0 +1,135 @@
+\section{Claude Code kui lõputöö genereerimise tööriist} \label{claudecode}
+
+Käesolev peatükk kirjeldab Claude Code'i (varem tuntud kui Claude Cowork) kui agentset AI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks.
+
+\subsection{Claude Code'i ülevaade} \label{subsec:claudecode-ulevaade}
+
+Claude Code on Anthropic'i arendatud agentne kodeerimis- ja tekstiloomise tööriist, mis töötab käsurealiidese (CLI) kaudu ning integreerub otse arenduskeskkondustesse nagu Visual Studio Code \cite{anthropic2026claudecode}. Erinevalt tavalistest vestlusliidese-põhistest AI tööriistadest (nt ChatGPT veebiliides, Claude.ai) pakub Claude Code agentset töövoogu: tööriist saab iseseisvalt lugeda ja kirjutada faile, käivitada käsurealkäske, otsida veebist informatsiooni ning hallata projekti failisüsteemi.
+
+Claude Code'i peamised eelised akadeemilise teksti genereerimisel:
+\begin{itemize}
+    \item \textbf{Otsene failisüsteemi juurdepääs} -- tööriist saab lugeda olemasolevaid \LaTeX{} faile, juhendeid ja näidistöid otse failisüsteemist, ilma et kasutaja peaks neid käsitsi kopeerima vestlusaknasse.
+    \item \textbf{Iteratiivne genereerimine} -- tööriist saab genereerida teksti, kontrollida tulemust ja teha parandusi mitme iteratsiooni jooksul ühe sessiooni raames.
+    \item \textbf{\LaTeX{} kompileerimine} -- tööriist saab käivitada \LaTeX{} kompileerimist ja kontrollida, kas genereeritud kood kompileerub vigadeta.
+    \item \textbf{Viidete haldamine} -- tööriist saab hallata BibTeX/BibLaTeX viidete faile, lisada uusi viiteid ja kontrollida viidete formaadi korrektsust.
+    \item \textbf{Pikaajaline kontekst} -- ühe sessiooni jooksul säilib kogu eelnev kontekst, mis võimaldab sidusa ja järjepideva teksti loomist pikema aja jooksul.
+\end{itemize}
+
+\subsection{Claude Code vs tavapärane vestlusliides} \label{subsec:claudecode-vs-chat}
+
+Tabelis~\ref{tab:claudecode-vs-chat} on esitatud võrdlus Claude Code'i ja tavapärase vestlusliidese (nt Claude.ai, ChatGPT) vahel lõputöö genereerimise kontekstis.
+
+\begin{table}[h]
+\centering
+\caption{Claude Code vs tavapärane vestlusliides lõputöö genereerimisel}
+\label{tab:claudecode-vs-chat}
+\begin{tblr}{
+    colspec={l X X},
+    row{1}={font=\bfseries},
+    hlines,
+    vlines,
+    row{even}={bg=colorCellHighlight},
+}
+Aspekt & Vestlusliides & Claude Code \\
+Konteksti sisestamine & Käsitsi kopeerimine & Automaatne failide lugemine \\
+Väljundi salvestamine & Käsitsi kopeerimine & Otsene faili kirjutamine \\
+\LaTeX{} kontroll & Puudub & Automaatne kompileerimine \\
+Viidete haldus & Käsitsi & Automaatne BibTeX haldus \\
+Mitme faili töötlemine & Üks fail korraga & Kõik failid korraga \\
+Iteratsiooni kiirus & Aeglane (kopeeri-kleebi) & Kiire (automaatne) \\
+Projekti struktuur & Kasutaja haldab & Tööriist haldab \\
+\end{tblr}
+\end{table}
+
+\subsection{Soovitused lõputöö genereerimiseks Claude Code'iga} \label{subsec:claudecode-soovitused}
+
+Käesoleva uurimuse praktiliste kogemuste põhjal, sealhulgas Opus 4.6 mudeliga genereeritud paroolihalduri lõputöö (vt peatükk~\ref{subsec:exp-tervik}), saab anda järgmised soovitused Claude Code'i kasutamiseks lõputöö genereerimisel.
+
+\subsubsection{Projekti ettevalmistamine}
+
+\begin{enumerate}
+    \item \textbf{Kasuta \LaTeX{} malli algusest peale.} Paigalda ülikooli \LaTeX{} mall (nt UniTartuCS) projektikausta enne genereerimise alustamist. Claude Code suudab malli struktuuri automaatselt tuvastada ja järgida.
+    \item \textbf{Lisa juhendid projektikausta.} Kopeeri lõputöö juhendid (TÜ ATI juhend, LOTE juhend) tekstifailidena projektikausta. Claude Code saab neid automaatselt lugeda kontekstina.
+    \item \textbf{Lisa näidistööd.} Paiguta 2--3 hästi hinnatud varasema lõputöö PDF-failid projektikausta. Need annavad mudelile konkreetse ettekujutuse oodatavast kvaliteedist ja stiilist.
+    \item \textbf{Loo CLAUDE.md konfiguratsioonifail.} Projekti juurkausta loodav CLAUDE.md fail sisaldab püsivaid juhiseid, mida Claude Code järgib igas sessioonis. Sinna tasub kirjutada:
+    \begin{itemize}
+        \item oodatav keel (eesti keel);
+        \item akadeemiline stiil ja toon;
+        \item terminoloogia eelistused;
+        \item viitamisstiil (nt IEEE numeric);
+        \item peatükkide struktuur ja maht.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Genereerimise töövoog}
+
+Soovitame järgmist samm-sammulist töövoogu:
+
+\begin{enumerate}
+    \item \textbf{Genereeri sisukord ja struktuur.} Alusta sisukorra ja peatükkide ülesehituse genereerimisega. Anna mudelile ette teema, uurimisküsimused ja mahunõuded. Kontrolli ja kinnita struktuur enne edasi liikumist.
+    \item \textbf{Genereeri peatükid järjest.} Genereeri iga peatükk eraldi, alustades sissejuhatusest. Iga järgmise peatüki genereerimisel on eelnevad peatükid kontekstis, mis tagab sidususe.
+    \item \textbf{Genereeri tabelid ja joonised eraldi.} Tabelite ja jooniste \LaTeX{} kood on keerulisem ja vajab eraldi tähelepanu. Genereeri need eraldi sammuna ja kontrolli visuaalset tulemust.
+    \item \textbf{Lisa viited iteratiivselt.} Ära lase mudelil viiteid ``välja mõelda''. Selle asemel:
+    \begin{itemize}
+        \item otsi ise allikaid (Google Scholar, Scopus, IEEE Xplore);
+        \item lisa leitud allikate andmed BibTeX faili;
+        \item palu mudelil viiteid tekstis kasutada ainult olemasolevatest allikatest.
+    \end{itemize}
+    \item \textbf{Kompileeri regulaarselt.} Kasuta Claude Code'i võimalust käivitada \texttt{pdflatex} ja \texttt{biber} käske, et kontrollida, kas genereeritud \LaTeX{} kood kompileerub vigadeta.
+    \item \textbf{Vaata üle ja paranda.} Iga genereeritud peatüki järel vaata tekst üle, märgi probleemkohad ja palu mudelil need parandada. Ära jäta ülevaatamist töö lõppu.
+\end{enumerate}
+
+\subsubsection{Parimad praktikad}
+
+\begin{itemize}
+    \item \textbf{Kasuta pikendatud mõtlemisrežiimi.} Claude Code'i pikendatud mõtlemisrežiim (\textit{extended thinking}) parandab oluliselt keeruliste akadeemiliste tekstide kvaliteeti. See on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
+    \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta maht, struktuur, peamised teemad ja oodatav stiil.
+    \item \textbf{Kasuta süsteemiviipa.} CLAUDE.md failis või sessiooni alguses seadistatud süsteemiviip tagab, et mudel järgib läbivalt samu juhiseid.
+    \item \textbf{Kontrolli viiteid alati.} Ükski AI mudel ei genereeri 100\% korrektseid viiteid. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
+    \item \textbf{Ära genereeri kõike korraga.} Iteratiivne, peatüki-kaupa genereerimine annab oluliselt parema tulemuse kui terve töö genereerimine ühe promptiga.
+    \item \textbf{Hoia inimese kontroll.} AI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
+    \item \textbf{Kasuta Opus mudelit mahukate ülesannete jaoks.} Claude Opus 4.6 on Claude perekonna võimekaim mudel ja sobib kõige paremini terviklike peatükkide ja keeruliste akadeemiliste tekstide genereerimiseks, kuigi selle hind on oluliselt kõrgem kui Sonnet mudelil.
+\end{itemize}
+
+\subsection{Claude Code'i piirangud} \label{subsec:claudecode-piirangud}
+
+Vaatamata eelistele on Claude Code'il mitmeid piiranguid lõputöö genereerimise kontekstis:
+
+\begin{itemize}
+    \item \textbf{Kontekstiakna täitumine.} Pikema sessiooni jooksul võib kontekstiaken täituda, mis põhjustab varasemate osade ``unustamist''. Lahenduseks on sessiooni korrapärane taaskäivitamine ja CLAUDE.md faili kasutamine püsiva kontekstina.
+    \item \textbf{Hind.} Claude Code kasutab API-põhist hinnastamist, mis tähendab, et pikemad sessioonid võivad olla kulukad, eriti Opus mudeliga.
+    \item \textbf{Tehniline barjäär.} Claude Code eeldab käsurea ja arenduskeskkonna kasutamise oskust, mis ei ole kõigile üliõpilastele tuttav.
+    \item \textbf{Versioonihaldus.} Kuigi Claude Code saab kasutada Git'i, on oluline, et üliõpilane mõistab versioonihalduse põhimõtteid, et vältida töö kadumist.
+\end{itemize}
+
+\subsection{Juhtumiuuring: Paroolihalduri lõputöö genereerimine Opus 4.6-ga} \label{subsec:claudecode-juhtumiuuring}
+
+Käesoleva uurimuse raames genereeriti Claude Code'i ja Opus 4.6 mudeli abil terviklik 61-leheküljeline bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. See juhtumiuuring demonstreerib Claude Code'i praktilisi võimekusi ja piiranguid reaalse lõputöö genereerimisel.
+
+\subsubsection{Genereerimisprotsess}
+
+Genereerimine toimus Claude Code'i kaudu, kasutades Opus 4.6 mudelit. Projektikausta paigutati UniTartuCS \LaTeX{} mall, TÜ ATI juhend ning CLAUDE.md konfiguratsioonifail eestikeelse akadeemilise kirjutamise juhistega. Genereerimine toimus iteratiivselt, peatüki kaupa.
+
+\subsubsection{Genereeritud töö omadused}
+
+Genereeritud lõputöö sisaldas järgmisi komponente:
+\begin{itemize}
+    \item Terviklik tehniline arhitektuur: nullteadmise (\textit{zero-knowledge}) põhimõte, AES-256-GCM krüpteering, Argon2id võtmetuletamine;
+    \item React/TypeScript kasutajaliides ja Node.js/Express taustarakendus PostgreSQL andmebaasiga;
+    \item 149 automatiseeritud testi (47 krüptograafia ühiktesti + 61 serveri ühiktesti + 41 integratsioonitesti);
+    \item OWASP Top 10 vastavuse analüüs;
+    \item Süsteemi kasutatavuse skaala (SUS) hindamine skooriga 77,0;
+    \item 0 kriitilist turvaauku turvaauditi tulemusel.
+\end{itemize}
+
+\subsubsection{Järeldused juhtumiuuringust}
+
+Juhtumiuuring kinnitas, et Claude Code koos Opus 4.6 mudeliga suudab genereerida tervikliku, struktureeritud ja tehniliselt detailse lõputöö. Genereeritud töö vastas TÜ ATI vorminõuetele ja sisaldas kõiki nõutud peatükke. Peamised tugevused olid:
+\begin{itemize}
+    \item Tehniline sügavus ja detailsus, mis ületas teiste mudelite tulemusi;
+    \item Korrektne eesti keel läbivalt kogu töös;
+    \item Terviklik ja sisukas struktuur ilma teemast kõrvalekaldumiseta;
+    \item \LaTeX{} koodi korrektne genereerimine, sealhulgas tabelid, joonised ja viited.
+\end{itemize}
+
+Peamised puudused olid endiselt seotud viidete hallutsineerimisega (ca 15\% viidetest vajasid kontrolli) ja mõningate eesti keele terminoloogia ebajärjekindlustega.
