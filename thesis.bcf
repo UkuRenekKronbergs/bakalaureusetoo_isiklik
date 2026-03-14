@@ -2432,13 +2432,19 @@
     <bcf:citekey order="53" intorder="1">kim2025geographic</bcf:citekey>
     <bcf:citekey order="54" intorder="1">barbu2025estonian</bcf:citekey>
     <bcf:citekey order="55" intorder="1">bianchi2023safety</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">tuati2025juhend</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">rodafinos2025integration</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">lund2025perceptions</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">dorkin2026estllm</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">kresevic2024rag</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">ji2024cot_citations</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">anthropic2026claudecode</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">datastudios2025perplexity</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">datastudios2025perplexity</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">github2026copilot</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">github2026copilot_responsible</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">nguyen2022empirical</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">github2026copilot_ratelimits</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">tuati2025juhend</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">rodafinos2025integration</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">lund2025perceptions</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">dorkin2026estllm</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">kresevic2024rag</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">ji2024cot_citations</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">anthropic2026claudecode</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
