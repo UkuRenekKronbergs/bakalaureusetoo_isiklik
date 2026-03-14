@@ -1,6 +1,6 @@
 \section{AI mudelite võrdlus} \label{mudelid}
 
-Käesolev peatükk esitab kolme valitud AI mudeli detailse võrdluse, hõlmates nende tehnilist arhitektuuri, võimekust, hinnastamist ja eesti keele tuge.
+Käesolev peatükk esitab nelja valitud AI mudeli detailse võrdluse, hõlmates nende tehnilist arhitektuuri, võimekust, hinnastamist ja eesti keele tuge.
 
 \subsection{Google Gemini 3.1 Pro} \label{subsec:gemini}
 
@@ -39,7 +39,7 @@ OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta de
 
 \subsubsection{Tehniline ülevaade}
 
-GPT-5.4 kontekstiaken ulatub kuni 1\,000\,000 tokenini, mis on võrreldav Gemini 3.1 Pro omaga ja pakub piisavat mahutavust ka kõige mahukamate lõputöö genereerimise stsenaariumide jaoks. OpenAI positsioneerib GPT-5.4 mudelina, mis on optimeeritud professionaalseks tööks parandalud arutluskäigu, tööriistade kasutamise ja dokumentide töövoogudega.
+GPT-5.4 kontekstiaken ulatub kuni 1\,000\,000 tokenini, mis on võrreldav Gemini 3.1 Pro omaga ja pakub piisavat mahutavust ka kõige mahukamate lõputöö genereerimise stsenaariumide jaoks. OpenAI positsioneerib GPT-5.4 mudelina, mis on optimeeritud professionaalseks tööks parandatud arutluskäigu, tööriistade kasutamise ja dokumentide töövoogudega.
 
 Märkimisväärne on GPT-5.4 sisseehitatud ohutussüsteem: meie eksperimentides keeldus mudel genereerimast terviklikku lõputööd, viidates akadeemilise aususe piirangutele (vt peatükk~\ref{subsec:exp-tervik}). Selle asemel pakkus mudel teostatavusjuhendit inglise keeles. See käitumine viitab tugevale ``\textit{alignment}'' koolitusele, mis piirab mudeli kasutamist akadeemilises kontekstis. Bianchi et al. \cite{bianchi2023safety} on dokumenteerinud sarnast ``liialdatud ohutuskäitumist'', kus ohutuskoolitusega mudelid keelduvad täiesti ohututest ülesannetest, mis pealiskaudselt sarnanevad potentsiaalselt kahjulikele.
 
@@ -98,7 +98,7 @@ Claude Pro tellimus (\$20/kuu) võimaldab piiratud kasutust veebirakenduse kaudu
 
 \subsubsection{Eesti keele tugi}
 
-Claude Sonnet 4.6 eesti keele tugi on hea, kuid mõnede eripäradega:
+Claude Sonnet 4.6 eesti keele tugi on hea, kuid mõningate eripäradega:
 \begin{itemize}
     \item Mudel järgib eesti keele grammatikareegleid üldiselt hästi;
     \item Akadeemiline stiil on kolmest mudelist kõige lähedasem soovitule;
@@ -145,7 +145,7 @@ Claude Opus 4.6 eesti keele tugi on nelja testitud mudeli seas parim:
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
 
-Tabelis~\ref{tab:mudelite-vordlus} on esitatud kolme mudeli koondvõrdlus peamiste parameetrite lõikes.
+Tabelis~\ref{tab:mudelite-vordlus} on esitatud nelja mudeli koondvõrdlus peamiste parameetrite lõikes.
 
 \begin{table}[ht]
 \centering

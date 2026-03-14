@@ -18,7 +18,7 @@ Eksperimentide tulemused kinnitavad, et kaasaegsed AI mudelid suudavad pakkuda m
 
 Vaatamata edusammudele on AI mudelitel lõputöö kirjutamise kontekstis endiselt olulised puudujäägid.
 
-\textbf{Viidete usaldusväärsus.} Kõige tõsisem probleem on viidete hallutsineeriimine. Isegi kontekstipõhise genereerimise korral leiutasid mudelid olematud allikaid. Gemini 3.1 Pro hallutsineeris viiteid ca 35\% juhtudest, GPT-5.4 ca 30\%, Claude Sonnet 4.6 ca 20\% ja Claude Opus 4.6 ca 15\% juhtudest. Kuigi Opus 4.6 näitas madalaimat hallutsinatsioonimäära, on ka 15\% liiga kõrge akadeemilise teksti jaoks. Need tulemused on kooskõlas varasemate uurimustega: Chelli et al. \cite{chelli2024hallucination} tuvastasid GPT-4 hallutsinatsioonimääraks 28,6\%, mis on lähedane meie GPT-5.4 tulemusele, viidates sellele, et vaatamata mudelite arengule pole viidete hallutsineerimise probleem täielikult lahendatud. Mugaanyi et al. \cite{mugaanyi2023citation} leidsid samuti, et DOI-de täpsus on valdkonniti väga erinev (loodusteadustes 32,7\% vs humanitaarteadustes 8,5\%), mis viitab sellele, et arvutiteaduse valdkonnas võivad tulemused olla mõnevõrra paremad. Kim et al. \cite{kim2025geographic} on näidanud, et hallutsinatsioonid on eriti levinud väiksemate keelte ja madalama sissetulekuga riikide kontekstis, mis on asjakohane ka eesti keele puhul. See tähendab, et iga AI-genereeritud viide tuleb inimese poolt kontrollida. Viidete automaatne genereerimine on hetkel ebapiisava kvaliteediga ja üliõpilane peab ise allikaid otsima ning viiteid kontrollima.
+\textbf{Viidete usaldusväärsus.} Kõige tõsisem probleem on viidete hallutsineerimine. Isegi kontekstipõhise genereerimise korral leiutasid mudelid olematud allikaid. Gemini 3.1 Pro hallutsineeris viiteid ca 35\% juhtudest, GPT-5.4 ca 30\%, Claude Sonnet 4.6 ca 20\% ja Claude Opus 4.6 ca 15\% juhtudest. Kuigi Opus 4.6 näitas madalaimat hallutsinatsioonimäära, on ka 15\% liiga kõrge akadeemilise teksti jaoks. Need tulemused on kooskõlas varasemate uurimustega: Chelli et al. \cite{chelli2024hallucination} tuvastasid GPT-4 hallutsinatsioonimääraks 28,6\%, mis on lähedane meie GPT-5.4 tulemusele, viidates sellele, et vaatamata mudelite arengule pole viidete hallutsineerimise probleem täielikult lahendatud. Mugaanyi et al. \cite{mugaanyi2024citation} leidsid samuti, et DOI-de täpsus on valdkonniti väga erinev (loodusteadustes 32,7\% vs humanitaarteadustes 8,5\%), mis viitab sellele, et arvutiteaduse valdkonnas võivad tulemused olla mõnevõrra paremad. Kim et al. \cite{kim2025geographic} on näidanud, et hallutsinatsioonid on eriti levinud väiksemate keelte ja madalama sissetulekuga riikide kontekstis, mis on asjakohane ka eesti keele puhul. See tähendab, et iga AI-genereeritud viide tuleb inimese poolt kontrollida. Viidete automaatne genereerimine on hetkel ebapiisava kvaliteediga ja üliõpilane peab ise allikaid otsima ning viiteid kontrollima.
 
 \textbf{Sisuline sügavus.} AI-genereeritud tekstid kipuvad olema pealiskaudsed. Mudelid kordavad üldtuntud seisukohti, kuid ei suuda luua originaalset analüüsi ega teha uudseid järeldusi. See on eriti problemaatiline tulemuste arutelu puhul, kus eeldatakse, et autor demonstreerib kriitilist mõtlemist ja seob tulemused laiema kontekstiga.
 
@@ -81,7 +81,7 @@ Eksperimentide tulemuste ja praktiliste kogemuste põhjal saab anda järgmised s
 
 \textbf{Parim hinna-kvaliteedi suhe: Claude Sonnet 4.6.} Claude Sonnet 4.6 on kõige sobivam valik piiratud eelarvega üliõpilase jaoks. Mudel paistab silma akadeemilise stiili, juhendite järgimise ja teksti struktureerimise poolest ning on oluliselt soodsam kui Opus. Pikendatud mõtlemisrežiim parandab oluliselt keerulisemate peatükkide kvaliteeti.
 
-\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keeleliseks korrektuuri jaoks. Samas tuleb arvestada, et tervikliku töö genereerimisel võib mudeli ohutussüsteem ülesande täitmise blokeerida ning keelevalik võib kalduda inglise keelele. ChatGPT Plus tellimus (\$20/kuu) on majanduslikult mõistlik.
+\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keelelise korrektuuri jaoks. Samas tuleb arvestada, et tervikliku töö genereerimisel võib mudeli ohutussüsteem ülesande täitmise blokeerida ning keelevalik võib kalduda inglise keelele. ChatGPT Plus tellimus (\$20/kuu) on majanduslikult mõistlik.
 
 \textbf{Parim mahukate projektide jaoks: Gemini 3.1 Pro.} Kui lõputöö kirjutamine eeldab mahuka konteksti töötlemist (palju allikaid, pikad juhendid), annab Gemini 3.1 Pro kontekstiaken selge eelise. Google AI Studio tasuta versioon võimaldab eksperimenteerimist ilma kuluta.
 
@@ -93,7 +93,7 @@ Eksperimentide tulemuste ja praktiliste kogemuste põhjal saab anda järgmised s
 \begin{enumerate}
     \item Kasutada Claude Code'i koos Opus 4.6 või Sonnet 4.6-ga põhiliseks teksti genereerimiseks ja \LaTeX{} vormistuseks (vt peatükk~\ref{claudecode});
     \item Kasutada Gemini 3.1 Pro mahuka konteksti töötlemiseks, kus vaja sisestada palju allikmaterjali;
-    \item Kasutada GPT-5.4 keeleliseks korrektuuri ja toimetamiseks.
+    \item Kasutada GPT-5.4 keeleliseks korrektuuriks ja toimetamiseks.
 \end{enumerate}
 
 \subsection{Eetilised kaalutlused ja akadeemiline ausus} \label{subsec:eetika}
