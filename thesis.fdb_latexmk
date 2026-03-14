@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber thesis"] 1773440486.68838 "thesis.bcf" "thesis.bbl" "thesis" 1773508626.69906 0
-  "estonian/viited.bib" 1773440051 14352 3f2cd5f3b4df1816e40133217bb537e5 ""
-  "thesis.bcf" 1773508626 112557 2063683b801120db21568cebb8329f12 "pdflatex"
+["biber thesis"] 1773509779.17058 "thesis.bcf" "thesis.bbl" "thesis" 1773509812.37596 0
+  "estonian/viited.bib" 1773508868 15846 21bc9286d9c784998dd8d279a1231ed6 ""
+  "thesis.bcf" 1773509811 113036 6f946b85b71e8b2c281e1357989268c5 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1773508618.67147 "c:/Users/Kasutaja/Desktop/Baka/Opus 4.6/thesis.tex" "thesis.pdf" "thesis" 1773508626.69985 0
+["pdflatex"] 1773509804.24064 "c:/Users/Kasutaja/Desktop/Baka/Opus 4.6/thesis.tex" "thesis.pdf" "thesis" 1773509812.37671 0
   "C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/arial.luc" 1771844472 690467 985267feb61c7b3c56724fd773ed5e5f ""
   "C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/arialbd.luc" 1771844473 687354 5a2a5f613e5ac1ea634dc7e59f01f5d7 ""
   "C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/arialnbi.luc" 1771844472 71216 a987acfcc94a4b4cdc0d6dbe1c977bce ""
@@ -236,14 +236,14 @@
   "estonian/sektsioonid/3-metoodika.tex" 1773440390 7006 3e634ef80a126f7269706e32076dc488 ""
   "estonian/sektsioonid/4-mudelid.tex" 1773440202 12867 d007c77ab59e4c07ade146900886b21f ""
   "estonian/sektsioonid/5-eksperimendid.tex" 1773440351 18114 b9464b4438b4a9a40ef7ea0d9d943646 ""
-  "estonian/sektsioonid/6-arutelu.tex" 1773508443 16755 e10fa2a830df7385d03ae74e23af59ae ""
+  "estonian/sektsioonid/6-arutelu.tex" 1773508907 17818 6300f46758eee1ac50fea58add5c0bac ""
   "estonian/sektsioonid/7-kokkuvote.tex" 1773440563 5211 65a1fff65b009fc34ea1148683d179ad ""
   "estonian/sektsioonid/8-claudecode.tex" 1773440570 10762 4944d7a88800ac3a24dccc083e313e90 ""
-  "thesis.aux" 1773508626 67310 1bb5a7c9a1f1fd76c838c811807e5c04 "pdflatex"
-  "thesis.bbl" 1773440488 84588 fc3f8a08f5e298ab400087077feb7597 "biber thesis"
-  "thesis.run.xml" 1773508626 2727 572c07f9fdb2e54be653bd4e0e6cbc55 "pdflatex"
+  "thesis.aux" 1773509811 68314 113faaa85da7c63e40ba5963a87b9543 "pdflatex"
+  "thesis.bbl" 1773509781 90957 2a84c501628363f8c1f6b6e96358b93c "biber thesis"
+  "thesis.run.xml" 1773509811 2727 572c07f9fdb2e54be653bd4e0e6cbc55 "pdflatex"
   "thesis.tex" 1744197832 835 32df1e2b09aef9c6b4e91c101152ef1b ""
-  "thesis.toc" 1773508626 7284 8236c7cb117bf9e3a3177ee594fd17d4 "pdflatex"
+  "thesis.toc" 1773509811 7284 216ab2d3eb1e6a8f3128c07398a079d5 "pdflatex"
   "unitartucs/citations/biblatex.bbx" 1744197832 1045 1534c5b130305b46848aaf035783420e ""
   "unitartucs/citations/biblatex.cbx" 1744197832 409 47fc3861c2be2cc2b3214f259e339dfe ""
   "unitartucs/citations/numeric.bbx" 1744197832 280 1ec600b6a289888f93cb05e4a7a6303b ""

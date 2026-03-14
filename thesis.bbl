@@ -1999,6 +1999,138 @@
       \verb https://arxiv.org/abs/2501.15624
       \endverb
     \endentry
+    \entry{datastudios2025perplexity}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=a7cf849f01be948248322629d013794b}{%
+           family={{DataStudios}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7cf849f01be948248322629d013794b}
+      \strng{fullhash}{a7cf849f01be948248322629d013794b}
+      \strng{fullhashraw}{a7cf849f01be948248322629d013794b}
+      \strng{bibnamehash}{a7cf849f01be948248322629d013794b}
+      \strng{authorbibnamehash}{a7cf849f01be948248322629d013794b}
+      \strng{authornamehash}{a7cf849f01be948248322629d013794b}
+      \strng{authorfullhash}{a7cf849f01be948248322629d013794b}
+      \strng{authorfullhashraw}{a7cf849f01be948248322629d013794b}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.datastudios.org/post/perplexity-ai-context-window-token-limits-memory-policy-and-2025-rules}}
+      \field{note}{Viimati vaadatud: 14.03.2026}
+      \field{title}{Perplexity {AI} Context Window: Token Limits, Memory Policy, and 2025 Rules}
+      \field{year}{2025}
+    \endentry
+    \entry{github2026copilot}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d3b7c913cd04ebfec0e9ec32cb6fd58c}{%
+           family={{GitHub}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{bibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorbibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authornamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.github.com/en/copilot/concepts/billing/individual-plans}}
+      \field{note}{Viimati vaadatud: 14.03.2026}
+      \field{title}{About Individual {GitHub Copilot} Plans and Benefits}
+      \field{year}{2026}
+    \endentry
+    \entry{github2026copilot_responsible}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d3b7c913cd04ebfec0e9ec32cb6fd58c}{%
+           family={{GitHub}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{bibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorbibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authornamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-your-ide}}
+      \field{note}{Viimati vaadatud: 14.03.2026}
+      \field{title}{Responsible Use of {GitHub Copilot} Chat in Your {IDE}}
+      \field{year}{2026}
+    \endentry
+    \entry{nguyen2022empirical}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=6d1240f32cfc61ae83505e57ae7481c6}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Nhan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=432bbfddc1ac38d3d29b7d11ca30d996}{%
+           family={Nadi},
+           familyi={N\bibinitperiod},
+           given={Sarah},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0159b79191b9a41130a1f504b611af3}
+      \strng{fullhash}{c0159b79191b9a41130a1f504b611af3}
+      \strng{fullhashraw}{c0159b79191b9a41130a1f504b611af3}
+      \strng{bibnamehash}{c0159b79191b9a41130a1f504b611af3}
+      \strng{authorbibnamehash}{c0159b79191b9a41130a1f504b611af3}
+      \strng{authornamehash}{c0159b79191b9a41130a1f504b611af3}
+      \strng{authorfullhash}{c0159b79191b9a41130a1f504b611af3}
+      \strng{authorfullhashraw}{c0159b79191b9a41130a1f504b611af3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 19th International Conference on Mining Software Repositories (MSR)}
+      \field{title}{An Empirical Evaluation of {GitHub Copilot's} Code Suggestions}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 5}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3524842.3528470
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3524842.3528470
+      \endverb
+    \endentry
+    \entry{github2026copilot_ratelimits}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d3b7c913cd04ebfec0e9ec32cb6fd58c}{%
+           family={{GitHub}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{fullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{bibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorbibnamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authornamehash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhash}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \strng{authorfullhashraw}{d3b7c913cd04ebfec0e9ec32cb6fd58c}
+      \field{extraname}{3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.github.com/en/copilot/concepts/rate-limits}}
+      \field{note}{Viimati vaadatud: 14.03.2026}
+      \field{title}{Rate Limits for {GitHub Copilot}}
+      \field{year}{2026}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
