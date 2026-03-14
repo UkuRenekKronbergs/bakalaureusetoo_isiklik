@@ -393,3 +393,6 @@ INPUT ./estonian/sektsioonid/11-litsents.tex
 INPUT ./estonian/sektsioonid/11-litsents.tex
 INPUT ./estonian/sektsioonid/11-litsents.tex
 INPUT estonian/sektsioonid/11-litsents.tex
+INPUT thesis.aux
+INPUT thesis.run.xml
+OUTPUT thesis.run.xml

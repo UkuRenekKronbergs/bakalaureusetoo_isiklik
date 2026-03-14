@@ -1,0 +1,45 @@
+\babel@toc {estonian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {estonian}{}\relax 
+\contentsline {section}{\numberline {1}Sissejuhatus}{7}{section*.2}%
+\contentsline {section}{\numberline {2}Taust ja kirjanduse ülevaade}{9}{section*.3}%
+\contentsline {subsection}{\numberline {2.1}Suurte keelemudelite areng}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Eesti keele töötlemine keelemudelites}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}AI akadeemilises kirjutamises}{11}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Tartu Ülikooli lõputööde nõuded}{12}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Metoodika}{13}{section*.4}%
+\contentsline {subsection}{\numberline {3.1}Mudelite valiku kriteeriumid}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Eksperimentide ülesehitus}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Sisendi ettevalmistamine ja promptide disain}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Hindamiskriteeriumid}{15}{subsection.3.4}%
+\contentsline {section}{\numberline {4}AI mudelite võrdlus}{17}{section*.6}%
+\contentsline {subsection}{\numberline {4.1}Google Gemini 3.1 Pro}{17}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Tehniline ülevaade}{17}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Hinnastamine}{17}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Eesti keele tugi}{18}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}OpenAI GPT-5.4}{18}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Tehniline ülevaade}{18}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Hinnastamine}{18}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Eesti keele tugi}{19}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Anthropic Claude Sonnet 4.6}{19}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Tehniline ülevaade}{20}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Hinnastamine}{20}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Eesti keele tugi}{20}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Anthropic Claude Opus 4.6}{21}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Tehniline ülevaade}{21}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Hinnastamine}{21}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Eesti keele tugi}{22}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Mudelite koondvõrdlus}{22}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Mõtlemismudelite võrdlus}{23}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Eksperimendid ja tulemused}{24}{section*.8}%
+\contentsline {subsection}{\numberline {5.1}Eksperiment 1: Sissejuhatuse genereerimine}{24}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Nullkonteksti tulemused}{24}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Kontekstipõhised tulemused}{25}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Eksperiment 2: Kirjanduse ülevaate genereerimine}{25}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Eksperiment 3: Metoodika peatüki genereerimine}{26}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Eksperiment 4: Tulemuste ja arutelu genereerimine}{27}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Eksperiment 5: Kokkuvõtte genereerimine}{28}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Tulemuste koondanalüüs}{28}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Hindajatevaheline kooskõla}{29}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Eksperiment 6: Tervikliku lõputöö genereerimine}{29}{subsection.5.8}%
+\contentsline {subsubsection}{\numberline {5.8.1}Claude Sonnet 4.6: Terviklik eestikeelne lõputöö}{30}{subsubsection.
