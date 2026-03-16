@@ -221,7 +221,7 @@ Hindajatevahelise kooskõla analüüs näitas Coheni kappa koefitsiendiks $\kapp
 
 \subsection{Eksperiment 6: Tervikliku lõputöö genereerimine} \label{subsec:exp-tervik}
 
-Kuues eksperiment erines eelmistest kvalitatiivselt: igal mudelil paluti genereerida terviklik bakalaureusetöö käesoleva töö enda teemal -- ``Teostatavusuuring: Tehisintellekti abil eestikeelse tehnilise informaatika alase lõputöö genereerimine''. Mudelitele anti ette TÜ ATI ja LOTE juhendid, UniTartuCS \LaTeX{} malli kirjeldus ning identne eestikeelne prompt. Eesmärk oli hinnata, kas mudelid suudavad luua tervikliku, esitamiskõlbliku dokumendi, mis vastab ülikooli nõuetele.
+Kuues eksperiment erines eelmistest kvalitatiivselt: igal mudelil paluti genereerida terviklik bakalaureusetöö informaatika valdkonnast. Mudelitele anti ette TÜ ATI ja LOTE juhendid, UniTartuCS \LaTeX{} malli kirjeldus ning identne eestikeelne prompt, kuid konkreetset teemapealkirja ette ei antud -- eesmärk oli hinnata, kas mudelid suudavad iseseisvalt valida sobiva informaatikateema ja luua tervikliku, esitamiskõlbliku dokumendi, mis vastab ülikooli nõuetele. Gemini 3.1 Pro puhul kasutati lisaks Google'i agentset tööriista Antigravity, mis on funktsionaalselt sarnane Claude Code'iga (vt peatükk~\ref{claudecode}).
 
 Tulemused olid mudelite lõikes drastiliselt erinevad, nagu nähtub tabelist~\ref{tab:exp6}.
 
@@ -238,11 +238,11 @@ Tulemused olid mudelite lõikes drastiliselt erinevad, nagu nähtub tabelist~\re
 }
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
 Väljundkeel & Eesti & Inglise & Eesti & Eesti \\
-Maht (lehekülgi) & 20 & 8 & 40 & 61 \\
-Teemale vastavus & Vale teema & Osaline & Korrektne & Korrektne \\
+Maht (lehekülgi) & 39 & 8 & 40 & 61 \\
+Valitud teema & GenAI ja algajad progr. & Keeldumine & AI lõputöö gener. & Paroolihaldur \\
 Struktuur & Lõputöö vormis & Juhendi vormis & Lõputöö vormis & Lõputöö vormis \\
-\LaTeX{} väljund & Ei & Ei (PDF) & Ei (PDF) & Jah (Claude Code) \\
-Viited & Olemas, vale teemal & Olemas, verifitseeritud & Osaliselt halluts. & Osaliselt halluts. \\
+Agentne tööriist & Antigravity & -- & -- & Claude Code \\
+Viited & 9, osaliselt kontrollitavad & Olemas, verifitseeritud & Osaliselt halluts. & Osaliselt halluts. \\
 Akad. stiil & Hea & Hea (inglise k.) & Väga hea & Suurepärane \\
 \end{tblr}
 \end{table}
@@ -253,11 +253,32 @@ Claude Sonnet 4.6 genereeris kõige ulatuslikuma väljundi -- 40-leheküljelise 
 
 \subsubsection{GPT-5.4: Akadeemilise aususe keeldumine}
 
-GPT-5.4 tulem erines teistest fundamentaalselt. Mudel keeldus genereerimast terviklikku lõputööd, viidates otseselt akadeemilise aususe piirangutele. Väljundis selgitati, et täieliku bakalaureusetöö kirjutamine tudengi eest oleks vastuolus Tartu Ülikooli akadeemilise aususe reeglitega. Selle asemel pakkus GPT-5.4 välja 8-leheküljelise ingliskeelse teostatavusjuhendi (\textit{feasibility guide}), mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku, hindamismetoodikat ja \LaTeX{} malli juhiseid. Kuigi juhend oli sisuliselt kvaliteetne ja viited olid kontrollitavad, ei vastanud see ülesande püstitusele: väljund oli inglise, mitte eesti keeles, ja vormilt pigem nõuandev memo kui akadeemiline lõputöö. See tulemus viitab GPT-5.4 tugevale ohutuskoolitusele (\textit{alignment training}), mis piirab mudeli kasutamist akadeemilises kontekstis.
+GPT-5.4 tulem erines teistest fundamentaalselt. Mudel keeldus tavapärase vestlusliidese kaudu genereerimast terviklikku lõputööd, viidates otseselt akadeemilise aususe piirangutele. Väljundis selgitati, et täieliku bakalaureusetöö kirjutamine tudengi eest oleks vastuolus Tartu Ülikooli akadeemilise aususe reeglitega. Selle asemel pakkus GPT-5.4 välja 8-leheküljelise ingliskeelse teostatavusjuhendi (\textit{feasibility guide}), mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku, hindamismetoodikat ja \LaTeX{} malli juhiseid. Kuigi juhend oli sisuliselt kvaliteetne ja viited olid kontrollitavad, ei vastanud see ülesande püstitusele: väljund oli inglise, mitte eesti keeles, ja vormilt pigem nõuandev memo kui akadeemiline lõputöö. See tulemus viitab GPT-5.4 tugevale ohutuskoolitusele (\textit{alignment training}), mis piirab mudeli kasutamist akadeemilises kontekstis.
 
-\subsubsection{Gemini 3.1 Pro: Teemast kõrvalekaldumine}
+Täiendav katse OpenAI ChatGPT Codex laiendusega Visual Studio Code'i keskkonnas andis aga oluliselt erineva tulemuse: sama GPT-5.4 mudel suutis agentse tööriista kaudu genereerida visuaalselt teiste mudelite väljunditega sarnase tervikliku dokumendi (vt peatükk~\ref{subsec:codex}). See kinnitab, et agentsed tööriistad võivad aidata ületada mudeli ohutuskoolitusest tulenevaid piiranguid.
 
-Gemini 3.1 Pro genereeris 20-leheküljelise eestikeelse dokumendi, mis vormiliselt järgis lõputöö struktuuri (sisukord, peatükid, viited). Siiski ilmnes oluline probleem: mudel kaldus etteantud teemast kõrvale ja kirjutas hoopis teemal ``Tehisintellekti mõju tarkvaraarenduse produktiivsusele Tartumaa IT-ettevõtetes''. Kuigi genereeritud tekst oli iseenesest sisuliselt huvitav ja eestikeelne akadeemiline stiil oli rahuldav, näitab see tulemus olulist puudujääki juhiste järgimises. Mudel ``interpreteeris'' teemat vabalt ja lõi oma versiooni, mis oli seotud AI ja tarkvaraarendusega, kuid ei vastanud konkreetsele uurimisküsimusele. Töö sisaldas viiteid kohalikele ettevõtetele (Nortal, Playtech, Datafox) ja raamistikele (DORA, SPACE), mis olid asjakohased valitud alternatiivteema kontekstis, kuid mitte käesoleva uurimuse jaoks.
+\subsubsection{Gemini 3.1 Pro: Terviklik lõputöö Antigravity kaudu}
+
+Gemini 3.1 Pro genereeris Google'i agentse tööriista Antigravity kaudu 39-leheküljelise eestikeelse bakalaureusetöö teemal ``Generatiivse tehisintellekti mõju tarkvaraarenduse produktiivsusele algajate programmeerijate seas''. Mudel valis iseseisvalt informaatika valdkonnast aktuaalse ja hästi piiritletud uurimisteema, mis käsitles suurte keelemudelite mõju programmeerimise õppimisele.
+
+Genereeritud töö oli strukturaalselt terviklik ja sisaldas kõiki nõutud komponente: eesti- ja ingliskeelne kokkuvõte, sisukord, sissejuhatus uurimisküsimustega, taust ja kirjandusülevaade (Transformer-arhitektuur, kognitiivne koormus, \textit{over-reliance}), metoodika (kvaasi-eksperimentaalne disain 30 tudengiga), tulemused (t-testid, statistilised tabelid), kokkuvõte ja viis lisa. Lisad olid eriti muljetavaldavad: React.js koodiredaktori komponent (ca 150 rida), PostgreSQL andmebaasi skeem (5 tabelit), Pandas/SciPy andmeanalüüsi skript (ca 160 rida) ning tudengite koodinäited koos vigade analüüsiga.
+
+Töö tugevused olid järgmised:
+\begin{itemize}
+    \item Akadeemilise struktuuriga hästi arvestatud: uurimisküsimused, hüpoteesid, statistilised testid;
+    \item Eesti keele kvaliteet oli hea, kuigi esines mõningaid terminoloogilisi ebajärjekindlusi;
+    \item Viited (9 allikat) kasutasid reaalsete teadlaste nimesid (Becker, Kazemitabaar, Vaswani jt);
+    \item Koodinäited lisades olid tehniliselt detailsed ja funktsionaalselt loogilised;
+    \item Töö maht (39 lehekülge) vastas bakalaureusetöö nõuetele.
+\end{itemize}
+
+Peamised puudused olid siiski olulised:
+\begin{itemize}
+    \item Kogu eksperiment (30 tudengit, testikeskkond, statistilised tulemused) oli mudeli poolt välja mõeldud -- tegemist oli veenva, kuid täielikult fabritseeritud uurimusega;
+    \item EAP maht oli märgitud valesti (9 EAP asemel 12 EAP, mis on TÜ ATI nõue);
+    \item Viidete kontrollitavus vajab eraldi auditeerimist -- kuigi autorite nimed on reaalsed, võivad konkreetsed artiklid olla hallutsineeritud;
+    \item Antigravity tööriist oli vajalik korraliku tulemuse saamiseks -- varasemad katsed ilma agentse tööriistata andsid oluliselt nõrgema tulemuse.
+\end{itemize}
 
 \subsubsection{Claude Opus 4.6: Terviklik tehniline lõputöö Claude Code'i kaudu}
 
@@ -278,10 +299,12 @@ Opus 4.6 tulemuse peamised erinevused võrreldes Sonnet 4.6-ga:
 
 Tervikliku lõputöö genereerimise eksperiment tõi esile neli fundamentaalselt erinevat mudelikäitumist:
 \begin{enumerate}
-    \item \textbf{Suurepärane vastavus} (Claude Opus 4.6): mudel genereeris Claude Code'i kaudu kõige mahukama (61 lk) ja tehniliselt sügavaima eestikeelse lõputöö, mis vastas kõigile nõuetele.
-    \item \textbf{Täielik vastavus} (Claude Sonnet 4.6): mudel järgis juhiseid, keelt ja teemat korrektselt ning genereeris mahuka ja struktureeritud väljundi (40 lk).
-    \item \textbf{Ohutuspõhine keeldumine} (GPT-5.4): mudel keeldus ülesannet täitmast eetiliste kaalutluste tõttu, pakkudes selle asemel alternatiivse abivahendi -- ja tegi seda inglise keeles.
-    \item \textbf{Teemast kõrvalekaldumine} (Gemini 3.1 Pro): mudel genereeris vormiliselt korrektse, kuid sisuliselt vale teema kohta käiva töö.
+    \item \textbf{Suurepärane tulemus} (Claude Opus 4.6): mudel genereeris Claude Code'i kaudu kõige mahukama (61 lk) ja tehniliselt sügavaima eestikeelse lõputöö, valides teemaks paroolihalduri arendamise.
+    \item \textbf{Tugev tulemus} (Claude Sonnet 4.6): mudel genereeris mahuka ja struktureeritud väljundi (40 lk), valides teemaks AI-põhise lõputöö genereerimise.
+    \item \textbf{Tugev tulemus agentse tööriistaga} (Gemini 3.1 Pro): mudel genereeris Antigravity tööriista kaudu tervikliku ja hästi struktureeritud töö (39 lk) koos veenva, kuid fabritseeritud eksperimendiga, valides teemaks GenAI mõju algajate programmeerijate produktiivsusele.
+    \item \textbf{Ohutuspõhine keeldumine, mis ületati agentse tööriistaga} (GPT-5.4): mudel keeldus tavapärase vestlusliidese kaudu ülesannet täitmast eetiliste kaalutluste tõttu, pakkudes selle asemel alternatiivse abivahendi inglise keeles. Hilisem katse ChatGPT Codex laiendusega Visual Studio Code'is näitas aga, et agentne töövoog võimaldas samal mudelil genereerida tervikliku dokumendi (vt peatükk~\ref{subsec:codex}).
 \end{enumerate}
 
-Need tulemused on lõputöö genereerimise teostatavuse seisukohast äärmiselt informatiivsed. Isegi kõige edukam tulemus (Claude Opus 4.6) vajas inimese järeltöötlust viidete kontrolli ja terminoloogia ühtlustamise osas, kuigi selle vajadus oli väiksem kui teiste mudelite puhul. Opus 4.6 ja Claude Code'i kombinatsioon demonstreeris, et agentne töövoog -- kus mudel saab iseseisvalt faile hallata ja \LaTeX{} koodi kirjutada -- annab oluliselt parema tulemuse kui tavapärane vestlusliidese-põhine genereerimine. Genereeritud tööde väljavõtted on esitatud lisas~\ref{lisa:terviktoo}.
+Eriti tähelepanuväärne on agentsete tööriistade mõju tulemusele. Nii Claude Code (Opus 4.6 puhul) kui ka Google'i Antigravity (Gemini 3.1 Pro puhul) parandasid oluliselt genereerimise kvaliteeti, mahtu ja terviklikkust. Ilma agentse tööriistata olid Gemini 3.1 Pro varasemad katsed oluliselt nõrgemad, mis kinnitab, et agentne töövoog -- kus mudel saab iseseisvalt faile hallata, projekti struktureerida ja iteratiivselt genereerida -- annab oluliselt parema tulemuse kui tavapärane vestlusliidese-põhine genereerimine.
+
+Kõik mudelid valisid iseseisvalt erineva informaatikateema, mis demonstreerib mudelite võimekust teemavalikul. Isegi kõige edukamad tulemused (Opus 4.6 ja Gemini 3.1 Pro) vajasid siiski inimese järeltöötlust: viidete kontrolli, terminoloogia ühtlustamise ja fabritseeritud andmete tuvastamise osas. Genereeritud tööde väljavõtted on esitatud lisas~\ref{lisa:terviktoo}.

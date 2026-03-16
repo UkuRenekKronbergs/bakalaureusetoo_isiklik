@@ -91,6 +91,18 @@ Soovitame järgmist samm-sammulist töövoogu:
     \item \textbf{Kasuta Opus mudelit mahukate ülesannete jaoks.} Claude Opus 4.6 on Claude perekonna võimekaim mudel ja sobib kõige paremini terviklike peatükkide ja keeruliste akadeemiliste tekstide genereerimiseks, kuigi selle hind on oluliselt kõrgem kui Sonnet mudelil.
 \end{itemize}
 
+\subsection{Alternatiivne agentne tööriist: Google Antigravity} \label{subsec:antigravity}
+
+Eksperiment 6 raames testiti Gemini 3.1 Pro mudelit ka Google'i agentse tööriista Antigravity kaudu. Antigravity on Google'i arendatud agentne AI tööriist, mis on funktsionaalselt sarnane Claude Code'iga -- see võimaldab mudelil iseseisvalt hallata faile, genereerida koodi ja struktureerida projekte. Antigravity kasutamine parandas Gemini 3.1 Pro tulemust oluliselt: ilma agentse tööriistata olid varasemad katsed oluliselt nõrgemad nii mahu kui ka kvaliteedi poolest. See kinnitab laiemat järeldust, et agentsed tööriistad on kriitilise tähtsusega tervikliku lõputöö genereerimise kontekstis, sõltumata konkreetsest mudelist.
+
+\subsection{Alternatiivne agentne tööriist: ChatGPT Codex Visual Studio Code'is} \label{subsec:codex}
+
+Lisaks Google'i Antigravity'le testiti ka OpenAI ChatGPT Codex laiendust (\textit{extension}) Visual Studio Code'i arenduskeskkonnas \cite{openai2025codex}. Codex laiendus on funktsionaalselt sarnane Claude Code'iga ja Antigravity'ga -- see võimaldab mudelil iseseisvalt hallata projekti faile, genereerida \LaTeX{} koodi ning struktureerida terviklikku dokumenti otse arenduskeskkonnas.
+
+Eriti tähelepanuväärne on Codex laienduse tulemus GPT-5.4 mudeliga. Eksperimendis 6 (vt peatükk~\ref{subsec:exp-tervik}) keeldus GPT-5.4 tavapärase vestlusliidese kaudu terviklikku lõputööd genereerimast, viidates akadeemilise aususe piirangutele, ning andis selle asemel 8-leheküljelise ingliskeelse juhendi. Codex laienduse kaudu suutis aga sama mudel genereerida visuaalselt teiste mudelite väljunditega sarnase tervikliku dokumendi. See viitab sellele, et agentne töövoog ei paranda mitte ainult genereerimise kvaliteeti ja mahtu, vaid võib aidata ületada ka mudeli ohutuskoolitusest tulenevaid piiranguid, kuna tööülesanne jaguneb väiksemateks, kontekstuaalselt selgemateks sammudeks.
+
+Majanduslikust vaatevinklist väärib märkimist, et Codex laiendus kasutab ChatGPT Plus tellimuse (\$20/kuu) raames kaasasolevat kasutuskvooti. Testimisel kulus tervikliku dokumendi genereerimiseks väga vähe kvooti, mis teeb ChatGPT Plus plaanist hea hinna ja võimsuse suhtega valiku agentseks lõputöö genereerimiseks.
+
 \subsection{Claude Code'i piirangud} \label{subsec:claudecode-piirangud}
 
 Vaatamata eelistele on Claude Code'il mitmeid piiranguid lõputöö genereerimise kontekstis:

@@ -3,7 +3,10 @@
     "allow": [
       "mcp__claude_ai_Consensus__search",
       "WebSearch",
-      "Bash(pdflatex -interaction=nonstopmode thesis.tex)"
+      "Bash(pdflatex -interaction=nonstopmode thesis.tex)",
+      "Bash(python -c \":*)",
+      "Bash(pip install:*)",
+      "Bash(ls \"c:/Users/Kasutaja/Desktop/Baka/Opus 4.6/\"*.pdf)"
     ]
   }
 }
