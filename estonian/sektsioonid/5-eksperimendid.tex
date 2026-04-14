@@ -239,7 +239,7 @@ Tulemused olid mudelite lõikes drastiliselt erinevad, nagu nähtub tabelist~\re
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
 Väljundkeel & Eesti & Inglise & Eesti & Eesti \\
 Maht (lehekülgi) & 39 & 8 & 40 & 61 \\
-Valitud teema & GenAI ja algajad progr. & Keeldumine & AI lõputöö gener. & Paroolihaldur \\
+Valitud teema & GenAI ja algajad progr. & Keeldus vastata & AI lõputöö gener. & Paroolihaldur \\
 Struktuur & Lõputöö vormis & Juhendi vormis & Lõputöö vormis & Lõputöö vormis \\
 Agentne tööriist & Antigravity & -- & -- & Claude Code \\
 Viited & 9, osaliselt kontrollitavad & Olemas, verifitseeritud & Osaliselt halluts. & Osaliselt halluts. \\
@@ -249,7 +249,7 @@ Akad. stiil & Hea & Hea (inglise k.) & Väga hea & Suurepärane \\
 
 \subsubsection{Claude Sonnet 4.6: Terviklik eestikeelne lõputöö}
 
-Claude Sonnet 4.6 genereeris kõige ulatuslikuma väljundi -- 40-leheküljelise eestikeelse dokumendi, mis järgis bakalaureusetöö struktuuri: tiitelleht, eesti- ja ingliskeelne kokkuvõte, sisukord, sissejuhatus, teoreetiline taust, metoodika, mudelite võrdlus, eksperimendid ja tulemused, arutelu, kokkuvõte, viited ja lisad. Töö sisaldas detailseid hindamistabeleid viie eksperimendi tulemustega, promptide näiteid lisades ning AI kasutamise deklaratsiooni. Akadeemiline stiil oli kolmest mudelist kõige tugevam ja töö järgis etteantud teemat korrektselt. Peamised puudused olid mõned hallutsineeritud viited (ca 20\%) ja kohati ülemääraselt keeruline lauseehitus.
+Claude Opus 4.6 genereeris kõige ulatuslikuma väljundi -- 61-leheküljelise eestikeelse dokumendi, mis järgis bakalaureusetöö struktruuri. See sisaldas detailseid hindamistabeleid viie eksperimendi tulemustega, promptide näiteid lisades ning AI kasutamise deklaratsiooni. Akadeemiline stiil oli kolmest mudelist kõige tugevam ja töö järgis etteantud teemat korrektselt. Peamised puudused olid mõned hallutsineeritud viited (ca 20\%) ja kohati keeruline lauseehitus.
 
 \subsubsection{GPT-5.4: Akadeemilise aususe keeldumine}
 
@@ -261,14 +261,14 @@ Täiendav katse OpenAI ChatGPT Codex laiendusega Visual Studio Code'i keskkonnas
 
 Gemini 3.1 Pro genereeris Google'i agentse tööriista Antigravity kaudu 39-leheküljelise eestikeelse bakalaureusetöö teemal ``Generatiivse tehisintellekti mõju tarkvaraarenduse produktiivsusele algajate programmeerijate seas''. Mudel valis iseseisvalt informaatika valdkonnast aktuaalse ja hästi piiritletud uurimisteema, mis käsitles suurte keelemudelite mõju programmeerimise õppimisele.
 
-Genereeritud töö oli strukturaalselt terviklik ja sisaldas kõiki nõutud komponente: eesti- ja ingliskeelne kokkuvõte, sisukord, sissejuhatus uurimisküsimustega, taust ja kirjandusülevaade (Transformer-arhitektuur, kognitiivne koormus, \textit{over-reliance}), metoodika (kvaasi-eksperimentaalne disain 30 tudengiga), tulemused (t-testid, statistilised tabelid), kokkuvõte ja viis lisa. Lisad olid eriti muljetavaldavad: React.js koodiredaktori komponent (ca 150 rida), PostgreSQL andmebaasi skeem (5 tabelit), Pandas/SciPy andmeanalüüsi skript (ca 160 rida) ning tudengite koodinäited koos vigade analüüsiga.
+Genereeritud töö oli strukturaalselt terviklik ja sisaldas kõiki nõutud komponente: eesti- ja ingliskeelne kokkuvõte, sisukord, sissejuhatus uurimisküsimustega, taust ja kirjandusülevaade (Transformer-arhitektuur, kognitiivne koormus, \textit{over-reliance}), metoodika (kvaasi-eksperimentaalne disain 30 tudengiga), tulemused (t-testid, statistilised tabelid), kokkuvõte ja viis lisa. Lisad olid ka hasti esitatud: React.js koodiredaktori komponent (ca 150 rida), PostgreSQL andmebaasi skeem (5 tabelit), Pandas/SciPy andmeanalüüsi skript (ca 160 rida) ning tudengite koodinäited koos vigade analüüsiga.
 
 Töö tugevused olid järgmised:
 \begin{itemize}
     \item Akadeemilise struktuuriga hästi arvestatud: uurimisküsimused, hüpoteesid, statistilised testid;
     \item Eesti keele kvaliteet oli hea, kuigi esines mõningaid terminoloogilisi ebajärjekindlusi;
     \item Viited (9 allikat) kasutasid reaalsete teadlaste nimesid (Becker, Kazemitabaar, Vaswani jt);
-    \item Koodinäited lisades olid tehniliselt detailsed ja funktsionaalselt loogilised;
+    \item Koodinäited lisades olid funktsionaalsed ja loogiliselt kirjutadud;
     \item Töö maht (39 lehekülge) vastas bakalaureusetöö nõuetele.
 \end{itemize}
 
@@ -276,23 +276,22 @@ Peamised puudused olid siiski olulised:
 \begin{itemize}
     \item Kogu eksperiment (30 tudengit, testikeskkond, statistilised tulemused) oli mudeli poolt välja mõeldud -- tegemist oli veenva, kuid täielikult fabritseeritud uurimusega;
     \item EAP maht oli märgitud valesti (9 EAP asemel 12 EAP, mis on TÜ ATI nõue);
-    \item Viidete kontrollitavus vajab eraldi auditeerimist -- kuigi autorite nimed on reaalsed, võivad konkreetsed artiklid olla hallutsineeritud;
+    \item Viidete kontrollitavust vajab eraldi auditeerimist -- kuigi autorite nimed on reaalsed, võivad konkreetsed artiklid olla hallutsineeritud;
     \item Antigravity tööriist oli vajalik korraliku tulemuse saamiseks -- varasemad katsed ilma agentse tööriistata andsid oluliselt nõrgema tulemuse.
 \end{itemize}
 
 \subsubsection{Claude Opus 4.6: Terviklik tehniline lõputöö Claude Code'i kaudu}
 
-Claude Opus 4.6 genereeris nelja mudeli seas kõige ulatuslikuma ja kvaliteetsema väljundi -- 61-leheküljelise eestikeelse bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine'' \cite{anthropic2026opus}. Erinevalt teistest mudelitest kasutati Opus 4.6 puhul Claude Code'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse kirjutada \LaTeX{} faile, hallata viiteid ja kompileerida dokumenti.
+Claude Opus 4.6 genereeris nelja mudeli seas kõige ulatuslikuma ja kvaliteetsema väljundi -- 61-leheküljelise eestikeelse bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine'' \cite{anthropic2026opus}. Opus 4.6 puhul kasutati Claude Code'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse kirjutada \LaTeX{} faile, hallata viiteid ja kompileerida dokumenti.
 
 Genereeritud töö sisaldas terviklikku tehnilist arhitektuuri (nullteadmise põhimõte, AES-256-GCM krüpteering, Argon2id võtmetuletamine), täielikku React/TypeScript kasutajaliidest ja Node.js/Express taustarakendust, 149 automatiseeritud testi ning OWASP Top 10 turvaanalüüsi. Süsteemi kasutatavuse skaala (SUS) skoor oli 77,0 ja turvaaudit ei tuvastanud ühtegi kriitilist turvaauku.
 
 Opus 4.6 tulemuse peamised erinevused võrreldes Sonnet 4.6-ga:
 \begin{itemize}
     \item Oluliselt suurem maht (61 vs 40 lehekülge), mis viitab sügavamale sisulisele käsitlusele;
-    \item Tehniline detailsus oli kõrgem -- töö sisaldas konkreetseid koodi- ja arhitektuurinäiteid;
-    \item \LaTeX{} koodi otsene genereerimine Claude Code'i kaudu, mis tagas korrektse vormistuse;
+    \item Tehniline täpsus oli kõrgem -- töö sisaldas konkreetseid koodi- ja arhitektuurinäiteid;
     \item Eesti keele kvaliteet oli ühtlasem ja loomulikum ka pikemas tekstis;
-    \item Viidete hallutsineerimise määr oli madalam (ca 15\% vs Sonnet 4.6 ca 20\%).
+    \item Viidete hallutsineerimise määr oli madalam (ca 15\% võrreldes Sonnet 4.6 ca 20\%).
 \end{itemize}
 
 \subsubsection{Eksperimendi 6 järeldused}

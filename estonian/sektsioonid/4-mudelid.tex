@@ -80,7 +80,7 @@ Anthropic Claude Sonnet 4.6 on Anthropic'i arendatud keele\-mudel, mis avaldati 
 
 Claude Sonnet 4.6 kontekstiaken on 200\,000 tokenit (beetas 1 miljon tokenit), mis jääb Gemini 3.1 Pro ja GPT-5.4 vahele. Mudeli peamine tugevus on pikaajalise konteksti efektiivne kasutamine -- uuringud on näidanud, et Claude suudab kontekstiakna lõpust informatsiooni sama hästi kasutada kui algusest \cite{anthropic2026claude}.
 
-Anthropic pakub ka Claude'i pikendatud mõtlemisrežiimi, kus mudel kasutab kuni 128\,000 tokenit sisemiseks arutluseks. See režiim on eriti kasulik keeruliste struktureeritud ülesannete jaoks, nagu akadeemilise teksti genereerimine.
+Anthropic pakub ka Claude'i pikendatud mõtlemisrežiimi, kus mudel kasutab kuni 128\,000 (GPT 5.4 ja Claude Opus 4.6 ka) tokenit sisemiseks arutluseks. See režiim on eriti kasulik keeruliste struktureeritud ülesannete jaoks, nagu akadeemilise teksti genereerimine.
 
 Claude'i eristab teistest mudelitest ka tema võimekus järgida detailseid juhiseid ja stiiliridasid. Meie testides näitas Claude kõige paremat tulemust juhendipõhise genereerimise ülesannetes, kus mudelile anti ette konkreetsed struktuurinõuded.
 
@@ -112,11 +112,8 @@ Anthropic Claude Opus 4.6 on Anthropic'i kõige võimekam keele\-mudel, mis aval
 
 \subsubsection{Tehniline ülevaade}
 
-Claude Opus 4.6 kontekstiaken on 200\,000 tokenit (sarnaselt Sonnet 4.6-le), kuid mudeli peamine eelis seisneb suuremas parameetrite arvus ja sügavamas arutlusvõimekuses. Opus mudelid on Anthropic'i mudeliperekonna tipptasemel, pakkudes kõige paremat tulemust keerulistes struktureeritud ülesannetes, nagu pikaajaline teksti genereerimine, koodide kirjutamine ja mitmesammuline probleemilahendus \cite{anthropic2026opus}.
+Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb suuremas parameetrite arvus ja sügavamas arutlusvõimekuses. Opus mudelid on Anthropic'i mudeliperekonna tipptasemel, pakkudes kõige paremat tulemust keerulistes struktureeritud ülesannetes, nagu pikaajaline teksti genereerimine, koodide kirjutamine ja mitmesammuline probleemilahendus \cite{anthropic2026opus}.
 
-Eriti oluline on Opus 4.6 pikendatud mõtlemisrežiim, kus mudel kasutab kuni 128\,000 tokenit sisemiseks arutluseks. See võimaldab mudelil planeerida pikemat teksti enne kirjutamise alustamist, mis parandab oluliselt teksti sidusust ja loogilist järjepidevust.
-
-Claude Opus 4.6 on ka Claude Code'i (vt peatükk~\ref{claudecode}) alusmudeliks, mis võimaldab agentset töövoogu -- mudel saab iseseisvalt lugeda ja kirjutada faile, käivitada käske ning hallata projekti struktuuri.
 
 \subsubsection{Hinnastamine}
 
@@ -137,10 +134,10 @@ Claude Max tellimus (\$100--200/kuu) võimaldab Opus mudeli piiratud kasutust ve
 Claude Opus 4.6 eesti keele tugi on nelja testitud mudeli seas parim:
 \begin{itemize}
     \item Grammatiliselt korrektne eesti keel ka pikkades ja keerulistes lausetes;
-    \item Akadeemiline stiil on lähedane emakeelse kirjutaja tasemele;
-    \item Tehniline terminoloogia on ühtlane ja järjekindel;
-    \item Suudab genereerida tervikliku, 61-leheküljelise eestikeelse lõputöö ilma keelevahetuseta (vt peatükk~\ref{subsec:exp-tervik});
-    \item Lauseehitus on loomulikum ja vähem ``masintõlkelik'' kui teistel mudelitel.
+    \item Akadeemiline stiil on võrreldav emakeelt kirjutava omaga;
+    \item Tehniline terminoloogia on ühtlane ja korrektne;
+    \item Suudab vabalt genereerida tervikliku, 61-leheküljelise eestikeelse lõputöö ilma keelevahetuseta (vt peatükk~\ref{subsec:exp-tervik});
+    \item Lauseehitus on kõige loomulikum võrreldes teiste mudelitega.
 \end{itemize}
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
@@ -159,7 +156,7 @@ Tabelis~\ref{tab:mudelite-vordlus} on esitatud nelja mudeli koondvõrdlus peamis
     row{even}={bg=colorCellHighlight},
 }
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Kontekstiaken & 1M & 1M & 200K (1M beetas) & 200K \\
+Kontekstiaken & 1M & 1,05M & 200K (1M beetas) & 1M \\
 Max väljund & 64\,000 & 128\,000 & 128\,000 & 128\,000 \\
 Mõtlemisrežiim & Jah (natiivne) & Jah (Pro eraldi) & Jah (pikendatud) & Jah (pikendatud) \\
 Sisend \$/1M tok & \$2,00--4,00 & \$1,75 & \$3,00 & \$15,00 \\
@@ -170,7 +167,7 @@ Viidete kvaliteet & Rahuldav & Rahuldav & Hea & Hea \\
 \end{tblr}
 \end{table}
 
-Nagu tabelist nähtub, on igal mudelil oma tugevused. Gemini 3.1 Pro paistab silma kontekstiakna suuruse ja mõtlemismudeli natiivse toega. GPT-5.4 pakub kõige ühtlasemat eesti keele kvaliteeti ja on hinna poolest konkurentsivõimeline. Claude Sonnet 4.6 eristub akadeemilise stiili ja juhendite järgimise poolest. Claude Opus 4.6 saavutab kõige kõrgema kvaliteedi nii eesti keele, akadeemilise stiili kui ka sisulise sügavuse osas, kuid on oluliselt kallim kui teised mudelid.
+Tabelist on näha, et Gemini 3.1 Pro on keskmiselt kõige halvemate tulemustega. GPT-5.4 pakub ühtlast eesti keele kvaliteeti ja on hinna poolest konkurentsivõimeline. Claude Sonnet 4.6 eristub akadeemilise stiili ja juhendite järgimise poolest. Claude Opus 4.6 saavutab kõige kõrgema kvaliteedi nii eesti keele, akadeemilise stiili kui ka sisulise sügavuse osas, kuid on oluliselt kallim kui teised mudelid.
 
 \subsection{Mõtlemismudelite võrdlus} \label{subsec:motlemismudelid}
 
@@ -185,4 +182,4 @@ Meie testides ilmnes, et mõtlemisrežiimi kasutamine:
     \item Suurendas kulusid 1,5--3 korda.
 \end{itemize}
 
-Mõtlemisrežiimi kasutamine on soovituslik eriti sissejuhatuse, metoodika ja arutelu peatükkide genereerimisel, kus on vaja loogilist ja sidus argumentatsiooni.
+Mõtlemisrežiimi kasutamine on soovituslik eriti sissejuhatuse, metoodika ja arutelu peatükkide genereerimisel, kus on vaja loogilist ja sidusat argumentatsiooni.
