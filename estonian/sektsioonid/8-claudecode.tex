@@ -1,18 +1,16 @@
 \section{Claude Code kui lõputöö genereerimise tööriist} \label{claudecode}
 
-Käesolev peatükk kirjeldab Claude Code'i (varem tuntud kui Claude Cowork) kui agentset AI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks.
+Käesolev peatükk kirjeldab Claude Code'i kui agentset AI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks.
 
 \subsection{Claude Code'i ülevaade} \label{subsec:claudecode-ulevaade}
 
-Claude Code on Anthropic'i arendatud agentne kodeerimis- ja tekstiloomise tööriist, mis töötab käsurealiidese (CLI) kaudu ning integreerub otse arenduskeskkondustesse nagu Visual Studio Code \cite{anthropic2026claudecode}. Erinevalt tavalistest vestlusliidese-põhistest AI tööriistadest (nt ChatGPT veebiliides, Claude.ai) pakub Claude Code agentset töövoogu: tööriist saab iseseisvalt lugeda ja kirjutada faile, käivitada käsurealkäske, otsida veebist informatsiooni ning hallata projekti failisüsteemi.
-
+Claude Code on Anthropic'i arendatud agentne kodeerimis- ja tekstiloomise tööriist, mis töötab Claude äpi kaudu või käsurealiidese (CLI) kaudu ning integreerub otse arenduskeskkondustesse nagu Visual Studio Code \cite{anthropic2026claudecode}. Erinevalt tavalistest vestlusliidese-põhistest AI tööriistadest (nt ChatGPT veebiliides, Claude.ai) pakub Claude Code agentset töövoogu: tööriist saab iseseisvalt lugeda ja kirjutada faile, käivitada käsurealkäske, otsida veebist informatsiooni ning hallata projekti failisüsteemi.
 Claude Code'i peamised eelised akadeemilise teksti genereerimisel:
 \begin{itemize}
     \item \textbf{Otsene failisüsteemi juurdepääs} -- tööriist saab lugeda olemasolevaid \LaTeX{} faile, juhendeid ja näidistöid otse failisüsteemist, ilma et kasutaja peaks neid käsitsi kopeerima vestlusaknasse.
     \item \textbf{Iteratiivne genereerimine} -- tööriist saab genereerida teksti, kontrollida tulemust ja teha parandusi mitme iteratsiooni jooksul ühe sessiooni raames.
     \item \textbf{\LaTeX{} kompileerimine} -- tööriist saab käivitada \LaTeX{} kompileerimist ja kontrollida, kas genereeritud kood kompileerub vigadeta.
     \item \textbf{Viidete haldamine} -- tööriist saab hallata BibTeX/BibLaTeX viidete faile, lisada uusi viiteid ja kontrollida viidete formaadi korrektsust.
-    \item \textbf{Pikaajaline kontekst} -- ühe sessiooni jooksul säilib kogu eelnev kontekst, mis võimaldab sidusa ja järjepideva teksti loomist pikema aja jooksul.
 \end{itemize}
 
 \subsection{Claude Code vs tavapärane vestlusliides} \label{subsec:claudecode-vs-chat}
@@ -35,7 +33,7 @@ Konteksti sisestamine & Käsitsi kopeerimine & Automaatne failide lugemine \\
 Väljundi salvestamine & Käsitsi kopeerimine & Otsene faili kirjutamine \\
 \LaTeX{} kontroll & Puudub & Automaatne kompileerimine \\
 Viidete haldus & Käsitsi & Automaatne BibTeX haldus \\
-Mitme faili töötlemine & Üks fail korraga & Kõik failid korraga \\
+Mitme faili töötlemine & Viis fail korraga & Kõik failid korraga \\
 Iteratsiooni kiirus & Aeglane (kopeeri-kleebi) & Kiire (automaatne) \\
 Projekti struktuur & Kasutaja haldab & Tööriist haldab \\
 \end{tblr}
@@ -69,9 +67,9 @@ Soovitame järgmist samm-sammulist töövoogu:
     \item \textbf{Genereeri sisukord ja struktuur.} Alusta sisukorra ja peatükkide ülesehituse genereerimisega. Anna mudelile ette teema, uurimisküsimused ja mahunõuded. Kontrolli ja kinnita struktuur enne edasi liikumist.
     \item \textbf{Genereeri peatükid järjest.} Genereeri iga peatükk eraldi, alustades sissejuhatusest. Iga järgmise peatüki genereerimisel on eelnevad peatükid kontekstis, mis tagab sidususe.
     \item \textbf{Genereeri tabelid ja joonised eraldi.} Tabelite ja jooniste \LaTeX{} kood on keerulisem ja vajab eraldi tähelepanu. Genereeri need eraldi sammuna ja kontrolli visuaalset tulemust.
-    \item \textbf{Lisa viited iteratiivselt.} Ära lase mudelil viiteid ``välja mõelda''. Selle asemel:
+    \item \textbf{Lisa viited ise või tee põhjalikku kontrolli neile.} Ära lase mudelil viiteid ``välja mõelda''. Kui soovid, et viited oleksid väga tõenäoliselt korrektsed, siis järgi seda malli:
     \begin{itemize}
-        \item otsi ise allikaid (Google Scholar, Scopus, IEEE Xplore);
+        \item otsi ise allikaid;
         \item lisa leitud allikate andmed BibTeX faili;
         \item palu mudelil viiteid tekstis kasutada ainult olemasolevatest allikatest.
     \end{itemize}
@@ -83,12 +81,11 @@ Soovitame järgmist samm-sammulist töövoogu:
 
 \begin{itemize}
     \item \textbf{Kasuta pikendatud mõtlemisrežiimi.} Claude Code'i pikendatud mõtlemisrežiim (\textit{extended thinking}) parandab oluliselt keeruliste akadeemiliste tekstide kvaliteeti. See on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
-    \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta maht, struktuur, peamised teemad ja oodatav stiil.
-    \item \textbf{Kasuta süsteemiviipa.} CLAUDE.md failis või sessiooni alguses seadistatud süsteemiviip tagab, et mudel järgib läbivalt samu juhiseid.
+    \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta töö maht ja peamised teemad.
     \item \textbf{Kontrolli viiteid alati.} Ükski AI mudel ei genereeri 100\% korrektseid viiteid. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
     \item \textbf{Ära genereeri kõike korraga.} Iteratiivne, peatüki-kaupa genereerimine annab oluliselt parema tulemuse kui terve töö genereerimine ühe promptiga.
-    \item \textbf{Hoia inimese kontroll.} AI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
-    \item \textbf{Kasuta Opus mudelit mahukate ülesannete jaoks.} Claude Opus 4.6 on Claude perekonna võimekaim mudel ja sobib kõige paremini terviklike peatükkide ja keeruliste akadeemiliste tekstide genereerimiseks, kuigi selle hind on oluliselt kõrgem kui Sonnet mudelil.
+    \item \textbf{Ole kursis enda tööga.} AI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
+    \item \textbf{Kasuta Opus mudelit nii palju kui võimalik.} Claude Opus 4.6 on praegu Claude perekonna võimekaim mudel ja sobib kõige paremini terviklike peatükkide ja keeruliste akadeemiliste tekstide genereerimiseks, kuigi selle hind on oluliselt kõrgem kui Sonnet mudelil.
 \end{itemize}
 
 \subsection{Alternatiivne agentne tööriist: Google Antigravity} \label{subsec:antigravity}
