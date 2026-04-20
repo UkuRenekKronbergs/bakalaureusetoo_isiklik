@@ -41,7 +41,7 @@ Genereerimine toimus iteratiivselt: esmalt anti mudelile ülesande kirjeldus koo
 
 Lisaks üksikute peatükkide genereerimisele viidi läbi ka tervikliku lõputöö genereerimise eksperiment (eksperiment~6, vt peatükk~\ref{subsec:exp-tervik}), kus igale mudelile anti ülesandeks genereerida täielik eestikeelne bakalaureusetöö. Gemini 3.1 Pro, GPT-5.4 ja Claude Sonnet 4.6 puhul kasutati tavapärast vestlusliidest, samas kui Claude Opus 4.6 puhul kasutati Claude Code'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse \LaTeX{} faile kirjutada, kompileerida ja hallata. See eksperiment oli kavandatud hindamaks mudelite võimekust järgida keerulisi, mitmeosalisi juhiseid ning säilitada keelelist ja sisulist järjepidevust pikema teksti ulatuses.
 
-\textbf{Etapp 3: Hindamine.} Genereeritud tekstid hinnati mitme kriteeriumi alusel (vt alamlõik~\ref{subsec:hindamiskriteeriumid}) nii autorite kui ka välishindajate poolt.
+\textbf{Etapp 3: Hindamine.} Genereeritud tekstid hindas käesoleva bakalaureusetöö autor mitme kriteeriumi alusel (vt alamlõik~\ref{subsec:hindamiskriteeriumid}).
 
 \subsection{Sisendi ettevalmistamine ja promptide disain} \label{subsec:sisendi-ettevalmistamine}
 
@@ -89,11 +89,4 @@ Praktiline väärtus & Teksti kasutatavus lõputöö alusena & 1--5 (1=kasutusk�
 \end{tblr}
 \end{table}
 
-Hindamist viisid läbi kolm sõltumatut hindajat:
-\begin{enumerate}
-    \item Bakalaureusetöö autor (informaatika üliõpilane);
-    \item Üks ATI õppejõud, kellel on lõputööde juhendamise kogemus;
-    \item Üks kaasüliõpilane, kes on hiljuti kaitsnud lõputöö.
-\end{enumerate}
-
-Hindajatevahelise kooskõla mõõtmiseks kasutati Coheni kappa koefitsienti \cite{cohen1960coefficient}.
+Hindamise viis läbi käesoleva bakalaureusetöö autor (informaatika üliõpilane). Hinnangu stabiilsuse tagamiseks ja ühekordsest lugemisest tuleneva subjektiivsuse vähendamiseks vaatas autor iga genereeritud teksti läbi mitmel korral eri aegadel ning lõplik hinne kujunes nende iteratsioonide põhjal. Ühe hindaja kasutamise piirangut on täpsemalt käsitletud peatükis~\ref{arutelu}.

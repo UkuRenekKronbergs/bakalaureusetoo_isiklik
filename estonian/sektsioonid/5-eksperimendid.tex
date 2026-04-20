@@ -8,7 +8,7 @@ Esimese eksperimendi raames paluti igal mudelil genereerida bakalaureusetöö si
 
 \subsubsection{Nullkonteksti tulemused}
 
-Ilma juhendite ja näideteta genereeritud sissejuhatused erinesid oluliselt kvaliteedilt. Tabelis~\ref{tab:exp1-zero} on esitatud hindajate keskmised hinded.
+Ilma juhendite ja näideteta genereeritud sissejuhatused erinesid oluliselt kvaliteedilt. Tabelis~\ref{tab:exp1-zero} on esitatud autori antud hinded.
 
 \begin{table}[ht]
 \centering
@@ -215,9 +215,9 @@ Koondtulemuste põhjal saab teha järgmised järeldused:
     \item \textbf{Kokkuvõtte} genereerimine oli kõige edukam, \textbf{tulemuste arutelu} kõige keerulisem ülesanne.
 \end{enumerate}
 
-\subsection{Hindajatevaheline kooskõla} \label{subsec:kooskola}
+\subsection{Hinnangu stabiilsus ja subjektiivsus} \label{subsec:kooskola}
 
-Hindajatevahelise kooskõla analüüs näitas Coheni kappa koefitsiendiks $\kappa = 0{,}72$, mis viitab heale kooskõlale. Suurim varieeruvus hindajate vahel esines akadeemilise stiili ja praktilise väärtuse kriteeriumides, mis on oma olemuselt subjektiivsemad.
+Kuna hindamise viis läbi üks hindaja (autor), ei olnud võimalik mõõta hindajatevahelist kooskõla. Subjektiivsuse vähendamiseks vaatas autor iga genereeritud teksti läbi mitmel korral eri aegadel ning lõppskoor kujunes nende iteratsioonide põhjal. Iteratsioonide sisene varieeruvus oli suurim akadeemilise stiili ja praktilise väärtuse kriteeriumides, mis on oma olemuselt teistest kriteeriumidest subjektiivsemad. Ühe hindajaga uurimisülesehituse piiranguid on käsitletud peatükis~\ref{arutelu}.
 
 \subsection{Eksperiment 6: Tervikliku lõputöö genereerimine} \label{subsec:exp-tervik}
 
@@ -399,7 +399,7 @@ Tsitaadi/viite suhe (in-text tsitaate jagatud unikaalsete allikate arvuga) näit
 
 \subsubsection{Anglitsismide ja eesti keele puhtuse analüüs} \label{subsubsec:anglitsismid}
 
-Eestikeelse akadeemilise teksti üks kvaliteedinäitajaid on tõlkimata jäetud või eesti keele konventsioonidest erinevate ingliskeelsete terminite vähene esinemine. Analüüsi raames loendati kahte tüüpi anglitsisme: (1) ingliskeelsed sõnad, millele on lisatud eestikeelse käändelõpu eraldamiseks ülakomam (näiteks \textit{benchmark'il}, \textit{Google'i}), ning (2) tüüpilised arvutiteaduse tehnilised inglise terminid, mida võiks eesti keeles edastada (näiteks \textit{over-reliance}, \textit{prompt}, \textit{pipeline}, \textit{benchmark}). Analüüsist jäeti välja koodinäited ja kirjanduse loend. Tulemused on esitatud tabelis~\ref{tab:anglitsismid}.
+Eestikeelse akadeemilise teksti üks kvaliteedinäitajaid on tõlkimata jäetud või eesti keele konventsioonidest erinevate ingliskeelsete terminite vähene esinemine. Analüüsi raames loendati kahte tüüpi anglitsisme: (1) ingliskeelsed sõnad, millele on lisatud eestikeelse käändelõpu eraldamiseks ülakoma (näiteks \textit{benchmark'il}, \textit{Google'i}), ning (2) tüüpilised arvutiteaduse tehnilised inglise terminid, mida võiks eesti keeles edastada (näiteks \textit{over-reliance}, \textit{prompt}, \textit{pipeline}, \textit{benchmark}). Analüüsist jäeti välja koodinäited ja kirjanduse loend. Tulemused on esitatud tabelis~\ref{tab:anglitsismid}.
 
 \begin{table}[ht]
 \centering
@@ -422,7 +422,7 @@ Gemini 3.1 Pro & 7 & 22 & 0,74 \\
 
 Anglitsismide analüüs annab täiendava nüansi eesti keele kvaliteedihinnangule. Claude Sonnet 4.6 paistis silma kõige puhtama eestikeelse tekstiga -- vaid 5 anglitsismi kogu töö peale (0,13 lehekülje kohta), eelistades enamasti eestikeelseid termineid (näiteks \textit{partii} ingl. \textit{batch} asemel, \textit{päring} ingl. \textit{query} asemel). GPT-5.4 ja Claude Opus 4.6 olid keskmisel tasemel, kasutades selliseid termineid kontrollitult ja sageli koos eestikeelse selgitusega sulgudes. Gemini 3.1 Pro kasutas anglitsisme kõige rohkem (0,74 lehekülje kohta), sealhulgas mõnikord paralleelselt nii eesti- kui ingliskeelseid vasteid (näiteks \textit{äärejuht (ingl. edge case)}), mis on iseenesest hea akadeemiline tava, kuid sage kasutamine vähendab teksti loomulikkust.
 
-Huvitav on, et Opus 4.6 suhteliselt suur CS-anglitsismide arv (25) tuleneb peamiselt krüptograafilise valdkonna spetsiifikast -- terminid nagu \textit{salt}, \textit{nonce}, \textit{hash}, \textit{token} on rahvusvahelistes standardites tavapärased ning nende eestikeelsed vasted (sool, ühekordne väärtus, räsi, tõend) ei ole alati ühelt tähenduselt ühestelt rakendatavad. Sonnet 4.6 PostgreSQL/MongoDB teema vältis seda probleemi, kuna andmebaaside terminoloogias on eesti keeles palju välja kujunenud vasteid (\textit{kirje, väli, indeks, tehing}).
+Huvitav on, et Opus 4.6 suhteliselt suur CS-anglitsismide arv (25) tuleneb peamiselt krüptograafilise valdkonna spetsiifikast -- terminid nagu \textit{salt}, \textit{nonce}, \textit{hash}, \textit{token} on rahvusvahelistes standardites tavapärased ning nende eestikeelsed vasted (sool, ühekordne väärtus, räsi, tõend) ei ole alati ühelt tähenduselt üheselt rakendatavad. Sonnet 4.6 PostgreSQL/MongoDB teema vältis seda probleemi, kuna andmebaaside terminoloogias on eesti keeles palju välja kujunenud vasteid (\textit{kirje, väli, indeks, tehing}).
 
 \subsubsection{Akadeemilise stiili indikaatorid} \label{subsubsec:akadeem-stiil}
 
