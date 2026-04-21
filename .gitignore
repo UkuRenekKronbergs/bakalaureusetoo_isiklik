@@ -16,3 +16,6 @@
 
 # Minted cache
 _minted-*/
+
+# Claude Code local settings
+.claude/settings.local.json
