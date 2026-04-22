@@ -4,7 +4,7 @@ Käesolev peatükk kirjeldab läbiviidud eksperimenti, esitab nelja mudeli gener
 
 \subsection{Eksperimendi ülesehitus} \label{subsec:exp-tervik}
 
-Eksperimendis paluti igal mudelil genereerida terviklik bakalaureusetöö informaatika valdkonnast ühe üheainsa promptiga (\textit{one-shot}), ilma järelküsimusteta ega iteratiivse suunamiseta. Mudelitele anti identne lühike eestikeelne viibe (vt peatükk~\ref{subsec:eksperimendi-ulesehitus} ja lisa~\ref{lisa:promptid}), mis palus mudelil luua LaTeX-vormingus bakalaureusetöö, mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele, kasutades töökausta paigutatud UniTartuCS malli. Konkreetset teemapealkirja ette ei antud -- mudel pidi ise valima informaatikaga seotud teema. Autori (Uku Renek Kronbergs) ja juhendaja (Alo Peets, MSc) nimed anti tiitellehe täitmiseks.
+Eksperimendis paluti igal mudelil genereerida terviklik bakalaureusetöö informaatika valdkonnast üheainsa promptiga (\textit{one-shot}), ilma järelküsimusteta ega iteratiivse suunamiseta. Mudelitele anti identne lühike eestikeelne viibe (vt peatükk~\ref{subsec:eksperimendi-ulesehitus} ja lisa~\ref{lisa:promptid}), mis palus mudelil luua LaTeX-vormingus bakalaureusetöö, mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele, kasutades töökausta paigutatud UniTartuCS malli. Konkreetset teemapealkirja ette ei antud -- mudel pidi ise valima informaatikaga seotud teema. Autori (Uku Renek Kronbergs) ja juhendaja (Alo Peets, MSc) nimed anti tiitellehe täitmiseks.
 
 Viibe on teadlikult lühike, kuna üks uurimisküsimustest on, kuidas mudelid reageerivad minimaalsele juhisele ning kas nad suudavad iseseisvalt valida sobiva teema, keele ja struktuuri. Kuna ülesanne nõuab failihaldust, mitme \LaTeX{} faili loomist ja kompileerimist, kasutati iga mudeliga agentset töövoogu. Sonnet 4.6 ja Opus 4.6 puhul kasutati Anthropicu Cowork tööriista (mis on sama ettevõtte Claude Code'ist eraldiseisev toode, vt peatükk~\ref{claudecode}), Gemini 3.1 Pro puhul Google'i Antigravity ning GPT-5.4 puhul ChatGPT Codex laiendust Visual Studio Code'is. GPT-5.4 puhul testiti lisaks ka tavapärast ChatGPT vestlusliidest, mis andis oluliselt erineva tulemuse.
 
@@ -70,7 +70,7 @@ Peamised puudused olid siiski olulised:
 
 \subsection{Claude Opus 4.6 (Cowork): terviklik tehniline lõputöö} \label{subsec:opus-toolo}
 
-Claude Opus 4.6 genereeris nelja mudeli seas kõige ulatuslikuma ja kvaliteetsema väljundi -- 61-leheküljelise eestikeelse bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine'' \cite{anthropic2026opus}. Opus 4.6 puhul kasutati Cowork'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse kirjutada \LaTeX{} faile, hallata viiteid ja kompileerida dokumenti.
+Claude Opus 4.6 genereeris nelja mudeli seas kõige ulatuslikuma ja kvaliteetsema väljundi -- 61-leheküljelise eestikeelse bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. Opus 4.6 puhul kasutati Cowork'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse kirjutada \LaTeX{} faile, hallata viiteid ja kompileerida dokumenti.
 
 Genereeritud töö sisaldas terviklikku tehnilist arhitektuuri (nullteadmise põhimõte, AES-256-GCM krüpteering, Argon2id võtmetuletamine), täielikku React/TypeScript kasutajaliidest ja Node.js/Express taustarakendust, 149 automatiseeritud testi ning OWASP Top 10 turvaanalüüsi. Süsteemi kasutatavuse skaala (SUS) skoor oli 77,0 ja turvaaudit ei tuvastanud ühtegi kriitilist turvaauku.
 
