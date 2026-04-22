@@ -35,17 +35,17 @@ Akad. stiil & Hea & Hea (Codex) & Väga hea & Suurepärane \\
 \end{tblr}
 \end{table}
 
-\subsection{Claude Sonnet 4.6: Terviklik eestikeelne lõputöö} \label{subsec:sonnet-toolo}
+\subsection{Claude Sonnet 4.6 (Cowork): terviklik eestikeelne lõputöö} \label{subsec:sonnet-toolo}
 
-Claude Sonnet 4.6 genereeris Cowork'i kaudu 40-leheküljelise eestikeelse dokumendi, mis järgis bakalaureusetöö struktuuri. Mudel valis teemaks TI-põhise lõputöö genereerimise -- teema, mis ühtib käesoleva bakalaureusetöö teemaga. Töö sisaldas detailseid hindamistabeleid, promptide näiteid lisades ning TI kasutamise deklaratsiooni. Akadeemiline stiil oli tugev ja töö järgis LaTeX-malli korrektselt. Peamised puudused olid mõned hallutsineeritud viited (ca 20\%), kohati keeruline lauseehitus ning 13 tuvastatud kirjaviga kogu töö peale (vt peatükk~\ref{subsubsec:kirjaviga}), millest mõned asusid nähtaval kohal -- näiteks alapealkirjas kaks korda esinenud \textit{Masskiijutamine}.
+Claude Sonnet 4.6 genereeris Cowork'i kaudu 40-leheküljelise eestikeelse dokumendi, mis järgis bakalaureusetöö struktuuri. Mudel valis teemaks TI-põhise lõputöö genereerimise -- teema, mis ühtib käesoleva bakalaureusetöö teemaga. Töö sisaldas detailseid hindamistabeleid, promptide näiteid lisades ning TI kasutamise deklaratsiooni. Akadeemiline stiil oli tugev ja töö järgis LaTeX-malli korrektselt. Peamised puudused olid mõned hallutsineeritud viited (ca 20\%), kohati keeruline lauseehitus ning 13 tuvastatud kirjaviga kogu töö peale (vt peatükk~\ref{subsec:kirjaviga}), millest mõned asusid nähtaval kohal -- näiteks alapealkirjas kaks korda esinenud \textit{Masskiijutamine}.
 
-\subsection{GPT-5.4: Akadeemilise aususe keeldumine ja Codex-laienduse tulem} \label{subsec:gpt-toolo}
+\subsection{GPT-5.4 (vestlusliides ja Codex): keeldumine ja agentne lahendus} \label{subsec:gpt-toolo}
 
 GPT-5.4 tulem erines teistest fundamentaalselt. Tavapärase ChatGPT vestlusliidese kaudu keeldus mudel genereerimast terviklikku lõputööd, viidates otseselt akadeemilise aususe piirangutele. Väljundis selgitati, et täieliku bakalaureusetöö kirjutamine tudengi eest oleks vastuolus Tartu Ülikooli akadeemilise aususe reeglitega. Selle asemel pakkus GPT-5.4 välja 8-leheküljelise ingliskeelse teostatavusjuhendi (\textit{feasibility guide}), mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku, hindamismetoodikat ja \LaTeX{} malli juhiseid. Kuigi juhend oli sisuliselt kvaliteetne ja viited olid kontrollitavad, ei vastanud see ülesande püstitusele: väljund oli inglise, mitte eesti keeles, ja vormilt pigem nõuandev memo kui akadeemiline lõputöö. See tulemus viitab GPT-5.4 tugevale ohutuskoolitusele (\textit{alignment training}), mis piirab mudeli kasutamist akadeemilises kontekstis.
 
-Täiendav katse OpenAI ChatGPT Codex laiendusega Visual Studio Code'i keskkonnas andis aga oluliselt erineva tulemuse, kuigi viibe oli identne: sama GPT-5.4 mudel suutis agentse tööriista kaudu genereerida visuaalselt teiste mudelite väljunditega sarnase tervikliku 47-leheküljelise eestikeelse dokumendi teemal ``Eestikeelse RAG-põhise küsimus-vastus süsteemi kavandamine'' (vt peatükk~\ref{subsec:codex}). See kinnitab, et agentsed tööriistad võivad aidata ületada mudeli ohutuskoolitusest tulenevaid piiranguid. Codex laienduse kaudu genereeritud töö oli ka eesti keele ortograafilise täpsuse poolest silmapaistev: kogu töö peale tuvastati vaid üks kirjaviga (\textit{vastusevormingun} õige \textit{vastusevormingu} asemel), mis on nelja mudeli seas parim tulemus (vt peatükk~\ref{subsubsec:kirjaviga}).
+Täiendav katse OpenAI ChatGPT Codex laiendusega Visual Studio Code'i keskkonnas andis aga oluliselt erineva tulemuse, kuigi viibe oli identne: sama GPT-5.4 mudel suutis agentse tööriista kaudu genereerida visuaalselt teiste mudelite väljunditega sarnase tervikliku 47-leheküljelise eestikeelse dokumendi teemal ``Eestikeelse RAG-põhise küsimus-vastus süsteemi kavandamine'' (vt peatükk~\ref{subsec:codex}). See kinnitab, et agentsed tööriistad võivad aidata ületada mudeli ohutuskoolitusest tulenevaid piiranguid. Codex laienduse kaudu genereeritud töö oli ka eesti keele ortograafilise täpsuse poolest silmapaistev: kogu töö peale tuvastati vaid üks kirjaviga (\textit{vastusevormingun} õige \textit{vastusevormingu} asemel), mis on nelja mudeli seas parim tulemus (vt peatükk~\ref{subsec:kirjaviga}).
 
-\subsection{Gemini 3.1 Pro: Terviklik lõputöö Antigravity kaudu} \label{subsec:gemini-toolo}
+\subsection{Gemini 3.1 Pro (Antigravity): mahukas, kuid fabritseeritud lõputöö} \label{subsec:gemini-toolo}
 
 Gemini 3.1 Pro genereeris Google'i agentse tööriista Antigravity kaudu 39-leheküljelise eestikeelse bakalaureusetöö teemal ``Generatiivse tehisintellekti mõju tarkvaraarenduse produktiivsusele algajate programmeerijate seas''. Mudel valis iseseisvalt informaatika valdkonnast aktuaalse ja hästi piiritletud uurimisteema, mis käsitles suurte keelemudelite mõju programmeerimise õppimisele.
 
@@ -64,11 +64,11 @@ Peamised puudused olid siiski olulised:
 \begin{itemize}
     \item Kogu eksperiment (30 tudengit, testikeskkond, statistilised tulemused) oli mudeli poolt välja mõeldud -- tegemist oli veenva, kuid täielikult fabritseeritud uurimusega;
     \item Viidete kontrollitavust vajab eraldi auditeerimist -- kuigi autorite nimed on reaalsed, võivad konkreetsed artiklid olla hallutsineeritud;
-    \item Eesti keele ortograafiline täpsus oli nelja mudeli seas kõige nõrgem -- töös tuvastati 28 selget kirjaviga, sealhulgas tavasõnade valed vormid (\textit{strukuure}, \textit{kordinaadid}, \textit{konfiktide}), mittesõnad (\textit{teoosiab}, \textit{Tehisintsistendi}) ning valede tähtedega asendatud täpitähed (vt peatükk~\ref{subsubsec:kirjaviga});
+    \item Eesti keele ortograafiline täpsus oli nelja mudeli seas kõige nõrgem -- töös tuvastati 28 selget kirjaviga, sealhulgas tavasõnade valed vormid (\textit{strukuure}, \textit{kordinaadid}, \textit{konfiktide}), mittesõnad (\textit{teoosiab}, \textit{Tehisintsistendi}) ning valede tähtedega asendatud täpitähed (vt peatükk~\ref{subsec:kirjaviga});
     \item Antigravity tööriist oli vajalik korraliku tulemuse saamiseks -- varasemad katsed ilma agentse tööriistata andsid oluliselt nõrgema tulemuse.
 \end{itemize}
 
-\subsection{Claude Opus 4.6: Terviklik tehniline lõputöö Cowork'i kaudu} \label{subsec:opus-toolo}
+\subsection{Claude Opus 4.6 (Cowork): terviklik tehniline lõputöö} \label{subsec:opus-toolo}
 
 Claude Opus 4.6 genereeris nelja mudeli seas kõige ulatuslikuma ja kvaliteetsema väljundi -- 61-leheküljelise eestikeelse bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine'' \cite{anthropic2026opus}. Opus 4.6 puhul kasutati Cowork'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse kirjutada \LaTeX{} faile, hallata viiteid ja kompileerida dokumenti.
 
@@ -78,11 +78,11 @@ Opus 4.6 tulemuse peamised erinevused võrreldes Sonnet 4.6-ga:
 \begin{itemize}
     \item Oluliselt suurem maht (61 vs 40 lehekülge), mis viitab sügavamale sisulisele käsitlusele;
     \item Tehniline täpsus oli kõrgem -- töö sisaldas konkreetseid koodi- ja arhitektuurinäiteid;
-    \item Eesti keele kvaliteet oli ühtlasem ja loomulikum ka pikemas tekstis -- kogu 61-leheküljelise töö peale tuvastati vaid 5 kirjaviga (peamiselt pärisnimedes, nagu \textit{Carnegei} ja \textit{Californiya}), mis teeb kirjavigade tiheduseks 0,08 viga lehekülje kohta (vt peatükk~\ref{subsubsec:kirjaviga});
+    \item Eesti keele kvaliteet oli ühtlasem ja loomulikum ka pikemas tekstis -- kogu 61-leheküljelise töö peale tuvastati vaid 5 kirjaviga (peamiselt pärisnimedes, nagu \textit{Carnegei} ja \textit{Californiya}), mis teeb kirjavigade tiheduseks 0,08 viga lehekülje kohta (vt peatükk~\ref{subsec:kirjaviga});
     \item Viidete hallutsineerimise määr oli madalam (ca 15\% võrreldes Sonnet 4.6 ca 20\%).
 \end{itemize}
 
-\subsection{Üldised järeldused mudelikäitumise kohta} \label{subsec:mudelikaitumine}
+\subsection{Mudelikäitumise üldised järeldused} \label{subsec:mudelikaitumine}
 
 Tervikliku lõputöö genereerimise eksperiment tõi esile neli fundamentaalselt erinevat mudelikäitumist:
 \begin{enumerate}
@@ -94,7 +94,7 @@ Tervikliku lõputöö genereerimise eksperiment tõi esile neli fundamentaalselt
 
 Eriti tähelepanuväärne on agentsete tööriistade mõju tulemusele. Nii Cowork (Opus 4.6 ja Sonnet 4.6 puhul), Google'i Antigravity (Gemini 3.1 Pro puhul) kui ka ChatGPT Codex (GPT-5.4 puhul) parandasid oluliselt genereerimise kvaliteeti, mahtu ja terviklikkust võrreldes puhta vestlusliidesega -- seda kinnitas GPT-5.4 kahe stsenaariumi drastiliselt erinev tulemus. Kõik mudelid valisid iseseisvalt erineva informaatikateema, mis demonstreerib mudelite võimekust teemavalikul, kuid näitab samal ajal ka seda, et lühikese üheainsa promptiga saab mudel ülesannet tõlgendada väga erinevalt. Isegi kõige edukamad tulemused (Opus 4.6, GPT-5.4 Codex ja Gemini 3.1 Pro) vajasid inimese järeltöötlust: viidete kontrolli, terminoloogia ühtlustamise ja fabritseeritud andmete tuvastamise osas. Genereeritud tööde väljavõtted on esitatud lisas~\ref{lisa:terviktoo}.
 
-\subsection{Kirjavigade analüüs genereeritud töödes} \label{subsubsec:kirjaviga}
+\subsection{Kirjavigade analüüs} \label{subsec:kirjaviga}
 
 Eesti keele kvaliteedi täpsemaks hindamiseks vaadati eraldi üle iga genereeritud lõputöö kirjavead -- see tähendab ortograafilised näpukad, valed tähed, puuduvad või liigsed tähed, sõnade valed vormid ning pärisnimede vead. Analüüsist jäeti välja kontekstis korrektsed, kuid stiililiselt ebaõnnestunud laused, samuti vead, mis ilmnesid üksnes PDF-ist teksti ekstraheerimise kodeeringuartefaktidena. Tabelis~\ref{tab:kirjavead} on esitatud kirjavigade koondarv iga töö kohta ning arvestuslik tihedus lehekülje kohta.
 
@@ -103,8 +103,11 @@ Eesti keele kvaliteedi täpsemaks hindamiseks vaadati eraldi üle iga genereerit
 \caption{Genereeritud tervikliku lõputöö kirjavigade koondarv}
 \label{tab:kirjavead}
 \begin{tblr}{
-    colspec={l c c c c},
-    row{1}={font=\bfseries},
+    width=\linewidth,
+    colspec={X[1.8,l] X[0.7,c] X[1,c] X[1,c] X[1,c]},
+    rows={font=\small},
+    colsep=3pt,
+    row{1}={font=\bfseries\small},
     hlines,
     vlines,
     row{even}={bg=colorCellHighlight},
@@ -125,7 +128,7 @@ Kõige rohkem kirjavigu sisaldas Gemini 3.1 Pro genereeritud töö, kus 39 lehek
 
 Kirjavigade tihedus korreleerus hästi üldise kvaliteedihinnanguga: kõige madalamat kirjaviga lehekülje kohta näitas GPT-5.4 (agentse tööriista kaudu) ning Claude Opus 4.6. Gemini 3.1 Pro suurem vigade arv viitab, et Antigravity tööriist aitas küll mahtu ja struktuuri parandada, kuid ei suutnud täielikult kompenseerida mudeli nõrkemat eesti keele ortograafiat. See tulemus rõhutab, et automaatse korrektuuri tööriista (nt \texttt{aspell}, \texttt{hunspell}, JVKS) või täiendava keelelise toimetamise etapp on TI-ga genereeritud tekstide puhul vältimatu -- eriti mudelite korral, mille treeningandmetes on eesti keele osakaal väiksem.
 
-\subsection{Mahu ja struktuuri analüüs} \label{subsubsec:mahu-analuus}
+\subsection{Mahu ja struktuuri analüüs} \label{subsec:mahu-analuus}
 
 Lisaks kirjavigadele uuriti iga genereeritud töö mahtu ja sisemist struktuuri. Mahu hindamiseks loeti kokku kogu PDF-failist eraldatud sõnad (sealhulgas tekst, tabelite sisu, lisad ja viited) ning arvutati välja sõnade arv lehekülje kohta. Struktuuri hindamiseks loendati nummerdatud alapeatükkide, tabelite, jooniste ja koodinäidete arv kogu töös. Tulemused on esitatud tabelis~\ref{tab:mahuanaluus}.
 
@@ -152,7 +155,7 @@ Andmetest joonistuvad välja mitmed huvitavad mustrid. Kõige suurema mahu (10\,
 
 Eraldi tasub märkida, et Gemini 3.1 Pro töös ei kasutatud ühtegi joonist (ainult tabeleid ja koodinäiteid), mis on bakalaureusetöö kontekstis ebatavaline -- enamik tehnilisi lõputöid sisaldab arhitektuuriskeeme või andmevoo diagramme. Sonnet 4.6 ja Gemini 3.1 Pro eelistasid suuremas mahus koodinäidete (Listings) lisamist (vastavalt 7 ja 5 koodinäidet), samas kui Opus 4.6 ja GPT-5.4 integreerisid koodinäited tihedamalt teksti sisse, ilma neid eraldi nummerdatud koodinäidete plokkidena vormistamata.
 
-\subsection{Viidete kvantitatiivne analüüs} \label{subsubsec:viiteanaluus}
+\subsection{Viidete kvantitatiivne analüüs} \label{subsec:viiteanaluus}
 
 Akadeemilise töö üks olulisi kvaliteedinäitajaid on viidete kasutamise tihedus ja allikate hulk. Iga töö kohta loeti kokku kasutatud viidete koguarv (kirjanduse loendis esitatud unikaalsed allikad), tekstis tehtud tsitaatide arv (\texttt{[N]} tüüpi viidete esinemiskorrad enne kirjanduse loendit) ning arvutati tsitaatide tihedus lehekülje kohta. Tulemused on esitatud tabelis~\ref{tab:viited}.
 
@@ -161,8 +164,11 @@ Akadeemilise töö üks olulisi kvaliteedinäitajaid on viidete kasutamise tihed
 \caption{Genereeritud tööde viidete analüüs}
 \label{tab:viited}
 \begin{tblr}{
-    colspec={l c c c c},
-    row{1}={font=\bfseries},
+    width=\linewidth,
+    colspec={X[1.4,l] X[1,c] X[1,c] X[1,c] X[1,c]},
+    rows={font=\small},
+    colsep=3pt,
+    row{1}={font=\bfseries\small},
     hlines,
     vlines,
     row{even}={bg=colorCellHighlight},
@@ -179,7 +185,7 @@ Tulemused näitavad, et Claude Opus 4.6 lisas kõige rohkem viiteid (35 unikaals
 
 Tsitaadi/viite suhe (in-text tsitaate jagatud unikaalsete allikate arvuga) näitab, mitu korda iga allikat keskmiselt korduvalt kasutati. Kõik mudelid jäid 1,27--1,44 vahemikku, mis viitab sellele, et enamikku allikaid kasutati tekstis vaid 1--2 korda. See on bakalaureusetööde puhul tüüpiline näitaja. Oluline on siiski rõhutada, et see analüüs ei hinda viidete \emph{sisulist} korrektsust ega kontrollitavust -- osa viidetest olid hallutsineeritud, eriti Sonnet 4.6 (ca 20\%) ja Opus 4.6 (ca 15\%) töödes.
 
-\subsection{Anglitsismide ja eesti keele puhtuse analüüs} \label{subsubsec:anglitsismid}
+\subsection{Anglitsismid ja eesti keele puhtus} \label{subsec:anglitsismid}
 
 Eestikeelse akadeemilise teksti üks kvaliteedinäitajaid on tõlkimata jäetud või eesti keele konventsioonidest erinevate ingliskeelsete terminite vähene esinemine. Analüüsi raames loendati kahte tüüpi anglitsisme: (1) ingliskeelsed sõnad, millele on lisatud eestikeelse käändelõpu eraldamiseks ülakoma (näiteks \textit{benchmark'il}, \textit{Google'i}), ning (2) tüüpilised arvutiteaduse tehnilised inglise terminid, mida võiks eesti keeles edastada (näiteks \textit{over-reliance}, \textit{prompt}, \textit{pipeline}, \textit{benchmark}). Analüüsist jäeti välja koodinäited ja kirjanduse loend. Tulemused on esitatud tabelis~\ref{tab:anglitsismid}.
 
@@ -206,7 +212,7 @@ Anglitsismide analüüs annab täiendava nüansi eesti keele kvaliteedihinnangul
 
 Huvitav on, et Opus 4.6 suhteliselt suur CS-anglitsismide arv (25) tuleneb peamiselt krüptograafilise valdkonna spetsiifikast -- terminid nagu \textit{salt}, \textit{nonce}, \textit{hash}, \textit{token} on rahvusvahelistes standardites tavapärased ning nende eestikeelsed vasted (sool, ühekordne väärtus, räsi, tõend) ei ole alati ühelt tähenduselt üheselt rakendatavad. Sonnet 4.6 TI-teema vältis seda probleemi osaliselt, kuna valitud valdkonna terminoloogias on eesti keeles juba mitmeid kinnistunud vasteid.
 
-\subsection{Akadeemilise stiili indikaatorid} \label{subsubsec:akadeem-stiil}
+\subsection{Akadeemilise stiili indikaatorid} \label{subsec:akadeem-stiil}
 
 Eestikeelses akadeemilises kirjutamises eelistatakse umbisikulist stiili (passiivi ja umbisikulist tegumoodi) ning välditakse esimese isiku ainsuse (\textit{ma, mina}) ja mitmuse (\textit{me, meie}) kasutamist. Iga genereeritud töö puhul loendati esimese isiku asesõnade (\textit{ma, mina, me, meie, meil, meid, minu}) esinemine peamises tekstis (välja arvatud litsents ja autorluse kinnitus). Tulemused on esitatud tabelis~\ref{tab:akadeem-stiil}.
 

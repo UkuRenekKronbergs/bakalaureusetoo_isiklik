@@ -1,4 +1,4 @@
-\section{Claude Code kui lõputöö genereerimise tööriist} \label{claudecode}
+\section{Agentsed TI tööriistad lõputöö genereerimisel} \label{claudecode}
 
 Käesolev peatükk kirjeldab Claude Code'i kui agentset TI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks. Lisaks esitatakse juhtumiuuring Opus 4.6 mudeliga, milles kasutati Anthropicu teist agentset tööriista Cowork, mis on Claude Code'iga sarnase ülesehituse ja töövoogudega, kuid neist eraldiseisev toode.
 
@@ -13,17 +13,20 @@ Claude Code'i peamised eelised akadeemilise teksti genereerimisel:
     \item \textbf{Viidete haldamine} -- tööriist saab hallata BibTeX/BibLaTeX viidete faile, lisada uusi viiteid ja kontrollida viidete formaadi korrektsust.
 \end{itemize}
 
-\subsection{Claude Code vs tavapärane vestlusliides} \label{subsec:claudecode-vs-chat}
+\subsection{Claude Code'i võrdlus tavapärase vestlusliidesega} \label{subsec:claudecode-vs-chat}
 
 Tabelis~\ref{tab:claudecode-vs-chat} on esitatud võrdlus Claude Code'i ja tavapärase vestlusliidese (nt Claude.ai, ChatGPT) vahel lõputöö genereerimise kontekstis.
 
 \begin{table}[ht]
 \centering
-\caption{Claude Code vs tavapärane vestlusliides lõputöö genereerimisel}
+\caption{Claude Code'i võrdlus tavapärase vestlusliidesega lõputöö genereerimisel}
 \label{tab:claudecode-vs-chat}
 \begin{tblr}{
-    colspec={l X X},
-    row{1}={font=\bfseries},
+    width=\linewidth,
+    colspec={X[1,l] X[1.2,l] X[1.2,l]},
+    rows={font=\small},
+    colsep=3pt,
+    row{1}={font=\bfseries\small},
     hlines,
     vlines,
     row{even}={bg=colorCellHighlight},
@@ -113,7 +116,7 @@ Vaatamata eelistele on Claude Code'il mitmeid piiranguid lõputöö genereerimis
 
 Suurem osa neist piirangutest kehtib ka Cowork'i kohta, kuna tööriistad on töövoogude poolest sarnased.
 
-\subsection{Juhtumiuuring: Paroolihalduri lõputöö genereerimine Opus 4.6-ga Cowork'i kaudu} \label{subsec:cowork-juhtumiuuring}
+\subsection{Juhtumiuuring: paroolihalduri lõputöö Cowork'i ja Opus 4.6-ga} \label{subsec:cowork-juhtumiuuring}
 
 Käesoleva uurimuse raames genereeriti Anthropicu Cowork'i ja Opus 4.6 mudeli abil terviklik 61-leheküljeline bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. Oluline on rõhutada, et kasutati spetsiifiliselt Cowork'i, mitte eelnevates alalõikudes kirjeldatud Claude Code'i -- need on Anthropicu kaks eraldiseisvat agentset tööriista. See juhtumiuuring demonstreerib Cowork'i praktilisi võimekusi ja piiranguid reaalse lõputöö genereerimisel ühe üheainsa promptiga (\textit{one-shot}). Kuna Cowork'i töövood on Claude Code'iga suures osas sarnased, on enamik eelmistes alalõikudes esitatud soovitusi ja tähelepanekuid ülekantavad ka Cowork'ile.
 

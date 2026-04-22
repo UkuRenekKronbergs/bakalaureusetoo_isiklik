@@ -14,7 +14,7 @@ Eksperimendi tulemused kinnitavad, et kaasaegsed TI mudelid suudavad pakkuda mä
 
 \textbf{LaTeX-vormindamine.} Oluline praktiline eelis on mudelite võimekus genereerida teksti otse LaTeX-vormingus, mis hõlmab korrektset viitamissüntaksit, tabeleid, jooniste viiteid ja matemaatilisi valemeid. See säästab üliõpilasele märkimisväärset vormistusaega. Võrdluseks, Microsoft Wordi puhul peab üliõpilane vormistuse -- stiilid, ristviited, pealkirjade numeratsioon ja bibliograafia -- enamasti käsitsi seadistama, kuna TI mudelid ei saa \texttt{.docx} faili sisemist struktuuri samamoodi manipuleerida nagu tekstipõhist \LaTeX{} lähtekoodi. See teeb Wordi TI-toetatud akadeemilise kirjutamise kontekstis oluliselt aeganõudvamaks ja veaohtlikumaks valikuks.
 
-\subsection{TI puudujäägid ja piirangud} \label{subsec:puudujäägid}
+\subsection{TI puudujäägid ja piirangud} \label{subsec:puudujaagid}
 
 Vaatamata edusammudele on TI mudelitel lõputöö kirjutamise kontekstis endiselt olulised puudujäägid.
 
@@ -41,8 +41,11 @@ Tabelis~\ref{tab:hinnavordlus} on esitatud hinnanguline kuluarvestus 25-lehekül
 \caption{Bakalaureusetöö genereerimise hinnanguline kuluarvestus}
 \label{tab:hinnavordlus}
 \begin{tblr}{
-    colspec={l c c c c},
-    row{1}={font=\bfseries},
+    width=\linewidth,
+    colspec={X[1.6,l] X[1,c] X[1,c] X[1,c] X[1,c]},
+    rows={font=\small},
+    colsep=3pt,
+    row{1}={font=\bfseries\small},
     hlines,
     vlines,
     row{even}={bg=colorCellHighlight},
