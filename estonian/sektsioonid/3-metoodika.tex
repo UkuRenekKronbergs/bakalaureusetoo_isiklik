@@ -1,6 +1,6 @@
 \section{Metoodika} \label{metoodika}
 
-Käesolev peatükk kirjeldab uurimuse metoodikat, sealhulgas AI mudelite valiku kriteeriume, eksperimentide ülesehitust, sisendi ettevalmistamist ning hindamiskriteeriumeid.
+Käesolev peatükk kirjeldab uurimuse metoodikat, sealhulgas AI mudelite valiku kriteeriume, eksperimendi ülesehitust, ühe üheainsa promptiga (\textit{one-shot}) viipe sisu ning hindamiskriteeriumeid.
 
 \subsection{Mudelite valiku kriteeriumid} \label{subsec:valiku-kriteeriumid}
 
@@ -8,7 +8,7 @@ Uurimuse jaoks mudelite valimisel lähtuti järgmistest kriteeriumidest:
 
 \begin{enumerate}
     \item \textbf{Eesti keele tugi} -- mudel peab suutma genereerida grammatiliselt korrektset eesti keelt ning mõistma eestikeelset sisendit.
-    \item \textbf{Kontekstiakna suurus} -- bakalaureusetöö genereerimine eeldab mahuka konteksti (juhendid, näidistööd, varasemalt genereeritud osad) töötlemist, mistõttu on vajalik piisavalt suur kontekstiaken.
+    \item \textbf{Kontekstiakna suurus} -- bakalaureusetöö genereerimine eeldab mahuka konteksti (juhendid, varasemalt genereeritud osad, \LaTeX{} mall) töötlemist, mistõttu on vajalik piisavalt suur kontekstiaken.
     \item \textbf{Kättesaadavus ja dokumentatsioon} -- mudel peab olema kättesaadav API kaudu või veebirakendusena ning omama piisavat dokumentatsiooni.
     \item \textbf{Hind} -- mudeli kasutamine peab olema majanduslikult mõistlik üliõpilase jaoks.
     \item \textbf{Ajakohasus} -- mudel peab olema üks uuemaid versioone (2025--2026).
@@ -16,57 +16,39 @@ Uurimuse jaoks mudelite valimisel lähtuti järgmistest kriteeriumidest:
 
 Nende kriteeriumide alusel valiti neli mudelit: Google Gemini 3.1 Pro, OpenAI GPT-5.4, Anthropic Claude Sonnet 4.6 ning Anthropic Claude Opus 4.6. Opus 4.6 lisati võrdlusse kui sama mudeliperekonna võimekaim mudel, et hinnata mudeli suuruse mõju genereeritud teksti kvaliteedile. Valiku põhjendused on esitatud peatükis~\ref{mudelid}.
 
-\subsection{Eksperimentide ülesehitus} \label{subsec:eksperimentide-ulesehitus}
+\subsection{Eksperimendi ülesehitus} \label{subsec:eksperimendi-ulesehitus}
 
-Eksperimendid viidi läbi kolmes etapis:
+Uurimus piirdus ühe eksperimendiga: igale mudelile anti üks ja sama lühike eestikeelne viibe ning lasti mudelil genereerida terviklik bakalaureusetöö ilma järelküsimuste, iteratiivse suunamise või peatükkide kaupa juhendamiseta. Selline üheainsa promptiga (\textit{one-shot}) lähenemine valiti teadlikult kahel põhjusel. Esiteks kajastab see kõige ausamalt, kuidas keelemudelit kasutaks üliõpilane, kes soovib lõputöö kirjutamist AI-le täielikult delegeerida -- see on stsenaarium, mida akadeemilise aususe kontekstis on oluline hinnata. Teiseks võimaldab identne minimaalne sisend nelja mudeli väljundeid kõige otsesemalt võrrelda, kuna ühtegi mudelit ei eelistata täiendava konteksti, promptiinseneeria ega iteratiivse parandamise kaudu.
 
-\textbf{Etapp 1: Konteksti ettevalmistamine.} Esmalt koostati igale mudelile antav kontekstipõhi, mis sisaldas:
+\textbf{Kasutatud viibe.} Kõigile mudelitele anti järgmine eestikeelne viibe (täistekst on esitatud lisas~\ref{lisa:promptid}):
+
+\begin{quote}
+\textit{``Sa oled kogenud akadeemiline kirjutaja. Loo täielik bakalaureusetöö LaTeX-vormingus (lisasin töökausta vajaliku malli), mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele. Teema peab olema informaatikaga seotud ja vali ise. Autor on Uku Renek Kronbergs ja juhendaja Alo Peets (MSc).''}
+\end{quote}
+
+Viibe on teadlikult lühike ja sisaldab vaid kolme sisulist piirangut: (1) väljund peab olema LaTeX-vormingus ja kasutama töökaustas olevat UniTartuCS malli; (2) töö peab vastama Tartu Ülikooli arvutiteaduse instituudi nõuetele; (3) teema peab olema informaatikaga seotud, kuid konkreetse teemavaliku teeb mudel ise. Autori ja juhendaja nimed anti tiitellehe täitmiseks. Ülikooli lõputööde juhendeid (TÜ ATI ega LOTE juhendit), varasemaid näidistöid ega muud täiendavat konteksti viipesse ei lisatud -- mudel pidi toetuma ainult oma eelteadmistele selle kohta, mida Tartu Ülikooli arvutiteaduse bakalaureusetöö sisaldama peaks.
+
+\textbf{Agentsete tööriistade kasutamine.} Kuna viibe nõuab LaTeX-malli kasutamist, mitu faili ja kompileeritavat väljundit, ei saanud eksperimenti läbi viia puhta vestlusliidese kaudu, kus mudel ei suuda ise failisüsteemile ligi pääseda. Seetõttu kasutati iga mudeliga sellele mudelile omast agentset töövoogu:
 \begin{itemize}
-    \item TÜ ATI lõputööde juhendi põhilised nõuded (struktuur, vormistus, hindamiskriteeriumid);
-    \item LOTE lõputööde juhendi olulised lõigud;
-    \item kolme varasema, hinnetega ``A'' või ``B'' hinnatud bakalaureusetöö sissejuhatused ja kokkuvõtted;
-    \item eestikeelse akadeemilise stiili näited ja terminoloogia.
+    \item \textbf{Claude Sonnet 4.6} ja \textbf{Claude Opus 4.6} -- Anthropicu \textit{Cowork} agentne tööriist (mitte segi ajada sama ettevõtte eraldi tootega Claude Code, vt peatükk~\ref{claudecode}), mis suudab lugeda, kirjutada ja kompileerida projekti \LaTeX{} faile otse failisüsteemis.
+    \item \textbf{Google Gemini 3.1 Pro} -- Google'i \textit{Antigravity} agentne arenduskeskkond, mis pakub funktsionaalselt sarnast võimekust (vt peatükk~\ref{subsec:antigravity}).
+    \item \textbf{OpenAI GPT-5.4} -- mudelit katsetati kahes stsenaariumis: tavapärase ChatGPT vestlusliidese kaudu ning \textit{ChatGPT Codex} laiendusega Visual Studio Code'is (vt peatükk~\ref{subsec:codex}).
 \end{itemize}
 
-\textbf{Etapp 2: Genereerimine.} Iga mudeli puhul genereeriti järgmised lõputöö komponendid:
+Kõigi nelja mudeli puhul piirduti ühe viipega -- pärast viipe esitamist ei antud mudelile täiendavaid juhiseid, ei parandatud genereeritud teksti ega paluks mudelil varasemaid valikuid üle vaadata. Kui mudel ise tegi agentse tööriista raames mitu sisemist sammu (failide loomine, kompileerimine, vigade parandamine), loeti see üheks genereerimistsükliks, kuna kogu töövoo algatas sama algviibe.
+
+\textbf{Genereeritud väljundid.} Eksperimendi tulemusena valmisid neli PDF-failiks kompileeritud bakalaureusetööd (vt peatükk~\ref{eksperimendid}):
 \begin{itemize}
-    \item sissejuhatus (ca 2 lehekülge);
-    \item kirjanduse ülevaate peatükk (ca 5--8 lehekülge);
-    \item metoodika kirjeldus (ca 3--5 lehekülge);
-    \item tulemuste peatükk koos tabelite ja joonistega (ca 5--8 lehekülge);
-    \item kokkuvõte (ca 1--2 lehekülge).
+    \item \texttt{Sonnet\_4.6\_Cowork.pdf} -- 40 lk, eesti keeles;
+    \item \texttt{Opus\_4.6\_Cowork.pdf} -- 61 lk, eesti keeles;
+    \item \texttt{Gemini\_3.1\_Pro\_Antigravity.pdf} -- 39 lk, eesti keeles;
+    \item \texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf} -- 47 lk, eesti keeles.
 \end{itemize}
-
-Genereerimine toimus iteratiivselt: esmalt anti mudelile ülesande kirjeldus koos kontekstiga, seejärel paluti genereerida vastav osa. Vajadusel kasutati järelküsimusi (\textit{follow-up prompts}) teksti täiendamiseks ja parandamiseks.
-
-Lisaks üksikute peatükkide genereerimisele viidi läbi ka tervikliku lõputöö genereerimise eksperiment (eksperiment~6, vt peatükk~\ref{subsec:exp-tervik}), kus igale mudelile anti ülesandeks genereerida täielik eestikeelne bakalaureusetöö. Gemini 3.1 Pro, GPT-5.4 ja Claude Sonnet 4.6 puhul kasutati tavapärast vestlusliidest, samas kui Claude Opus 4.6 puhul kasutati Claude Code'i agentset tööriista (vt peatükk~\ref{claudecode}), mis võimaldas mudelil otse \LaTeX{} faile kirjutada, kompileerida ja hallata. See eksperiment oli kavandatud hindamaks mudelite võimekust järgida keerulisi, mitmeosalisi juhiseid ning säilitada keelelist ja sisulist järjepidevust pikema teksti ulatuses.
-
-\textbf{Etapp 3: Hindamine.} Genereeritud tekstid hindas käesoleva bakalaureusetöö autor mitme kriteeriumi alusel (vt alamlõik~\ref{subsec:hindamiskriteeriumid}).
-
-\subsection{Sisendi ettevalmistamine ja promptide disain} \label{subsec:sisendi-ettevalmistamine}
-
-Promptide (viipade) disain on AI-põhise tekstigenereerimise üks kriitilisemaid aspekte. Serikov ja Biloshchytskyi \cite{serikov2025prompt} on näidanud, et promptimismeetodid mõjutavad oluliselt genereeritud sisu kvaliteeti: \textit{few-shot} õppimine töötas kõige paremini eesmärkide genereerimiseks, samas kui ahelpõhjendamine (\textit{chain-of-thought}) oli efektiivsem professionaalsete standardite jaoks. Kresevic et al. \cite{kresevic2024rag} leidsid, et konteksti struktureeritud vormindamine ja kvaliteetne sisend parandasid GPT-4 Turbo täpsust oluliselt rohkem kui näidete hulga suurendamine, rõhutades andmekvaliteedi ülekaalu andmekoguse ees. Uurimuses kasutati kahte peamist lähenemist:
-
-\textbf{Nullkonteksti viibimine} (\textit{zero-shot prompting}) -- mudelile antakse ülesanne ilma näideteta:
-\begin{quote}
-\textit{``Kirjuta Tartu Ülikooli arvutiteaduse bakalaureusetöö sissejuhatus teemal X. Sissejuhatus peab olema 2 lehekülge pikk, akadeemilises stiilis ning sisaldama viiteid.''}
-\end{quote}
-
-\textbf{Kontekstipõhine viibimine} (\textit{few-shot prompting with context}) -- mudelile antakse koos ülesandega ka juhendid ja näited:
-\begin{quote}
-\textit{``Järgnevalt on esitatud TÜ ATI lõputööde juhendi nõuded: [juhend]. Siin on näide heast bakalaureusetöö sissejuhatusest: [näide]. Kirjuta sarnases stiilis sissejuhatus teemal X.''}
-\end{quote}
-
-Mõlema lähenemise tulemusi võrreldi, et hinnata konteksti mõju genereeritud teksti kvaliteedile.
-
-Lisaks katsetati ka süsteemiviipadega (\textit{system prompts}), mille kaudu anti mudelile roll:
-\begin{quote}
-\textit{``Sa oled kogenud akadeemiline kirjutaja, kes on spetsialiseerunud eestikeelsete arvutiteaduse lõputööde kirjutamisele. Järgi Tartu Ülikooli vormistusnõudeid.''}
-\end{quote}
+Lisaks salvestati GPT-5.4 tavapärase vestlusliidese kaudu saadud keelduv väljund (8-leheküljeline ingliskeelne teostatavusjuhend) võrdluseks.
 
 \subsection{Hindamiskriteeriumid} \label{subsec:hindamiskriteeriumid}
 
-Genereeritud tekstide hindamiseks kasutati järgmist kriteeriumite raamistikku:
+Kuna eksperiment tootis neli tervikdokumenti, keskenduti hindamisel kvantitatiivselt mõõdetavatele tunnustele, mida on võimalik genereeritud PDF-idest objektiivselt tuletada. Need täiendavad töö autori kvalitatiivset üldhinnangut ning vähendavad ühe hindaja subjektiivsusest tulenevat moonutust. Tabelis~\ref{tab:hindamiskriteeriumid} on esitatud hindamisraamistik.
 
 \begin{table}[ht]
 \centering
@@ -79,14 +61,14 @@ Genereeritud tekstide hindamiseks kasutati järgmist kriteeriumite raamistikku:
     vlines,
     row{even}={bg=colorCellHighlight},
 }
-Kriteerium & Kirjeldus & Hindamisskaala \\
-Struktuur & Teksti loogiline ülesehitus, peatükkide jaotus, sidusus & 1--5 (1=puudub struktuur, 5=suurepärane) \\
-Keeleline korrektsus & Grammatika, ortograafia, lauseehitus eesti keeles & 1--5 (1=rohked vead, 5=peaaegu veatu) \\
-Tehniline täpsus & Faktide, terminoloogia ja tehnilise sisu õigsus & 1--5 (1=rohked vead, 5=täpne) \\
-Akadeemiline stiil & Akadeemilisele tekstile vastav keel ja toon & 1--5 (1=mitteakadeemiline, 5=suurepärane) \\
-Viited & Viidete olemasolu, asjakohasus ja korrektsus & 1--5 (1=puuduvad/valed, 5=korrektsed) \\
-Praktiline väärtus & Teksti kasutatavus lõputöö alusena & 1--5 (1=kasutuskõlbmatu, 5=valmis kasutamiseks) \\
+Kriteerium & Kirjeldus & Hindamisviis \\
+Struktuur ja teemale vastavus & Kas töö järgib bakalaureusetöö ülesehitust (tiitelleht, kokkuvõte, sissejuhatus, peatükid, kokkuvõte, viited) ning kas valitud teema on informaatikaga seotud & Kvalitatiivne kirjeldus \\
+Maht & Lehekülgede arv, sõnade arv ja sõnade tihedus lehekülje kohta & Kvantitatiivne mõõtmine \\
+Keeleline korrektsus & Kirjavigade koguarv ja tihedus lehekülje kohta & Kvantitatiivne loendamine \\
+Viidete kvaliteet & Unikaalsete allikate arv, in-text tsitaatide arv, tsitaatide tihedus lehekülje kohta ning hallutsineeritud viidete hinnanguline osakaal & Kvantitatiivne loendamine + kontroll \\
+Akadeemiline stiil & Ülakomaga anglitsismide arv, arvutiteaduse ingliskeelsete terminite kasutus ning esimese isiku asesõnade esinemine & Kvantitatiivne loendamine \\
+Juhiste järgimine & Väljundkeel (eesti/inglise), \LaTeX-vormingu kasutamine, UniTartuCS malli rakendamine, tiitellehe andmed & Binaarne/kvalitatiivne kontroll \\
 \end{tblr}
 \end{table}
 
-Hindamise viis läbi käesoleva bakalaureusetöö autor (informaatika üliõpilane). Hinnangu stabiilsuse tagamiseks ja ühekordsest lugemisest tuleneva subjektiivsuse vähendamiseks vaatas autor iga genereeritud teksti läbi mitmel korral eri aegadel ning lõplik hinne kujunes nende iteratsioonide põhjal. Ühe hindaja kasutamise piirangut on täpsemalt käsitletud peatükis~\ref{arutelu}.
+Iga kriteeriumi kvantitatiivsed mõõtmised teostati genereeritud PDF-failidest teksti ekstraheerimise teel, jättes välja tiitellehe, kirjanduse loendi ning koodinäited juhtudel, kus see oli metoodiliselt põhjendatud. Kirjavigade loendamisest jäeti välja kontekstis korrektsed, kuid stiililiselt ebaõnnestunud laused, samuti vead, mis ilmnesid üksnes PDF-ist teksti ekstraheerimise kodeeringuartefaktidena. Hindamise viis läbi käesoleva bakalaureusetöö autor (informaatika üliõpilane). Subjektiivsuse vähendamiseks vaatas autor iga genereeritud dokumendi läbi mitmel korral eri aegadel ning lõplikud kvalitatiivsed hinnangud kujunesid nende iteratsioonide põhjal. Ühe hindaja kasutamise piirangut on täpsemalt käsitletud peatükis~\ref{arutelu}.

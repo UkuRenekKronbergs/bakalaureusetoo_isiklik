@@ -1,6 +1,6 @@
 \section{Claude Code kui lõputöö genereerimise tööriist} \label{claudecode}
 
-Käesolev peatükk kirjeldab Claude Code'i kui agentset AI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks.
+Käesolev peatükk kirjeldab Claude Code'i kui agentset AI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks. Lisaks esitatakse juhtumiuuring Opus 4.6 mudeliga, milles kasutati Anthropicu teist agentset tööriista Cowork, mis on Claude Code'iga sarnase ülesehituse ja töövoogudega, kuid neist eraldiseisev toode.
 
 \subsection{Claude Code'i ülevaade} \label{subsec:claudecode-ulevaade}
 
@@ -41,7 +41,7 @@ Projekti struktuur & Kasutaja haldab & Tööriist haldab \\
 
 \subsection{Soovitused lõputöö genereerimiseks Claude Code'iga} \label{subsec:claudecode-soovitused}
 
-Käesoleva uurimuse praktiliste kogemuste põhjal, sealhulgas Opus 4.6 mudeliga genereeritud paroolihalduri lõputöö (vt peatükk~\ref{subsec:exp-tervik}), saab anda järgmised soovitused Claude Code'i kasutamiseks lõputöö genereerimisel.
+Käesoleva uurimuse praktiliste kogemuste põhjal, sealhulgas Opus 4.6 mudeliga Cowork'i kaudu genereeritud paroolihalduri lõputöö (vt peatükk~\ref{subsec:cowork-juhtumiuuring}), saab anda järgmised soovitused Claude Code'i kasutamiseks lõputöö genereerimisel. Samad soovitused kehtivad suures osas ka Cowork'i kohta, kuna tööriistad on ülesehituselt sarnased.
 
 \subsubsection{Projekti ettevalmistamine}
 
@@ -83,22 +83,26 @@ Soovitame järgmist samm-sammulist töövoogu:
     \item \textbf{Kasuta pikendatud mõtlemisrežiimi.} Claude Code'i pikendatud mõtlemisrežiim (\textit{extended thinking}) parandab oluliselt keeruliste akadeemiliste tekstide kvaliteeti. See on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
     \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta töö maht ja peamised teemad.
     \item \textbf{Kontrolli viiteid alati.} Ükski AI mudel ei genereeri 100\% korrektseid viiteid. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
-    \item \textbf{Ära genereeri kõike korraga.} Iteratiivne, peatüki-kaupa genereerimine annab oluliselt parema tulemuse kui terve töö genereerimine ühe promptiga.
+    \item \textbf{Ära usalda üheainsa promptiga (\textit{one-shot}) tulemust kriitiliselt ilma ülevaatamiseta.} Käesoleva uurimuse eksperimendis (vt peatükk~\ref{subsec:cowork-juhtumiuuring}) näitas üheainsa promptiga lähenemine juba üllatavalt tugevaid tulemusi (eriti Opus 4.6 puhul -- 61 lehekülge, 5 kirjaviga, 0 esimese isiku asesõna), kuid sellegipoolest sisaldas töö hallutsineeritud viiteid ja mõningaid sisulisi probleeme. Parima kvaliteedi saavutamiseks on mõistlik kombineerida üheainsa promptiga genereerimist iteratiivsete paranduste ja kasutaja järelevalvega.
     \item \textbf{Ole kursis enda tööga.} AI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
     \item \textbf{Kasuta Opus mudelit nii palju kui võimalik.} Claude Opus 4.6 on praegu Claude perekonna võimekaim mudel ja sobib kõige paremini terviklike peatükkide ja keeruliste akadeemiliste tekstide genereerimiseks, kuigi selle hind on oluliselt kõrgem kui Sonnet mudelil.
 \end{itemize}
 
 \subsection{Alternatiivne agentne tööriist: Google Antigravity} \label{subsec:antigravity}
 
-Eksperiment 6 raames testiti Gemini 3.1 Pro mudelit ka Google'i agentse tööriista Antigravity kaudu. Antigravity on Google'i arendatud agentne AI tööriist, mis on funktsionaalselt sarnane Claude Code'iga -- see võimaldab mudelil iseseisvalt hallata faile, genereerida koodi ja struktureerida projekte. Antigravity kasutamine parandas Gemini 3.1 Pro tulemust oluliselt: ilma agentse tööriistata olid varasemad katsed oluliselt nõrgemad nii mahu kui ka kvaliteedi poolest. See kinnitab laiemat järeldust, et agentsed tööriistad on kriitilise tähtsusega tervikliku lõputöö genereerimise kontekstis, sõltumata konkreetsest mudelist.
+Käesoleva uurimuse eksperimendi raames testiti Gemini 3.1 Pro mudelit Google'i agentse tööriista Antigravity kaudu. Antigravity on Google'i arendatud agentne AI tööriist, mis on funktsionaalselt sarnane Claude Code'iga -- see võimaldab mudelil iseseisvalt hallata faile, genereerida koodi ja struktureerida projekte. Antigravity kasutamine parandas Gemini 3.1 Pro tulemust oluliselt: ilma agentse tööriistata olid varasemad katsed oluliselt nõrgemad nii mahu kui ka kvaliteedi poolest. See kinnitab laiemat järeldust, et agentsed tööriistad on kriitilise tähtsusega tervikliku lõputöö genereerimise kontekstis, sõltumata konkreetsest mudelist.
 
 \subsection{Alternatiivne agentne tööriist: ChatGPT Codex Visual Studio Code'is} \label{subsec:codex}
 
 Lisaks Google'i Antigravity'le testiti ka OpenAI ChatGPT Codex laiendust (\textit{extension}) Visual Studio Code'i arenduskeskkonnas \cite{openai2025codex}. Codex laiendus on funktsionaalselt sarnane Claude Code'iga ja Antigravity'ga -- see võimaldab mudelil iseseisvalt hallata projekti faile, genereerida \LaTeX{} koodi ning struktureerida terviklikku dokumenti otse arenduskeskkonnas.
 
-Eriti tähelepanuväärne on Codex laienduse tulemus GPT-5.4 mudeliga. Eksperimendis 6 (vt peatükk~\ref{subsec:exp-tervik}) keeldus GPT-5.4 tavapärase vestlusliidese kaudu terviklikku lõputööd genereerimast, viidates akadeemilise aususe piirangutele, ning andis selle asemel 8-leheküljelise ingliskeelse juhendi. Codex laienduse kaudu suutis aga sama mudel genereerida visuaalselt teiste mudelite väljunditega sarnase tervikliku dokumendi. See viitab sellele, et agentne töövoog ei paranda mitte ainult genereerimise kvaliteeti ja mahtu, vaid võib aidata ületada ka mudeli ohutuskoolitusest tulenevaid piiranguid, kuna tööülesanne jaguneb väiksemateks, kontekstuaalselt selgemateks sammudeks.
+Eriti tähelepanuväärne on Codex laienduse tulemus GPT-5.4 mudeliga. Käesoleva uurimuse eksperimendis (vt peatükk~\ref{subsec:exp-tervik}) keeldus GPT-5.4 tavapärase vestlusliidese kaudu terviklikku lõputööd genereerimast, viidates akadeemilise aususe piirangutele, ning andis selle asemel 8-leheküljelise ingliskeelse juhendi. Codex laienduse kaudu suutis aga sama mudel -- täpselt sama üheainsa promptiga -- genereerida visuaalselt teiste mudelite väljunditega sarnase tervikliku dokumendi. See viitab sellele, et agentne töövoog ei paranda mitte ainult genereerimise kvaliteeti ja mahtu, vaid võib aidata ületada ka mudeli ohutuskoolitusest tulenevaid piiranguid, kuna tööülesanne jaguneb väiksemateks, kontekstuaalselt selgemateks sammudeks.
 
 Majanduslikust vaatevinklist väärib märkimist, et Codex laiendus kasutab ChatGPT Plus tellimuse (\$20/kuu) raames kaasasolevat kasutuskvooti. Testimisel kulus tervikliku dokumendi genereerimiseks väga vähe kvooti, mis teeb ChatGPT Plus plaanist hea hinna ja võimsuse suhtega valiku agentseks lõputöö genereerimiseks.
+
+\subsection{Alternatiivne Anthropicu tööriist: Cowork} \label{subsec:cowork}
+
+Lisaks Claude Code'ile pakub Anthropic teist agentset tööriista nimega Cowork. Cowork on Claude Code'ist eraldiseisev toode, kuid pakub funktsionaalselt sarnast võimekust: iseseisev failisüsteemi juurdepääs, \LaTeX{} kompileerimine, viidete haldus ning projekti struktureerimine. Käesoleva uurimuse eksperimendis kasutati Cowork'i Sonnet 4.6 ja Opus 4.6 mudelitega (Claude Code'i aga ei kasutatud), kuna Cowork pakkus mugavama integratsiooni olemasoleva projektistruktuuriga. Oluline on tööriistu mitte samastada -- kuigi nad on mõlemad Anthropicu tooted ja kasutavad Claude mudeliperekonda, on tegemist eri rakendustega. Järgmine alamlõik esitab Opus 4.6 ja Cowork'i juhtumiuuringu.
 
 \subsection{Claude Code'i piirangud} \label{subsec:claudecode-piirangud}
 
@@ -111,13 +115,15 @@ Vaatamata eelistele on Claude Code'il mitmeid piiranguid lõputöö genereerimis
     \item \textbf{Versioonihaldus.} Kuigi Claude Code saab kasutada Git'i, on oluline, et üliõpilane mõistab versioonihalduse põhimõtteid, et vältida töö kadumist.
 \end{itemize}
 
-\subsection{Juhtumiuuring: Paroolihalduri lõputöö genereerimine Opus 4.6-ga} \label{subsec:claudecode-juhtumiuuring}
+Suurem osa neist piirangutest kehtib ka Cowork'i kohta, kuna tööriistad on töövoogude poolest sarnased.
 
-Käesoleva uurimuse raames genereeriti Claude Code'i ja Opus 4.6 mudeli abil terviklik 61-leheküljeline bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. See juhtumiuuring demonstreerib Claude Code'i praktilisi võimekusi ja piiranguid reaalse lõputöö genereerimisel.
+\subsection{Juhtumiuuring: Paroolihalduri lõputöö genereerimine Opus 4.6-ga Cowork'i kaudu} \label{subsec:cowork-juhtumiuuring}
+
+Käesoleva uurimuse raames genereeriti Anthropicu Cowork'i ja Opus 4.6 mudeli abil terviklik 61-leheküljeline bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. Oluline on rõhutada, et kasutati spetsiifiliselt Cowork'i, mitte eelnevates alalõikudes kirjeldatud Claude Code'i -- need on Anthropicu kaks eraldiseisvat agentset tööriista. See juhtumiuuring demonstreerib Cowork'i praktilisi võimekusi ja piiranguid reaalse lõputöö genereerimisel ühe üheainsa promptiga (\textit{one-shot}). Kuna Cowork'i töövood on Claude Code'iga suures osas sarnased, on enamik eelmistes alalõikudes esitatud soovitusi ja tähelepanekuid ülekantavad ka Cowork'ile.
 
 \subsubsection{Genereerimisprotsess}
 
-Genereerimine toimus Claude Code'i kaudu, kasutades Opus 4.6 mudelit. Projektikausta paigutati UniTartuCS \LaTeX{} mall, TÜ ATI juhend ning CLAUDE.md konfiguratsioonifail eestikeelse akadeemilise kirjutamise juhistega. Genereerimine toimus iteratiivselt, peatüki kaupa.
+Genereerimine toimus Cowork'i kaudu, kasutades Opus 4.6 mudelit. Projektikausta paigutati UniTartuCS \LaTeX{} mall. Mudelile anti üks lühike eestikeelne viibe, mis palus genereerida terviklik bakalaureusetöö Tartu Ülikooli arvutiteaduse instituudi nõuetele vastavalt (täistekst lisas~\ref{lisa:promptid}). Edasine töövoog -- failide loomine, sisukorra ja peatükkide ülesehitus, viidete haldus ning \LaTeX{} kompileerimine -- toimus agentse tööriista juhitud mitme sisemise sammuna, kuid ilma kasutajapoolsete järelküsimusteta ega iteratiivse suunamiseta.
 
 \subsubsection{Genereeritud töö omadused}
 
@@ -133,7 +139,7 @@ Genereeritud lõputöö sisaldas järgmisi komponente:
 
 \subsubsection{Järeldused juhtumiuuringust}
 
-Juhtumiuuring kinnitas, et Claude Code koos Opus 4.6 mudeliga suudab genereerida tervikliku, struktureeritud ja tehniliselt detailse lõputöö. Genereeritud töö vastas TÜ ATI vorminõuetele ja sisaldas kõiki nõutud peatükke. Peamised tugevused olid:
+Juhtumiuuring kinnitas, et Cowork koos Opus 4.6 mudeliga suudab genereerida tervikliku, struktureeritud ja tehniliselt detailse lõputöö. Genereeritud töö vastas TÜ ATI vorminõuetele ja sisaldas kõiki nõutud peatükke. Peamised tugevused olid:
 \begin{itemize}
     \item Tehniline sügavus ja detailsus, mis ületas teiste mudelite tulemusi;
     \item Korrektne eesti keel läbivalt kogu töös;
