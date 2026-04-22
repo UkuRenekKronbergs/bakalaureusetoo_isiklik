@@ -50,13 +50,16 @@ Lisaks salvestati GPT-5.4 tavapärase vestlusliidese kaudu saadud keelduv välju
 
 Kuna eksperiment tootis neli tervikdokumenti, keskenduti hindamisel kvantitatiivselt mõõdetavatele tunnustele, mida on võimalik genereeritud PDF-idest objektiivselt tuletada. Need täiendavad töö autori kvalitatiivset üldhinnangut ning vähendavad ühe hindaja subjektiivsusest tulenevat moonutust. Tabelis~\ref{tab:hindamiskriteeriumid} on esitatud hindamisraamistik.
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering
 \caption{Hindamiskriteeriumide raamistik}
 \label{tab:hindamiskriteeriumid}
 \begin{tblr}{
-    colspec={l X[1.5] X[2]},
-    row{1}={font=\bfseries},
+    width=\linewidth,
+    colspec={X[1,l] X[2.2,l] X[1.3,l]},
+    rows={font=\small},
+    colsep=3pt,
+    row{1}={font=\bfseries\small},
     hlines,
     vlines,
     row{even}={bg=colorCellHighlight},
