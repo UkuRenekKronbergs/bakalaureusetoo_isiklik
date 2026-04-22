@@ -34,7 +34,7 @@ Sellise minimaalse viipe eesmärk oli hinnata, kuidas mudelid interpreteerivad v
 Eksperimendi tulemusena valmisid järgmised PDF-failid, mis on lisatud käesoleva uurimuse lähtematerjalide juurde:
 
 \begin{itemize}
-    \item \texttt{Sonnet\_4.6\_Cowork.pdf} -- Claude Sonnet 4.6 genereeritud 40-leheküljeline eestikeelne lõputöö AI-põhise lõputöö genereerimise teemal.
+    \item \texttt{Sonnet\_4.6\_Cowork.pdf} -- Claude Sonnet 4.6 genereeritud 40-leheküljeline eestikeelne lõputöö TI-põhise lõputöö genereerimise teemal.
     \item \texttt{Opus\_4.6\_Cowork.pdf} -- Claude Opus 4.6 genereeritud 61-leheküljeline eestikeelne lõputöö paroolihalduri teemal.
     \item \texttt{Gemini\_3.1\_Pro\_Antigravity.pdf} -- Gemini 3.1 Pro genereeritud 39-leheküljeline eestikeelne lõputöö GenAI mõjust algajate programmeerijate produktiivsusele.
     \item \texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf} -- GPT-5.4 genereeritud 47-leheküljeline eestikeelne lõputöö RAG-põhise küsimus-vastus süsteemi teemal.
@@ -42,21 +42,21 @@ Eksperimendi tulemusena valmisid järgmised PDF-failid, mis on lisatud käesolev
 
 Lisaks salvestati GPT-5.4 tavapärase ChatGPT vestlusliidese kaudu saadud keelduv väljund (8-leheküljeline ingliskeelne teostatavusjuhend) võrdluseks.
 
-\subsection*{III. AI kasutamise deklaratsioon} \label{lisa:deklaratsioon} \addcontentsline{toc}{subsection}{III. AI kasutamise deklaratsioon}
+\subsection*{III. TI kasutamise deklaratsioon} \label{lisa:deklaratsioon} \addcontentsline{toc}{subsection}{III. TI kasutamise deklaratsioon}
 
-Käesoleva bakalaureusetöö kirjutamisel kasutati järgmisi AI vahendeid:
+Käesoleva bakalaureusetöö kirjutamisel kasutati järgmisi TI mudeleid ja tööriistu:
 
 \begin{enumerate}
     \item \textbf{Google Gemini 3.1 Pro} -- kasutati eksperimendi läbiviimiseks (tervikliku bakalaureusetöö genereerimine ühe üheainsa promptiga) peatükis~\ref{eksperimendid} ja lisades kirjeldatud ulatuses. Mudelit kasutati Google'i Antigravity agentse tööriista kaudu.
     \item \textbf{OpenAI GPT-5.4} -- kasutati eksperimendi läbiviimiseks nii ChatGPT tavapärase vestlusliidese kaudu (kus mudel keeldus ülesannet täitmast) kui ka ChatGPT Codex laienduse kaudu Visual Studio Code'is.
-    \item \textbf{Anthropic Claude Sonnet 4.6} -- kasutati eksperimendi läbiviimiseks Anthropicu Cowork'i agentse tööriista kaudu (tegemist on Claude Code'ist eraldi seisva tootega). Lisaks kasutati mudelit käesoleva töö keeleliseks korrektuuri abiks töö lõppfaasis.
+    \item \textbf{Anthropic Claude Sonnet 4.6} -- kasutati eksperimendi läbiviimiseks Anthropicu Cowork'i agentse tööriista kaudu (tegemist on Claude Code'ist eraldi seisva tootega).
     \item \textbf{Anthropic Claude Opus 4.6} -- kasutati eksperimendi läbiviimiseks peatükkides~\ref{eksperimendid} ja~\ref{claudecode} kirjeldatud ulatuses Cowork'i agentse tööriista kaudu.
-    \item \textbf{Cowork} -- Anthropicu agentne kodeerimistööriist (mitte segi ajada sama ettevõtte Claude Code tootega), mida kasutati Sonnet 4.6 ja Opus 4.6 mudelitega eksperimendis ning käesoleva töö vormistamisel ja täiendamisel. Cowork võimaldab mudelitel iseseisvalt lugeda ja kirjutada \LaTeX{} faile, hallata BibTeX viiteid, otsida veebist teadusallikaid ning kompileerida dokumenti.
+    \item \textbf{Cowork} -- Anthropicu agentne kodeerimistööriist, mida kasutati Sonnet 4.6 ja Opus 4.6 mudelitega eksperimendis ning käesoleva töö vormistamisel ja täiendamisel. Cowork võimaldab mudelitel iseseisvalt lugeda ja kirjutada \LaTeX{} faile, hallata BibTeX viiteid, otsida veebist teadusallikaid ning kompileerida dokumenti.
 \end{enumerate}
 
 Kõik nelja võrdlusmudeli genereeritud bakalaureusetööd valmisid ühe üheainsa identse promptiga (\textit{one-shot}), ilma kasutajapoolsete järelküsimuste, iteratiivse suunamise või täiendava konteksti sisestamiseta. Mudelitele ei esitatud ülikoolide lõputöö juhendeid ega varasemaid näidistöid konteksti -- kogu juhis mahtus ühte lühikesse viipesse (vt lisa~\ref{lisa:promptid}).
 
-Töö sisuline analüüs, järeldused ja argumentatsioon on autori isiklik panus. AI-genereeritud tekstinäidised lisades on selgelt märgistatud.
+Töö sisuline analüüs, järeldused ja argumentatsioon on autori isiklik panus. TI-genereeritud tekstinäidised lisades on selgelt märgistatud.
 
 \subsection*{IV. Tervikliku lõputöö genereerimise näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{IV. Tervikliku lõputöö genereerimise näited}
 
@@ -65,12 +65,12 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \subsubsection*{IV.1 Claude Sonnet 4.6 -- sissejuhatuse väljavõte (40 lk, eesti keeles)}
 
 \begin{quote}
-\textit{Tehisintellekti (AI) kiire areng viimastel aastatel on toonud kaasa põhjalikud muutused paljudes eluvaldkondades, sealhulgas hariduses ja akadeemilises kirjutamises. Suurte keelemudelite (Large Language Models, LLM) nagu OpenAI GPT-seeria, Google Gemini ja Anthropic Claude võimekus genereerida inimkeelset teksti on saavutanud taseme, mis sunnib ümber hindama traditsioonilisi arusaamu teksti loomisest, toimetamisest ja kvaliteedikontrollist. Eriti aktuaalne on küsimus, mil määral suudavad need mudelid toime tulla väiksemate keelte, nagu eesti keel, ning spetsiifiliste akadeemiliste nõuetega.}
+\textit{Tehisintellekti (TI) kiire areng viimastel aastatel on toonud kaasa põhjalikud muutused paljudes eluvaldkondades, sealhulgas hariduses ja akadeemilises kirjutamises. Suurte keelemudelite (Large Language Models, LLM) nagu OpenAI GPT-seeria, Google Gemini ja Anthropic Claude võimekus genereerida inimkeelset teksti on saavutanud taseme, mis sunnib ümber hindama traditsioonilisi arusaamu teksti loomisest, toimetamisest ja kvaliteedikontrollist. Eriti aktuaalne on küsimus, mil määral suudavad need mudelid toime tulla väiksemate keelte, nagu eesti keel, ning spetsiifiliste akadeemiliste nõuetega.}
 
 \textit{[...] Käesoleva bakalaureusetöö eesmärk on uurida tehisintellekti rakendamise teostatavust eestikeelse tehnilise informaatika lõputöö genereerimisel.}
 \end{quote}
 
-\textit{Hinnang: Töö järgib Tartu Ülikooli struktuurinõudeid ja on eestikeelne, akadeemilises stiilis. Sisaldab 17 viidet, millest märkimisväärne osa on hallutsineeritud (ca 20\%). Peamine puudus: mõned viited on hallutsineeritud ning lauseehitus on kohati ülemääraselt keerukas. Huvitav kokkusattumus: mudel valis teemaks AI-põhise lõputöö genereerimise, mis ühtib käesoleva bakalaureusetöö teemaga.}
+\textit{Hinnang: Töö järgib Tartu Ülikooli struktuurinõudeid ja on eestikeelne, akadeemilises stiilis. Sisaldab 17 viidet, millest märkimisväärne osa on hallutsineeritud (ca 20\%). Peamine puudus: mõned viited on hallutsineeritud ning lauseehitus on kohati ülemääraselt keerukas. Huvitav kokkusattumus: mudel valis teemaks TI-põhise lõputöö genereerimise, mis ühtib käesoleva bakalaureusetöö teemaga.}
 
 \subsubsection*{IV.2 GPT-5.4 (vestlusliides) -- väljundi väljavõte (8 lk, inglise keeles, teostatavusjuhend)}
 
@@ -124,7 +124,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 Kriteerium & Gemini 3.1 Pro & GPT-5.4 (Codex) & Claude Sonnet 4.6 & Claude Opus 4.6 \\
 Keel & Eesti & Eesti & Eesti & Eesti \\
 Maht & 39 lk & 47 lk & 40 lk & 61 lk \\
-Valitud teema & GenAI ja progr. & RAG QA-süsteem & AI lõputöö gener. & Paroolihaldur \\
+Valitud teema & GenAI ja progr. & RAG QA-süsteem & TI lõputöö gener. & Paroolihaldur \\
 Struktuur & Lõputöö & Lõputöö & Lõputöö & Lõputöö \\
 Tööriist & Antigravity & Codex VS Code'is & Cowork & Cowork \\
 Kirjavigu (kogu töö peale) & 28 & 1 & 13 & 5 \\
