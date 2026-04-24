@@ -40,29 +40,11 @@ Eksperimendi tulemusena valmisid järgmised PDF-failid, mis on lisatud käesolev
     \item \texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf} -- GPT-5.4 genereeritud 47-leheküljeline eestikeelne lõputöö RAG-põhise küsimus-vastus süsteemi teemal.
 \end{itemize}
 
-Lisaks salvestati GPT-5.4 tavapärase ChatGPT vestlusliidese kaudu saadud keelduv väljund (8-leheküljeline ingliskeelne teostatavusjuhend) võrdluseks.
-
-\subsection*{III. TI kasutamise deklaratsioon} \label{lisa:deklaratsioon} \addcontentsline{toc}{subsection}{III. TI kasutamise deklaratsioon}
-
-Käesoleva bakalaureusetöö kirjutamisel kasutati järgmisi TI mudeleid ja tööriistu:
-
-\begin{enumerate}
-    \item \textbf{Google Gemini 3.1 Pro} -- kasutati eksperimendi läbiviimiseks (tervikliku bakalaureusetöö genereerimine üheainsa promptiga) peatükis~\ref{eksperimendid} ja lisades kirjeldatud ulatuses. Mudelit kasutati Google'i Antigravity agentse tööriista kaudu.
-    \item \textbf{OpenAI GPT-5.4} -- kasutati eksperimendi läbiviimiseks nii ChatGPT tavapärase vestlusliidese kaudu (kus mudel keeldus ülesannet täitmast) kui ka ChatGPT Codex laienduse kaudu Visual Studio Code'is.
-    \item \textbf{Anthropic Claude Sonnet 4.6} -- kasutati eksperimendi läbiviimiseks Anthropicu Cowork'i agentse tööriista kaudu (tegemist on Claude Code'ist eraldiseisva tootega).
-    \item \textbf{Anthropic Claude Opus 4.6} -- kasutati eksperimendi läbiviimiseks peatükkides~\ref{eksperimendid} ja~\ref{claudecode} kirjeldatud ulatuses Cowork'i agentse tööriista kaudu.
-    \item \textbf{Cowork} -- Anthropicu agentne kodeerimistööriist, mida kasutati Sonnet 4.6 ja Opus 4.6 mudelitega eksperimendis ning käesoleva töö vormistamisel ja täiendamisel. Cowork võimaldab mudelitel iseseisvalt lugeda ja kirjutada \LaTeX{} faile, hallata BibTeX viiteid, otsida veebist teadusallikaid ning kompileerida dokumenti.
-\end{enumerate}
-
-Kõik nelja võrdlusmudeli genereeritud bakalaureusetööd valmisid üheainsa identse promptiga (\textit{one-shot}), ilma kasutajapoolsete järelküsimuste, iteratiivse suunamise või täiendava konteksti sisestamiseta. Mudelitele ei esitatud ülikoolide lõputöö juhendeid ega varasemaid näidistöid konteksti -- kogu juhis mahtus ühte lühikesse viipesse (vt lisa~\ref{lisa:promptid}).
-
-Töö sisuline analüüs, järeldused ja argumentatsioon on autori isiklik panus. TI-genereeritud tekstinäidised lisades on selgelt märgistatud.
-
-\subsection*{IV. Tervikliku lõputöö genereerimise näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{IV. Tervikliku lõputöö genereerimise näited}
+\subsection*{III. Tervikliku lõputöö genereerimise näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{III. Tervikliku lõputöö genereerimise näited}
 
 Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest lõputöödest. Iga mudeli väljundist on toodud sissejuhatuse algus, et illustreerida erinevusi keeles, stiilis ja teemale vastavuses.
 
-\subsubsection*{IV.1 Claude Sonnet 4.6 -- sissejuhatuse väljavõte (40 lk, eesti keeles)}
+\subsubsection*{III.1 Claude Sonnet 4.6 (Cowork) -- sissejuhatuse väljavõte (40 lk)}
 
 \begin{quote}
 \textit{Tehisintellekti (TI) kiire areng viimastel aastatel on toonud kaasa põhjalikud muutused paljudes eluvaldkondades, sealhulgas hariduses ja akadeemilises kirjutamises. Suurte keelemudelite (Large Language Models, LLM) nagu OpenAI GPT-seeria, Google Gemini ja Anthropic Claude võimekus genereerida inimkeelset teksti on saavutanud taseme, mis sunnib ümber hindama traditsioonilisi arusaamu teksti loomisest, toimetamisest ja kvaliteedikontrollist. Eriti aktuaalne on küsimus, mil määral suudavad need mudelid toime tulla väiksemate keelte, nagu eesti keel, ning spetsiifiliste akadeemiliste nõuetega.}
@@ -72,7 +54,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 
 \textit{Hinnang: Töö järgib Tartu Ülikooli struktuurinõudeid ja on eestikeelne, akadeemilises stiilis. Sisaldab 17 viidet, millest märkimisväärne osa on hallutsineeritud (ca 20\%). Peamine puudus: mõned viited on hallutsineeritud ning lauseehitus on kohati ülemääraselt keerukas. Huvitav kokkusattumus: mudel valis teemaks TI-põhise lõputöö genereerimise, mis ühtib käesoleva bakalaureusetöö teemaga.}
 
-\subsubsection*{IV.2 GPT-5.4 (vestlusliides) -- väljundi väljavõte (8 lk, inglise keeles, teostatavusjuhend)}
+\subsubsection*{III.2 GPT-5.4 (vestlusliides) -- väljundi väljavõte (8 lk, teostatavusjuhend)}
 
 \begin{quote}
 \textit{``A complete, submission-ready bachelor's thesis written end-to-end on your behalf is not something I can produce. That would materially enable academic misconduct (submitting work largely authored by a third party). What I can provide---aligned with the University of Tartu's own principles for using generative AI in coursework---is a deep-research `thesis kit': a rigorously sourced background review, a defensible experimental design, an evaluation rubric, and a UniTartuCS-template-aligned LaTeX project skeleton with chapter-by-chapter writing prompts and clearly marked placeholders that you must complete, verify, and take responsibility for.''}
@@ -80,7 +62,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 
 \textit{Hinnang: GPT-5.4 keeldus ülesannet täitmast ja valis väljundkeeleks inglise keele. Pakkus selle asemel teostatavusjuhendit, mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku ja LaTeX malli juhiseid. Viited on verifitseeritud ja sisukad. Akadeemilise aususe teadlikkus on silmapaistvalt tugev. Sama mudel sama promptiga Codex-laienduse kaudu Visual Studio Code'is genereeris aga tervikliku 47-leheküljelise eestikeelse töö -- vt IV.3.}
 
-\subsubsection*{IV.3 GPT-5.4 (Codex laiendus) -- sissejuhatuse väljavõte (47 lk, eesti keeles)}
+\subsubsection*{III.3 GPT-5.4 (Codex VS Code'is) -- sissejuhatuse väljavõte (47 lk)}
 
 \begin{quote}
 \textit{Käesolevas bakalaureusetöös kavandatakse eestikeelse RAG-põhise küsimus-vastus süsteemi kontseptsioon ja prototüüp. Süsteemi keskmes on retriiveri ja keelemudeli integreeritud arhitektuur, mis võimaldab leida asjakohased dokumendilõigud ja genereerida nende põhjal eestikeelseid vastuseid.}
@@ -88,7 +70,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 
 \textit{Hinnang: Sama mudel ja sama prompt kui vestlusliideses, kuid agentse töövoo kaudu andis täiesti erineva tulemuse. Keelevalik eesti keel, struktuur vastab bakalaureusetöö vormile, ortograafiline täpsus silmapaistvalt kõrge (vaid 1 kirjaviga kogu töö peale). Viited (22 unikaalset) on suures osas kontrollitavad.}
 
-\subsubsection*{IV.4 Gemini 3.1 Pro -- sissejuhatuse väljavõte (39 lk, eesti keeles)}
+\subsubsection*{III.4 Gemini 3.1 Pro (Antigravity) -- sissejuhatuse väljavõte (39 lk)}
 
 \begin{quote}
 \textit{``Generatiivse tehisintellekti (GenAI) ja suurte keelemudelite (LLM), nagu OpenAI GPT-seeria, Anthropic Claude ja spetsiifiliste koodiassistentide (GitHub Copilot, Cursor) tormiline areng ja kättesaadavus on toonud kaasa ajaloolise paradigma muutuse globaalses tarkvaraarenduses.''}
@@ -98,7 +80,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 
 \textit{Hinnang: Mudel genereeris sisulise ja vormiliselt korrektse töö GenAI mõjust tarkvaraarendusele Tartumaa IT-ettevõtetes. Kuigi teema on informaatikaga seotud ja seega viipele vastav, on kogu eksperiment (30 tudengit, testikeskkond, statistilised tulemused) fabritseeritud. Eestikeelne tekst on ladus, kuid sisaldab kõige rohkem kirjavigu (28) kogu võrdluses. Sisaldab viiteid kohalikele ettevõtetele (Nortal, Playtech, Datafox) ja globaalsetele raamistikele (DORA, SPACE, METR 2025).}
 
-\subsubsection*{IV.5 Claude Opus 4.6 -- sissejuhatuse väljavõte (61 lk, eesti keeles, Cowork)}
+\subsubsection*{III.5 Claude Opus 4.6 (Cowork) -- sissejuhatuse väljavõte (61 lk)}
 
 \begin{quote}
 \textit{Paroolide turvaline haldamine on kaasaegse digiühiskonna üks fundamentaalsemaid väljakutseid. Keskmine internetikasutaja haldab kümneid kuni sadu kontosid erinevates veebiteenustes, mis loob vajaduse usaldusväärse ja kasutajasõbraliku parooli\-haldussüsteemi järele. Kuigi turukitsenduste tõttu domineerivad valdkonda suletud lähtekoodiga kommertslahendused nagu 1Password, LastPass ja Bitwarden, jääb avatud ja läbipaistev alternatiiv, mis pakub nullteadmise (zero-knowledge) arhitektuuri koos kaasaegse krüptograafilise kaitsetasemega, endiselt aktuaalseks uurimisteemaks.}
@@ -108,7 +90,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 
 \textit{Hinnang: Opus 4.6 genereeris Cowork'i kaudu kõige mahukama ja tehniliselt sügavaima töö. 61-leheküljeline lõputöö sisaldas terviklikku tehnilist arhitektuuri, koodi\-näiteid, 149 automatiseeritud testi tulemusi, OWASP Top 10 analüüsi ja SUS kasutatavusuuringut (skoor 77,0). Eestikeelne akadeemiline stiil oli läbivalt suurepärane (0 esimese isiku asesõna terve töö peale). Struktuur vastas TÜ nõuetele. Viidete hallutsineerimise määr oli madalaim (ca 15\%). Peamine eelis teiste mudelite ees: tehniline detailsus, \LaTeX{} koodi otsene genereerimine failidesse ja võime hallata terviklikku projektistruktuuri.}
 
-\subsubsection*{IV.6 Genereeritud tööde võrdlev kokkuvõte}
+\subsubsection*{III.6 Genereeritud tööde võrdlev kokkuvõte}
 
 \begin{table}[ht]
 \centering

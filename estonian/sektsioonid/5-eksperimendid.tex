@@ -30,7 +30,7 @@ Maht (lehekülgi) & 39 & 47 (Codex) / 8 (chat) & 40 & 61 \\
 Valitud teema & GenAI ja algajad progr. & RAG-põhine QA-süsteem (Codex); keeldumine (chat) & TI lõputöö gener. & Paroolihaldur \\
 Struktuur & Lõputöö vormis & Lõputöö (Codex) / juhend (chat) & Lõputöö vormis & Lõputöö vormis \\
 Agentne tööriist & Antigravity & Codex VS Code'is & Cowork & Cowork \\
-Viited & 9, osaliselt kontrollitavad & 22, suures osas kontrollitavad & 17, osaliselt halluts. & 35, osaliselt halluts. \\
+Viited & 9, ca 25\% halluts. & 22, ca 20\% halluts. & 17, ca 20\% halluts. & 35, ca 15\% halluts. \\
 Akad. stiil & Hea & Hea (Codex) & Väga hea & Suurepärane \\
 \end{tblr}
 \end{table}
@@ -63,7 +63,7 @@ Töö tugevused olid järgmised:
 Peamised puudused olid siiski olulised:
 \begin{itemize}
     \item Kogu eksperiment (30 tudengit, testikeskkond, statistilised tulemused) oli mudeli poolt välja mõeldud -- tegemist oli veenva, kuid täielikult fabritseeritud uurimusega;
-    \item Viidete kontrollitavust vajab eraldi auditeerimist -- kuigi autorite nimed on reaalsed, võivad konkreetsed artiklid olla hallutsineeritud;
+    \item Viidete kontrollitavust vajab eraldi auditeerimist -- kuigi autorite nimed on reaalsed, olid ca 25\% viidetest hallutsineeritud (olematud artiklid või valed avaldamisandmed);
     \item Eesti keele ortograafiline täpsus oli nelja mudeli seas kõige nõrgem -- töös tuvastati 28 selget kirjaviga, sealhulgas tavasõnade valed vormid (\textit{strukuure}, \textit{kordinaadid}, \textit{konfiktide}), mittesõnad (\textit{teoosiab}, \textit{Tehisintsistendi}) ning valede tähtedega asendatud täpitähed (vt peatükk~\ref{subsec:kirjaviga});
     \item Antigravity tööriist oli vajalik korraliku tulemuse saamiseks -- varasemad katsed ilma agentse tööriistata andsid oluliselt nõrgema tulemuse.
 \end{itemize}
@@ -181,7 +181,7 @@ Claude Opus 4.6 & 35 & 45 & 0,74 & 1,29 \\
 \end{tblr}
 \end{table}
 
-Tulemused näitavad, et Claude Opus 4.6 lisas kõige rohkem viiteid (35 unikaalset allikat ja 45 in-text tsitaati), saavutades ka kõrgeima tsitaaditiheduse 0,74 tsitaati lehekülje kohta. See vastab paroolihalduri valdkonna iseloomule, kus on vaja viidata krüptograafilistele standarditele (NIST, IETF RFC), turvauuringutele ja olemasolevatele lahendustele. GPT-5.4 (22 viidet) ja Claude Sonnet 4.6 (17 viidet) jäid keskmisesse vahemikku. Gemini 3.1 Pro paistis silma väikseima viidete arvuga (9 unikaalset allikat 39 lehekülje peale), mis on bakalaureusetöö kontekstis tagasihoidlik -- TÜ ATI juhend soovitab tüüpilisele bakalaureusetööle vähemalt 15--25 allikat. See näitaja kinnitab üldist tähelepanekut, et Gemini 3.1 Pro genereeritud töö oli pigem mahukas-fabritseeritud kui allikatega põhjendatud.
+Tulemused näitavad, et Claude Opus 4.6 lisas kõige rohkem viiteid (35 unikaalset allikat ja 45 in-text tsitaati), saavutades ka kõrgeima tsitaaditiheduse 0,74 tsitaati lehekülje kohta. See vastab paroolihalduri valdkonna iseloomule, kus on vaja viidata krüptograafilistele standarditele (NIST, IETF RFC), turvauuringutele ja olemasolevatele lahendustele. GPT-5.4 (22 viidet) ja Claude Sonnet 4.6 (17 viidet) jäid keskmisesse vahemikku. Gemini 3.1 Pro paistis silma väikseima viidete arvuga (9 unikaalset allikat 39 lehekülje peale), mis on bakalaureusetöö kontekstis tagasihoidlik -- tüüpilistes arvutiteaduse bakalaureusetöödes on allikate arv sageli kõrgem kui kümme, eriti kirjanduse ülevaadet sisaldavate tööde puhul. See näitaja kinnitab üldist tähelepanekut, et Gemini 3.1 Pro genereeritud töö oli pigem mahukas-fabritseeritud kui allikatega põhjendatud.
 
 Tsitaadi/viite suhe (in-text tsitaate jagatud unikaalsete allikate arvuga) näitab, mitu korda iga allikat keskmiselt korduvalt kasutati. Kõik mudelid jäid 1,27--1,44 vahemikku, mis viitab sellele, et enamikku allikaid kasutati tekstis vaid 1--2 korda. See on bakalaureusetööde puhul tüüpiline näitaja. Oluline on siiski rõhutada, et see analüüs ei hinda viidete \emph{sisulist} korrektsust ega kontrollitavust -- osa viidetest olid hallutsineeritud, eriti Sonnet 4.6 (ca 20\%) ja Opus 4.6 (ca 15\%) töödes.
 

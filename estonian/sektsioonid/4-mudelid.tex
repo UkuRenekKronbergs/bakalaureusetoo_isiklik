@@ -21,7 +21,7 @@ Gemini 3.1 Pro kasutamine API kaudu (seisuga märts 2026):
     \item Väljundtokenid: 12,00€ / 1M tokenit
 \end{itemize}
 
-Google AI Studio tasuta versioon võimaldab piiratud kasutust ilma kuluta, mis sobib eksperimenteerimiseks. Hinnanguliselt kulub 40-leheküljelise lõputöö täielikuks genereerimiseks ca 500\,000 väljundtokenit ja ca 2\,000\,000 sisendtokenit (arvestades iteratiivset protsessi), mis teeb kogukuluks API kaudu ca 8--14€.
+Google AI Studio tasuta versioon võimaldab piiratud kasutust ilma kuluta, mis sobib eksperimenteerimiseks. Hinnanguliselt vajab 40-leheküljelise lõputöö genereerimine ca 500\,000 väljundtokenit ja ca 2\,000\,000 sisendtokenit, mis annab puhta API tokenite baashinnanguks ca 8--14€. Agentse tööriista iteratsioonid (korduv failide lugemine ja kirjutamine) tõstavad tegelikku kogukulu oluliselt; täielik kuluarvestus on esitatud peatükis~\ref{subsec:hinnakujundus}.
 
 \subsubsection{Eesti keele tugi}
 
@@ -52,7 +52,7 @@ GPT-5.4 hinnastamine API kaudu (seisuga märts 2026):
     \item Vahemälus (\textit{cached}) sisendtokenid: 0,175€ / 1M tokenit
 \end{itemize}
 
-ChatGPT Plus tellimus (20€/kuu) võimaldab piiratud kasutust veebirakenduse kaudu. Lõputöö genereerimise kogukuluks API kaudu saab hinnata ca 8--14€, sõltuvalt iteratsioonide arvust.
+ChatGPT Plus tellimus (20€/kuu) võimaldab piiratud kasutust veebirakenduse kaudu ning katab ka Codex laienduse kasutuse. Puhta API tokenite baashinnanguks 40-leheküljelise töö puhul saab hinnata ca 8--14€; agentse tööriistaga (nt Codex) tegelik kogukulu on kõrgem (vt peatükk~\ref{subsec:hinnakujundus}).
 
 GPT-5.4 Pro mudeli hinnastamine on oluliselt kallim:
 \begin{itemize}
@@ -94,14 +94,14 @@ Claude Sonnet 4.6 hinnastamine API kaudu (seisuga märts 2026):
     \item Vahemälus kirjutamine: 3,75€ / 1M tokenit
 \end{itemize}
 
-Claude Pro tellimus (20€/kuu) võimaldab piiratud kasutust veebirakenduse kaudu. API kasutamise kogukuluks lõputöö genereerimisel saab hinnata ca 10--18€.
+Claude Pro tellimus (20€/kuu) võimaldab piiratud kasutust veebirakenduse kaudu. Puhta API tokenite baashinnanguks 40-leheküljelise töö puhul saab hinnata ca 10--18€; Cowork'i agentse töövoo iteratsioonidega tegelik kogukulu on kõrgem (vt peatükk~\ref{subsec:hinnakujundus}).
 
 \subsubsection{Eesti keele tugi}
 
 Claude Sonnet 4.6 eesti keele tugi on hea, kuid mõningate eripäradega:
 \begin{itemize}
     \item Mudel järgib eesti keele grammatikareegleid üldiselt hästi;
-    \item Akadeemiline stiil on tugevalt lähedane akadeemilises kirjutamises soovitule;
+    \item Akadeemiline stiil on lähedane akadeemilises kirjutamises soovitule;
     \item Siiski esineb kohati ülemäärast keerukust lauseehituses, mis muudab teksti raskesti loetavaks;
     \item Tehniline terminoloogia on ühtlasem kui teistel mudelitel.
 \end{itemize}
@@ -125,7 +125,7 @@ Claude Opus 4.6 hinnastamine API kaudu (seisuga märts 2026):
     \item Vahemälus kirjutamine: 18,75€ / 1M tokenit
 \end{itemize}
 
-Opus 4.6 on oluliselt kallim kui Sonnet 4.6 -- väljundtokenid on 5 korda kallimad. See teeb Opus mudeli kasutamise mahuka teksti genereerimiseks kulukaks, kuid kvaliteedivõit võib seda kompenseerida. Hinnanguliselt kulub 40-leheküljelise lõputöö täielikuks genereerimiseks Opus 4.6-ga ca 50--80€ API kaudu.
+Opus 4.6 on oluliselt kallim kui Sonnet 4.6 -- väljundtokenid on 5 korda kallimad. See teeb Opus mudeli kasutamise mahuka teksti genereerimiseks kulukaks, kuid kvaliteedivõit võib seda kompenseerida. Puhta API tokenite baashinnanguks 40-leheküljelise töö puhul saab hinnata ca 50--80€; Cowork'i agentse tööriistaga iteratsioonide tegelik kogukulu on oluliselt kõrgem (vt peatükk~\ref{subsec:hinnakujundus}).
 
 Claude Max tellimus (100--200€/kuu) võimaldab Opus mudeli piiratud kasutust veebirakenduse ja Anthropicu agentsete tööriistade (Claude Code, Cowork) kaudu.
 
@@ -159,7 +159,7 @@ Tabelis~\ref{tab:mudelite-vordlus} on esitatud nelja mudeli koondvõrdlus peamis
     row{even}={bg=colorCellHighlight},
 }
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Kontekstiaken & 1M & 1,05M & 200K (1M beetas) & 1M \\
+Kontekstiaken & 1M & 1M & 200K (1M beetas) & 1M \\
 Max väljund & 64\,000 & 128\,000 & 128\,000 & 128\,000 \\
 Mõtlemisrežiim & Jah (natiivne) & Jah (Pro eraldi) & Jah (pikendatud) & Jah (pikendatud) \\
 Sisend €/1M tok & 2,00--4,00€ & 1,75€ & 3,00€ & 15,00€ \\
@@ -176,13 +176,10 @@ Tabelist on näha, et Gemini 3.1 Pro on keskmiselt kõige halvemate tulemustega.
 
 Eraldi väärib tähelepanu mõtlemismudelite (\textit{thinking/reasoning models}) mõju genereeritud teksti kvaliteedile. Mõtlemismudelid kasutavad sisemist ahelpõhjendamist, mis võtab lisaaega ja -ressursse, kuid parandab keerulisemate ülesannete tulemust. Ji et al. \cite{ji2024cot_citations} on eksperimentaalselt näidanud, et ahelpõhjendamise strateegia parandab oluliselt nii teksti genereerimise kvaliteeti kui ka viidete täpsust, mis on eriti oluline akadeemilise teksti kontekstis.
 
-Meie testides ilmnes, et mõtlemisrežiimi kasutamine:
+Käesoleva uurimuse peaeksperiment (vt peatükk~\ref{eksperimendid}) piirdus üheainsa viipe tervikliku töö genereerimisega ega hõlmanud süstemaatilist mõtlemisrežiimi kvantitatiivset võrdlust. Autori mitteformaalsete kõrvalkatsete põhjal ilmnes, et mõtlemisrežiimi kasutamine:
 \begin{itemize}
-    \item Parandas teksti loogilist struktureerimist ca 15--20\%;
-    \item Vähendas sisulisi vasturääkivusi oluliselt;
-    \item Parandas viidete asjakohasust (kuigi hallutsinatsioone esines endiselt);
-    \item Suurendas genereerimise aega 2--5 korda;
-    \item Suurendas kulusid 1,5--3 korda.
+    \item parandas teksti loogilist struktureerimist ja vähendas sisulisi vasturääkivusi;
+    \item parandas viidete asjakohasust, kuigi hallutsinatsioone esines endiselt;
+    \item suurendas genereerimise aega ja kulusid mitmekordselt.
 \end{itemize}
-
-Mõtlemisrežiimi kasutamine on soovituslik eriti sissejuhatuse, metoodika ja arutelu peatükkide genereerimisel, kus on vaja loogilist ja sidusat argumentatsiooni.
+Need tähelepanekud on esialgsed ja vajavad edaspidi süstemaatilist võrdlust. Mõtlemisrežiimi kasutamine on siiski soovituslik eriti sissejuhatuse, metoodika ja arutelu peatükkide genereerimisel, kus on vaja loogilist ja sidusat argumentatsiooni.

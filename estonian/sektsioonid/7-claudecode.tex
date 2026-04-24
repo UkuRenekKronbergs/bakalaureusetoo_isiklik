@@ -147,3 +147,40 @@ Juhtumiuuring kinnitas, et Cowork koos Opus 4.6 mudeliga suudab genereerida terv
 \end{itemize}
 
 Peamised puudused olid endiselt seotud viidete hallutsineerimisega (ca 15\% viidetest vajasid kontrolli) ja mõningate eesti keele terminoloogia ebajärjekindlustega.
+
+\subsection{Käesoleva bakalaureusetöö enda kirjutamise töövoog} \label{subsec:oma-too-toovoog}
+
+Peatükis~\ref{eksperimendid} kirjeldatud eksperiment uuris üheainsa viipega (\textit{one-shot}) tervikliku töö genereerimist. Käesolev bakalaureusetöö ise ei ole ühe viipe tulemus: selline lähenemine ei vastaks akadeemilise aususe põhimõtetele (vt peatükk~\ref{subsec:eetika}) ega annaks ka soovitud kvaliteeti. Selle asemel kasutati kahefaasilist töövoogu, mis järgib peatükis~\ref{subsec:claudecode-soovitused} esitatud soovitusi.
+
+\subsubsection{Algne üheainsa viipega katse}
+
+Töö algetapis teostati sama üheainsa viipe katse, mida rakendati peaeksperimendis, et kaardistada võimalikku struktuuri ja teemat. Katse eesmärk oli näha, kuidas mudel ise tõlgendab lühikest juhist ning milliseid peatükke ja alapeatükke ta oodatavasse struktuuri paigutab. Seda genereeritud teksti ei kasutatud käesoleva töö lõppversioonis -- see oli üksnes kavandi loomise vahend, mis aitas autoril paremini mõista, milliseid teemasid käsitleda ja kuidas materjali järjestada. Saadud mustand heideti kõrvale ning edasine sisu kirjutati uuesti.
+
+\subsubsection{Iteratiivne töövoog}
+
+Pärast esialgset kaardistust mindi üle iteratiivsele kirjutamisele, kus autor hoidis sisulist kontrolli ja TI tööriist tegutses keelelise ning vormistusliku abivahendina. Iteratsiooni üldised sammud olid järgmised:
+
+\begin{enumerate}
+    \item \textbf{Autori sisuline kirjutamine ja eksperimendi läbiviimine.} Kõik sisulised otsused, eksperimendi disain, genereeritud tööde hindamine, kvantitatiivsed mõõtmised (kirjavigade loendus, viidete analüüs, anglitsismide loendus) ja analüüs tegi autor iseseisvalt.
+    \item \textbf{Manuaalne ülevaatus.} Autor luges iga peatüki kriitiliselt üle, tuvastas probleemid (kohmakad laused, ebatäpsed väited, numbriliste andmete ebakõlad, puuduvad viited, korduvused) ja märkis kohad, mida tuleb parandada.
+    \item \textbf{Konkreetsed parandusepalved TI-le.} Autor palus agentsel TI tööriistal teha konkreetseid parandusi, näiteks kirjavigade ja näpukate otsimine ning parandamine, lauseehituse ühtlustamine akadeemilisele stiilile, sektsioonidevaheliste vastuolude ja numbriliste ebakõlade tuvastamine, viidete formaadi ja järjekorra kontroll ning \LaTeX{} vormistuse parandamine.
+    \item \textbf{Autori otsus iga muudatuse kohta.} TI soovitatud muudatused vaatas autor enne vastuvõtmist üle; osa soovitusi lükati tagasi, kui need kaldusid autori mõttest kõrvale, lisasid alusetut sisu või muutsid sõnastust ebatäpsemaks.
+    \item \textbf{Korduv iteratsioon.} Samme 2--4 korrati iga peatüki puhul mitu korda, kuni tekst vastas soovitud kvaliteedile.
+\end{enumerate}
+
+\subsubsection{Versioonihaldus GitHubi abil}
+
+Kogu töö kirjutamise protsessi jooksul hoiti lähtekoodi (\LaTeX{} failid, viidete baas, joonised) GitHubi repositooriumis. Versioonihalduse kasutamine täitis mitut eesmärki, mis on TI-toetatud kirjutamise kontekstis eriti olulised.
+
+\begin{itemize}
+    \item \textbf{Varasemate versioonide taastamise võimalus.} Iga oluline muudatus (uus peatükk, suurem toimetamine, TI-põhine parandusvoor) salvestati eraldi commit'ina. Kui TI tööriist tegi soovimatuid muudatusi või eemaldas juhuslikult autori sisulise lõigu, sai muudatuse kergesti tagasi pöörata (\texttt{git revert}) või taastada varasema versiooni konkreetse faili jaoks (\texttt{git checkout}). See pakkus turvavõrgu, ilma milleta oleks iteratiivne töövoog olnud oluliselt riskantsem.
+    \item \textbf{TI tehtud muudatuste kontrollitavus.} Enne iga TI-põhise parandusvooru commit'iti eelmine seis, mis võimaldas pärast muudatuste tegemist vaadata diff'i ja kontrollida täpselt, mida TI muutis. See on oluline, sest agentne tööriist võib teha muudatusi failides, mida autor ei pruugi koheselt märgata -- diff muudab muudatused täielikult läbipaistvaks.
+    \item \textbf{Varundus.} Kaugserveris hoitav koopia kaitses töö kadumise eest kohaliku masina rikke või kogemata kustutamise korral.
+    \item \textbf{Commit-sõnumite kaudu kirjutamisprotsessi dokumenteerimine.} Sisukad commit-sõnumid (näiteks ``Lisatud anglitsismide analüüsi tabel'', ``Parandatud kokkuvõtte viide Cowork'i kohta'') pakuvad kronoloogilist ülevaadet tehtud muudatustest, mis aitab hiljem mõista, miks üks või teine redaktsioon tehti.
+\end{itemize}
+
+GitHubi kasutamine koos agentse TI tööriistaga lõi distsiplineeritud töövoo: enne iga suuremat TI-põhist muudatust commit'iti eelnev seis, seejärel tehti muudatus, vaadati diff üle ja alles siis aktsepteeriti muudatus järgmise commit'iga. Kui tulemus ei rahuldanud, sai muudatusest täies mahus loobuda. Selline töövoog on soovituslik igale üliõpilasele, kes kasutab lõputöö kirjutamisel agentseid TI tööriistu, sest see vähendab oluliselt töö kadumise või ebaõnnestunud iteratsioonide riski.
+
+\subsubsection{Erinevus peaeksperimendi töövoost}
+
+Käesoleva töö kirjutamise töövoog erineb peaeksperimendi üheainsa viipe lähenemisest põhimõtteliselt. Sisu kavandas, uuris ja kirjutas autor ise; TI roll piirdus keelelise toimetamise, vormistuse ühtlustamise ja sisemise järjepidevuse kontrolliga. Selline rollijaotus vastab peatükis~\ref{subsec:eetika} kirjeldatud vastutustundliku TI kasutuse põhimõtetele, kus TI-d käsitletakse abivahendina, mitte teksti algautorina. Iteratiivne töövoog koos GitHubi versioonihaldusega osutus oluliselt tõhusamaks kui peaeksperimendis katsetatud üheainsa viipega lähenemine -- sisuline täpsus, viidete kontrollitavus ja akadeemiline usaldusväärsus jäid autori vastutusele, samas kui TI aitas olulisel määral vähendada kirjutamise, toimetamise ja vormistamise ajakulu.

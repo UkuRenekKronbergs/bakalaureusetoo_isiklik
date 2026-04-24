@@ -66,11 +66,13 @@ Kokkuvõttes on TI kasutamise majanduslik kulu lõputöö kirjutamisel Sonnet-kl
 
 Eraldi väärib tähelepanu TI mudelite kasutamine eestikeelse teksti korrektuuri ja toimetamise tööriistana. See on üks valdkondi, kus TI pakub kõige suuremat praktilist väärtust.
 
-\textbf{Grammatikakontroll.} Kõik neli mudelit suudavad tuvastada ja parandada enamiku grammatikavigadest eesti keeles. Claude Opus 4.6 oli kõige täpsem, tuvastades ca 92--95\% vigadest. Claude Sonnet 4.6 ja GPT-5.4 tuvastasid ca 85--90\% testitekstides olevaid vigu. Gemini 3.1 Pro tuvastas ca 75--80\% vigadest.
+Järgmised hinnangud põhinevad autori mitteformaalsetel katsetel, mis jäid peaeksperimendi raamistikust välja ning mille täpsem metoodika vajab edaspidi süstemaatilist vormistamist. Need on esitatud suunavate tähelepanekutena.
+
+\textbf{Grammatikakontroll.} Kõik neli mudelit suudavad tuvastada ja parandada enamiku grammatikavigadest eesti keeles. Claude Opus 4.6 oli kõige täpsem, tuvastades enamiku sisestatud vigadest; Sonnet 4.6 ja GPT-5.4 tuvastasid enamiku, kuid jätsid osa keerulisemaid vigu märkamata; Gemini 3.1 Pro tulemus oli nõrgim, jättes tuvastamata ka lihtsamaid morfoloogiavigu.
 
 \textbf{Stiilikontroll.} Mudelid suudavad hinnata teksti vastavust akadeemilisele stiilile ja pakkuda parandusettepanekuid. See hõlmab liiga vaba keele tuvastamist, passiivi kasutamise soovitusi ja liigsete korduste märkamist. Claude Sonnet 4.6 oli selles osas kõige põhjalikum, pakkudes detailsemaid selgitusi paranduste kohta.
 
-\textbf{Terminoloogiakontroll.} Mudelid suudavad kontrollida tehnilise terminoloogia ühtlust ja korrektsust, kuid siin on täpsus madalam -- ca 60--70\%. See tähendab, et terminoloogilist kontrolli ei saa täielikult TI-le delegeerida ja valdkonnaspetsiifiline inimekspertiis on endiselt vajalik.
+\textbf{Terminoloogiakontroll.} Mudelid suudavad kontrollida tehnilise terminoloogia ühtlust ja korrektsust, kuid siin on täpsus oluliselt madalam kui grammatikakontrollis. Terminoloogilist kontrolli ei saa täielikult TI-le delegeerida ja valdkonnaspetsiifiline inimekspertiis on endiselt vajalik.
 
 \textbf{Soovitus.} TI-põhine korrektuur on kõige efektiivsem, kui seda kasutatakse kahes etapis:
 \begin{enumerate}
@@ -95,7 +97,7 @@ Eksperimendi tulemuste ja praktiliste kogemuste põhjal saab anda järgmised soo
 
 \subsection{Tööriistad, mida vältida} \label{subsec:valtida}
 
-Lisaks positiivsetele soovitustele ilmnes testimisel ka tööriistu, mida lõputöö kirjutamise abivahendina ei saa soovitada, vaatamata nende laialdasele kättesaadavusele üliõpilastele.
+Lisaks peaeksperimendis osalenud nelja mudeli võrdlusele testis autor lühemate mitteformaalsete katsete raames ka mõnda teist tööriista, mida lõputöö kirjutamise abivahendina ei saa soovitada, vaatamata nende laialdasele kättesaadavusele üliõpilastele. Järgmised hinnangud ei põhine käesoleva uurimuse formaalsel võrdlusel, vaid autori praktilisel kasutuskogemusel ning nende arendajate avalikul dokumentatsioonil.
 
 \textbf{Perplexity ei sobi mahukate ülesannete jaoks.} Perplexity on TI-põhine otsingumootor, mis pakub juurdepääsu erinevatele mudelitele (sh Claude, GPT ja teised). Kuigi Perplexity sobib hästi üksikute küsimuste esitamiseks ja lühikeste vastuste saamiseks, ilmnes testimisel oluline puudus: kõikidel mudelitel on Perplexity kaudu kasutades oluliselt väiksem kontekstiaken kui otse API või vestlusliidese kaudu. Perplexity veebi- ja mobiilirakenduses on otsese sisendi piiranguks vaikimisi ca 8\,000 tokenit päringu kohta \cite{datastudios2025perplexity}, mis on oluliselt vähem kui samade mudelite natiivsed kontekstiaknad (nt Claude'i 200K või Gemini 1M tokenit). See tähendab, et eraldi lühikeste promptidena saab küll normaalselt töötada. Mahukamate tekstide genereerimisel või pikema vestluse konteksti hoidmisel (nt tervikliku peatüki kirjutamine koos eelnevate osade kontekstiga) jääb kontekstiaknast aga puudu. Lisaks on täheldatud, et pikema konteksti puhul hakkab Perplexity varasemaid vestluse osi kärpima või kompresseerima, mille tagajärjel vastused lakkavad viitamast varem kokkulepitud tingimustele ja piirangutele \cite{datastudios2025perplexity}. Seetõttu ei sobi Perplexity lõputöö genereerimise tööriistaks, kus on vajalik suur ja järjepidev kontekst.
 
