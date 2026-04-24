@@ -2,7 +2,7 @@
 
 \subsection*{I. Eksperimendis kasutatud prompt} \label{lisa:promptid} \addcontentsline{toc}{subsection}{I. Eksperimendis kasutatud prompt}
 
-Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudeli puhul üht ja sama lühikest eestikeelset viibet ehk üheainsa promptiga (\textit{one-shot}) lähenemist. Viibet ei muudetud ega iteratiivselt täiendatud. Täisviibe oli järgmine:
+Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudel-tööriista kombinatsiooni puhul üht ja sama lühikest eestikeelset viibet ehk ühe kasutajaviibega (\textit{single-prompt}) lähenemist. Viibet ei muudetud ega iteratiivselt täiendatud. Täisviibe oli järgmine:
 
 \begin{quote}
 \textit{``Sa oled kogenud akadeemiline kirjutaja. Loo täielik bakalaureusetöö LaTeX-vormingus (lisasin töökausta vajaliku malli), mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele. Teema peab olema informaatikaga seotud ja vali ise. Autor on Uku Renek Kronbergs ja juhendaja Alo Peets (MSc).''}
@@ -31,14 +31,34 @@ Sellise minimaalse viipe eesmärk oli hinnata, kuidas mudelid interpreteerivad v
 
 \subsection*{II. Genereeritud tööde failid} \label{lisa:failid} \addcontentsline{toc}{subsection}{II. Genereeritud tööde failid}
 
-Eksperimendi tulemusena valmisid järgmised PDF-failid, mis on lisatud käesoleva uurimuse lähtematerjalide juurde:
+Eksperimendi tulemusena valmisid järgmised PDF-failid. Failid on kaasas käesoleva lõputöö lähtematerjalidega ning nende muutumatuse kontrollimiseks on allpool esitatud SHA-256 räsid. Kõik failid on saadaval töö avalikus GitHub-repositooriumis (\url{https://github.com/UkuRenekKronbergs/bakalaureusetoo_isiklik}, alamkaust \texttt{Genereeritud lõputööd/}) ning lõputöö lähtematerjalide paketis.
 
 \begin{itemize}
-    \item \texttt{Sonnet\_4.6\_Cowork.pdf} -- Claude Sonnet 4.6 genereeritud 40-leheküljeline eestikeelne lõputöö TI-põhise lõputöö genereerimise teemal.
-    \item \texttt{Opus\_4.6\_Cowork.pdf} -- Claude Opus 4.6 genereeritud 61-leheküljeline eestikeelne lõputöö paroolihalduri teemal.
-    \item \texttt{Gemini\_3.1\_Pro\_Antigravity.pdf} -- Gemini 3.1 Pro genereeritud 39-leheküljeline eestikeelne lõputöö GenAI mõjust algajate programmeerijate produktiivsusele.
-    \item \texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf} -- GPT-5.4 genereeritud 47-leheküljeline eestikeelne lõputöö RAG-põhise küsimus-vastus süsteemi teemal.
+    \item \texttt{Sonnet\_4.6\_Cowork.pdf} -- Claude Sonnet 4.6 + Cowork kombinatsiooni genereeritud 40-leheküljeline eestikeelne lõputöö TI-põhise lõputöö genereerimise teemal.
+    \item \texttt{Opus\_4.6\_Cowork.pdf} -- Claude Opus 4.6 + Cowork kombinatsiooni genereeritud 61-leheküljeline eestikeelne lõputöö paroolihalduri teemal.
+    \item \texttt{Gemini\_3.1\_Pro\_Antigravity.pdf} -- Gemini 3.1 Pro + Antigravity kombinatsiooni genereeritud 39-leheküljeline eestikeelne lõputöö GenAI mõjust algajate programmeerijate produktiivsusele.
+    \item \texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf} -- GPT-5.4 + ChatGPT Codex (VS Code) kombinatsiooni genereeritud 47-leheküljeline eestikeelne lõputöö RAG-põhise küsimus-vastus süsteemi teemal.
 \end{itemize}
+
+Genereeritud PDF-failide SHA-256 räsid autentsuse kontrollimiseks:
+
+\begin{description}
+    \item[\texttt{Sonnet\_4.6\_Cowork.pdf}] \hfill \\
+        \texttt{\footnotesize 1429db13cc7ba2c16c888b857a88e56d}\\
+        \texttt{\footnotesize a5a30821c61fdc3d029e9821ea409fdd}
+    \item[\texttt{Opus\_4.6\_Cowork.pdf}] \hfill \\
+        \texttt{\footnotesize 982440f59df317164e94834a7aa9607e}\\
+        \texttt{\footnotesize af851aaf3411754cd6af2b3e0584433b}
+    \item[\texttt{Gemini\_3.1\_Pro\_Antigravity.pdf}] \hfill \\
+        \texttt{\footnotesize eafe3da2a623443a50bd9e61ceb5efb3}\\
+        \texttt{\footnotesize 4f7444b54247c735f80d03988e0a886b}
+    \item[\texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf}] \hfill \\
+        \texttt{\footnotesize 4894baef65b7e4ecb404356ea9014607}\\
+        \texttt{\footnotesize 8310d3b2dfc09e376d3fbd3bbec8a20f}
+\end{description}
+\label{tab:pdf-rasid}
+
+Kõik neli PDF-faili genereeriti eksperimendi raames 2026. aasta märtsis. Retsensendi või kaitsmiskomisjoni liige saab iga PDF-faili autentsust kontrollida, laadides faili alla eelnimetatud repositooriumist ning arvutades SHA-256 räsi (nt \texttt{sha256sum} käsuga); saadud väärtus peab kattuma ülaltoodud 64-tähemärgilise räsiga (ülemine ja alumine rida kokku).
 
 \subsection*{III. Tervikliku lõputöö genereerimise näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{III. Tervikliku lõputöö genereerimise näited}
 
@@ -78,7 +98,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{``Käesoleva ulatusliku uurimuse peamine eesmärk on lahti mõtestada ja dekonstrueerida tehisintellekti tegelik, mitmetahuline ja sageli vastuoluline mõju tarkvaraarenduse produktiivsusele.''}
 \end{quote}
 
-\textit{Hinnang: Mudel genereeris sisulise ja vormiliselt korrektse töö GenAI mõjust tarkvaraarendusele Tartumaa IT-ettevõtetes. Kuigi teema on informaatikaga seotud ja seega viipele vastav, on kogu eksperiment (30 tudengit, testikeskkond, statistilised tulemused) fabritseeritud. Eestikeelne tekst on ladus, kuid sisaldab kõige rohkem kirjavigu (28) kogu võrdluses. Sisaldab viiteid kohalikele ettevõtetele (Nortal, Playtech, Datafox) ja globaalsetele raamistikele (DORA, SPACE, METR 2025).}
+\textit{Hinnang: Gemini 3.1 Pro + Antigravity kombinatsioon genereeris vormiliselt korrektse töö generatiivse TI mõjust tarkvaraarendusele -- väidetavalt Tartumaa IT-ettevõtete (nt Nortal, Playtech, Datafox) algajate programmeerijate näitel. Kuigi teema on informaatikaga seotud ja seega viipele vastav, on kogu selles kirjeldatud empiiriline osa -- 30 tudengiga kvaasi-eksperiment, testikeskkond, statistilised tulemused ning kohalike ettevõtete osalus -- fabritseeritud: reaalseid tudengeid, katseid ega andmeid ei eksisteeri ja ettevõtete nimed on lisatud ilma nende kinnituseta. Eestikeelne tekst on ladus, kuid sisaldab kõige rohkem kirjavigu (28) kogu võrdluses. Seda juhtumit käsitletakse töös akadeemilise väärkasutuse kõrge riskiga juhtumina (vt peatükk~\ref{subsec:gemini-toolo}).}
 
 \subsubsection*{III.5 Claude Opus 4.6 (Cowork) -- sissejuhatuse väljavõte (61 lk)}
 
@@ -88,7 +108,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{Käesoleva bakalaureusetöö eesmärk on projekteerida ja arendada turvaline paroolihalduri veebirakendus, mis rakendab nullteadmise arhitektuuri, kasutades AES-256-GCM krüpteeringut ja Argon2id võtmetuletamist. [...]}
 \end{quote}
 
-\textit{Hinnang: Opus 4.6 genereeris Cowork'i kaudu kõige mahukama ja tehniliselt sügavaima töö. 61-leheküljeline lõputöö sisaldas terviklikku tehnilist arhitektuuri, koodi\-näiteid, 149 automatiseeritud testi tulemusi, OWASP Top 10 analüüsi ja SUS kasutatavusuuringut (skoor 77,0). Eestikeelne akadeemiline stiil oli läbivalt suurepärane (0 esimese isiku asesõna terve töö peale). Struktuur vastas TÜ nõuetele. Viidete hallutsineerimise määr oli madalaim (ca 15\%). Peamine eelis teiste mudelite ees: tehniline detailsus, \LaTeX{} koodi otsene genereerimine failidesse ja võime hallata terviklikku projektistruktuuri.}
+\textit{Hinnang: Opus 4.6 + Cowork kombinatsioon genereeris kõige mahukama ja tehniliselt sügavaima töö. 61-leheküljeline lõputöö sisaldas terviklikku tehnilist arhitektuuri ja koodi\-näiteid; lisaks \emph{väitis} töö, et rakendus läbis 149 automatiseeritud testi, OWASP Top 10 analüüsi ja SUS kasutatavusuuringu (skoor 77,0). Neid teste, auditit ega kasutajauuringut ei teostanud käesoleva uurimuse autor iseseisvalt -- tegemist on kombinatsiooni enda genereeritud empiiriliste väidetega, mis tuleb inimese poolt kontrollida samamoodi nagu viited. Eestikeelne akadeemiline stiil oli läbivalt suurepärane (0 esimese isiku asesõna terve töö peale). Struktuur vastas TÜ nõuetele. Viidete hallutsineerimise määr oli madalaim (ca 15\%). Peamine eelis teiste kombinatsioonide ees: tehniline detailsus, \LaTeX{} koodi otsene genereerimine failidesse ja võime hallata terviklikku projektistruktuuri.}
 
 \subsubsection*{III.6 Genereeritud tööde võrdlev kokkuvõte}
 
@@ -106,15 +126,14 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
     vlines,
     row{even}={bg=colorCellHighlight},
 }
-Kriteerium & Gemini 3.1 Pro & GPT-5.4 (Codex) & Claude Sonnet 4.6 & Claude Opus 4.6 \\
+Kriteerium & Gemini 3.1 Pro + Antigravity & GPT-5.4 + Codex & Claude Sonnet 4.6 + Cowork & Claude Opus 4.6 + Cowork \\
 Keel & Eesti & Eesti & Eesti & Eesti \\
 Maht & 39 lk & 47 lk & 40 lk & 61 lk \\
 Valitud teema & GenAI ja progr. & RAG QA-süsteem & TI lõputöö gener. & Paroolihaldur \\
 Struktuur & Lõputöö & Lõputöö & Lõputöö & Lõputöö \\
-Tööriist & Antigravity & Codex VS Code'is & Cowork & Cowork \\
 Kirjavigu (kogu töö peale) & 28 & 1 & 13 & 5 \\
 Unikaalseid viiteid & 9 & 22 & 17 & 35 \\
 Esimese isiku asesõnu & 4 & 2 & 2 & 0 \\
-Praktiline kasutus aluspõhjana & Madal (fabritseeritud andmed) & Kõrge & Kõrge & Väga kõrge \\
+Praktiline kasutus aluspõhjana & Madal (fabritseeritud empiirika) & Kõrge & Kõrge & Väga kõrge (kontrollimata empiiriliste väidetega) \\
 \end{tblr}
 \end{table}

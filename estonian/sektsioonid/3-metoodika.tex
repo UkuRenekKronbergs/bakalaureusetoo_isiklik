@@ -1,8 +1,10 @@
 \section{Metoodika} \label{metoodika}
 
-Käesolev peatükk kirjeldab uurimuse metoodikat, sealhulgas TI mudelite valiku kriteeriume, eksperimendi ülesehitust, üheainsa viipe (\textit{one-shot prompt}) sisu ning hindamiskriteeriumeid.
+Käesolev peatükk kirjeldab uurimuse metoodikat, sealhulgas TI mudelite ja agentsete tööriistade valiku kriteeriume, eksperimendi ülesehitust, ühe kasutajaviibega (\textit{single-prompt}) lähenemise sisu ning hindamiskriteeriumeid.
 
-\subsection{Mudelite valiku kriteeriumid} \label{subsec:valiku-kriteeriumid}
+Terminoloogilise täpsuse huvides tuleb märkida, et kuigi ingliskeelses kirjanduses kasutatakse sageli sõna \textit{one-shot}, tähendab see masinõppes üldjuhul olukorda, kus mudelile antakse üks näidislahendus. Käesolevas uurimuses näidiseid ei esitata -- mudelile antakse vaid üks lühike kasutajaviibe ilma näideteta, mis on pigem \textit{zero-shot}- või täpsemalt \textit{single-prompt}-lähenemine agentse töövoo raames. Sisemiselt võib mudel agentse tööriista abil teha mitu sammu (failide lugemine, kirjutamine, \LaTeX{} kompileerimine, vigade parandamine); ``ühe kasutajaviibe'' tähistab siin üksnes kasutajapoolset suhtlust mudeliga.
+
+\subsection{Mudelite ja tööriistade valiku kriteeriumid} \label{subsec:valiku-kriteeriumid}
 
 Uurimuse jaoks mudelite valimisel lähtuti järgmistest kriteeriumidest:
 
@@ -16,9 +18,11 @@ Uurimuse jaoks mudelite valimisel lähtuti järgmistest kriteeriumidest:
 
 Nende kriteeriumide alusel valiti neli mudelit: Google Gemini 3.1 Pro, OpenAI GPT-5.4, Anthropic Claude Sonnet 4.6 ning Anthropic Claude Opus 4.6. Opus 4.6 lisati võrdlusse kui sama mudeliperekonna võimekaim mudel, et hinnata mudeli suuruse mõju genereeritud teksti kvaliteedile. Valiku põhjendused on esitatud peatükis~\ref{mudelid}.
 
+Kuna käesolev eksperiment nõudis faili\-süsteemi ligipääsu ja \LaTeX{} kompileerimist, ei saanud mudeleid kasutada puhta vestlusliidese kaudu. Iga mudeli kohta kasutati selle mudeli pakkuja ametlikku või laialt kasutatavat agentset tööriista: Claude Sonnet 4.6 ja Opus 4.6 puhul Anthropicu Cowork, Gemini 3.1 Pro puhul Google'i Antigravity ning GPT-5.4 puhul ChatGPT Codex laiendus Visual Studio Code'is. Lisaks testiti GPT-5.4 puhul võrdluseks ka tavapärast ChatGPT vestlusliidest. Oluline on rõhutada, et eksperimendis võrreldud üksusteks ei ole niivõrd ``mudelid iseenesest'', kuivõrd \emph{mudeli ja agentse tööriista kombinatsioonid}. Seetõttu tuleb tulemusi tõlgendada konkreetsete mudel-tööriista paaride, mitte puhaste mudeli\-võimekuste näitajatena -- süsteemijuhised, faili\-ligipääs, automaatne kompileerimine ja liidese ohutuspoliitika erinevad tööriistade lõikes ning mõjutavad väljundit. Seda piirangut on täiendavalt käsitletud peatükis~\ref{subsec:puudujaagid}.
+
 \subsection{Eksperimendi ülesehitus} \label{subsec:eksperimendi-ulesehitus}
 
-Uurimus piirdus ühe eksperimendiga: igale mudelile anti üks ja sama lühike eestikeelne viibe ning lasti mudelil genereerida terviklik bakalaureusetöö ilma järelküsimuste, iteratiivse suunamise või peatükkide kaupa juhendamiseta. Selline üheainsa promptiga (\textit{one-shot}) lähenemine valiti teadlikult kahel põhjusel. Esiteks kajastab see kõige ausamalt, kuidas keelemudelit kasutaks üliõpilane, kes soovib lõputöö kirjutamist TI-le täielikult delegeerida -- see on stsenaarium, mida akadeemilise aususe kontekstis on oluline hinnata. Teiseks võimaldab identne minimaalne sisend nelja mudeli väljundeid kõige otsesemalt võrrelda, kuna ühtegi mudelit ei eelistata täiendava konteksti, promptiinseneeria ega iteratiivse parandamise kaudu.
+Uurimus piirdus ühe eksperimendiga: igale mudel-tööriista kombinatsioonile anti üks ja sama lühike eestikeelne kasutajaviibe ning lasti agentsel töövool genereerida terviklik bakalaureusetöö ilma järelküsimuste, iteratiivse suunamise või peatükkide kaupa juhendamiseta. Selline ühe kasutajaviibega lähenemine valiti teadlikult kahel põhjusel. Esimene põhjus on see, et lähenemine kajastab kõige ausamalt seda, kuidas keelemudelit kasutaks üliõpilane, kes soovib lõputöö kirjutamist TI-le täielikult delegeerida -- see on stsenaarium, mida akadeemilise aususe kontekstis on oluline hinnata. Teine põhjus on see, et identne minimaalne sisend võimaldab nelja mudel-tööriista kombinatsiooni väljundeid kõige otsesemalt võrrelda, kuna ühtegi kombinatsiooni ei eelistata täiendava konteksti, viibe\-inseneeria (\textit{prompt engineering}) ega iteratiivse parandamise kaudu. Kuna iga kombinatsiooni kohta tehti üks jooks, on saadud näitajad eksploratiivsed -- need iseloomustavad konkreetset katset, mitte üldist mudeli\-võimekust; mitteterministlikkusest ja agentsete tööriistade varieeruvusest tulenevate piirangute põhjalikumat käsitlust vt peatükist~\ref{subsec:puudujaagid}.
 
 \textbf{Kasutatud viibe.} Kõigile mudelitele anti järgmine eestikeelne viibe (täistekst on esitatud lisas~I):
 
