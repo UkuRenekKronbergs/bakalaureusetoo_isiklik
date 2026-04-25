@@ -1,6 +1,6 @@
 \section{TI mudelite võrdlus} \label{mudelid}
 
-Käesolev peatükk esitab nelja valitud TI mudeli detailse võrdluse, hõlmates nende tehnilist arhitektuuri, võimekust, hinnastamist ja eesti keele tuge.
+Käesolev peatükk esitab nelja valitud TI mudeli võrdluse, keskendudes nende tehnilistele parameetritele, agentse töövoo jaoks olulistele omadustele, kuluaspektidele ja eesti keele toele.
 
 \subsection{Google Gemini 3.1 Pro} \label{subsec:gemini}
 
@@ -12,17 +12,9 @@ Gemini 3.1 Pro peamine eelis on selle ulatuslik kontekstiaken, mis ulatub kuni 1
 
 Gemini 3.1 Pro on natiivne mõtlemismudel (\textit{thinking model}), mis tähendab, et mudel kasutab sisemist ahelpõhjendamist enne vastuse andmist. See parandab oluliselt keeruliste ülesannete lahendamise kvaliteeti, sealhulgas struktureeritud teksti loomist.
 
-\subsubsection{Hinnastamine}
+\subsubsection{Kuluaspekt}
 
-Gemini 3.1 Pro kasutamine API kaudu (seisuga märts 2026, hinnad esitatud USA dollarites vastavalt Google'i ametlikule hinnakirjale \cite{google2026gemini_pricing}):
-\begin{itemize}
-    \item Sisendtokenid: \$2,00 / 1M tokenit (kuni 200K pikkuste päringute puhul)
-    \item Sisendtokenid: \$4,00 / 1M tokenit (üle 200K pikkuste päringute puhul)
-    \item Väljundtokenid: \$12,00 / 1M tokenit (kuni 200K pikkuste päringute puhul)
-    \item Väljundtokenid: \$18,00 / 1M tokenit (üle 200K pikkuste päringute puhul)
-\end{itemize}
-
-Google AI Studio tasuta versioon võimaldab piiratud kasutust ilma kuluta, mis sobib eksperimenteerimiseks. Hinnanguliselt vajab 40-leheküljelise lõputöö genereerimine ca 500\,000 väljundtokenit ja ca 2\,000\,000 sisendtokenit, mis annab puhta API tokenite baashinnanguks ca \$10--16. Agentse tööriista iteratsioonid (korduv failide lugemine ja kirjutamine) tõstavad tegelikku kogukulu oluliselt; täielik kuluarvestus on esitatud peatükis~\ref{subsec:hinnakujundus}.
+Gemini 3.1 Pro oli API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus}). Google AI Studio tasuta piiratud kasutus sobib esmasteks katseteks. Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
 
 \subsubsection{Eesti keele tugi}
 
@@ -42,34 +34,18 @@ OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta de
 
 GPT-5.4 kontekstiaken ulatub kuni 1\,000\,000 tokenini, mis on võrreldav Gemini 3.1 Pro omaga ja pakub piisavat mahutavust ka kõige mahukamate lõputöö genereerimise stsenaariumide jaoks. OpenAI positsioneerib GPT-5.4 mudelina, mis on optimeeritud professionaalseks tööks parandatud arutluskäigu, tööriistade kasutamise ja dokumentide töövoogudega.
 
-Märkimisväärne on GPT-5.4 kasutuse tugev liidese- ja kontekstisõltuvus: käesoleva uurimuse katsetes keeldus mudel ChatGPT vestlusliidese kaudu genereerimast terviklikku lõputööd, viidates akadeemilise aususe piirangutele (vt peatükk~\ref{subsec:exp-tervik}), pakkudes selle asemel teostatavusjuhendit inglise keeles. Sama mudel andis aga ChatGPT Codex laienduse kaudu tervikliku eestikeelse 47-leheküljelise väljundi. See kontrast viitab sellele, et käitumist ei määra ainult mudeli aluskoolitus, vaid ka konkreetse liidese süsteemijuhised ja ohutuspoliitika. Bianchi et al. \cite{bianchi2023safety} on dokumenteerinud sarnast ``liialdatud ohutuskäitumist'', kus ohutuskoolitusega mudelid keelduvad ka täiesti ohututest ülesannetest, mis pealiskaudselt sarnanevad potentsiaalselt kahjulikele.
+Märkimisväärne on GPT-5.4 kasutuse tugev liidese- ja kontekstisõltuvus: sama mudel andis vestlusliideses ja Codex-laienduses erineva tulemuse (vt peatükk~\ref{subsec:gpt-toolo}). Seetõttu tuleb käesolevas töös eristada GPT-5.4 kui alusmudelit ja konkreetset liidest, mille süsteemijuhised ning ohutuspoliitika väljundit kujundavad.
 
-\subsubsection{Hinnastamine}
+\subsubsection{Kuluaspekt}
 
-GPT-5.4 hinnastamine API kaudu (seisuga märts 2026, hinnad esitatud USA dollarites vastavalt OpenAI ametlikule hinnakirjale \cite{openai2026pricing}):
-\begin{itemize}
-    \item Sisendtokenid: \$2,50 / 1M tokenit
-    \item Väljundtokenid: \$15,00 / 1M tokenit
-    \item Vahemälus (\textit{cached}) sisendtokenid: \$0,25 / 1M tokenit
-\end{itemize}
-
-ChatGPT Plus tellimus (\$20/kuu) võimaldab piiratud kasutust veebirakenduse kaudu ning katab ka Codex laienduse kasutuse. Puhta API tokenite baashinnanguks 40-leheküljelise töö puhul saab hinnata ca \$10--15; agentse tööriistaga (nt Codex) tegelik kogukulu on kõrgem (vt peatükk~\ref{subsec:hinnakujundus}).
-
-GPT-5.4 Pro mudeli hinnastamine on oluliselt kallim:
-\begin{itemize}
-    \item Sisendtokenid: \$15,00 / 1M tokenit
-    \item Väljundtokenid: \$120,00 / 1M tokenit
-\end{itemize}
-
-See teeb GPT-5.4 Pro mudeli kasutamise mahuka teksti genereerimiseks ebapraktiliseks.
+GPT-5.4 paiknes API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus}). GPT-5.4 Pro variant oli märksa kallim ning mahuka teksti genereerimiseks vähem praktiline. Kuupõhiste tellimuste ja agentse töövoo kogukulu võrdlus on koondatud peatükki~\ref{subsec:hinnakujundus}.
 
 \subsubsection{Eesti keele tugi}
 
-GPT-5.4 eesti keele tugi on käesolevas eksperimendis ilmnenud käitumise põhjal piisavalt tugev, et toota terviklikku mahukat eestikeelset akadeemilist teksti -- Codex laienduse kaudu genereeritud 47-leheküljeline töö sisaldas vaid ühte kirjaviga (vt peatükk~\ref{subsec:kirjaviga}). ChatGPT vestlusliidese kaudu tehtud katses valis mudel aga sama eestikeelse viipe korral väljundkeeleks inglise keele ja esitas vastuse nõuandva teostatavusjuhendina. See vastuolu viitab sellele, et keelevalik sõltub käesolevas katses pigem liidese süsteemijuhistest ja ohutuspoliitikast kui mudeli alus\-keelevõimekusest, mistõttu järgnevas võrdluses käsitletakse vestlusliidese tulemust peamiselt liidese, mitte mudeli keeleliste oskuste näitajana:
+GPT-5.4 eesti keele tugi on Codex-laienduse kaudu saadud tulemuse põhjal tugev: mudel suutis luua mahuka eestikeelse akadeemilise teksti väga väheste ortograafiliste vigadega (vt peatükk~\ref{subsec:kirjaviga}). Vestlusliidese ingliskeelne vastus näitab eelkõige liidese mõju, mitte mudeli alus\-keelevõimekuse puudumist. Peamised tähelepanekud olid järgmised:
 \begin{itemize}
     \item Grammatiliselt korrektne eesti keel nii lühikestes kui ka pikkades (47 lk) tekstides, kui kasutatakse agentset liidest;
     \item Tendents kasutada ingliskeelseid termineid seal, kus eestikeelne vaste on olemas;
-    \item ChatGPT vestlusliidese kaudu tervikliku töö genereerimisest keeldumine ja inglise keelele üleminek, mis on tõlgendatav liidese, mitte mudeli omadusena;
     \item Viidete genereerimisel esineb hallutsinatsioone (olematud artiklid ja autorid).
 \end{itemize}
 
@@ -85,17 +61,9 @@ Anthropic pakub ka Claude'i pikendatud mõtlemisrežiimi, kus mudel kasutab kuni
 
 Claude'i eristab teistest mudelitest ka tema võimekus järgida detailseid juhiseid ja stiilireegleid. Meie testides näitas Claude kõige paremat tulemust juhendipõhise genereerimise ülesannetes, kus mudelile anti ette konkreetsed struktuurinõuded.
 
-\subsubsection{Hinnastamine}
+\subsubsection{Kuluaspekt}
 
-Claude Sonnet 4.6 hinnastamine API kaudu (seisuga märts 2026, hinnad esitatud USA dollarites vastavalt Anthropicu ametlikule hinnakirjale \cite{anthropic2026pricing}):
-\begin{itemize}
-    \item Sisendtokenid: \$3,00 / 1M tokenit
-    \item Väljundtokenid: \$15,00 / 1M tokenit
-    \item Vahemälus sisendtokenid: \$0,30 / 1M tokenit
-    \item Vahemälus kirjutamine: \$3,75 / 1M tokenit
-\end{itemize}
-
-Claude Pro tellimus (\$20/kuu) võimaldab piiratud kasutust veebirakenduse kaudu. Puhta API tokenite baashinnanguks 40-leheküljelise töö puhul saab hinnata ca \$10--18; Cowork'i agentse töövoo iteratsioonidega tegelik kogukulu on kõrgem (vt peatükk~\ref{subsec:hinnakujundus}).
+Claude Sonnet 4.6 on kulult võrreldav GPT-5.4-ga, kuid käesolevas katses andis see tugevama akadeemilise stiili ja juhiste järgimise. Agentse Cowork'i töövoo kogukulu hinnatakse peatükis~\ref{subsec:hinnakujundus}.
 
 \subsubsection{Eesti keele tugi}
 
@@ -116,19 +84,9 @@ Anthropic Claude Opus 4.6 on käesoleva uurimuse eksperimendi läbiviimise ajal 
 Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb suuremas parameetrite arvus ja sügavamas arutlusvõimekuses. Opus mudelid on Anthropicu mudeliperekonna tipptasemel, pakkudes kõige paremat tulemust keerulistes struktureeritud ülesannetes, nagu pikaajaline teksti genereerimine, koodi kirjutamine ja mitmesammuline probleemilahendus \cite{anthropic2026opus}.
 
 
-\subsubsection{Hinnastamine}
+\subsubsection{Kuluaspekt}
 
-Claude Opus 4.6 hinnastamine API kaudu (seisuga märts 2026, hinnad esitatud USA dollarites vastavalt Anthropicu ametlikule hinnakirjale \cite{anthropic2026pricing}):
-\begin{itemize}
-    \item Sisendtokenid: \$15,00 / 1M tokenit
-    \item Väljundtokenid: \$75,00 / 1M tokenit
-    \item Vahemälus sisendtokenid: \$1,50 / 1M tokenit
-    \item Vahemälus kirjutamine: \$18,75 / 1M tokenit
-\end{itemize}
-
-Opus 4.6 on oluliselt kallim kui Sonnet 4.6 -- väljundtokenid on 5 korda kallimad. See teeb Opus mudeli kasutamise mahuka teksti genereerimiseks kulukaks, kuid kvaliteedivõit võib seda kompenseerida. Puhta API tokenite baashinnanguks 40-leheküljelise töö puhul saab hinnata ca \$55--85; Cowork'i agentse tööriistaga iteratsioonide tegelik kogukulu on oluliselt kõrgem (vt peatükk~\ref{subsec:hinnakujundus}).
-
-Claude Max tellimus (\$100--200/kuu) võimaldab Opus mudeli piiratud kasutust veebirakenduse ja Anthropicu agentsete tööriistade (Claude Code, Cowork) kaudu.
+Claude Opus 4.6 oli võrreldud mudelitest selgelt kõige kallim (vt tabel~\ref{tab:mudelite-vordlus}), kuid käesolevas katses kaasnes sellega ka kõige tugevam väljund. Selle kompromissi praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
 
 \subsubsection{Eesti keele tugi}
 
@@ -143,7 +101,7 @@ Claude Opus 4.6 eesti keele tugi oli selles eksperimendis (Cowork'i kaudu kasuta
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
 
-Tabelis~\ref{tab:mudelite-vordlus} on esitatud nelja mudeli koondvõrdlus peamiste parameetrite lõikes.
+Tabelis~\ref{tab:mudelite-vordlus} on esitatud nelja mudeli koondvõrdlus peamiste parameetrite lõikes. Hinnaread tuginevad mudelite pakkujate 2026. aasta märtsi ametlikele hinnakirjadele \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing}.
 
 \begin{table}[ht]
 \centering

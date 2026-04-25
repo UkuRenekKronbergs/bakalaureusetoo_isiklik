@@ -1,6 +1,6 @@
 \section{Agentsed TI tööriistad lõputöö genereerimisel} \label{claudecode}
 
-Käesolev peatükk kirjeldab Claude Code'i kui agentset TI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Peatükk annab ülevaate tööriista arhitektuurist, töövoogudest ning esitab praktilised soovitused lõputöö genereerimiseks. Lisaks esitatakse juhtumiuuring Opus 4.6 mudeliga, milles kasutati Anthropicu teist agentset tööriista Cowork, mis on Claude Code'iga sarnase ülesehituse ja töövoogudega, kuid neist eraldiseisev toode.
+Käesolev peatükk kirjeldab Claude Code'i kui agentset TI tööriista, mis võimaldab terviklike akadeemiliste tööde genereerimist otse arenduskeskkonnas. Fookus on praktilisel töövool: kuidas agentne tööriist kasutab failisüsteemi, \LaTeX{} malli, kompileerimist ja versioonihaldust. Eksperimendi arvulisi tulemusi ei korrata siin täismahus, vaid neile viidatakse peatükis~\ref{eksperimendid}; lisaks käsitletakse lühidalt Cowork'i, mis on Claude Code'iga sarnase ülesehitusega, kuid eraldiseisev Anthropicu toode.
 
 \subsection{Claude Code'i ülevaade} \label{subsec:claudecode-ulevaade}
 
@@ -86,9 +86,9 @@ Soovitame järgmist samm-sammulist töövoogu:
     \item \textbf{Kasuta pikendatud mõtlemisrežiimi.} Claude Code'i pikendatud mõtlemisrežiim (\textit{extended thinking}) parandab oluliselt keeruliste akadeemiliste tekstide kvaliteeti. See on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
     \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta töö maht ja peamised teemad.
     \item \textbf{Kontrolli viiteid alati.} Ükski TI mudel ei genereeri 100\% korrektseid viiteid. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
-    \item \textbf{Ära usalda ühe kasutajaviibega (\textit{single-prompt}) tulemust pimesi ilma kriitilise ülevaatamiseta.} Käesoleva uurimuse eksperimendis (vt peatükk~\ref{subsec:cowork-juhtumiuuring}) näitas ühe kasutajaviibega lähenemine juba üllatavalt tugevaid tulemusi (eriti Opus 4.6 + Cowork kombinatsiooni puhul -- 61 lehekülge, 5 kirjaviga, 0 esimese isiku asesõna), kuid sellegipoolest sisaldas töö hallutsineeritud viiteid ja mõningaid sisulisi probleeme. Parima kvaliteedi saavutamiseks on mõistlik kombineerida ühe viibega genereerimist iteratiivsete paranduste ja kasutaja järelevalvega.
+    \item \textbf{Ära usalda ühe kasutajaviibega (\textit{single-prompt}) tulemust pimesi ilma kriitilise ülevaatamiseta.} Käesoleva uurimuse eksperimendis andis see lähenemine mõnel juhul tugeva vormilise tulemuse, kuid sisaldas endiselt hallutsineeritud viiteid ja kontrollimata empiirilisi väiteid (vt peatükk~\ref{eksperimendid}). Parima kvaliteedi saavutamiseks on mõistlik kombineerida ühe viibega genereerimist iteratiivsete paranduste ja kasutaja järelevalvega.
     \item \textbf{Ole kursis enda tööga.} TI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
-    \item \textbf{Kasuta tipptasemel mudelit nii palju kui võimalik.} Käesoleva töö kirjutamise ajal (märts 2026) oli Claude perekonna võimekaim mudel Claude Opus 4.6 ja see sobis kõige paremini terviklike peatükkide ja keeruliste akadeemiliste tekstide genereerimiseks, kuigi selle hind oli oluliselt kõrgem kui Sonnet mudelil. Kuna Anthropic on vahepeal avaldanud uuemaid versioone, tasub soovituse rakendamisel kontrollida, milline Opus-tasemel mudel on parajasti kättesaadav.
+    \item \textbf{Kasuta keeruliste peatükkide jaoks tugevamat mudelit.} Käesoleva töö kirjutamise ajal (märts 2026) andis Claude Opus 4.6 kõige parema tulemuse terviklike peatükkide ja keeruliste akadeemiliste tekstide toimetamisel. Lihtsamate korrektuuri- ja vormistusülesannete jaoks piisas sageli Sonnet-klassi mudelist. Kuna mudeliperekonnad muutuvad kiiresti, tasub soovituse rakendamisel kontrollida, milline Opus-tasemel mudel on parajasti kättesaadav.
 \end{itemize}
 
 \subsection{Alternatiivne agentne tööriist: Google Antigravity} \label{subsec:antigravity}
@@ -99,9 +99,9 @@ Käesoleva uurimuse eksperimendi raames testiti Gemini 3.1 Pro mudelit Google'i 
 
 Lisaks Google'i Antigravity'le testiti ka OpenAI ChatGPT Codex laiendust (\textit{extension}) Visual Studio Code'i arenduskeskkonnas \cite{openai2025codex}. Codex laiendus on funktsionaalselt sarnane Claude Code'iga ja Antigravity'ga -- see võimaldab mudelil iseseisvalt hallata projekti faile, genereerida \LaTeX{} koodi ning struktureerida terviklikku dokumenti otse arenduskeskkonnas.
 
-Eriti tähelepanuväärne on Codex laienduse tulemus GPT-5.4 mudeliga. Käesoleva uurimuse eksperimendis (vt peatükk~\ref{subsec:exp-tervik}) keeldus GPT-5.4 tavapärase ChatGPT vestlusliidese kaudu terviklikku lõputööd genereerimast, viidates akadeemilise aususe piirangutele, ning andis selle asemel 8-leheküljelise ingliskeelse juhendi. Codex laienduse kaudu suutis aga sama mudel -- täpselt sama ühe kasutajaviibega -- genereerida visuaalselt teiste kombinatsioonide väljunditega sarnase tervikliku dokumendi. See erinevus ei ole otseses mõttes ``ohutuspiirangu ületamine'', vaid näitab, et agentne töövoog muudab ülesande konteksti ja tööjaotust -- liides, süsteemijuhised ja ohutuspoliitika on Codexi puhul teistsugused kui ChatGPT vestlusliideses, ning ülesanne jaotub väiksemateks faili- ja kompileerimispõhisteks sammudeks. Selle tulemusena käitus sama mudel erinevas liideses sisuliselt erinevalt; seda ei tohi käsitleda kui juhist, kuidas turvakoolitusest mööda minna.
+GPT-5.4 katse näitas, et Codexi liides võib anda sama mudeliga teistsuguse tulemuse kui tavaline vestlusaken: eksperimendi detailne kirjeldus on peatükis~\ref{subsec:gpt-toolo}. Siinse peatüki seisukohalt on oluline järeldus see, et agentne töövoog muudab ülesande konteksti ja tööjaotust -- töö toimub failide, kompileerimise ja väiksemate sammude kaudu, mitte ühe pika vestlusvastusena. Seda ei tule käsitleda ohutuspiirangutest möödahiilimisena, vaid näitena sellest, et mudeli käitumine sõltub ka liidesest ja süsteemijuhistest.
 
-Majanduslikust aspektist väärib märkimist, et Codex laiendus kasutab ChatGPT Plus tellimuse (\$20/kuu) raames kaasasolevat kasutuskvooti. Testimisel kulus tervikliku dokumendi genereerimiseks seda väga vähe (umbes 30\% sessiooni limiidist), mis teeb ChatGPT Plus plaanist hea hinna ja võimsuse suhtega valiku lõputöö genereerimisel.
+Praktilise kasutuse seisukohalt oli Codexi eelis see, et katse mahtus olemasoleva ChatGPT kasutuskvoodi sisse. Kuluarvestust käsitletakse koondina peatükis~\ref{subsec:hinnakujundus}.
 
 \subsection{Claude Code'i piirangud} \label{subsec:claudecode-piirangud}
 
@@ -109,7 +109,7 @@ Vaatamata eelistele on Claude Code'il mitmeid piiranguid lõputöö genereerimis
 
 \begin{itemize}
     \item \textbf{Kontekstiakna täitumine.} Pikema sessiooni jooksul võib kontekstiaken täituda, mis põhjustab varasemate osade ``unustamist''. Lahenduseks on sessiooni korrapärane taaskäivitamine ja CLAUDE.md faili kasutamine püsiva kontekstina.
-    \item \textbf{Hind.} Claude Code kasutab API-põhist hinnastamist, mis tähendab, et pikemad sessioonid võivad olla kulukad, eriti Opus mudeliga.
+    \item \textbf{Kulu.} Pikemad sessioonid võivad olla kulukad, eriti Opus-tasemel mudeliga.
     \item \textbf{Tehniline barjäär.} Claude Code eeldab käsurea ja arenduskeskkonna kasutamise oskust, mis ei ole kõigile üliõpilastele tuttav.
     \item \textbf{Versioonihaldus.} Kuigi Claude Code saab kasutada Git'i, on oluline, et üliõpilane mõistab versioonihalduse põhimõtteid, et vältida töö kadumist.
 \end{itemize}
@@ -118,7 +118,7 @@ Suurem osa neist piirangutest kehtib ka Cowork'i kohta, kuna tööriistad on tö
 
 \subsection{Juhtumiuuring: paroolihalduri lõputöö Cowork'i ja Opus 4.6-ga} \label{subsec:cowork-juhtumiuuring}
 
-Käesoleva uurimuse raames genereeriti Anthropicu Cowork'i ja Opus 4.6 mudeli abil terviklik 61-leheküljeline bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. Oluline on rõhutada, et kasutati spetsiifiliselt Cowork'i, mitte eelnevates alalõikudes kirjeldatud Claude Code'i -- need on Anthropicu kaks eraldiseisvat agentset tööriista. See juhtumiuuring demonstreerib Opus 4.6 + Cowork kombinatsiooni praktilisi võimekusi ja piiranguid reaalse lõputöö genereerimisel ühe kasutajaviibega. Kuna Cowork'i töövood on Claude Code'iga suures osas sarnased, on enamik eelmistes alalõikudes esitatud soovitusi ja tähelepanekuid ülekantavad ka Cowork'ile.
+Käesoleva uurimuse peaeksperimendis genereeris Opus 4.6 + Cowork kombinatsioon tervikliku bakalaureusetöö teemal ``Turvalise paroolihalduri veebirakenduse arendamine''. Tulemuste üksikasjalik hindamine on esitatud peatükis~\ref{subsec:opus-toolo}; siin kasutatakse juhtumit eeskätt selleks, et näidata, milliseid praktilisi võimalusi ja riske agentne tööriist lõputöö genereerimisel kaasa toob. Oluline on rõhutada, et kasutati Cowork'i, mitte Claude Code'i, kuigi tööriistade failipõhine loogika on sarnane.
 
 \subsubsection{Genereerimisprotsess}
 
@@ -126,29 +126,11 @@ Genereerimine toimus Cowork'i kaudu, kasutades Opus 4.6 mudelit. Projektikausta 
 
 \subsubsection{Genereeritud töö omadused}
 
-Genereeritud lõputöö sisaldas järgmisi komponente:
-\begin{itemize}
-    \item Terviklik tehniline arhitektuur: nullteadmise (\textit{zero-knowledge}) põhimõte, AES-256-GCM krüpteering, Argon2id võtmetuletamine;
-    \item React/TypeScript kasutajaliides ja Node.js/Express taustarakendus PostgreSQL andmebaasiga;
-    \item \emph{väited} selle kohta, et rakendus läbis 149 automatiseeritud testi (47 krüptograafia ühiktesti + 61 serveri ühiktesti + 41 integratsioonitesti);
-    \item \emph{väide} OWASP Top 10 vastavuse analüüsi kohta;
-    \item \emph{väide} süsteemi kasutatavuse skaala (SUS) hindamisest skooriga 77,0;
-    \item \emph{väide}, et turvaauditi tulemusel ei tuvastatud ühtegi kriitilist turvaauku.
-\end{itemize}
-
-Olulise metoodilise märkusena: neid teste, auditit ega kasutajauuringut käesoleva uurimuse autor iseseisvalt ei teostanud -- tegemist on kombinatsiooni genereeritud empiiriliste väidetega, mis kuuluvad samasse kategooriasse viitehallutsinatsioonidega ning tuleb inimese poolt eraldi kontrollida.
+Genereeritud lõputöö oli vormilt terviklik: see sisaldas tehnilist arhitektuuri, kasutajaliidese ja taustarakenduse kirjeldust, koodinäiteid, tabeleid ja viiteid. Samal ajal esitas see ka kontrollimata empiirilisi väiteid testide, turvaauditi ja kasutatavuse hindamise kohta. Neid teste ega kasutajauuringut käesoleva uurimuse autor iseseisvalt ei teostanud, mistõttu tuleb neid käsitleda samas riskikategoorias nagu hallutsineeritud viiteid.
 
 \subsubsection{Järeldused juhtumiuuringust}
 
-Juhtumiuuring kinnitas, et Opus 4.6 + Cowork kombinatsioon suudab selles katses genereerida tervikliku, struktureeritud ja tehniliselt detailse lõputöö. Genereeritud töö vastas TÜ ATI vorminõuetele ja sisaldas kõiki nõutud peatükke. Peamised tugevused olid:
-\begin{itemize}
-    \item Tehniline sügavus ja detailsus, mis ületas teiste kombinatsioonide tulemusi;
-    \item Korrektne eesti keel läbivalt kogu töös;
-    \item Terviklik ja sisukas struktuur ilma teemast kõrvalekaldumiseta;
-    \item \LaTeX{} koodi korrektne genereerimine, sealhulgas tabelid, joonised ja viited.
-\end{itemize}
-
-Peamised puudused olid endiselt seotud viidete hallutsineerimisega (ca 15\% viidetest vajasid kontrolli), kombinatsiooni enda genereeritud empiiriliste väidetega (149 testi, SUS skoor 77,0 jms) ning mõningate eesti keele terminoloogia ebajärjekindlustega.
+Juhtumiuuring kinnitas, et Opus 4.6 + Cowork kombinatsioon suudab selles katses luua vormilt ja tehniliselt veenva lõputöö, kuid sama tulemus näitas ka agentse genereerimise põhiriski: veenev vorm ei taga andmete, viidete ega testitulemuste tegelikku olemasolu. Seetõttu sobib agentne tööriist kõige paremini inimese juhitud mustandamise, vormistamise ja kontrollitud toimetamise töövoogu, mitte iseseisvaks lõppteksti autoriks.
 
 \subsection{Käesoleva bakalaureusetöö enda kirjutamise töövoog} \label{subsec:oma-too-toovoog}
 
@@ -164,7 +146,7 @@ Täiendavalt kasutati järgmisi abivahendeid: Zotero (lõputöö algfaasis allik
 
 \subsubsection{Etapp 1: algne ühe kasutajaviibega katse sisukorra kavandamiseks}
 
-Töö algetapis teostati sama ühe kasutajaviibega katse, mida rakendati peaeksperimendis, et kaardistada võimalikku struktuuri ja teemat. Katse eesmärk oli näha, kuidas mudel ise tõlgendab lühikest juhist ning milliseid peatükke ja alapeatükke ta oodatavasse struktuuri paigutab. Katse tulemusi kasutati üksnes sisukorra ja teemade kaardistamiseks -- katse väljund aitas autoril paremini mõista, milliseid teemasid käsitleda ja kuidas materjali järjestada. Selle kaardistuse põhjal kirjutas autor peatükid uuesti ise, tuginedes loetud kirjandusele ja oma eksperimendi tulemustele; algset mustandteksti ei kopeeritud käesolevasse tööse. Juhul kui sõnastuslikke kattuvusi üksikutes üldistes sissejuhatavates lausetes esineb, on need autori poolt üle kontrollitud ja ümber sõnastatud, et töö ei kasutaks otseselt TI-genereeritud algteksti ilma deklareerimiseta. Kasuliku kõrvalväljundina andis katse autorile ka esmase hinnangu selle kohta, milliseid peatükke TI ise oluliseks peab (sissejuhatus, taust, metoodika, mudelite võrdlus, kokkuvõte) ning milliste peatükkide (nt arutelu, eetika, piirangud) kohta tuli autoril iseseisvalt juurde mõelda.
+Töö algetapis teostati sama ühe kasutajaviibega katse, mida rakendati peaeksperimendis, et kaardistada võimalikku struktuuri ja teemade jaotust. Katse väljundit kasutati üksnes kavandamise abina: see aitas näha, milliseid peatükke mudel ise oluliseks peab, kuid peatükid kirjutati hiljem uuesti autori poolt, tuginedes loetud kirjandusele ja eksperimendi tulemustele. Algset mustandteksti käesolevasse töösse ei kopeeritud; võimalikke üldsõnalisi kattuvusi kontrolliti ja sõnastati ümber.
 
 \subsubsection{Etapp 2: iteratiivne kirjutamine ja toimetamine}
 
@@ -277,7 +259,7 @@ Iteratiivne TI-toetatud kirjutamise töövoog tõi esile ka mitmeid praktilisi p
     \item \textbf{TI kalduvus ``parandada'' õiget teksti.} Mõnel juhul palus autor parandada ühte konkreetset viga, kuid tööriist muutis samal ajal ka ümbritsevat korrektset teksti. GitHubi \texttt{git diff} käsk oli hädavajalik, et selliseid soovimatuid muudatusi tuvastada ja tagasi pöörata.
     \item \textbf{Eestikeelsete erisõnade ja terminite käsitlus.} Keeleteaduslikult keerulised sõnad (nt liitsõnade silbitus või harvemad käändelõpud) vajasid autori eraldi tähelepanu, kuna TI-l ilmnesid kohati samad terminoloogilised vead, mida peaeksperimendis täheldati teistes mudelites.
     \item \textbf{Ajainvesteering.} Kuigi TI abil kiirenes vormistus- ja korrektuurifaas märgatavalt, ei vähendanud see sisulise töö (lugemise, mõtlemise, allikate kontrolli, tulemuste analüüsi) mahtu -- see jäi autori vastutusele ja moodustas suurema osa tegelikust ajakulust. TI peamine võit oli mehhaanilise töö vähenemine, mitte intellektuaalse töö asendamine.
-    \item \textbf{Kulud.} Kuigi Claude Code'i tellimus on üliõpilase eelarve kontekstis tuntav kulutus, jäi see oluliselt madalamaks kui professionaalse toimetamise teenuse maksumus (vt peatükk~\ref{subsec:hinnakujundus}). Tööga seotud TI-sessioonid jaotusid ühtlaselt kogu kirjutamisperioodile, mis võimaldas kulusid paremini ennustada ja hallata. Läbipaistvuse huvides tuleb märkida, et autor kulutas kogu uurimisperioodi jooksul TI-teenuste tellimuste peale ligikaudu 360~€ omavahendeid. See summa kattis järgmised tellimused: kaks kuud Claude Max'i (5x variant), üks kuu ChatGPT Pro'd, üks kuu ChatGPT Plus'i, kolm kuud Gemini AI tasulist plaani ning kaks kuud Perplexity tasulist plaani. Tellimused hõlmasid nii peaeksperimendi läbiviimist (nelja mudel-tööriista kombinatsiooni testimine) kui ka käesoleva töö enda kirjutamise tööriistu, mistõttu summat ei saa tervikuna omistada üksnes lõputöö kirjutamisele ega üksnes eksperimendile.
+    \item \textbf{Kulud.} TI-teenuste tellimused moodustasid üliõpilase eelarves tuntava, kuid professionaalse toimetamise teenusega võrreldes siiski väiksema kulu (vt peatükk~\ref{subsec:hinnakujundus}). Läbipaistvuse huvides tuleb märkida, et autor kulutas kogu uurimisperioodi jooksul erinevate TI-teenuste tellimustele ligikaudu 360~€ omavahendeid. See summa kattis nii peaeksperimendi läbiviimist kui ka käesoleva töö kirjutamise abivahendeid.
 \end{itemize}
 
 \subsubsection{Erinevus peaeksperimendi töövoost}
