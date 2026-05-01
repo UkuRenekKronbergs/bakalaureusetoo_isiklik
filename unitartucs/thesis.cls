@@ -14,7 +14,7 @@
 \hyphenpenalty=10000
 \hbadness=10000
 \sloppy
-\usepackage{microtype}
+\usepackage[nopatch=footnote]{microtype}
 
 % Keeleline tugi
 \AddToHook{package/inputenc/before}{
