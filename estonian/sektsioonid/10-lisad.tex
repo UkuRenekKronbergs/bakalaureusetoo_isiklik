@@ -1,14 +1,14 @@
 \section*{Lisad} \label{lisad} \addcontentsline{toc}{section}{Lisad}
 
-\subsection*{I. Eksperimendis kasutatud prompt} \label{lisa:promptid} \addcontentsline{toc}{subsection}{I. Eksperimendis kasutatud prompt}
+\subsection*{I. Eksperimendis kasutatud viip} \label{lisa:promptid} \addcontentsline{toc}{subsection}{I. Eksperimendis kasutatud viip}
 
-Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudel-tööriista kombinatsiooni puhul üht ja sama lühikest eestikeelset viibet ehk ühe kasutajaviibega (\textit{single-prompt}) lähenemist. Viibet ei muudetud ega iteratiivselt täiendatud. Täisviibe oli järgmine:
+Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudel-tööriista kombinatsiooni puhul üht ja sama lühikest eestikeelset viipa ehk ühe kasutajaviibaga (\textit{single-prompt}) lähenemist. Viipa ei muudetud ega iteratiivselt täiendatud. Täisviip oli järgmine:
 
 \begin{quote}
 \textit{``Sa oled kogenud akadeemiline kirjutaja. Loo täielik bakalaureusetöö LaTeX-vormingus (lisasin töökausta vajaliku malli), mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele. Teema peab olema informaatikaga seotud ja vali ise. Autor on Uku Renek Kronbergs ja juhendaja Alo Peets (MSc).''}
 \end{quote}
 
-Viipe sisulised elemendid:
+Viiba sisulised elemendid:
 \begin{itemize}
     \item \textbf{Mudeli roll} -- ``kogenud akadeemiline kirjutaja'' kui üldine stiiliviide.
     \item \textbf{Ülesanne} -- täieliku bakalaureusetöö loomine.
@@ -18,7 +18,7 @@ Viipe sisulised elemendid:
     \item \textbf{Tiitellehe andmed} -- autor Uku Renek Kronbergs, juhendaja Alo Peets (MSc).
 \end{itemize}
 
-Viibesse \emph{ei} lisatud:
+Viibasse \emph{ei} lisatud:
 \begin{itemize}
     \item TÜ ATI ega LOTE lõputööde juhendite teksti;
     \item varasemate bakalaureusetööde näiteid;
@@ -27,7 +27,7 @@ Viibesse \emph{ei} lisatud:
     \item keelelisi korrektuurireegleid.
 \end{itemize}
 
-Sellise minimaalse viipe eesmärk oli hinnata, kuidas mudelid interpreteerivad võimalikult lühikest juhist ning millistele eelteadmistele nad toetuvad eestikeelse akadeemilise lõputöö loomisel.
+Sellise minimaalse viiba eesmärk oli hinnata, kuidas mudelid interpreteerivad võimalikult lühikest juhist ning millistele eelteadmistele nad toetuvad eestikeelse akadeemilise lõputöö loomisel.
 
 \subsection*{II. Genereeritud tööde failid} \label{lisa:failid} \addcontentsline{toc}{subsection}{II. Genereeritud tööde failid}
 
@@ -80,7 +80,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{``A complete, submission-ready bachelor's thesis written end-to-end on your behalf is not something I can produce. That would materially enable academic misconduct (submitting work largely authored by a third party). What I can provide---aligned with the University of Tartu's own principles for using generative AI in coursework---is a deep-research `thesis kit': a rigorously sourced background review, a defensible experimental design, an evaluation rubric, and a UniTartuCS-template-aligned LaTeX project skeleton with chapter-by-chapter writing prompts and clearly marked placeholders that you must complete, verify, and take responsibility for.''}
 \end{quote}
 
-\textit{Hinnang: GPT-5.4 keeldus ülesannet täitmast ja valis väljundkeeleks inglise keele. Pakkus selle asemel teostatavusjuhendit, mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku ja LaTeX malli juhiseid. Viited on verifitseeritud ja sisukad. Akadeemilise aususe teadlikkus on silmapaistvalt tugev. Sama mudel sama promptiga Codex-laienduse kaudu Visual Studio Code'is genereeris aga tervikliku 47-leheküljelise eestikeelse töö -- vt III.3.}
+\textit{Hinnang: GPT-5.4 keeldus ülesannet täitmast ja valis väljundkeeleks inglise keele. Pakkus selle asemel teostatavusjuhendit, mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku ja LaTeX malli juhiseid. Viited on verifitseeritud ja sisukad. Akadeemilise aususe teadlikkus on silmapaistvalt tugev. Sama mudel sama viibaga Codex-laienduse kaudu Visual Studio Code'is genereeris aga tervikliku 47-leheküljelise eestikeelse töö -- vt III.3.}
 
 \subsubsection*{III.3 GPT-5.4 (Codex VS Code'is) -- sissejuhatuse väljavõte (47 lk)}
 
@@ -88,7 +88,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{Käesolevas bakalaureusetöös kavandatakse eestikeelse RAG-põhise küsimus-vastus süsteemi kontseptsioon ja prototüüp. Süsteemi keskmes on retriiveri ja keelemudeli integreeritud arhitektuur, mis võimaldab leida asjakohased dokumendilõigud ja genereerida nende põhjal eestikeelseid vastuseid.}
 \end{quote}
 
-\textit{Hinnang: Sama mudel ja sama prompt kui vestlusliideses, kuid agentse töövoo kaudu andis täiesti erineva tulemuse. Keelevalik eesti keel, struktuur vastab bakalaureusetöö vormile, ortograafiline täpsus silmapaistvalt kõrge (vaid 1 kirjaviga kogu töö peale). Viited (22 unikaalset) on suures osas kontrollitavad.}
+\textit{Hinnang: Sama mudel ja sama viip kui vestlusliideses, kuid agentse töövoo kaudu andis täiesti erineva tulemuse. Keelevalik eesti keel, struktuur vastab bakalaureusetöö vormile, ortograafiline täpsus silmapaistvalt kõrge (vaid 1 kirjaviga kogu töö peale). Viited (22 unikaalset) on suures osas kontrollitavad.}
 
 \subsubsection*{III.4 Gemini 3.1 Pro (Antigravity) -- sissejuhatuse väljavõte (39 lk)}
 
@@ -98,7 +98,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{``Käesoleva ulatusliku uurimuse peamine eesmärk on lahti mõtestada ja dekonstrueerida tehisintellekti tegelik, mitmetahuline ja sageli vastuoluline mõju tarkvaraarenduse produktiivsusele.''}
 \end{quote}
 
-\textit{Hinnang: Gemini 3.1 Pro + Antigravity kombinatsioon genereeris vormiliselt korrektse töö generatiivse TI mõjust tarkvaraarendusele -- väidetavalt Tartumaa IT-ettevõtete (nt Nortal, Playtech, Datafox) algajate programmeerijate näitel. Kuigi teema on informaatikaga seotud ja seega viipele vastav, on kogu selles kirjeldatud empiiriline osa -- 30 tudengiga kvaasi-eksperiment, testikeskkond, statistilised tulemused ning kohalike ettevõtete osalus -- fabritseeritud: reaalseid tudengeid, katseid ega andmeid ei eksisteeri ja ettevõtete nimed on lisatud ilma nende kinnituseta. Eestikeelne tekst on ladus, kuid sisaldab kõige rohkem kirjavigu (28) kogu võrdluses. Seda juhtumit käsitletakse töös akadeemilise väärkasutuse kõrge riskiga juhtumina (vt peatükk~\ref{subsec:gemini-toolo}).}
+\textit{Hinnang: Gemini 3.1 Pro + Antigravity kombinatsioon genereeris vormiliselt korrektse töö generatiivse TI mõjust tarkvaraarendusele -- väidetavalt Tartumaa IT-ettevõtete (nt Nortal, Playtech, Datafox) algajate programmeerijate näitel. Kuigi teema on informaatikaga seotud ja seega viibale vastav, on kogu selles kirjeldatud empiiriline osa -- 30 tudengiga kvaasi-eksperiment, testikeskkond, statistilised tulemused ning kohalike ettevõtete osalus -- fabritseeritud: reaalseid tudengeid, katseid ega andmeid ei eksisteeri ja ettevõtete nimed on lisatud ilma nende kinnituseta. Eestikeelne tekst on ladus, kuid sisaldab kõige rohkem kirjavigu (28) kogu võrdluses. Seda juhtumit käsitletakse töös akadeemilise väärkasutuse kõrge riskiga juhtumina (vt peatükk~\ref{subsec:gemini-toolo}).}
 
 \subsubsection*{III.5 Claude Opus 4.6 (Cowork) -- sissejuhatuse väljavõte (61 lk)}
 
