@@ -1,103 +1,37 @@
 \section{TI mudelite võrdlus} \label{mudelid}
 
-Käesolev peatükk esitab nelja valitud TI mudeli võrdluse, keskendudes nende tehnilistele parameetritele, agentse töövoo jaoks olulistele omadustele, kuluaspektidele ja eesti keele toele.
+Käesolev peatükk esitab nelja valitud TI mudeli võrdluse, keskendudes nende tehnilistele parameetritele, agentse töövoo jaoks olulistele omadustele, kuluaspektidele ja eesti keele toele. Iga mudeli puhul käsitletakse need kolm aspekti ühtse tekstina, et vältida liigset alapeatükkide killustatust.
 
 \subsection{Google Gemini 3.1 Pro} \label{subsec:gemini}
 
-Google Gemini 3.1 Pro on Google DeepMind'i arendatud multimodaalne keele\-mudel, mis avaldati 2026. aasta veebruaris \cite{google2026gemini}. Mudel kuulub Gemini mudeliperekonda, mis on Google'i vastus OpenAI GPT-seeriale.
+Google Gemini 3.1 Pro on Google DeepMind'i arendatud multimodaalne keelemudel, mis avaldati 2026. aasta veebruaris \cite{google2026gemini}. Antud mudel kuulub Gemini mudeliperekonda.
 
-\subsubsection{Tehniline ülevaade}
+Gemini 3.1 Pro mudelil kontekstiaken, mis ulatub kuni 1 miljoni tokenini. See võimaldab mudelile sisestada terve raamatu mahus teksti, mis on lõputöö genereerimise kontekstis äärmiselt kasulik. Lisaks on Gemini 3.1 Pro natiivne mõtlemismudel (\textit{thinking model}), mis tähendab, et mudel kasutab sisemist ahelpõhjendamist enne vastuse andmist; see parandab oluliselt keeruliste ülesannete lahendamise kvaliteeti, sealhulgas struktureeritud teksti loomist.
 
-Gemini 3.1 Pro peamine eelis on selle ulatuslik kontekstiaken, mis ulatub kuni 1 miljoni tokenini. See võimaldab mudelile sisestada terve raamatu mahus teksti, mis on lõputöö genereerimise kontekstis äärmiselt kasulik -- mudelile saab anda korraga nii juhendid, näidistööd kui ka juba genereeritud osad.
-
-Gemini 3.1 Pro on natiivne mõtlemismudel (\textit{thinking model}), mis tähendab, et mudel kasutab sisemist ahelpõhjendamist enne vastuse andmist. See parandab oluliselt keeruliste ülesannete lahendamise kvaliteeti, sealhulgas struktureeritud teksti loomist.
-
-\subsubsection{Kuluaspekt}
-
-Gemini 3.1 Pro oli API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus}). Google AI Studio tasuta piiratud kasutus sobib esmasteks katseteks. Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
-
-\subsubsection{Eesti keele tugi}
-
-Gemini 3.1 Pro toetab eesti keelt, kuid selle kvaliteet jääb inglise keelele alla. Meie testides ilmnes, et mudel suudab luua grammatiliselt üldiselt korrektset eesti keelt, kuid esineb probleeme:
-\begin{itemize}
-    \item Käändelõppude vead, eriti pikemates lausetes;
-    \item Tehniline terminoloogia on kohati ebajärjekindel (nt vahetab ``keele\-mudel'' ja ``keelemudel'', ``suurandmed'' ja ``big data'' vahel);
-    \item Akadeemiline stiil kaldub olema liiga vaba, meenutades pigem blogipostitust;
-    \item Tervikliku lõputöö genereerimisel kaldus mudel etteantud teemast kõrvale, genereerides töö teistsuguse teema kohta (vt peatükk~\ref{subsec:exp-tervik}).
-\end{itemize}
+Kuluaspektist oli Gemini 3.1 Pro API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus}). Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
 
 \subsection{OpenAI GPT-5.4} \label{subsec:chatgpt}
 
-OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta detsembris ning mida on pidevalt täiendatud \cite{openai2025gpt54}. Mudel ühendab teksti, pildi ja heli töötlemise ühtsesse arhitektuuri.
+OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta detsembris \cite{openai2025gpt54}.
 
-\subsubsection{Tehniline ülevaade}
+GPT-5.4 kontekstiaken Codexi laiendusena ja rakenduses on 258\,000 tokenit. Märkimisväärne on, et GPT-5.4 sama mudel vestlusliidese kaudu ei olnud nõus genereerima bakalaursetööd akadeemilise petturluse pärast (vt peatükk~\ref{subsec:gpt-toolo}). Teistel mudelitel autor sellist asja ei täheldanud.
 
-GPT-5.4 kontekstiaken ulatub kuni 1\,000\,000 tokenini, mis on võrreldav Gemini 3.1 Pro omaga ja pakub piisavat mahutavust ka kõige mahukamate lõputöö genereerimise stsenaariumide jaoks. OpenAI positsioneerib GPT-5.4 mudelina, mis on optimeeritud professionaalseks tööks parandatud arutluskäigu, tööriistade kasutamise ja dokumentide töövoogudega.
-
-Märkimisväärne on GPT-5.4 kasutuse tugev liidese- ja kontekstisõltuvus: sama mudel andis vestlusliideses ja Codex-laienduses erineva tulemuse (vt peatükk~\ref{subsec:gpt-toolo}). Seetõttu tuleb käesolevas töös eristada GPT-5.4 kui alusmudelit ja konkreetset liidest, mille süsteemijuhised ning ohutuspoliitika väljundit kujundavad.
-
-\subsubsection{Kuluaspekt}
-
-GPT-5.4 paiknes API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus}). GPT-5.4 Pro variant oli märksa kallim ning mahuka teksti genereerimiseks vähem praktiline. Kuupõhiste tellimuste ja agentse töövoo kogukulu võrdlus on koondatud peatükki~\ref{subsec:hinnakujundus}.
-
-\subsubsection{Eesti keele tugi}
-
-GPT-5.4 eesti keele tugi on Codex-laienduse kaudu saadud tulemuse põhjal tugev: mudel suutis luua mahuka eestikeelse akadeemilise teksti väga väheste ortograafiliste vigadega (vt peatükk~\ref{subsec:kirjaviga}). Vestlusliidese ingliskeelne vastus näitab eelkõige liidese mõju, mitte mudeli alus\-keelevõimekuse puudumist. Peamised tähelepanekud olid järgmised:
-\begin{itemize}
-    \item Grammatiliselt korrektne eesti keel nii lühikestes kui ka pikkades (47 lk) tekstides, kui kasutatakse agentset liidest;
-    \item Tendents kasutada ingliskeelseid termineid seal, kus eestikeelne vaste on olemas;
-    \item Viidete genereerimisel esineb hallutsinatsioone (olematud artiklid ja autorid).
-\end{itemize}
+Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus}). Kuupõhiste tellimuste ja agentse töövoo kogukulu võrdlus on koondatud peatükki~\ref{subsec:hinnakujundus}.
 
 \subsection{Anthropic Claude Sonnet 4.6} \label{subsec:claude}
 
 Anthropic Claude Sonnet 4.6 on Anthropicu arendatud keele\-mudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026claude}. Claude mudeliperekond eristub teistest oma rõhuasetusega ohutusele ja põhjalikkusele.
 
-\subsubsection{Tehniline ülevaade}
+Claude Sonnet 4.6 kontekstiaken on 200\,000 tokenit (API kaudu 1M tokenit, aga autor seda ei kasutanud), mis on neljast võrreldud keelemudelist kõige väiksem. Anthropic pakub ka Claude'i pikendatud mõtlemisrežiimi, kus mudel kasutab kuni 128\,000 tokenit sisemiseks arutluseks (sama piir kehtib ka GPT-5.4 ja Claude Opus 4.6 puhul).
 
-Claude Sonnet 4.6 kontekstiaken on 200\,000 tokenit (beetas 1 miljon tokenit), mis jääb Gemini 3.1 Pro ja GPT-5.4 vahele. Mudeli peamine tugevus on pikaajalise konteksti efektiivne kasutamine -- uuringud on näidanud, et Claude suudab kontekstiakna lõpust informatsiooni sama hästi kasutada kui algusest \cite{anthropic2026claude}.
+Kuluaspektist on Claude Sonnet 4.6 võrreldav GPT-5.4 ja Gemini 3.1 Pro-ga.
 
-Anthropic pakub ka Claude'i pikendatud mõtlemisrežiimi, kus mudel kasutab kuni 128\,000 tokenit sisemiseks arutluseks (sama piir kehtib ka GPT-5.4 ja Claude Opus 4.6 puhul). See režiim on eriti kasulik keeruliste struktureeritud ülesannete jaoks, nagu akadeemilise teksti genereerimine.
-
-Claude'i eristab teistest mudelitest ka tema võimekus järgida detailseid juhiseid ja stiilireegleid. Meie testides näitas Claude kõige paremat tulemust juhendipõhise genereerimise ülesannetes, kus mudelile anti ette konkreetsed struktuurinõuded.
-
-\subsubsection{Kuluaspekt}
-
-Claude Sonnet 4.6 on kulult võrreldav GPT-5.4-ga, kuid käesolevas katses andis see tugevama akadeemilise stiili ja juhiste järgimise. Agentse Cowork'i töövoo kogukulu hinnatakse peatükis~\ref{subsec:hinnakujundus}.
-
-\subsubsection{Eesti keele tugi}
-
-Claude Sonnet 4.6 eesti keele tugi on hea, kuid mõningate eripäradega:
-\begin{itemize}
-    \item Mudel järgib eesti keele grammatikareegleid üldiselt hästi;
-    \item Akadeemiline stiil on lähedane akadeemilises kirjutamises soovitule;
-    \item Siiski esineb kohati ülemäärast keerukust lauseehituses, mis muudab teksti raskesti loetavaks;
-    \item Tehniline terminoloogia on ühtlasem kui teistel mudelitel.
-\end{itemize}
 
 \subsection{Anthropic Claude Opus 4.6} \label{subsec:opus}
 
-Anthropic Claude Opus 4.6 on käesoleva uurimuse eksperimendi läbiviimise ajal (märts 2026) Anthropicu kõige võimekam üldotstarbeline keele\-mudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026opus}. Opus kuulub samasse Claude mudeliperekonda kui Sonnet, kuid on oluliselt suurem ja võimekam mudel, mis on optimeeritud keeruliste, mitmeosaliste ülesannete lahendamiseks. Tuleb märkida, et mudeliperekond areneb kiiresti -- pärast käesoleva eksperimendi läbiviimist on Anthropic avaldanud uuemaid Opus-versioone (sh Opus 4.7) \cite{anthropic2026opus47}, mille baashinnastus on Opus 4.6-ga võrreldav, kuid mida käesolev töö võrdlusesse ei hõlmanud.
+Claude Opus 4.6 on Anthropicu kõige võimekam keele\-mudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026opus}. Opus kuulub samasse Claude mudeliperekonda kui Sonnet, kuid on oluliselt suurem ja võimekam mudel. Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb suuremas parameetrite arvus ja sügavamas arutlusvõimekuses.
 
-\subsubsection{Tehniline ülevaade}
-
-Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb suuremas parameetrite arvus ja sügavamas arutlusvõimekuses. Opus mudelid on Anthropicu mudeliperekonna tipptasemel, pakkudes kõige paremat tulemust keerulistes struktureeritud ülesannetes, nagu pikaajaline teksti genereerimine, koodi kirjutamine ja mitmesammuline probleemilahendus \cite{anthropic2026opus}.
-
-
-\subsubsection{Kuluaspekt}
-
-Claude Opus 4.6 oli võrreldud mudelitest selgelt kõige kallim (vt tabel~\ref{tab:mudelite-vordlus}), kuid käesolevas katses kaasnes sellega ka kõige tugevam väljund. Selle kompromissi praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
-
-\subsubsection{Eesti keele tugi}
-
-Claude Opus 4.6 eesti keele tugi oli selles eksperimendis (Cowork'i kaudu kasutatud kombinatsioonis) nelja testitud kombinatsiooni seas parim:
-\begin{itemize}
-    \item Grammatiliselt korrektne eesti keel ka pikkades ja keerulistes lausetes;
-    \item Akadeemiline stiil on võrreldav emakeelt kirjutava omaga;
-    \item Tehniline terminoloogia on ühtlane ja korrektne;
-    \item Suutis genereerida tervikliku 61-leheküljelise eestikeelse lõputöö (vt peatükk~\ref{subsec:exp-tervik});
-    \item Lauseehitus oli kõige loomulikum võrreldes teiste kombinatsioonidega.
-\end{itemize}
+Kuluaspektist oli Claude Opus 4.6 võrreldud mudelitest selgelt kõige kallim (vt tabel~\ref{tab:mudelite-vordlus}), kuid sellega kaasnes ka kõige tugevam väljund. Selle kompromissi praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
 
@@ -118,27 +52,10 @@ Tabelis~\ref{tab:mudelite-vordlus} on esitatud nelja mudeli koondvõrdlus peamis
     row{even}={bg=colorCellHighlight},
 }
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Kontekstiaken & 1M & 1M & 200K (1M beetas) & 1M \\
+Kontekstiaken & 1M & 256K & 200K & 1M \\
 Max väljund & 64\,000 & 128\,000 & 128\,000 & 128\,000 \\
-Mõtlemisrežiim & Jah (natiivne) & Jah (Pro eraldi) & Jah (pikendatud) & Jah (pikendatud) \\
+Mõtlemisrežiim & Jah (natiivne) & Jah & Jah  & Jah  \\
 Sisend \$/1M tok & \$2,00--4,00 & \$2,50 & \$3,00 & \$15,00 \\
 Väljund \$/1M tok & \$12,00--18,00 & \$15,00 & \$15,00 & \$75,00 \\
-Eesti keele kvaliteet & Hea & Väga hea & Väga hea & Suurepärane \\
-Akad. stiil & Rahuldav & Hea & Väga hea & Suurepärane \\
-Viidete kvaliteet & Rahuldav & Rahuldav & Hea & Hea \\
 \end{tblr}
 \end{table}
-
-Tabelist on näha, et Gemini 3.1 Pro + Antigravity kombinatsioon andis selles katses keskmiselt kõige nõrgemad tulemused. GPT-5.4 pakub ühtlast eesti keele kvaliteeti (kui seda kasutatakse Codex-laienduse kaudu) ja on hinna poolest konkurentsivõimeline. Claude Sonnet 4.6 + Cowork kombinatsioon eristus akadeemilise stiili ja juhiste järgimise poolest. Claude Opus 4.6 + Cowork kombinatsioon saavutas käesolevas katses kõige kõrgema kvaliteedi nii eesti keele, akadeemilise stiili kui ka sisulise sügavuse osas, kuid on oluliselt kallim kui teised kombinatsioonid. Kuna iga kombinatsiooni kohta tehti üks jooks, on tabelis esitatud hinnangud eksploratiivsed (vt piirangute arutelu peatükis~\ref{subsec:puudujaagid}).
-
-\subsection{Mõtlemismudelite võrdlus} \label{subsec:motlemismudelid}
-
-Eraldi väärib tähelepanu mõtlemismudelite (\textit{thinking/reasoning models}) mõju genereeritud teksti kvaliteedile. Mõtlemismudelid kasutavad sisemist ahelpõhjendamist, mis võtab lisaaega ja -ressursse, kuid parandab keerulisemate ülesannete tulemust. Ji et al. \cite{ji2024cot_citations} on eksperimentaalselt näidanud, et ahelpõhjendamise strateegia parandab oluliselt nii teksti genereerimise kvaliteeti kui ka viidete täpsust, mis on eriti oluline akadeemilise teksti kontekstis.
-
-Käesoleva uurimuse peaeksperiment (vt peatükk~\ref{eksperimendid}) piirdus ühe kasutajaviibaga tervikliku töö genereerimisega ega hõlmanud süstemaatilist mõtlemisrežiimi kvantitatiivset võrdlust. Autori mitteformaalsete kõrvalkatsete põhjal ilmnes, et mõtlemisrežiimi kasutamine:
-\begin{itemize}
-    \item parandas teksti loogilist struktureerimist ja vähendas sisulisi vasturääkivusi;
-    \item parandas viidete asjakohasust, kuigi hallutsinatsioone esines endiselt;
-    \item suurendas genereerimise aega ja kulusid mitmekordselt.
-\end{itemize}
-Need tähelepanekud on esialgsed ja vajavad edaspidi süstemaatilist võrdlust. Mõtlemisrežiimi kasutamine on siiski soovituslik eriti sissejuhatuse, metoodika ja arutelu peatükkide genereerimisel, kus on vaja loogilist ja sidusat argumentatsiooni.
