@@ -1,0 +1,133 @@
+\section{Käesoleva bakalaureusetöö enda kirjutamise töövoog} \label{toovoog}
+
+Peatükis~\ref{eksperimendid} kirjeldatud eksperiment uuris ühe kasutajaviibaga (\textit{single-prompt}) tervikliku töö genereerimist. Käesolev bakalaureusetöö ise ei ole ühe viiba tulemus: selline lähenemine ei vastaks akadeemilise aususe põhimõtetele (vt peatükk~\ref{subsec:eetika}) ega annaks ka soovitud kvaliteeti. Selle asemel kasutati etapiviisilist, inimese juhitud töövoogu, mis järgib peatükis~\ref{subsec:claudecode-soovitused} esitatud soovitusi. Käesolev peatükk kirjeldab selle töövoo konkreetseid samme, kasutatud tööriistu, autori ja TI rollijaotust ning saadud praktilisi kogemusi, et pakkuda läbipaistvat ülevaadet sellest, kuidas TI-d lõputöö kirjutamise protsessis vastutustundlikult rakendati.
+
+\subsection{Kasutatud TI tööriist ja mudel} \label{subsec:tooriist-mudel}
+
+Käesoleva bakalaureusetöö kirjutamise käigus kasutati agentse TI tööriistana Anthropicu \textbf{Claude Code'i} -- agentset kodeerimis- ja tekstiloomise tööriista, mis integreerub otse arenduskeskkondadesse nagu Visual Studio Code \cite{anthropic2026claudecode} ning erinevalt vestlusliidese-põhistest tööriistadest saab iseseisvalt lugeda ja kirjutada faile, käivitada käsurea käske ning hallata projekti failisüsteemi. Tööriist töötas otse autori kohaliku arenduskeskkonnaga (Visual Studio Code Windowsi platvormil) ning omas ligipääsu projektikaustale \LaTeX{} allikfailide, bibliograafia, jooniste ja kompileeritud PDF-i näol. Peamise mudelina kasutati Claude Opus 4.6 pikendatud mõtlemisrežiimiga, kuna mahuka eestikeelse akadeemilise teksti toimetamisel eristus see mudel selgelt kvaliteedi poolest (vt peatükk~\ref{subsec:opus}). Kiiremate või vähem keerulise sisuga sammude jaoks (nt lühike kirjavigade kontroll, ühe lõigu sõnastuse parandus) piisas ka Claude Sonnet 4.6 mudelist, mis oli oluliselt odavam. Peaeksperimendis kasutatud tööriist Cowork (vt peatükk~\ref{subsec:opus-toolo}) on Claude Code'i lähedane sugulane ning mõlemad oleksid käesoleva töö kirjutamise jaoks sobinud; Claude Code valiti selle tiheda lõimingu tõttu Visual Studio Code arenduskeskkonna ja Giti tööriistadega.
+
+Claude Code'i oli töö kirjutamise ajal võimalik kasutada nii Visual Studio Code laiendusena kui ka eraldiseisva töölaua\-rakendusena. Autori praktilise kogemuse põhjal olid vastused töölaua\-rakenduse kaudu otse kasutades märgatavalt kiiremad kui VS Code laienduse kaudu -- sama mudeli ja sama päringu puhul reageeris töölauarakendus tajutavalt kohesemalt, mis oli eriti märgatav pikemate parandusvoorude ja kompileerimistsüklite puhul. Seetõttu kasutati pikematele parandusvoorudele Claude Code'i töölauarakendust, samas kui VS Code laiendus jäi kasutusse siis, kui samas sessioonis oli vaja otse toimetada koodi või \LaTeX{} vorminduse üksikasju arenduskeskkonnas.
+
+Täiendavalt kasutati järgmisi abivahendeid: Zotero (lõputöö algfaasis allikate kogumiseks ja BibTeX-i ekspordiks), Overleaf ja kohalik TeX Live (\LaTeX{} kompileerimiseks), GitHub (versioonihalduseks) ning veebibrauser iga viidatava allika käsitsi kontrollimiseks.
+
+\subsection{Etapp 1: algne ühe kasutajaviibaga katse sisukorra kavandamiseks} \label{subsec:etapp1}
+
+Töö algetapis teostati sama ühe kasutajaviibaga katse, mida rakendati peaeksperimendis, et kaardistada võimalikku struktuuri ja teemade jaotust. Katse väljundit kasutati üksnes kavandamise abina: see aitas näha, milliseid peatükke mudel ise oluliseks peab, kuid peatükid kirjutati hiljem uuesti autori poolt, tuginedes loetud kirjandusele ja eksperimendi tulemustele. Algset mustandteksti käesolevasse töösse ei kopeeritud; võimalikke üldsõnalisi kattuvusi kontrolliti ja sõnastati ümber.
+
+\subsection{Etapp 2: iteratiivne kirjutamine ja toimetamine} \label{subsec:etapp2}
+
+Pärast esialgset kaardistust mindi üle iteratiivsele kirjutamisele, kus autor hoidis sisulist kontrolli ja TI tööriist tegutses keelelise ning vormistusliku abivahendina. Iteratsiooni üldised sammud olid järgmised.
+
+\begin{enumerate}
+    \item \textbf{Autori sisuline kirjutamine ja eksperimendi läbiviimine.} Sisulised otsused, uurimisküsimuste sõnastus, eksperimendi disain, nelja genereeritud tervikliku töö hindamine, kvantitatiivsed mõõtmised (kirjavigade loendus, viidete analüüs, anglitsismide loendus, esimese isiku asesõnade loendus) ja tulemuste tõlgendamine tegi autor iseseisvalt. TI-le ei antud ülesandeks ise järeldusi teha ega andmeid tõlgendada.
+    \item \textbf{Peatüki mustandi koostamine autori poolt.} Iga peatüki esimene versioon kirjutati autori poolt käsitsi, tuginedes loetud kirjandusele ja eksperimendi tulemustele. Sellega tagati, et argumentatsiooni loogika ja peamised väited lähtuvad autori enda mõttekäigust.
+    \item \textbf{Manuaalne ülevaatus.} Autor luges iga peatüki kriitiliselt üle, tuvastas probleemid (kohmakad laused, ebatäpsed väited, numbriliste andmete ebakõlad, puuduvad viited, korduvused) ja märkis kohad, mida tuleb parandada.
+    \item \textbf{Konkreetsed parandusepalved TI-le.} Autor palus agentsel TI tööriistal teha konkreetseid, kitsalt piiritletud parandusi, näiteks kirjavigade ja näpukate otsimine ning parandamine, liiga pikkade lausete tükeldamine, lauseehituse ühtlustamine akadeemilisele stiilile, sektsioonidevaheliste vastuolude ja numbriliste ebakõlade tuvastamine, viidete formaadi ja järjekorra kontroll ning \LaTeX{} vormistuse parandamine. Üldisi palveid stiilis ``kirjuta see peatükk ümber'' teadlikult välditi, kuna need on seotud suurema riskiga, et TI lisab alusetut sisu või muudab autori mõtet.
+    \item \textbf{Autori otsus iga muudatuse kohta.} TI soovitatud muudatused vaatas autor enne vastuvõtmist üle; osa soovitusi lükati tagasi, kui need kaldusid autori mõttest kõrvale, lisasid alusetut sisu või muutsid sõnastust ebatäpsemaks. Eriti jälgiti seda, et TI ei lisaks omaalgatuslikult uusi faktiväiteid, mida autor ei saaks allikast kinnitada.
+    \item \textbf{Korduv iteratsioon.} Samme 3--5 korrati iga peatüki puhul mitu korda, kuni tekst vastas soovitud kvaliteedile. Keskmiselt läbis iga peatükk mitu selget redaktsioonivooru, millest osa keskendus sisule ja struktuurile ning osa vormistusele ja keelekorrektuurile.
+\end{enumerate}
+
+\subsection{Allikate otsimine ja bibliograafia haldamine} \label{subsec:allikad}
+
+Allikate kogumine ja kontrollimine toimus teadlikult eraldiseisva töövooguna, et vältida peaeksperimendis täheldatud hallutsineeritud viidete probleemi (vt peatükk~\ref{subsec:viiteanaluus}). TI-le ei delegeeritud viidete ``välja mõtlemist''; selle asemel järgiti järgmist distsipliini.
+
+\begin{itemize}
+    \item \textbf{Allikate otsimine toimus inimese juhtimisel.} Autor otsis iga väite kinnitamiseks allikaid käsitsi Google Scholari, arXivi, ACL Anthology ja ACM Digital Library kaudu, eelistades eelretsenseeritud ajakirju, konverentsiartikleid ja mudelite ametlikke dokumentatsioonilehti.
+    \item \textbf{Iga viide lisati BibTeX-faili käsitsi}, kasutades Zoterost saadud ekspordikirjet või väljaandja veebilehelt saadud viitekirjet. Enne lisamist kontrolliti, et DOI või URL viiks olemasolevale tööle.
+    \item \textbf{TI roll piirdus formaadi kontrolliga.} Claude Code'il paluti kontrollida, kas kõik tekstis esinevad \texttt{\textbackslash cite\{\}} võtmed leiduvad BibTeX-failis, kas BibTeX-kirjed on süntaktiliselt korrektsed ja kas välju (\texttt{url}, \texttt{doi}, \texttt{howpublished}) on täidetud ühtselt. TI-l \emph{ei} lubatud uusi viiteid ise juurde lisada ega olemasolevaid muuta ilma autori eelkinnituseta.
+    \item \textbf{Viidete sisulise kontrolli tegi autor.} Iga tsiteeritud väite puhul avas autor allika ja veendus, et allikas tegelikult toetab väidet, mille kõrval viide seisab. See takistas nii hallutsinatsioonide kui ka valede parafraaside levimist.
+\end{itemize}
+
+Selle töövoo tulemusena sisaldab käesoleva töö bibliograafia vaid olemasolevaid ja kontrollitud allikaid, erinevalt peaeksperimendi genereeritud töödest, kus 0--22\% viidetest olid hallutsineeritud (kõige levinumalt välja mõeldud autorid või kombineeritud metaandmed kahest eri paberist).
+
+\subsection{Kvantitatiivse analüüsi ja andmete kogumise töövoog} \label{subsec:kvantanaluus-toovoog}
+
+Peatükkides~\ref{subsec:kirjaviga}--\ref{subsec:akadeem-stiil} esitatud arvulised tulemused (kirjavigade arv, viidete arv, anglitsismide arv, esimese isiku asesõnade arv) koguti järgmise protseduuri alusel.
+
+\begin{enumerate}
+    \item \textbf{PDF-ist teksti ekstraheerimine.} Iga genereeritud tervikliku töö PDF-fail (vt lisa~II) muudeti tekstiks, jättes välja tiitellehe ja kirjanduse loendi juhtudel, kus see oli metoodiliselt põhjendatud.
+    \item \textbf{Automaatne eelotsing TI abiga.} Claude Code'il paluti otsida eraldatud tekstist konkreetseid mustreid: tõenäolised kirjavead, ülakomaga võõrsõnad (\texttt{[a-zA-Z]+'[a-zõäöü]}), tüüpilised arvutiteaduse ingliskeelsed terminid (\textit{prompt}, \textit{pipeline}, \textit{benchmark}, \textit{over-reliance} jt) ning esimese isiku asesõnad. Iga leid esitati autorile koos konteksti reaga.
+    \item \textbf{Inimese lõplik otsus iga leiu kohta.} Autor otsustas iga TI tuvastatud kandidaadi kohta eraldi, kas tegemist on tõepoolest kirjaveaga, anglitsismiga või esimese isiku asesõnaga, või näiteks kontekstis sobiva tsitaadi või pärisnimega. See kaheetapiline lähenemine (masin tuvastab kandidaadid, inimene kinnitab) vähendas nii väärnegatiivide kui ka väärpositiivide hulka võrreldes puhtalt käsitsi loendusega.
+    \item \textbf{Tulemuste ristkontroll.} Kogunenud arvulisi tulemusi võrreldi korduvalt tabelite (nt tab.~\ref{tab:kirjavead}, tab.~\ref{tab:anglitsismid}, tab.~\ref{tab:akadeem-stiil}) vahel, et tagada iga peatüki sees ja peatükkide vahel ühtsed arvud. Claude Code'ilt paluti ka selle ristkontrolli jaoks abi, lastes mudelil hoiatada vastuoludest (nt kui sama mudeli kohta on ühes tabelis kirjas 13 ja teises 14 kirjaviga).
+\end{enumerate}
+
+Selline tööjaotus vähendas analüüsile kulunud aega, kuid säilitas autori täieliku kontrolli iga arvu üle, mida töös esitatakse.
+
+\subsection{Kompileerimine, vormistuse kontroll ja kvaliteedi hindamine} \label{subsec:kompileerimine}
+
+\LaTeX{} töös tähendab kirjutamine pidevat kompileerimist ning vigade ja hoiatuste lahendamist. Käesoleva töö puhul seati sisse järgmine kompileerimistsükkel, mis toimis kogu kirjutamise jooksul.
+
+\begin{itemize}
+    \item Kohalik kompileerimine toimus \texttt{latexmk}-i ja \texttt{lualatex}-iga (vt \texttt{.latexmkrc} repositooriumi juurkaustas), koos \texttt{biber}-iga bibliograafia jaoks. Varu- ja võrdluskompilatsioon tehti aeg-ajalt ka Overleafi kaudu.
+    \item Kompileerimisvigade (nt tabelite ülevalg, lahtiste rühmade ebakõla, puuduvad \texttt{\textbackslash cite} võtmed) diagnostika tehti valdavalt koos Claude Code'iga -- autor andis talle \texttt{thesis.log} faili sisu või vigaste ridade väljavõtte ja palus pakkuda minimaalset parandust. Muudatus rakendati failile alles siis, kui autor oli selle üle vaadanud.
+    \item Kvaliteedi hindamiseks vaadati iga olulisema muudatuse järel kompileeritud PDF üle, pöörates tähelepanu sisukorra järjepidevusele, tabelite mahtumisele leheküljele, jooniste paigutusele ning ristviidete (\texttt{\textbackslash ref}) töötamisele.
+\end{itemize}
+
+Kompileerimisvigade parandamine oli üks valdkond, kus TI pakkus kõige otsesemat produktiivsuse kasvu -- peenete \LaTeX{} vigade jahtimine, mis vastasel juhul oleks võtnud tunde käsitsi otsingut, lahendati sageli mõne minutiga, kui vealoog anti mudelile analüüsimiseks.
+
+\subsection{Versioonihaldus GitHubi abil} \label{subsec:git}
+
+Kogu töö kirjutamise protsessi jooksul hoiti lähtekoodi (\LaTeX{} failid, viidete baas, joonised) GitHubi repositooriumis. Versioonihalduse kasutamine täitis mitut eesmärki, mis on TI-toetatud kirjutamise kontekstis eriti olulised.
+
+\begin{itemize}
+    \item \textbf{Varasemate versioonide taastamise võimalus.} Iga oluline muudatus (uus peatükk, suurem toimetamine, TI-põhine parandusvoor) salvestati eraldi commit'ina. Kui TI tööriist tegi soovimatuid muudatusi või eemaldas juhuslikult autori sisulise lõigu, sai muudatuse kergesti tagasi pöörata (\texttt{git revert}) või taastada varasema versiooni konkreetse faili jaoks (\texttt{git checkout}). See pakkus turvavõrku, ilma milleta oleks iteratiivne töövoog olnud oluliselt riskantsem.
+    \item \textbf{TI tehtud muudatuste kontrollitavus.} Enne iga TI-põhise parandusvooru commit'iti eelmine seis, mis võimaldas pärast muudatuste tegemist vaadata diff'i ja kontrollida täpselt, mida TI muutis. See on oluline, sest agentne tööriist võib teha muudatusi failides, mida autor ei pruugi koheselt märgata -- diff muudab muudatused täielikult läbipaistvaks.
+    \item \textbf{Varundus.} Kaugserveris hoitav koopia kaitses töö kadumise eest kohaliku masina rikke või kogemata kustutamise korral.
+    \item \textbf{Harude kasutamine suuremate toimetamiste jaoks.} Suuremaid, kogu tööd haaravaid parandusvoore (nt ``kirjavigade ja sõnastuse parandamine'') tehti eraldi arendusharus (\textit{feature branch}) ning liideti peaharusse alles pärast tervikpildi üle vaatamist pull request'i kaudu. See eraldas eksperimenteerivad muudatused stabiilsest peaharust ning võimaldas vajadusel terve parandusvooru maha visata ilma varasemat tööd kahjustamata.
+    \item \textbf{Commit-sõnumite kaudu kirjutamisprotsessi dokumenteerimine.} Sisukad commit-sõnumid (näiteks ``Lisatud anglitsismide analüüsi tabel'', ``Ühtsustatud valuuta vormingut'', ``\,`AI' asendada `TI'-ga ja dollarid eurodeks'') pakuvad kronoloogilist ülevaadet tehtud muudatustest, mis aitab hiljem mõista, miks üks või teine redaktsioon tehti. Commit-sõnumite koostamisel rakendati head tava märkida eraldi \texttt{Co-Authored-By} väljaga juhud, kus Claude Code tegi muudatustele sisulise panuse, tagades läbipaistva autorluse dokumenteerimise.
+\end{itemize}
+
+GitHubi kasutamine koos agentse TI tööriistaga lõi distsiplineeritud töövoo: enne iga suuremat TI-põhist muudatust commit'iti eelnev seis, seejärel tehti muudatus, vaadati diff üle ja alles siis aktsepteeriti muudatus järgmise commit'iga. Kui tulemus ei rahuldanud, sai muudatusest täies mahus loobuda. Selline töövoog on soovituslik igale üliõpilasele, kes kasutab lõputöö kirjutamisel agentseid TI tööriistu, sest see vähendab oluliselt töö kadumise või ebaõnnestunud iteratsioonide riski.
+
+\subsection{Rollijaotus autori ja TI vahel} \label{subsec:rollijaotus}
+
+Töövoo läbipaistvuse huvides on tabelis~\ref{tab:rollijaotus} esitatud, millised kirjutamise ülesanded tegi autor ja millistel täitis TI abistavat rolli. Piiritlemisel lähtuti põhimõttest, et iga sisulise väite ja iga tsiteeritud allika eest vastutab autor ning TI saab osaleda üksnes nendes sammudes, mille tulemust autor ise hindab ja kinnitab.
+
+\begin{table}[!ht]
+\centering
+\caption{Autori ja TI rollijaotus käesoleva töö kirjutamisel}
+\label{tab:rollijaotus}
+\begin{tblr}{
+    width=\linewidth,
+    colspec={X[1.8,l] X[1,c] X[1.2,c]},
+    rows={font=\small},
+    colsep=3pt,
+    row{1}={font=\bfseries\small},
+    hlines,
+    vlines,
+    row{even}={bg=colorCellHighlight},
+}
+Ülesanne & Autor & TI (Claude Code) \\
+Teema valik ja uurimisküsimuste sõnastus & Täielik & -- \\
+Eksperimendi disain ja läbiviimine & Täielik & -- \\
+Kirjanduse lugemine ja sünteesimine & Täielik & -- \\
+Peatüki mustandi kirjutamine & Põhiautor & Üksikute lõikude sõnastusettepanekud \\
+Allikate otsimine ja valimine & Täielik & -- \\
+Viidete sisuline kontroll & Täielik & -- \\
+BibTeX-kirjete süntaksi kontroll & Järelkontroll & Automaatne kontroll \\
+Kirjavigade otsimine ja parandamine & Lõplik otsus & Kandidaatide tuvastamine \\
+Lauseehituse ja stiili ühtlustamine & Lõplik otsus & Ettepanekud \\
+\LaTeX{} kompileerimisvigade diagnoosimine & Lõplik otsus & Põhjuse analüüs \\
+Tabelite ja jooniste vormistus & Lõplik otsus & Vormingu ettepanekud \\
+Kvantitatiivsete tulemuste tõlgendamine & Täielik & -- \\
+Järelduste ja soovituste sõnastamine & Täielik & Sõnastusettepanekud \\
+\end{tblr}
+\end{table}
+
+Tabelist nähtub, et sisulist vastutust nõudvad ülesanded (teemavalik, eksperimendi disain, allikate valik, tulemuste tõlgendamine, järeldused) jäid täielikult autori kanda. TI roll piirdus rutiinsete, madala sisulise riskiga sammudega (kandidaatide tuvastamine, formaadi kontroll, sõnastusettepanekud), kus iga ettepanek läbis enne rakendamist autori hindamise.
+
+\subsection{Piirangud ja saadud kogemused} \label{subsec:toovoog-piirangud}
+
+Iteratiivne TI-toetatud kirjutamise töövoog tõi esile ka mitmeid praktilisi piiranguid, mida tasub tulevastel üliõpilastel arvestada.
+
+\begin{itemize}
+    \item \textbf{Kontekstiakna täitumine pikemate sessioonide jooksul} tingis vajaduse sessiooni korrapärase taaskäivitamise ja \texttt{CLAUDE.md} faili kasutamise järele püsiva kontekstina. Pikema mustandi töö puhul osutus mõistlikuks jagada ülesanne peatükipõhisteks sessioonideks.
+    \item \textbf{TI kalduvus ``parandada'' õiget teksti.} Mõnel juhul palus autor parandada ühte konkreetset viga, kuid tööriist muutis samal ajal ka ümbritsevat korrektset teksti. GitHubi \texttt{git diff} käsk oli hädavajalik, et selliseid soovimatuid muudatusi tuvastada ja tagasi pöörata.
+    \item \textbf{Eestikeelsete erisõnade ja terminite käsitlus.} Keeleteaduslikult keerulised sõnad (nt liitsõnade silbitus või harvemad käändelõpud) vajasid autori eraldi tähelepanu, kuna TI-l ilmnesid kohati samad terminoloogilised vead, mida peaeksperimendis täheldati teistes mudelites.
+    \item \textbf{Ajainvesteering.} Kuigi TI abil kiirenes vormistus- ja korrektuurifaas märgatavalt, ei vähendanud see sisulise töö (lugemise, mõtlemise, allikate kontrolli, tulemuste analüüsi) mahtu -- see jäi autori vastutusele ja moodustas suurema osa tegelikust ajakulust. TI peamine võit oli mehhaanilise töö vähenemine, mitte intellektuaalse töö asendamine.
+    \item \textbf{Kulud.} TI-teenuste tellimused moodustasid üliõpilase eelarves tuntava, kuid professionaalse toimetamise teenusega võrreldes siiski väiksema kulu (vt peatükk~\ref{subsec:hinnakujundus}). Läbipaistvuse huvides tuleb märkida, et autor kulutas kogu uurimisperioodi jooksul erinevate TI-teenuste tellimustele ligikaudu 360~€ omavahendeid. See summa kattis nii peaeksperimendi läbiviimist kui ka käesoleva töö kirjutamise abivahendeid.
+\end{itemize}
+
+\subsection{Erinevus peaeksperimendi töövoost} \label{subsec:erinevus}
+
+Käesoleva töö kirjutamise töövoog erineb peaeksperimendi ühe kasutajaviiba lähenemisest põhimõtteliselt. Sisu kavandas, uuris ja kirjutas autor ise; TI roll piirdus keelelise toimetamise, vormistuse ühtlustamise ja sisemise järjepidevuse kontrolliga. Selline rollijaotus vastab peatükis~\ref{subsec:eetika} kirjeldatud vastutustundliku TI kasutuse põhimõtetele, kus TI-d käsitletakse abivahendina, mitte teksti algautorina. Iteratiivne töövoog koos GitHubi versioonihaldusega osutus oluliselt tõhusamaks kui peaeksperimendis katsetatud ühe kasutajaviibaga lähenemine -- sisuline täpsus, viidete kontrollitavus ja akadeemiline usaldusväärsus jäid autori vastutusele, samas kui TI aitas olulisel määral vähendada kirjutamise, toimetamise ja vormistamise ajakulu. Lisaks demonstreerib see, et sama agentse tööriista peret, mida peaeksperimendis hinnati ``täisdelegeerimise'' stsenaariumis, saab kasutada ka vastutustundliku ja akadeemiliselt aktsepteeritava töövoo raames -- oluline ei ole niivõrd tööriista enda olemus, kuivõrd see, kuidas inimene selle töövoosse integreerib.

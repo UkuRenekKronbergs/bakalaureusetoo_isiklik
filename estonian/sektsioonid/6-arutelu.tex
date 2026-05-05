@@ -93,9 +93,58 @@ Eksperimendi tulemuste ja praktiliste kogemuste põhjal saab anda järgmised soo
 
 \textbf{Parim hinna-kvaliteedi suhe: Claude Sonnet 4.6 koos Cowork'iga.} Claude Sonnet 4.6 + Cowork kombinatsioon on kõige sobivam valik piiratud eelarvega üliõpilase jaoks. Kombinatsioon paistis silma akadeemilise stiili, juhiste järgimise ja teksti struktureerimise poolest ning on oluliselt soodsam kui Opus. Pikendatud mõtlemisrežiim parandab keerulisemate peatükkide kvaliteeti.
 
-\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keelelise korrektuuri jaoks. Kui soov on genereerida tervikdokumenti, siis ChatGPT vestlusliidese süsteemijuhised ja ohutuspoliitika võivad selle blokeerida või suunata ingliskeelsele väljundile, samas kui ChatGPT Codex laiendus Visual Studio Code'is andis käesolevas katses sama viibaga tervikliku eestikeelse dokumendi (vt peatükk~\ref{subsec:codex}).
+\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keelelise korrektuuri jaoks. Kui soov on genereerida tervikdokumenti, siis ChatGPT vestlusliidese süsteemijuhised ja ohutuspoliitika võivad selle blokeerida või suunata ingliskeelsele väljundile, samas kui ChatGPT Codex laiendus Visual Studio Code'is andis käesolevas katses sama viibaga tervikliku eestikeelse dokumendi (vt peatükk~\ref{subsec:gpt-toolo}).
 
 \textbf{Ideaalne töövoog.} Käesoleva töö kogemus näitab, et kõige parema tulemuse andis Cowork'i agentne tööriist koos Opus või Sonnet mudeliga.
+
+\subsection{Soovitused lõputöö genereerimiseks Claude Code'iga} \label{subsec:claudecode-soovitused}
+
+Käesoleva uurimuse praktiliste kogemuste põhjal, sealhulgas Opus 4.6 mudeliga Cowork'i kaudu genereeritud paroolihalduri lõputöö (vt peatükk~\ref{subsec:opus-toolo}), saab anda järgmised soovitused Claude Code'i kasutamiseks lõputöö genereerimisel. Samad soovitused kehtivad suures osas ka Cowork'i kohta, kuna tööriistad on ülesehituselt sarnased.
+
+\subsubsection{Projekti ettevalmistamine}
+
+\begin{enumerate}
+    \item \textbf{Kasuta \LaTeX{} malli algusest peale.} Paigalda ülikooli \LaTeX{} mall (nt UniTartuCS) projektikausta enne genereerimise alustamist. Claude Code suudab malli struktuuri automaatselt tuvastada ja järgida.
+    \item \textbf{Lisa juhendid projektikausta.} Kopeeri lõputöö juhendid (TÜ ATI juhend, LOTE juhend) tekstifailidena projektikausta. Claude Code saab neid automaatselt lugeda kontekstina.
+    \item \textbf{Lisa näidistööd.} Paiguta 2--3 hästi hinnatud varasema lõputöö PDF-failid projektikausta. Need annavad mudelile konkreetse ettekujutuse oodatavast kvaliteedist ja stiilist.
+    \item \textbf{Loo CLAUDE.md konfiguratsioonifail.} Projekti juurkausta loodav CLAUDE.md fail sisaldab püsivaid juhiseid, mida Claude Code järgib igas sessioonis. Sinna tasub kirjutada:
+    \begin{itemize}
+        \item oodatav keel (eesti keel);
+        \item akadeemiline stiil ja toon;
+        \item terminoloogia eelistused;
+        \item viitamisstiil (nt IEEE numeric);
+        \item peatükkide struktuur ja maht.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Genereerimise töövoog}
+
+Soovitame järgmist samm-sammulist töövoogu:
+
+\begin{enumerate}
+    \item \textbf{Genereeri sisukord ja struktuur.} Alusta sisukorra ja peatükkide ülesehituse genereerimisega. Anna mudelile ette teema, uurimisküsimused ja mahunõuded. Kontrolli ja kinnita struktuur enne edasi liikumist.
+    \item \textbf{Genereeri peatükid järjest.} Genereeri iga peatükk eraldi, alustades sissejuhatusest. Iga järgmise peatüki genereerimisel on eelnevad peatükid kontekstis, mis tagab sidususe.
+    \item \textbf{Genereeri tabelid ja joonised eraldi.} Tabelite ja jooniste \LaTeX{} kood on keerulisem ja vajab eraldi tähelepanu. Genereeri need eraldi sammuna ja kontrolli visuaalset tulemust.
+    \item \textbf{Lisa viited ise või tee põhjalikku kontrolli neile.} Ära lase mudelil viiteid ``välja mõelda''. Kui soovid, et viited oleksid väga tõenäoliselt korrektsed, siis järgi seda malli:
+    \begin{itemize}
+        \item otsi ise allikaid;
+        \item lisa leitud allikate andmed BibTeX faili;
+        \item palu mudelil viiteid tekstis kasutada ainult olemasolevatest allikatest.
+    \end{itemize}
+    \item \textbf{Kompileeri regulaarselt.} Kasuta Claude Code'i võimalust käivitada \texttt{pdflatex} ja \texttt{biber} käske, et kontrollida, kas genereeritud \LaTeX{} kood kompileerub vigadeta.
+    \item \textbf{Vaata üle ja paranda.} Iga genereeritud peatüki järel vaata tekst üle, märgi probleemkohad ja palu mudelil need parandada. Ära jäta ülevaatamist töö lõppu.
+\end{enumerate}
+
+\subsubsection{Parimad praktikad}
+
+\begin{itemize}
+    \item \textbf{Kasuta pikendatud mõtlemisrežiimi.} Claude Code'i pikendatud mõtlemisrežiim (\textit{extended thinking}) parandab oluliselt keeruliste akadeemiliste tekstide kvaliteeti. See on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
+    \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta töö maht ja peamised teemad.
+    \item \textbf{Kontrolli viiteid alati.} Ükski TI mudel ei genereeri 100\% korrektseid viiteid. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
+    \item \textbf{Ära usalda ühe kasutajaviibaga (\textit{single-prompt}) tulemust pimesi ilma kriitilise ülevaatamiseta.} Käesoleva uurimuse eksperimendis andis see lähenemine mõnel juhul tugeva vormilise tulemuse, kuid sisaldas endiselt hallutsineeritud viiteid ja kontrollimata empiirilisi väiteid (vt peatükk~\ref{eksperimendid}). Parima kvaliteedi saavutamiseks on mõistlik kombineerida ühe viibaga genereerimist iteratiivsete paranduste ja kasutaja järelevalvega.
+    \item \textbf{Ole kursis enda tööga.} TI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
+    \item \textbf{Kasuta keeruliste peatükkide jaoks tugevamat mudelit.} Käesoleva töö kirjutamise ajal (märts 2026) andis Claude Opus 4.6 kõige parema tulemuse terviklike peatükkide ja keeruliste akadeemiliste tekstide toimetamisel. Lihtsamate korrektuuri- ja vormistusülesannete jaoks piisas sageli Sonnet-klassi mudelist. Kuna mudeliperekonnad muutuvad kiiresti, tasub soovituse rakendamisel kontrollida, milline Opus-tasemel mudel on parajasti kättesaadav.
+\end{itemize}
 
 \subsection{Tööriistad, mida vältida} \label{subsec:valtida}
 

@@ -38,9 +38,9 @@ Viip on teadlikult lühike ja sisaldab vaid kolme sisulist piirangut: (1) välju
 
 \textbf{Agentsete tööriistade kasutamine.} Kuna viip nõuab LaTeX-malli kasutamist, mitme faili haldamist ja kompileeritavat väljundit, ei saanud eksperimenti läbi viia puhta vestlusliidese kaudu, kus mudel ei suuda ise failisüsteemile ligi pääseda. Veebipõhistes vestlusliidestes piiravad sellist ülesannet ka failide koguse limiidid: Gemini Apps lubab samas viibas üles laadida kuni 10 toetatud faili, erandina ühe koodikausta või GitHubi repositooriumi kuni 5000 failiga \cite{google2026gemini_uploads}. Claude'i chat lubab kuni 20 faili vestluse kohta \cite{anthropic2026claude_uploads} ChatGPT piirab tavapäraseid ChatGPT üleslaadimisi kuni 80 faili kolme tunni jooksul või tasuta kontol 3 faili päevas \cite{openai2026file_uploads}. Seetõttu kasutati iga mudeliga sellele mudelile omast agentset töövoogu:
 \begin{itemize}
-    \item \textbf{Claude Sonnet 4.6} ja \textbf{Claude Opus 4.6} -- Anthropicu \textit{Cowork} agentne tööriist (mitte segi ajada sama ettevõtte eraldi tootega Claude Code, vt peatükk~\ref{claudecode}), mis suudab lugeda, kirjutada ja kompileerida projekti \LaTeX{} faile otse failisüsteemis.
-    \item \textbf{Google Gemini 3.1 Pro} -- Google'i \textit{Antigravity} agentne arenduskeskkond, mis pakub funktsionaalselt sarnast võimekust (vt peatükk~\ref{subsec:antigravity}).
-    \item \textbf{OpenAI GPT-5.4} -- OpenAI \textit{ChatGPT Codex} laiendusega Visual Studio Code'is (vt peatükk~\ref{subsec:codex}).
+    \item \textbf{Claude Sonnet 4.6} ja \textbf{Claude Opus 4.6} -- Anthropicu \textit{Cowork} agentne tööriist (mitte segi ajada sama ettevõtte eraldi tootega Claude Code), mis suudab lugeda, kirjutada ja kompileerida projekti \LaTeX{} faile otse failisüsteemis.
+    \item \textbf{Google Gemini 3.1 Pro} -- Google'i \textit{Antigravity} agentne arenduskeskkond, mis pakub funktsionaalselt sarnast võimekust.
+    \item \textbf{OpenAI GPT-5.4} -- OpenAI \textit{ChatGPT Codex} laiendusega Visual Studio Code'is.
 \end{itemize}
 
 Kõigi nelja mudeli puhul piirduti ühe viibaga -- pärast viiba esitamist ei antud mudelile täiendavaid juhiseid, ei parandatud genereeritud teksti ega palutud mudelil varasemaid valikuid üle vaadata. Kui mudel ise tegi agentse tööriista raames mitu sisemist sammu (failide loomine, kompileerimine, vigade parandamine), loeti see üheks genereerimistsükliks, kuna kogu töövoo algatas sama algviip.
