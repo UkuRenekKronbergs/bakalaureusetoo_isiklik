@@ -38,7 +38,7 @@ Tabelis~\ref{tab:hinnavordlus} on esitatud hinnanguline kuluarvestus 25-lehekül
 
 \begin{table}[ht]
 \centering
-\caption{Bakalaureusetöö genereerimise hinnanguline kuluarvestus}
+\caption{Bakalaureusetöö genereerimise hinnanguline kuluarvestus (EUR, koos 24\% käibemaksuga)}
 \label{tab:hinnavordlus}
 \begin{tblr}{
     width=\linewidth,
@@ -51,18 +51,18 @@ Tabelis~\ref{tab:hinnavordlus} on esitatud hinnanguline kuluarvestus 25-lehekül
     row{even}={bg=colorCellHighlight},
 }
 Kulukomponent & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Sisendtokenid (ca 2M) & \$4,00--8,00 & \$5,00 & \$6,00 & \$30,00 \\
-Väljundtokenid (ca 300K) & \$3,60--5,40 & \$4,50 & \$4,50 & \$22,50 \\
+Sisendtokenid (ca 2M) & €4,23--8,47 & €5,29 & €6,35 & €10,58 \\
+Väljundtokenid (ca 300K) & €3,81--5,71 & €4,76 & €4,76 & €7,93 \\
 Agentse tööriista sisend/väljundkorrad & mitmekordne & mitmekordne & mitmekordne & mitmekordne \\
-\textbf{Eeldatav hind} & \textbf{\$23--38} & \textbf{\$25--32} & \textbf{\$32--42} & \textbf{\$160--220} \\
+\textbf{Eeldatav hind} & \textbf{€25--40} & \textbf{€26--33} & \textbf{€33--45} & \textbf{€56--74} \\
 \end{tblr}
 \end{table}
 
-Hinnad on esitatud USA dollarites vastavalt mudelite pakkujate 2026. aasta märtsi ametlikele hinnakirjadele \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing}; euros väljendatuna on summad sõltuvad kasutatavast valuutakursist.
+Hinnad on esitatud eurodes, lähtudes mudelite pakkujate 2026. aasta mai ametlikest USD-hinnakirjadest \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing} ja teisendatud kursi 1 EUR = 1,17 USD järgi (vt peatükk~\ref{subsec:koondvordlus}). Esitatud summad sisaldavad Eesti standardset 24\% käibemaksu, mis vastab eraisikust üliõpilase tegelikule kulule. EL-i pöördmaksustamise korras (kehtiv VAT-numbriga ärikasutajatele) saab käibemaksu maha arvata ja tegelik kulu on ligikaudu 19\% madalam.
 
-Kuutellimused muudavad kulupildi mõnevõrra teistsuguseks: ChatGPT Plus ja Claude Pro maksid vaadeldud perioodil \$20/kuu ning Google AI Studio võimaldas piiratud tasuta kasutust. Praktikas võib üliõpilane teha põhilised katsetused 1--2 kuu tellimuse hinnaga, kui mahupiiranguid ei ületata.
+Kuutellimused muudavad kulupildi mõnevõrra teistsuguseks: ChatGPT Plus ja Claude Pro maksavad Eesti regioonis ca €22--23 kuus (koos käibemaksuga), Google AI Pro €21,99 kuus ning Google AI Studio võimaldab piiratud tasuta kasutust (vt tabel~\ref{tab:mudelite-tellimused}). Praktikas võib üliõpilane teha põhilised katsetused 1--2 kuu tellimuse hinnaga, kui mahupiiranguid ei ületata.
 
-Kokkuvõttes on TI kasutamise majanduslik kulu Sonnet-klassi kombinatsioonidega mõistlik, samas kui Opus-klassi mudeli kasutamine on märksa kallim ja vajab teadlikku kvaliteedi-kulu kaalumist. Ka kallimad TI-variandid jäävad siiski üldjuhul odavamaks kui professionaalse toimetaja teenus, mis võib bakalaureusetöö puhul maksta mitusada eurot.
+Kokkuvõttes on TI kasutamise majanduslik kulu Sonnet-klassi kombinatsioonidega mõistlik (€33--45 ühe lõputöö kohta), samas kui Opus-klassi mudeli kasutamine on ligikaudu 1,7 korda kallim (€56--74) ja vajab teadlikku kvaliteedi-kulu kaalumist. Kõik testitud TI-variandid jäävad siiski üldjuhul odavamaks kui professionaalse toimetaja teenus, mis võib bakalaureusetöö puhul maksta mitusada eurot.
 
 \subsection{Eesti keele korrektuur ja toimetamine} \label{subsec:korrektuur}
 

@@ -6,9 +6,9 @@ Käesolev peatükk kirjeldab läbiviidud eksperimenti, esitab nelja mudeli gener
 
 Eksperimendis paluti igal mudel-tööriista kombinatsioonil genereerida terviklik bakalaureusetöö informaatika valdkonnast ühe kasutajaviibaga, ilma järelküsimuste ega iteratiivse suunamiseta. Mudelitele anti identne lühike eestikeelne viip (vt peatükk~\ref{subsec:eksperimendi-ulesehitus} ja lisa~I), mis palus mudelil luua LaTeX-vormingus bakalaureusetöö, mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele, kasutades töökausta paigutatud UniTartuCS malli. Konkreetset teemapealkirja ette ei antud -- mudel pidi ise valima informaatikaga seotud teema. Autori (Uku Renek Kronbergs) ja juhendaja (Alo Peets, MSc) nimed anti tiitellehe täitmiseks.
 
-Viip on teadlikult lühike, kuna üks uurimisküsimustest on, kuidas mudel-tööriista kombinatsioonid reageerivad minimaalsele juhisele ning kas nad suudavad iseseisvalt valida sobiva teema, keele ja struktuuri. Kuna ülesanne nõuab failihaldust, mitme \LaTeX{} faili loomist ja kompileerimist, kasutati iga mudeliga agentset töövoogu. Sonnet 4.6 ja Opus 4.6 puhul kasutati Anthropicu Cowork tööriista (mis on sama ettevõtte Claude Code'ist eraldiseisev toode, vt peatükk~\ref{claudecode}), Gemini 3.1 Pro puhul Google'i Antigravity ning GPT-5.4 puhul ChatGPT Codex laiendust Visual Studio Code'is. GPT-5.4 puhul testiti lisaks ka tavapärast ChatGPT vestlusliidest, mis andis oluliselt erineva tulemuse.
+Viip on teadlikult lühike, kuna üks uurimisküsimustest on, kuidas mudel-tööriista kombinatsioonid reageerivad minimaalsele juhisele ning kas nad suudavad iseseisvalt valida sobiva teema, keele ja struktuuri. Kuna ülesanne nõuab failihaldust, mitme \LaTeX{} faili loomist ja kompileerimist, kasutati iga mudeliga agentset töövoogu. Sonnet 4.6 ja Opus 4.6 puhul kasutati Anthropicu Cowork tööriista (mis on sama ettevõtte Claude Code'ist eraldiseisev toode, vt peatükk~\ref{claudecode}), Gemini 3.1 Pro puhul Google'i Antigravity ning GPT-5.4 puhul ChatGPT Codex laiendust Visual Studio Code'is.
 
-Tulemused olid kombinatsioonide lõikes drastiliselt erinevad, nagu nähtub tabelist~\ref{tab:exp6}. Oluline tõlgenduslik märkus: järgnevas analüüsis tuleb tulemusi vaadelda mudeli ja agentse tööriista paaride, mitte puhaste mudeli\-võimekuste näitajatena -- iga jooks tehti üks kord, mistõttu näitajad on eksploratiivsed ja võivad kordus\-jooksudel erineda.
+Tulemused olid kombinatsioonide lõikes drastiliselt erinevad, nagu nähtub tabelist~\ref{tab:exp6}. Oluline tõlgenduslik märkus: järgnevas analüüsis tuleb tulemusi vaadelda mudeli ja agentse tööriista paaride, mitte puhaste mudeli võimekuste näitajatena -- iga jooks tehti üks kord, mistõttu näitajad on eksploratiivsed ja võivad kordus\-jooksudel trastiliselt erineda.
 
 \begin{table}[ht]
 \centering
@@ -25,13 +25,13 @@ Tulemused olid kombinatsioonide lõikes drastiliselt erinevad, nagu nähtub tabe
     row{even}={bg=colorCellHighlight},
 }
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Väljundkeel & Eesti & Eesti (Codex) / ingl. (chat) & Eesti & Eesti \\
-Maht (lehekülgi) & 39 & 47 (Codex) / 8 (chat) & 40 & 61 \\
-Valitud teema & GenAI ja algajad progr. & RAG-põhine QA-süsteem (Codex); keeldumine (chat) & TI lõputöö gener. & Paroolihaldur \\
-Struktuur & Lõputöö vormis & Lõputöö (Codex) / juhend (chat) & Lõputöö vormis & Lõputöö vormis \\
+Väljundkeel & Eesti & Eesti & Eesti & Eesti \\
+Maht (lehekülgi) & 39 & 47 & 40 & 61 \\
+Valitud teema & GenAI ja algajad progr. & RAG-põhine QA-süsteem & TI lõputöö gener. & Paroolihaldur \\
+Struktuur & Lõputöö vormis & Lõputöö vormis & Lõputöö vormis & Lõputöö vormis \\
 Agentne tööriist & Antigravity & Codex VS Code'is & Cowork & Cowork \\
 Viited & 9, ca 25\% halluts. & 22, ca 20\% halluts. & 17, ca 20\% halluts. & 35, ca 15\% halluts. \\
-Akad. stiil & Hea & Hea (Codex) & Väga hea & Suurepärane \\
+Akad. stiil & Hea & Hea & Väga hea & Suurepärane \\
 \end{tblr}
 \end{table}
 
