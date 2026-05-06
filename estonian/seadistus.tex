@@ -1,6 +1,55 @@
 
 % Värvid
 \definecolor{colorCellHighlight}{rgb}{0.85, 0.91, 0.97} % Nii saab defineerida oma värve
+\definecolor{chartBlue}{HTML}{2F6F9F}
+\definecolor{chartGreen}{HTML}{4F8F6A}
+\definecolor{chartOrange}{HTML}{D98C3F}
+\definecolor{chartRed}{HTML}{B84A62}
+
+% Graafikud
+\usepackage{pgfplots}
+\pgfplotsset{
+    compat=1.18,
+    thesisbar/.style={
+        ybar,
+        width=0.95\linewidth,
+        height=7cm,
+        ymin=0,
+        enlarge x limits=0.18,
+        symbolic x coords={Gemini,GPT,Sonnet,Opus},
+        xtick=data,
+        xticklabels={Gemini 3.1 Pro,GPT-5.4,Sonnet 4.6,Opus 4.6},
+        xticklabel style={font=\small, rotate=25, anchor=east},
+        tick label style={font=\small},
+        label style={font=\small},
+        legend style={font=\small, at={(0.5,-0.24)}, anchor=north, legend columns=-1},
+        ymajorgrids=true,
+        grid style={gray!20},
+        axis lines*=left,
+        axis line style={gray!45},
+        tick style={gray!45},
+        scaled y ticks=false,
+    },
+    thesisxbar/.style={
+        xbar,
+        width=0.95\linewidth,
+        height=6.5cm,
+        xmin=0,
+        symbolic y coords={Gemini,GPT,Sonnet,Opus},
+        ytick=data,
+        yticklabels={Gemini 3.1 Pro,GPT-5.4,Sonnet 4.6,Opus 4.6},
+        yticklabel style={font=\small},
+        tick label style={font=\small},
+        label style={font=\small},
+        legend style={font=\small, at={(0.5,-0.16)}, anchor=north, legend columns=-1},
+        xmajorgrids=true,
+        grid style={gray!20},
+        axis lines*=left,
+        axis line style={gray!45},
+        tick style={gray!45},
+        scaled x ticks=false,
+    }
+}
 
 % Floatide paigutus
 \usepackage{placeins}

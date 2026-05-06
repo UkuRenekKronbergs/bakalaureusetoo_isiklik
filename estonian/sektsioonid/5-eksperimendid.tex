@@ -116,6 +116,24 @@ GPT-5.4 (Codex) & 47 & 3 & 0,06 \\
 \end{tblr}
 \end{table}
 
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    thesisbar,
+    ylabel={Vigu lehekülje kohta},
+    ymax=1.05,
+    bar width=18pt,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=2,use comma]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\scriptsize, text=black},
+]
+\addplot+[fill=chartRed, draw=chartRed!70!black] coordinates {(Gemini,0.62) (GPT,0.06) (Sonnet,0.93) (Opus,0.25)};
+\end{axis}
+\end{tikzpicture}
+\caption{Keele- ja kirjavigade tihedus genereeritud töödes.}
+\label{fig:kirjavead-tihedus}
+\end{figure}
+
 Tulemused näitavad nelja mudeli vahel märkimisväärset erinevust eesti keele täpsuse osas. GPT-5.4 Codex laienduse kaudu genereeritud töös tuvastati kogu 47-leheküljelise dokumendi peale kolm selget kirjaviga: \textit{vastusevormingun}, \textit{lekita} ja \textit{dokumentikorpused}. See jäi ristkontrollitud loendi põhjal nelja kombinatsiooni madalaimaks veamääraks.
 
 Claude Opus 4.6 töös tuvastati 61 lehekülje peale 15 keele- ja kirjaviga. Lisaks pärisnimede vigadele (\textit{Carnegei}, \textit{Californiya}) esines tavasõnade ja liitvormide eksimusi, näiteks \textit{taaskasutatavarteks}, \textit{juhusiku}, \textit{mälusest}, \textit{konteineriena}, \textit{mõnesekundi} ja \textit{stsenaariumm}. Opuse veamäär jäi siiski madalaks, sest töö oli võrdluse kõige mahukam.
@@ -149,6 +167,25 @@ Claude Opus 4.6 & 61 & 10\,749 & 176 & 27 & 11 & 0 \\
 \end{tblr}
 \end{table}
 
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    thesisbar,
+    ylabel={Sõnu},
+    ymax=12000,
+    ytick={0,3000,6000,9000,12000},
+    bar width=18pt,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=0,1000 sep={\,}]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\scriptsize, text=black, rotate=90, anchor=west},
+]
+\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,7230) (GPT,9669) (Sonnet,8085) (Opus,10749)};
+\end{axis}
+\end{tikzpicture}
+\caption{Genereeritud tööde mahu võrdlus sõnade koguarvu alusel.}
+\label{fig:maht-sonades}
+\end{figure}
+
 Andmetest joonistuvad välja mitmed huvitavad mustrid. Kõige suurema mahu (10\,749 sõna) genereeris ootuspäraselt Claude Opus 4.6, mille sisu oli samas kõige kompaktsemalt jaotatud (176 sõna lehekülje kohta -- madalaim näitaja, mis tuleneb suuremast hulgast koodinäidetest, tabelitest ja jooniste kohatäiteplokkidest). Tihedaim tekstiline sisu oli GPT-5.4 (Codex) ja Claude Sonnet 4.6 töödes (vastavalt 206 ja 202 sõna lehekülje kohta). Ainsa tegelike joonistega tööna eristus GPT-5.4 (Codex), milles oli 2 joonist. Kõige granulaarsema struktuuriga töö genereeris samuti GPT-5.4 (Codex) -- 49 alapeatükki 47 lehekülje peale --, kus iga alapeatükk käsitles selgelt eristatud arhitektuurilist või hindamistasandi küsimust. Gemini 3.1 Pro maht oli väikseim (7\,230 sõna) ja sõnatihedus mõõdukas (185 sõna lehekülje kohta), mis koos jooniste puudumisega viitab pinnapealsemale käsitlusele.
 
 Eraldi tasub märkida, et Gemini 3.1 Pro, Claude Sonnet 4.6 ja Claude Opus 4.6 töödes ei olnud ühtegi päriselt genereeritud joonist, mis on bakalaureusetöö kontekstis ebatavaline -- enamik tehnilisi lõputöid sisaldab arhitektuuriskeeme või andmevoo diagramme. Opus 4.6 kavandas küll kolm joonisekohta (süsteemi arhitektuur, andmebaasi ER-diagramm ja võtmetuletuse skeem), kuid jättis need PDF-is kohatäideteks. Sonnet 4.6 ja Gemini 3.1 Pro eelistasid suuremas mahus koodinäidete (Listings) lisamist (vastavalt 7 ja 5 koodinäidet), samas kui Opus 4.6 integreeris koodinäited tihedamalt teksti sisse, ilma neid eraldi nummerdatud koodinäidete plokkidena vormistamata. GPT-5.4 (Codex) töös koodinäiteid praktiliselt ei esinenud -- tegu oli puhtalt kontseptuaalse RAG-süsteemi arhitektuurilise kavandiga.
@@ -178,6 +215,25 @@ GPT-5.4 (Codex) & 22 & 28 & 0,60 & 1,27 \\
 Claude Opus 4.6 & 35 & 45 & 0,74 & 1,29 \\
 \end{tblr}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    thesisbar,
+    ylabel={Viidete arv},
+    ymax=60,
+    bar width=8pt,
+    legend style={font=\small, at={(0.5,-0.30)}, anchor=north, legend columns=-1},
+]
+\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,9) (GPT,22) (Sonnet,23) (Opus,35)};
+\addplot+[fill=chartGreen, draw=chartGreen!70!black] coordinates {(Gemini,13) (GPT,28) (Sonnet,54) (Opus,45)};
+\legend{Unikaalsed allikad, Tekstisisesed viited}
+\end{axis}
+\end{tikzpicture}
+\caption{Genereeritud tööde viidete hulga võrdlus.}
+\label{fig:viidete-vordlus}
+\end{figure}
 
 Tulemused näitavad, et Claude Opus 4.6 kasutas kõige rohkem unikaalseid allikaid (35), mis vastab paroolihalduri valdkonna iseloomule, kus on vaja viidata krüptograafilistele standarditele (NIST, IETF RFC), turvauuringutele ja olemasolevatele lahendustele. Tekstisiseste viidete arvu ja tiheduse poolest eristus aga Claude Sonnet 4.6: 40-leheküljelises töös esines 54 tekstisisest viidet, mis teeb 1,35 viidet lehekülje kohta. GPT-5.4 (22 unikaalset allikat) ja Claude Sonnet 4.6 (23 unikaalset allikat) jäid allikate hulga poolest keskmisesse vahemikku. Gemini 3.1 Pro paistis silma väikseima viidete arvuga (9 unikaalset allikat 39 lehekülje peale), mis on bakalaureusetöö kontekstis tagasihoidlik -- tüüpilistes arvutiteaduse bakalaureusetöödes on allikate arv sageli kõrgem kui kümme, eriti kirjanduse ülevaadet sisaldavate tööde puhul. See näitaja kinnitab üldist tähelepanekut, et Gemini 3.1 Pro genereeritud töö oli pigem mahukas, kuid vähese allikatoega.
 
@@ -214,6 +270,24 @@ Claude Opus 4.6 + Cowork & 3 & 25 & 0,46 \\
 Gemini 3.1 Pro + Antigravity & 6 & 22 & 0,72 \\
 \end{tblr}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    thesisbar,
+    ylabel={Anglitsisme lehekülje kohta},
+    ymax=0.8,
+    bar width=18pt,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=2,use comma]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\scriptsize, text=black},
+]
+\addplot+[fill=chartOrange, draw=chartOrange!70!black] coordinates {(Gemini,0.72) (GPT,0.32) (Sonnet,0.15) (Opus,0.46)};
+\end{axis}
+\end{tikzpicture}
+\caption{Anglitsismide tihedus genereeritud töödes.}
+\label{fig:anglitsismide-tihedus}
+\end{figure}
 
 Tabeli~\ref{tab:anglitsismid} ``Anglitsismide/lk'' näitaja koondab eeltoodud kolme kategooriat üheks arvuks ning on seetõttu tõlgenduslikult ebatäpne -- see karistab ühtmoodi nii välditavaid inglismõjusid kui ka vältimatuid standarditermineid ja pärisnimesid. Praktikas tähendab see, et valdkonnas, kus standardsed terminid on originaalkujul (krüptograafia, standardid, turvalisus), tõuseb mõõdik, kuigi tekst järgib aktsepteeritud akadeemilist konventsiooni. Claude Opus 4.6 + Cowork kombinatsiooni suhteliselt kõrge CS-anglitsismide arv (25) tuleneb suures osas just sellistest vältimatutest terminitest: \textit{hash}, \textit{token}, \textit{AES-256-GCM}, \textit{Argon2id}, \textit{HKDF}, \textit{PBKDF2} on IETF/NIST standardites kinnistunud ega oma üheseid eestikeelseid vasteid, mida paroolihalduri kontekstis kasutatakse. Claude Sonnet 4.6 + Cowork TI-teema vältis seda probleemi osaliselt, kuna selle valdkonna terminoloogias on eesti keeles juba mitmeid kinnistunud vasteid. Gemini 3.1 Pro + Antigravity kasutab anglitsisme kõige rohkem (0,72/lk). Täpsem kolmekategooriline loendus, mis eristaks välditavaid inglismõjusid vältimatutest terminitest ja pärisnimedest, annaks täpsema pildi ja on edasiste uurimuste oluline metoodiline täiendus. Käesoleva töö tulemusi tuleks tõlgendada seda piirangut arvestades.
 

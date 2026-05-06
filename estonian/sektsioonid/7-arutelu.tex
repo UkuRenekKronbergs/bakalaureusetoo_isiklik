@@ -56,6 +56,26 @@ Agentse tööriista sisend/väljundkorrad & mitmekordne & mitmekordne & mitmekor
 \end{tblr}
 \end{table}
 
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    thesisbar,
+    ylabel={EUR},
+    ymax=80,
+    bar width=8pt,
+    legend style={font=\small, at={(0.5,-0.30)}, anchor=north, legend columns=-1},
+]
+\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,25) (GPT,26) (Sonnet,33) (Opus,56)};
+\addplot+[fill=chartRed, draw=chartRed!70!black] coordinates {(Gemini,40) (GPT,33) (Sonnet,45) (Opus,74)};
+\legend{Vahemiku alumine piir, Vahemiku ülemine piir}
+\end{axis}
+\end{tikzpicture}
+\caption{Bakalaureusetöö genereerimise eeldatava hinna vahemik mudelite lõikes.}
+\label{fig:hinnavordlus-vahemik}
+\end{figure}
+\FloatBarrier
+
 Hinnad on esitatud eurodes, lähtudes mudelite pakkujate 2026. aasta mai ametlikest USD-hinnakirjadest \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing} ja teisendatud kursi 1 EUR = 1,17 USD järgi (vt peatükk~\ref{subsec:koondvordlus}). Esitatud summad sisaldavad Eesti standardset 24\% käibemaksu, mis vastab eraisikust üliõpilase tegelikule kulule.
 
 Kuutellimused muudavad kulupildi mõnevõrra teistsuguseks: ChatGPT Plus ja Claude Pro maksavad Eesti regioonis ca €22--23 kuus (koos käibemaksuga), Google AI Pro €21,99 kuus (vt tabel~\ref{tab:mudelite-tellimused}). Praktikas saab üliõpilane teha põhilise töö 1--2 kuu tellimuse hinnaga, kui mahupiiranguid ei ületata (eeldusel, et ei soovita väga pikki sessioone järjest teha).
