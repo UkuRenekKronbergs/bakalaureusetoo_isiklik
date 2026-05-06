@@ -12,9 +12,9 @@ Kuluaspektist oli Gemini 3.1 Pro API baasmäärade poolest üks soodsamaid võrr
 
 \subsection{OpenAI GPT-5.4} \label{subsec:chatgpt}
 
-OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta detsembris \cite{openai2025gpt54}.
+OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2026. aasta märtsis \cite{openai2026gpt54}.
 
-GPT-5.4 kontekstiaken Codexi laiendusena ja rakenduses on 256\,000 tokenit. Mudel pakub ka mõtlemisrežiimi (\textit{reasoning}), mille intensiivsust saab reguleerida (madal/keskmine/kõrge, väga kõrge), võimaldades kasutajal valida kiiruse ja kvaliteedi vahel.
+GPT-5.4 API kontekstiaken on 1,05 miljonit tokenit; Codexis kirjeldab OpenAI 1M kontekstiakent eksperimentaalse toena ning standardpiiranguna 272K tokenit. Mudel pakub ka mõtlemisrežiimi (\textit{reasoning}), mille intensiivsust saab reguleerida (madal/keskmine/kõrge, väga kõrge), võimaldades kasutajal valida kiiruse ja kvaliteedi vahel.
 
 Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Pakett-API-d (\textit{Batch API}), mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid pole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (ca €8), ChatGPT Plus (ca €23) ja ChatGPT Pro (ca €229).
 
@@ -29,7 +29,7 @@ Kuluaspektist oli Claude Sonnet 4.6 API baasmääradega võrreldav GPT-5.4 ja Ge
 
 \subsection{Anthropic Claude Opus 4.6} \label{subsec:opus}
 
-Claude Opus 4.6 on Anthropicu kõige võimekam keelemudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026opus}. Opus kuulub samasse Claude mudeliperekonda kui Sonnet, kuid on oluliselt suurem ja võimekam mudel. Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb suuremas parameetrite arvus ja sügavamas arutlusvõimekuses.
+Claude Opus 4.6 on Anthropicu kõige võimekam keelemudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026opus}. Opus kuulub samasse Claude mudeliperekonda kui Sonnet, kuid on oluliselt võimekam mudel. Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb paremates agentse töö hindamistulemustes ja sügavamas arutlusvõimekuses.
 
 Opus 4.6 jagab Sonnet 4.6-ga samu agentseid omadusi -- pikendatud mõtlemisrežiim, tööriistakasutus, arvutikasutus, selgesõnaline promptide vahemälustamine ning teksti-, pildi- ja PDF-sisendi tugi. Suurema kontekstiakna tõttu (1M vs Sonnet'i 200K) sobib Opus paremini juhtudel, kus tervet projekti tuleb hoida samaaegselt mudeli kontekstis -- näiteks kui agentne tööriist loeb iga sammu juures kõiki olemasolevaid \LaTeX{}-faile uuesti.
 
@@ -37,7 +37,7 @@ Kuluaspektist oli Claude Opus 4.6 võrreldud mudelitest kõige kallim (vt tabel~
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
 
-Tabelites~\ref{tab:mudelite-vordlus-tehniline}, \ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} on esitatud nelja mudeli koondvõrdlus, mis on jagatud kolme ossa loetavuse huvides: tehnilised parameetrid, API hinnakiri ning lõppkasutaja kuutellimused. Tabeli~\ref{tab:mudelite-vordlus-tehniline} read tuginevad mudelite pakkujate ametlikele tooteteadetele \cite{google2026gemini, openai2025gpt54, anthropic2026claude, anthropic2026opus} ning tabelite~\ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} read tuginevad 2026. aasta mai ametlikele hinnakirjadele \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing}. API hinnad on pakkujate poolt avaldatud USA dollarites tabelis~\ref{tab:mudelite-vordlus-hind} ja need on teisendatud eurodesse 2026. aasta mai vahetuskursi alusel (1 EUR = 1,17 USD ehk 1 USD $\approx$ 0,853 EUR). Kõik hinnad sisaldavad Eesti 24\% käibemaksu.
+Tabelites~\ref{tab:mudelite-vordlus-tehniline}, \ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} on esitatud nelja mudeli koondvõrdlus, mis on jagatud kolme ossa loetavuse huvides: tehnilised parameetrid, API hinnakiri ning lõppkasutaja kuutellimused. Tabeli~\ref{tab:mudelite-vordlus-tehniline} read tuginevad mudelite pakkujate ametlikele tooteteadetele \cite{google2026gemini, openai2026gpt54, anthropic2026claude, anthropic2026opus} ning tabelite~\ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} read tuginevad 2026. aasta mai ametlikele hinnakirjadele \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing}. API hinnad on pakkujate poolt avaldatud USA dollarites tabelis~\ref{tab:mudelite-vordlus-hind} ja need on teisendatud eurodesse 2026. aasta mai vahetuskursi alusel (1 EUR = 1,17 USD ehk 1 USD $\approx$ 0,853 EUR). Kõik hinnad sisaldavad Eesti 24\% käibemaksu.
 
 \begin{table}[ht]
 \centering
@@ -54,8 +54,8 @@ Tabelites~\ref{tab:mudelite-vordlus-tehniline}, \ref{tab:mudelite-vordlus-hind} 
     row{even}={bg=colorCellHighlight},
 }
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Avaldatud & 02/2026 & 12/2025 & 02/2026 & 02/2026 \\
-Kontekstiaken & 1M & 256K (1,05M API) & 200K (1M API) & 1M \\
+Avaldatud & 02/2026 & 03/2026 & 02/2026 & 02/2026 \\
+Kontekstiaken & 1M & 272K (1,05M API) & 200K (1M API) & 1M \\
 Max väljund (tokenites) & 64\,000 & 128\,000 & 128\,000 & 128\,000 \\
 Mõtlemisrežiim & Jah (natiivne) & Jah (reguleeritav) & Jah (pikendatud) & Jah (pikendatud) \\
 Max mõtlemise tokenid & natiivne & 128\,000 & 64\,000 & 64\,000 \\
