@@ -42,13 +42,13 @@ Selle töövoo tulemusena sisaldab käesoleva töö bibliograafia vaid olemasole
 
 \subsection{Kvantitatiivse analüüsi ja andmete kogumise töövoog} \label{subsec:kvantanaluus-toovoog}
 
-Peatükkides~\ref{subsec:kirjaviga}--\ref{subsec:akadeem-stiil} esitatud arvulised tulemused (kirjavigade arv, viidete arv, anglitsismide arv, esimese isiku asesõnade arv) koguti järgmise protseduuri alusel.
+Peatükkides~\ref{subsec:kirjaviga}--\ref{subsec:akadeem-stiil} esitatud arvulised tulemused (keele- ja kirjavigade arv, viidete arv, anglitsismide arv, esimese isiku asesõnade arv) koguti järgmise protseduuri alusel.
 
 \begin{enumerate}
     \item \textbf{PDF-ist teksti ekstraheerimine.} Iga genereeritud tervikliku töö PDF-fail (vt lisa~II) muudeti tekstiks, jättes välja tiitellehe ja kirjanduse loendi juhtudel, kus see oli metoodiliselt põhjendatud.
     \item \textbf{Automaatne eelotsing TI abiga.} Claude Code'il paluti otsida eraldatud tekstist konkreetseid mustreid: tõenäolised kirjavead, ülakomaga võõrsõnad (\texttt{[a-zA-Z]+'[a-zõäöü]}), tüüpilised arvutiteaduse ingliskeelsed terminid (\textit{prompt}, \textit{pipeline}, \textit{benchmark}, \textit{over-reliance} jt) ning esimese isiku asesõnad. Iga leid esitati autorile koos konteksti reaga.
     \item \textbf{Inimese lõplik otsus iga leiu kohta.} Autor otsustas iga TI tuvastatud kandidaadi kohta eraldi, kas tegemist on tõepoolest kirjaveaga, anglitsismiga või esimese isiku asesõnaga, või näiteks kontekstis sobiva tsitaadi või pärisnimega. See kaheetapiline lähenemine (masin tuvastab kandidaadid, inimene kinnitab) vähendas nii väärnegatiivide kui ka väärpositiivide hulka võrreldes puhtalt käsitsi loendusega.
-    \item \textbf{Tulemuste ristkontroll.} Kogunenud arvulisi tulemusi võrreldi korduvalt tabelite (nt tab.~\ref{tab:kirjavead}, tab.~\ref{tab:anglitsismid}, tab.~\ref{tab:akadeem-stiil}) vahel, et tagada iga peatüki sees ja peatükkide vahel ühtsed arvud. Claude Code'ilt paluti ka selle ristkontrolli jaoks abi, lastes mudelil hoiatada vastuoludest (nt kui sama mudeli kohta on ühes tabelis kirjas 13 ja teises 14 kirjaviga).
+    \item \textbf{Tulemuste ristkontroll.} Kogunenud arvulisi tulemusi võrreldi korduvalt tabelite (nt tab.~\ref{tab:kirjavead}, tab.~\ref{tab:anglitsismid}, tab.~\ref{tab:akadeem-stiil}) vahel, et tagada iga peatüki sees ja peatükkide vahel ühtsed arvud. Claude Code'ilt paluti ka selle ristkontrolli jaoks abi, lastes mudelil hoiatada vastuoludest (nt kui sama mudeli kohta on eri tabelites erinev veaarv).
 \end{enumerate}
 
 Selline tööjaotus vähendas analüüsile kulunud aega, kuid säilitas autori täieliku kontrolli iga arvu üle, mida töös esitatakse.
