@@ -16,7 +16,7 @@ OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta de
 
 GPT-5.4 kontekstiaken Codexi laiendusena ja rakenduses on 256\,000 tokenit. Mudel pakub ka mõtlemisrežiimi (\textit{reasoning}), mille intensiivsust saab reguleerida (madal/keskmine/kõrge, väga kõrge), võimaldades kasutajal valida kiiruse ja kvaliteedi vahel.
 
-Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Pakett-API-d (\textit{Batch API}), mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid pole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (8€), GPT Plus (€23) ning Pro 5x (103€) ja Pro 20x (206€) ja.
+Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Pakett-API-d (\textit{Batch API}), mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid pole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (8€), GPT Plus (€23) ning Pro 5x (103€) ja Pro 20x (206€).
 
 \subsection{Anthropic Claude Sonnet 4.6} \label{subsec:claude}
 
@@ -24,7 +24,7 @@ Anthropic Claude Sonnet 4.6 on Anthropicu arendatud keelemudel, mis avaldati 202
 
 Claude Sonnet 4.6 kontekstiaken on 200\,000 tokenit (API kaudu eraldi 1M tokeni režiim, mida autor ei kasutanud), mis on neljast võrreldud keelemudelist kõige väiksem.
 
-Kuluaspektist oli Claude Sonnet 4.6 API baasmääradega võrreldav GPT-5.4 ja Gemini 3.1 Pro-ga (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €3,17/MTok ja väljund €15,87/MTok. Kuutellimuste osas pakub Anthropic Eesti regioonis kolme taset: Claude Pro (€22) Claude Max 5× (€106) ja Claude Max 20× (€212).
+Kuluaspektist oli Claude Sonnet 4.6 API baasmääradega võrreldav GPT-5.4 ja Gemini 3.1 Pro-ga (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €3,17/MTok ja väljund €15,87/MTok. Kuutellimuste osas pakub Anthropic Eesti regioonis kolme taset: Claude Pro (€22), Claude Max 5× (€106) ja Claude Max 20× (€212).
 
 
 \subsection{Anthropic Claude Opus 4.6} \label{subsec:opus}
@@ -37,7 +37,7 @@ Kuluaspektist oli Claude Opus 4.6 võrreldud mudelitest kõige kallim (vt tabel~
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
 
-Tabelites~\ref{tab:mudelite-vordlus-tehniline}, \ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} on esitatud nelja mudeli koondvõrdlus, mis on jagatud kolme ossa loetavuse huvides: tehnilised parameetrid, API hinnakiri ning lõppkasutaja kuutellimused. Tabeli~\ref{tab:mudelite-vordlus-tehniline} read tuginevad mudelite pakkujate ametlikele tooteteadetele \cite{google2026gemini, openai2025gpt54, anthropic2026claude, anthropic2026opus} ning tabelite~\ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} read tuginevad 2026. aasta mai ametlikele hinnakirjadele \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing}. API hinnad on pakkujate poolt avaldatud USA dollarites tabelis~\ref{tab:mudelite-vordlus-hind} ja need onteisendatud eurodesse 2026. aasta mai vahetuskursi alusel (1 EUR = 1,17 USD ehk 1 USD $\approx$ 0,853 EUR). Kõik hinnad sisaldavad Eesti 24\% käibemaksu.
+Tabelites~\ref{tab:mudelite-vordlus-tehniline}, \ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} on esitatud nelja mudeli koondvõrdlus, mis on jagatud kolme ossa loetavuse huvides: tehnilised parameetrid, API hinnakiri ning lõppkasutaja kuutellimused. Tabeli~\ref{tab:mudelite-vordlus-tehniline} read tuginevad mudelite pakkujate ametlikele tooteteadetele \cite{google2026gemini, openai2025gpt54, anthropic2026claude, anthropic2026opus} ning tabelite~\ref{tab:mudelite-vordlus-hind} ja~\ref{tab:mudelite-tellimused} read tuginevad 2026. aasta mai ametlikele hinnakirjadele \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing}. API hinnad on pakkujate poolt avaldatud USA dollarites tabelis~\ref{tab:mudelite-vordlus-hind} ja need on teisendatud eurodesse 2026. aasta mai vahetuskursi alusel (1 EUR = 1,17 USD ehk 1 USD $\approx$ 0,853 EUR). Kõik hinnad sisaldavad Eesti 24\% käibemaksu.
 
 \begin{table}[ht]
 \centering

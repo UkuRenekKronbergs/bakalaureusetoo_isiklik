@@ -94,9 +94,10 @@ Järgnevalt on esitatud väljavõtted eksperimendi väljunditest. Nelja tervikli
 
 \textit{Hinnang: Opus 4.6 + Cowork kombinatsioon genereeris kõige mahukama ja tehniliselt sügavaima töö. 61-leheküljeline lõputöö sisaldas terviklikku tehnilist arhitektuuri ja koodi\-näiteid; lisaks \emph{väitis} töö, et rakendus läbis 149 automatiseeritud testi, OWASP Top 10 analüüsi ja SUS kasutatavusuuringu (skoor 77,0). Neid teste, auditit ega kasutajauuringut ei teostanud käesoleva uurimuse autor iseseisvalt -- tegemist on kombinatsiooni enda genereeritud empiiriliste väidetega, mis tuleb inimese poolt kontrollida samamoodi nagu viited. Eestikeelne akadeemiline stiil oli läbivalt suurepärane (0 esimese isiku asesõna terve töö peale); ristkontrollis tuvastati 15 keele- ja kirjaviga. Struktuur vastas TÜ nõuetele. 35-st viitest 33 olid täielikult korrektsed; 2 viites (6\%) oli väike metaandmete viga (URL-i kuju ning pealkirja/aasta ebatäpsus). Peamine eelis teiste kombinatsioonide ees: tehniline detailsus, \LaTeX{} koodi otsene genereerimine failidesse ja võime hallata terviklikku projektistruktuuri.}
 
+\clearpage
 \subsubsection*{III.6 Genereeritud tööde võrdlev kokkuvõte}
 
-\begin{table}[ht]
+\begin{table}[!ht]
 \centering
 \caption{Tervikliku lõputöö genereerimise koondvõrdlus}
 \label{tab:terviktoo-vordlus}
@@ -105,6 +106,7 @@ Järgnevalt on esitatud väljavõtted eksperimendi väljunditest. Nelja tervikli
     colspec={X[1.5,l] X[1,c] X[1,c] X[1,c] X[1,c]},
     rows={font=\small},
     colsep=3pt,
+    rowsep=2pt,
     row{1}={font=\bfseries\small},
     hlines,
     vlines,
@@ -113,18 +115,15 @@ Järgnevalt on esitatud väljavõtted eksperimendi väljunditest. Nelja tervikli
 Kriteerium & Gemini 3.1 Pro + Antigravity & GPT-5.4 + Codex & Claude Sonnet 4.6 + Cowork & Claude Opus 4.6 + Cowork \\
 Valitud teema & GenAI ja progr. & RAG QA-süsteem & LLM koodiülevaatuses & Paroolihaldur \\
 Maht & 39 lk & 47 lk & 40 lk & 61 lk \\
-Sõnu & 7\,230 & 9\,669 & 8\,085 & 10\,749 \\
-Sõnu/lk & 185 & 206 & 202 & 176 \\
+Sõnu (sõnu/lk) & 7\,230 (185/lk) & 9\,669 (206/lk) & 8\,085 (202/lk) & 10\,749 (176/lk) \\
 Alapeatükke & 20 & 49 & 32 & 27 \\
 Tabeleid & 2 & 7 & 7 & 11 \\
 Jooniseid & 0 & 2 & 0 & 0 \\
-Keele- ja kirjavigu & 24 & 3 & 37 & 15 \\
-Vigu/lk & 0,62 & 0,06 & 0,93 & 0,25 \\
+Keele- ja kirjavigu (vigu/lk) & 24 (0,62/lk) & 3 (0,06/lk) & 37 (0,93/lk) & 15 (0,25/lk) \\
 Unikaalseid viiteid & 9 & 22 & 23 & 35 \\
-Tekstisiseseid viiteid & 13 & 28 & 54 & 45 \\
-Viiteid/lk & 0,33 & 0,60 & 1,35 & 0,74 \\
+Tekstisiseseid viiteid (viiteid/lk) & 13 (0,33/lk) & 28 (0,60/lk) & 54 (1,35/lk) & 45 (0,74/lk) \\
 Hallutsineeritud viiteid & 1 (11\%) & 0 (0\%) & 5 (22\%) & 2 (6\%) \\
-Anglitsisme/lk & 0,72 & 0,32 & 0,15 & 0,46 \\
+Anglitsisme (anglitsisme/lk) & 28 (0,72/lk) & 15 (0,32/lk) & 6 (0,15/lk) & 28 (0,46/lk) \\
 Esimese isiku asesõnu & 1 & 0 & 0 & 0 \\
 \end{tblr}
 \end{table}
