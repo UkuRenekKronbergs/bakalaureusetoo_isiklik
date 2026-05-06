@@ -8,7 +8,7 @@ Google Gemini 3.1 Pro on Google DeepMind'i arendatud multimodaalne keelemudel, m
 
 Gemini 3.1 Pro mudelil on kontekstiaken 1 miljon tokenit. Lisaks on Gemini 3.1 Pro natiivne mõtlemismudel (\textit{thinking model}), mis tähendab, et mudel kasutab sisemist ahelpõhjendamist enne vastuse andmist; see parandab oluliselt keeruliste ülesannete lahendamise kvaliteeti, sealhulgas struktureeritud teksti loomist.
 
-Kuluaspektist oli Gemini 3.1 Pro API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus-hind}). Sisendhind on astmeline ja sõltub konkreetses päringus kasutatava konteksti pikkusest -- lühema konteksti puhul (kuni 200\,000 tokenit) on sisendhind ca €2,12/MTok ja väljundi hind ca €12,70/MTok, pikema konteksti puhul vastavalt €4,23/MTok ja €19,05/MTok. Lõppkasutajale pakub Google API kõrval ka kuutellimusi: Google AI Studio Plus (7,99€) ning Google AI Pro (Gemini Advanced) hinnaga €21,99 kuus ja Google AI Ultra (274,99€) üksikasjad on koondatud tabelis~\ref{tab:mudelite-tellimused}. Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
+Kuluaspektist oli Gemini 3.1 Pro API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus-hind}). Sisendhind on astmeline ja sõltub konkreetses päringus kasutatava konteksti pikkusest -- lühema konteksti puhul (kuni 200\,000 tokenit) on sisendhind ca €2,12/MTok ja väljundi hind ca €12,70/MTok, pikema konteksti puhul vastavalt €4,23/MTok ja €19,05/MTok. Lõppkasutajale pakub Google API kõrval ka kuutellimusi: Google AI Studio Plus (7,99€), Google AI Pro (Gemini Advanced) hinnaga €21,99 kuus ja Google AI Ultra (274,99€); üksikasjad on koondatud tabelis~\ref{tab:mudelite-tellimused}. Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
 
 \subsection{OpenAI GPT-5.4} \label{subsec:chatgpt}
 
@@ -16,7 +16,7 @@ OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2025. aasta de
 
 GPT-5.4 kontekstiaken Codexi laiendusena ja rakenduses on 256\,000 tokenit. Mudel pakub ka mõtlemisrežiimi (\textit{reasoning}), mille intensiivsust saab reguleerida (madal/keskmine/kõrge, väga kõrge), võimaldades kasutajal valida kiiruse ja kvaliteedi vahel.
 
-Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Pakett-API-d (\textit{Batch API}), mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid pole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (8€), GPT Plus (€23) ning Pro 5x (103€) ja Pro 20x (206€).
+Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Pakett-API-d (\textit{Batch API}), mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid pole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (ca €8), ChatGPT Plus (ca €23) ja ChatGPT Pro (ca €229).
 
 \subsection{Anthropic Claude Sonnet 4.6} \label{subsec:claude}
 
@@ -102,6 +102,7 @@ Lisaks API-le pakuvad kõik kolm pakkujat lõppkasutajatele kuutellimusi, mis v�
     row{even}={bg=colorCellHighlight},
 }
 Pakkuja & Tellimus & Hind/kuu & Olulisemad piirangud ja juurdepääs \\
+Google & Google AI Studio Plus & €7,99 & Piiratud Gemini 3.1 Pro ja AI Studio kasutus \\
 Google & Google AI Pro (Gemini Advanced) & €21,99 & Gemini 3.1 Pro vestlusliideses; piiratud Antigravity kasutus \\
 Google & Google AI Ultra & €274,99 & Kõrgeimad Gemini 3.1 Pro, AI Studio ja Antigravity limiidid; 30 TB salvestusruumi \\
 OpenAI & ChatGPT Go & ca €8 & GPT-5.3 Instant laiendatud kasutusega; rohkem faile, pildiloomet ja mälu kui tasuta plaanis \\
