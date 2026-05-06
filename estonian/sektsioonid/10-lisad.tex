@@ -2,7 +2,7 @@
 
 \subsection*{I. Eksperimendis kasutatud viip} \label{lisa:promptid} \addcontentsline{toc}{subsection}{I. Eksperimendis kasutatud viip}
 
-Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudel-tööriista kombinatsiooni puhul üht ja sama lühikest eestikeelset viipa ehk ühe kasutajaviibaga (\textit{single-prompt}) lähenemist. Viipa ei muudetud ega iteratiivselt täiendatud. Täisviip oli järgmine:
+Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudel-tööriista kombinatsiooni puhul üht ja sama lühikest eestikeelset viipa ehk ühe kasutajaviibaga (\textit{single-prompt}) lähenemist. Viipa ei muudetud ega iteratiivselt täiendatud. Täielik viip oli järgmine:
 
 \begin{quote}
 \textit{``Sa oled kogenud akadeemiline kirjutaja. Loo täielik bakalaureusetöö LaTeX-vormingus (lisasin töökausta vajaliku malli), mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele. Teema peab olema informaatikaga seotud ja vali ise. Autor on Uku Renek Kronbergs ja juhendaja Alo Peets (MSc).''}
@@ -12,9 +12,9 @@ Viiba sisulised elemendid:
 \begin{itemize}
     \item \textbf{Mudeli roll} -- ``kogenud akadeemiline kirjutaja'' kui üldine stiiliviide.
     \item \textbf{Ülesanne} -- täieliku bakalaureusetöö loomine.
-    \item \textbf{Vorm} -- LaTeX-vorming koos viitega töökausta paigutatud UniTartuCS mallile.
+    \item \textbf{Vorm} -- \LaTeX{}-vorming koos viitega töökausta paigutatud UniTartuCS mallile.
     \item \textbf{Nõue} -- vastavus Tartu Ülikooli arvutiteaduse instituudi nõuetele.
-    \item \textbf{Teema} -- informaatikaga seotud, valitakse mudeli poolt iseseisvalt.
+    \item \textbf{Teema} -- informaatikaga seotud; konkreetse teema valib mudel ise.
     \item \textbf{Tiitellehe andmed} -- autor Uku Renek Kronbergs, juhendaja Alo Peets (MSc).
 \end{itemize}
 
@@ -29,9 +29,22 @@ Viibasse \emph{ei} lisatud:
 
 Sellise minimaalse viiba eesmärk oli hinnata, kuidas mudelid interpreteerivad võimalikult lühikest juhist ning millistele eelteadmistele nad toetuvad eestikeelse akadeemilise lõputöö loomisel.
 
-\subsection*{III. Tervikliku lõputöö genereerimise näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{III. Tervikliku lõputöö genereerimise näited}
+\subsection*{II. Eksperimendis genereeritud väljundfailid} \label{lisa:valjundfailid} \addcontentsline{toc}{subsection}{II. Eksperimendis genereeritud väljundfailid}
 
-Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest lõputöödest. Iga mudeli väljundist on toodud sissejuhatuse algus, et illustreerida erinevusi keeles, stiilis ja teemale vastavuses.
+Eksperimendi tulemusena salvestati iga agentse mudel-tööriista kombinatsiooni kohta üks PDF-failiks kompileeritud lõputöö. Need failid paiknevad töö repositooriumi kaustas \texttt{Genereeritud lõputööd}.
+
+\begin{itemize}
+    \item \texttt{Gemini\_3.1\_Pro\_Antigravity.pdf} -- Gemini 3.1 Pro + Antigravity; 39 lk; teema: GenAI ja algajad programmeerijad.
+    \item \texttt{GPT\_5.4\_Visual\_Studio\_Codex.pdf} -- GPT-5.4 + Codex VS Code'is; 47 lk; teema: RAG-põhine küsimus-vastus süsteem.
+    \item \texttt{Sonnet\_4.6\_Cowork.pdf} -- Claude Sonnet 4.6 + Cowork; 40 lk; teema: LLM-id koodiülevaatuses.
+    \item \texttt{Opus\_4.6\_Cowork.pdf} -- Claude Opus 4.6 + Cowork; 61 lk; teema: turvaline paroolihaldur.
+\end{itemize}
+
+GPT-5.4 tavapärase vestlusliidese kaudu saadud keelduv 8-leheküljeline teostatavusjuhend ei kuulunud nelja tervikliku PDF-lõputöö hulka, kuid selle väljavõte on võrdluse huvides esitatud lisas~III.2.
+
+\subsection*{III. Genereeritud väljundite näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{III. Genereeritud väljundite näited}
+
+Järgnevalt on esitatud väljavõtted eksperimendi väljunditest. Nelja tervikliku PDF-lõputöö puhul on toodud sissejuhatuse algus, et illustreerida erinevusi keeles, stiilis ja teemale vastavuses. GPT-5.4 tavapärase vestlusliidese puhul on toodud keeldumise väljavõte, sest see väljund ei olnud terviklik lõputöö, vaid teostatavusjuhend.
 
 \subsubsection*{III.1 Claude Sonnet 4.6 (Cowork) -- sissejuhatuse väljavõte (40 lk)}
 
@@ -49,7 +62,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{``A complete, submission-ready bachelor's thesis written end-to-end on your behalf is not something I can produce. That would materially enable academic misconduct (submitting work largely authored by a third party). What I can provide---aligned with the University of Tartu's own principles for using generative AI in coursework---is a deep-research `thesis kit': a rigorously sourced background review, a defensible experimental design, an evaluation rubric, and a UniTartuCS-template-aligned LaTeX project skeleton with chapter-by-chapter writing prompts and clearly marked placeholders that you must complete, verify, and take responsibility for.''}
 \end{quote}
 
-\textit{Hinnang: GPT-5.4 keeldus ülesannet täitmast ja valis väljundkeeleks inglise keele. Pakkus selle asemel teostatavusjuhendit, mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku ja LaTeX malli juhiseid. Viited on verifitseeritud ja sisukad. Akadeemilise aususe teadlikkus on silmapaistvalt tugev. Sama mudel sama viibaga Codex-laienduse kaudu Visual Studio Code'is genereeris aga tervikliku 47-leheküljelise eestikeelse töö -- vt III.3.}
+\textit{Hinnang: GPT-5.4 keeldus ülesannet täitmast ja valis väljundkeeleks inglise keele. Selle asemel pakkus mudel teostatavusjuhendit, mis sisaldas mudelivaliku soovitusi, eksperimendi disaini raamistikku ja \LaTeX{}-malli juhiseid. Viited olid verifitseeritud ja sisukad ning akadeemilise aususe teadlikkus oli silmapaistvalt tugev. Sama mudel genereeris sama viibaga Codex-laienduse kaudu Visual Studio Code'is tervikliku 47-leheküljelise eestikeelse töö -- vt lisa~III.3.}
 
 \subsubsection*{III.3 GPT-5.4 (Codex VS Code'is) -- sissejuhatuse väljavõte (47 lk)}
 
@@ -59,7 +72,7 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
 \textit{``Töö eesmärk on analüüsida RAG-lahenduste teaduskirjandust ning selle põhjal kavandada eestikeelse dokumentide põhise küsimus-vastus süsteemi arhitektuur, mis oleks läbipaistev, ajakohastatav ja hinnatav.''}
 \end{quote}
 
-\textit{Hinnang: Sama mudel ja sama viip kui vestlusliideses, kuid agentse töövoo kaudu andis täiesti erineva tulemuse. Keelevalik eesti keel, struktuur vastab bakalaureusetöö vormile (8 nummerdatud peatükki, 49 alapeatükki, 7 tabelit, 2 joonist), ortograafiline täpsus silmapaistvalt kõrge (3 kirjaviga kogu töö peale). Kõik 22 unikaalset viidet olid täielikult kontrollitavad ja korrektsete metaandmetega -- ainus genereeritud töö, kus ühtegi hallutsineeritud viidet ei tuvastatud. Tähelepanuväärne kõrvalleid: tiitellehel, litsentsis ja allkirjas kasutas mudel viibas etteantud nimede asemel kohatäiteid (\textit{Näidisüliõpilane}, \textit{Juhendaja nimi, PhD}), vältides reaalse tudengi nime alla allakirjastatud akadeemilise teksti otsest tootmist.}
+\textit{Hinnang: Sama mudel ja sama viip kui vestlusliideses, kuid agentse töövoo kaudu andis täiesti erineva tulemuse. Väljundkeel oli eesti keel, struktuur vastas bakalaureusetöö vormile (8 nummerdatud peatükki, 49 alapeatükki, 7 tabelit, 2 joonist) ning ortograafiline täpsus oli silmapaistvalt kõrge (3 kirjaviga kogu töö peale). Kõik 22 unikaalset viidet olid täielikult kontrollitavad ja korrektsete metaandmetega -- see oli ainus genereeritud töö, kus ühtegi hallutsineeritud viidet ei tuvastatud. Tähelepanuväärne kõrvalleid: tiitellehel, litsentsis ja allkirjas kasutas mudel viibas etteantud nimede asemel kohatäiteid (\textit{Näidisüliõpilane}, \textit{Juhendaja nimi, PhD}), vältides reaalse tudengi nime alla allakirjastatud akadeemilise teksti otsest tootmist.}
 
 \subsubsection*{III.4 Gemini 3.1 Pro (Antigravity) -- sissejuhatuse väljavõte (39 lk)}
 
@@ -98,16 +111,14 @@ Järgnevalt on esitatud väljavõtted eksperimendis genereeritud terviklikest l�
     row{even}={bg=colorCellHighlight},
 }
 Kriteerium & Gemini 3.1 Pro + Antigravity & GPT-5.4 + Codex & Claude Sonnet 4.6 + Cowork & Claude Opus 4.6 + Cowork \\
-Keel & Eesti & Eesti & Eesti & Eesti \\
-Agentne tööriist & Antigravity & Codex VS Code'is & Cowork & Cowork \\
+Valitud teema & GenAI ja progr. & RAG QA-süsteem & LLM koodiülevaatuses & Paroolihaldur \\
 Maht & 39 lk & 47 lk & 40 lk & 61 lk \\
 Sõnu & 7\,230 & 9\,669 & 8\,085 & 10\,749 \\
 Sõnu/lk & 185 & 206 & 202 & 176 \\
-Valitud teema & GenAI ja progr. & RAG QA-süsteem & LLM koodiülevaatuses & Paroolihaldur \\
 Alapeatükke & 20 & 49 & 32 & 27 \\
 Tabeleid & 2 & 7 & 7 & 11 \\
-Tegelikke jooniseid & 0 & 2 & 0 & 0 \\
-Keele- ja kirjavigu (kogu töö peale) & 24 & 3 & 37 & 15 \\
+Jooniseid & 0 & 2 & 0 & 0 \\
+Keele- ja kirjavigu & 24 & 3 & 37 & 15 \\
 Vigu/lk & 0,62 & 0,06 & 0,93 & 0,25 \\
 Unikaalseid viiteid & 9 & 22 & 23 & 35 \\
 Tekstisiseseid viiteid & 13 & 28 & 54 & 45 \\
