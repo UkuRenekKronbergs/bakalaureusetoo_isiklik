@@ -85,25 +85,6 @@ Väljund & €12,70--19,05 & €15,87 & €15,87 & €26,45 \\
 \end{tblr}
 \end{table}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    thesisbar,
-    ylabel={EUR / 1M tokenit},
-    ymax=30,
-    bar width=7pt,
-]
-\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,4.23) (GPT,2.64) (Sonnet,3.17) (Opus,5.29)};
-\addplot+[fill=chartGreen, draw=chartGreen!70!black] coordinates {(Gemini,0.42) (GPT,0.26) (Sonnet,0.32) (Opus,0.53)};
-\addplot+[fill=chartOrange, draw=chartOrange!70!black] coordinates {(Gemini,19.05) (GPT,15.87) (Sonnet,15.87) (Opus,26.45)};
-\legend{Sisend, Vahemälu, Väljund}
-\end{axis}
-\end{tikzpicture}
-\caption{TI mudelite API hinnakomponentide võrdlus. Gemini 3.1 Pro puhul on kasutatud astmelise hinnastuse ülemist määra.}
-\label{fig:mudelite-api-hinnad}
-\end{figure}
-
 Lisaks API-le pakuvad kõik kolm pakkujat lõppkasutajatele kuutellimusi, mis võimaldavad fikseeritud kuumaksu eest mudelit kasutada vestlusliideses ja sageli ka agentses tööriistas (Codex, Cowork, Antigravity). Tellimuste koondvõrdlus on esitatud tabelis~\ref{tab:mudelite-tellimused}.
 
 \begin{table}[ht]

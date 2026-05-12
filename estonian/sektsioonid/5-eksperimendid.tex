@@ -171,25 +171,6 @@ Claude Opus 4.6 & 61 & 10\,749 & 176 & 27 & 11 & 0 \\
 \end{tblr}
 \end{table}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    thesisbar,
-    ylabel={Sõnu},
-    ymax=12000,
-    ytick={0,3000,6000,9000,12000},
-    bar width=18pt,
-    nodes near coords={\pgfmathprintnumber[fixed,precision=0,1000 sep={\,}]{\pgfplotspointmeta}},
-    every node near coord/.append style={font=\scriptsize, text=black, rotate=90, anchor=west},
-]
-\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,7230) (GPT,9669) (Sonnet,8085) (Opus,10749)};
-\end{axis}
-\end{tikzpicture}
-\caption{Genereeritud tööde mahu võrdlus sõnade koguarvu alusel.}
-\label{fig:maht-sonades}
-\end{figure}
-
 Andmetest joonistuvad välja mitmed huvitavad mustrid. Kõige suurema mahu (10\,749 sõna) genereeris ootuspäraselt Claude Opus 4.6, mille sisu oli samas kõige kompaktsemalt jaotatud (176 sõna lehekülje kohta -- madalaim näitaja, mis tuleneb suuremast hulgast koodinäidetest, tabelitest ja jooniste kohatäiteplokkidest). Tihedaim tekstiline sisu oli GPT-5.4 (Codex) ja Claude Sonnet 4.6 töödes (vastavalt 206 ja 202 sõna lehekülje kohta). Ainsa tegelike joonistega tööna eristus GPT-5.4 (Codex), milles oli 2 joonist. Kõige granulaarsema struktuuriga töö genereeris samuti GPT-5.4 (Codex) -- 49 alapeatükki 47 lehekülje peale --, kus iga alapeatükk käsitles selgelt eristatud arhitektuurilist või hindamistasandi küsimust. Gemini 3.1 Pro maht oli väikseim (7\,230 sõna) ja sõnatihedus mõõdukas (185 sõna lehekülje kohta), mis koos jooniste puudumisega viitab pinnapealsemale käsitlusele.
 
 Eraldi tasub märkida, et Gemini 3.1 Pro, Claude Sonnet 4.6 ja Claude Opus 4.6 töödes ei olnud ühtegi päriselt genereeritud joonist, mis on bakalaureusetöö kontekstis ebatavaline -- enamik tehnilisi lõputöid sisaldab arhitektuuriskeeme või andmevoo diagramme. Opus 4.6 kavandas küll kolm joonisekohta (süsteemi arhitektuur, andmebaasi ER-diagramm ja võtmetuletuse skeem), kuid jättis need PDF-is kohatäideteks. Sonnet 4.6 ja Gemini 3.1 Pro eelistasid suuremas mahus koodinäidete (Listings) lisamist (vastavalt 7 ja 5 koodinäidet), samas kui Opus 4.6 integreeris koodinäited tihedamalt teksti sisse, ilma neid eraldi nummerdatud koodinäidete plokkidena vormistamata. GPT-5.4 (Codex) töös koodinäiteid praktiliselt ei esinenud -- tegu oli puhtalt kontseptuaalse RAG-süsteemi arhitektuurilise kavandiga.
@@ -220,102 +201,10 @@ Claude Opus 4.6 & 35 & 45 & 0,74 & 1,29 \\
 \end{tblr}
 \end{table}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    thesisbar,
-    ylabel={Viidete arv},
-    ymax=60,
-    bar width=8pt,
-    legend style={font=\small, at={(0.5,-0.30)}, anchor=north, legend columns=-1},
-]
-\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,9) (GPT,22) (Sonnet,23) (Opus,35)};
-\addplot+[fill=chartGreen, draw=chartGreen!70!black] coordinates {(Gemini,13) (GPT,28) (Sonnet,54) (Opus,45)};
-\legend{Unikaalsed allikad, Tekstisisesed viited}
-\end{axis}
-\end{tikzpicture}
-\caption{Genereeritud tööde viidete hulga võrdlus.}
-\label{fig:viidete-vordlus}
-\end{figure}
-
 Tulemused näitavad, et Claude Opus 4.6 kasutas kõige rohkem unikaalseid allikaid (35), mis vastab paroolihalduri valdkonna iseloomule, kus on vaja viidata krüptograafilistele standarditele (NIST, IETF RFC), turvauuringutele ja olemasolevatele lahendustele. Tekstisiseste viidete arvu ja tiheduse poolest eristus aga Claude Sonnet 4.6: 40-leheküljelises töös esines 54 tekstisisest viidet, mis teeb 1,35 viidet lehekülje kohta. GPT-5.4 (22 unikaalset allikat) ja Claude Sonnet 4.6 (23 unikaalset allikat) jäid allikate hulga poolest keskmisesse vahemikku. Gemini 3.1 Pro paistis silma väikseima viidete arvuga (9 unikaalset allikat 39 lehekülje peale), mis on bakalaureusetöö kontekstis tagasihoidlik -- tüüpilistes arvutiteaduse bakalaureusetöödes on allikate arv sageli kõrgem kui kümme, eriti kirjanduse ülevaadet sisaldavate tööde puhul. See näitaja kinnitab üldist tähelepanekut, et Gemini 3.1 Pro genereeritud töö oli pigem mahukas, kuid vähese allikatoega.
 
 Viite/allika suhe (tekstisiseste viidete arv jagatud unikaalsete allikate arvuga) näitab, mitu korda iga allikat keskmiselt kasutati. Gemini 3.1 Pro, GPT-5.4 ja Claude Opus 4.6 jäid 1,27--1,44 vahemikku, mis viitab sellele, et enamikku allikaid kasutati tekstis vaid 1--2 korda. Claude Sonnet 4.6 eristus kõrgema suhtarvuga 2,35, mis tähendab, et samu allikaid kasutati tekstis märksa korduvamalt. Oluline on siiski rõhutada, et see analüüs ei hinda viidete \emph{sisulist} korrektsust ega kontrollitavust -- osa viidetest olid hallutsineeritud, eriti Sonnet 4.6 (ca 22\%) ja Opus 4.6 (ca 6\%) töödes.
 
-\subsection{Anglitsismid} \label{subsec:anglitsismid}
+\subsection{Akadeemiline stiil} \label{subsec:akadeem-stiil}
 
-Eestikeelse akadeemilise teksti üks kvaliteedinäitajaid on tõlkimata jäetud või eesti keele konventsioonidest erinevate ingliskeelsete terminite vähene esinemine. Tartu Ülikooli ATI lõputööde juhend \cite{tuati2026juhend} rõhutab, et ``firmade, toodete ja programmide nimed ei ole terminid'' ning võõrkeelsed erialaterminid tuleks esimesel esinemisel tuua koos eestikeelse vaste ja kursiivis originaaliga. Selle põhjal on käesolevas analüüsis oluline eristada kolme erinevat tüüpi ingliskeelseid sõnu:
-\begin{enumerate}
-    \item \textbf{Vältimatud valdkonnaspetsiifilised tehnilised terminid} -- rahvusvaheliselt juurdunud standardi- või spetsifikatsiooniterminid, millel puudub ühtne ja üheselt arusaadav eestikeelne vaste (nt \textit{salt}, \textit{nonce}, \textit{hash}, \textit{token}, \textit{RAG}, \textit{transformer}). Need esinevad ka Eesti arvutiteaduse erialases kirjanduses ning nende säilitamine originaalkujul koos eestikeelse selgitusega on üldiselt aktsepteeritud.
-    \item \textbf{Toote-, firma- ja tehnoloogianimed} -- nt \textit{Google}, \textit{Claude Code}, \textit{Cowork}, \textit{Antigravity}, \textit{OWASP}. Juhendi järgi ei ole need sisuliselt terminid ega anglitsismid, vaid pärisnimed ning ülakoma kasutamine käändelõppude eraldamiseks (\textit{Google'i}) on kooskõlas eesti keele hea tavaga.
-    \item \textbf{Välditavad inglismõjud} -- arvutiteaduse ingliskeelsed sõnad, millel on juurdunud eestikeelne vaste ja mis seetõttu on stiilivalikuna tõlgitavad (nt \textit{prompt}, \textit{pipeline}, \textit{benchmark}, \textit{over-reliance}, \textit{feature branch} ilma selgituseta). Need on kitsamas tähenduses ``anglitsismid'', mille hulk iseloomustab kõige otsesemalt eestikeelse stiili puhtust.
-\end{enumerate}
-Käesoleva analüüsi raames loendati esialgselt unikaalsed ülakomaga käändelõppudega vormistatud ingliskeelsed sõnad ja arvutiteaduse tehnilised terminid eristamata, ilma neid kolme kategooriasse süstemaatiliselt jaotamata; tulemused sellisel kujul on esitatud tabelis~\ref{tab:anglitsismid}. Analüüsist jäeti välja koodinäited ja kirjanduse loend.
-
-\begin{table}[ht]
-\centering
-\caption{Genereeritud tööde anglitsismide analüüs (kategooriad eristamata)}
-\label{tab:anglitsismid}
-\begin{tblr}{
-    width=\linewidth,
-    colspec={X[1.5,l] X[1,c] X[1,c] X[0.9,c]},
-    rows={font=\small},
-    colsep=3pt,
-    row{1}={font=\bfseries\small},
-    hlines,
-    vlines,
-    row{even}={bg=colorCellHighlight},
-}
-Mudel+tööriist & Unikaalseid ülakomaga anglitsisme & CS-anglitsisme tekstis & Anglitsisme/lk \\
-Claude Sonnet 4.6 + Cowork & 5 & 1 & 0,15 \\
-GPT-5.4 + Codex & 4 & 11 & 0,32 \\
-Claude Opus 4.6 + Cowork & 3 & 25 & 0,46 \\
-Gemini 3.1 Pro + Antigravity & 6 & 22 & 0,72 \\
-\end{tblr}
-\end{table}
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    thesisbar,
-    ylabel={Anglitsisme lehekülje kohta},
-    ymax=0.8,
-    bar width=18pt,
-    nodes near coords={\pgfmathprintnumber[fixed,precision=2,use comma]{\pgfplotspointmeta}},
-    every node near coord/.append style={font=\scriptsize, text=black},
-]
-\addplot+[fill=chartOrange, draw=chartOrange!70!black] coordinates {(Gemini,0.72) (GPT,0.32) (Sonnet,0.15) (Opus,0.46)};
-\end{axis}
-\end{tikzpicture}
-\caption{Anglitsismide tihedus genereeritud töödes.}
-\label{fig:anglitsismide-tihedus}
-\end{figure}
-
-Tabeli~\ref{tab:anglitsismid} ``Anglitsismide/lk'' näitaja koondab eeltoodud kolme kategooriat üheks arvuks ning on seetõttu tõlgenduslikult ebatäpne -- see karistab ühtmoodi nii välditavaid inglismõjusid kui ka vältimatuid standarditermineid ja pärisnimesid. Praktikas tähendab see, et valdkonnas, kus standardsed terminid on originaalkujul (krüptograafia, standardid, turvalisus), tõuseb mõõdik, kuigi tekst järgib aktsepteeritud akadeemilist konventsiooni. Claude Opus 4.6 + Cowork kombinatsiooni suhteliselt kõrge CS-anglitsismide arv (25) tuleneb suures osas just sellistest vältimatutest terminitest: \textit{hash}, \textit{token}, \textit{AES-256-GCM}, \textit{Argon2id}, \textit{HKDF}, \textit{PBKDF2} on IETF/NIST standardites kinnistunud ega oma üheseid eestikeelseid vasteid, mida paroolihalduri kontekstis kasutatakse. Claude Sonnet 4.6 + Cowork TI-teema vältis seda probleemi osaliselt, kuna selle valdkonna terminoloogias on eesti keeles juba mitmeid kinnistunud vasteid. Gemini 3.1 Pro + Antigravity kasutab anglitsisme kõige rohkem (0,72/lk). Täpsem kolmekategooriline loendus, mis eristaks välditavaid inglismõjusid vältimatutest terminitest ja pärisnimedest, annaks täpsema pildi ja on edasiste uurimuste oluline metoodiline täiendus. Käesoleva töö tulemusi tuleks tõlgendada seda piirangut arvestades.
-
-\subsection{Umbisikuline stiil} \label{subsec:akadeem-stiil}
-
-Eestikeelses akadeemilises kirjutamises eelistatakse umbisikulist stiili ning välditakse esimese isiku ainsuse (\textit{ma, mina}) ja mitmuse (\textit{me, meie}) kasutamist. Iga genereeritud töö puhul loendati esimese isiku asesõnade (\textit{ma, mina, me, meie, meil, meid, minu}) esinemist tekstis (välja arvatud litsentsis ja autorluse kinnituses). Tulemused on esitatud tabelis~\ref{tab:akadeem-stiil}.
-
-\begin{table}[ht]
-\centering
-\caption{Esimese isiku asesõnade kasutus genereeritud töödes}
-\label{tab:akadeem-stiil}
-\begin{tblr}{
-    colspec={l c c},
-    row{1}={font=\bfseries},
-    hlines,
-    vlines,
-    row{even}={bg=colorCellHighlight},
-}
-Mudel & Esimese isiku asesõnu\\
-Claude Opus 4.6 & 0\\
-GPT-5.4 & 0\\
-Claude Sonnet 4.6 & 0\\
-Gemini 3.1 Pro & 1\\
-\end{tblr}
-\end{table}
-
-Kõik neli mudelit järgisid eestikeelset akadeemilist stiili väga hästi. Claude Opus 4.6, Sonnet 4.6 ja GPT-5.4 ei kasutanud peamises tekstis ühtegi esimese isiku asesõna. Ainus leid esines Gemini 3.1 Pro töös vormis \textit{meid} lauses, kus tekst kirjeldas Dunningi-Krugeri ilmingut esmaarendajate seas. See näitab, et tänapäeva suured keelemudelid on eesti akadeemilise stiili konventsioonid hästi ära õppinud, mis on kooskõlas peatükis~\ref{subsec:tugevused} esitatud üldise hinnanguga TI mudelite akadeemilise stiili oskusele.
+Eestikeelse akadeemilise teksti üks kvaliteedinäitajaid on tõlkimata jäetud või eesti keele konventsioonidest erinevate ingliskeelsete terminite vähene esinemine ja umbisikulise stiili järgimine. Ülakomaga vormistatud ingliskeelsete sõnade hulk varieerus mudelite lõikes (Sonnet 4.6 + Cowork: 5; GPT-5.4 + Codex: 4; Opus 4.6 + Cowork: 3; Gemini 3.1 Pro + Antigravity: 6), kuid sellesse näitajasse mahuvad ühtmoodi nii välditavad inglismõjud (\textit{prompt}, \textit{pipeline}) kui ka vältimatud valdkonnaspetsiifilised standarditerminid (\textit{salt}, \textit{nonce}, \textit{hash}, \textit{AES-256-GCM}, \textit{Argon2id}) ja toote- või firmanimed (\textit{Google}, \textit{Cowork}). Seetõttu on koondnäitaja tõlgenduslikult ebatäpne ning täpsem kolmekategooriline loendus jääb edasiste uurimuste metoodiliseks täienduseks. Esimese isiku asesõnade (\textit{ma, mina, me, meie, meil, meid, minu}) loenduses järgisid kõik neli mudelit umbisikulist stiili väga hästi: Opus 4.6, Sonnet 4.6 ja GPT-5.4 ei kasutanud peamises tekstis ühtegi esimese isiku asesõna ning Gemini 3.1 Pro töös tuvastati vaid üks selline esinemisjuht. See näitab, et tänapäeva suured keelemudelid on eesti akadeemilise stiili konventsioonid hästi ära õppinud.
