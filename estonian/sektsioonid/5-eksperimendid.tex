@@ -37,6 +37,8 @@ Akad. stiil & Hea & Hea & Väga hea & Suurepärane \\
 
 \FloatBarrier
 
+Järgnevad alapeatükid esitavad iga mudel-tööriista kombinatsiooni kohta detailse kvalitatiivse hinnangu, alustades Claude Sonnet 4.6 + Cowork tulemusest, seejärel GPT-5.4, Gemini 3.1 Pro ja Claude Opus 4.6 väljundeid. Numbrilised koondtulemused on koondatud alapeatükkidesse 5.6--5.9.
+
 \subsection{Claude Sonnet 4.6 (Cowork)} \label{subsec:sonnet-toolo}
 
 Claude Sonnet 4.6 + Cowork kombinatsioon genereeris 40-leheküljelise eestikeelse dokumendi, mis järgis bakalaureusetöö struktuuri. Kombinatsioon valis teemaks ``Suurkeelemudelite kasutamine automaatses koodiülevaatuses'' -- empiirilise võrdluse GPT-4, Claude 3 Opuse ja Code Llama 70B vahel, mis põhines väidetavalt 120-st koodifragmendist koosneval testkogumil neljas vea\-kategoorias (loogilised vead, turvaaugud, jõudlusprobleemid, stiilirikkumised) Pythoni ja Java keeles. Töö sisaldas detailseid hindamistabeleid täpsuse, saagise ja F1-mõõdiku numbritega ning kõigi mudelite kohta esitatud konkreetsed numbrid (nt GPT-4 üldine F1 = 82{,}5\%, Claude 3 Opus 77{,}9\%, Code Llama 70B 70{,}0\%). Sarnaselt Gemini 3.1 Pro fabritseeritud uuringule (vt alapeatükk~\ref{subsec:gemini-toolo}) on ka neid empiirilisi näitajaid tulnud käsitleda kontrollimata väidetena, kuna ühtegi sellist kontrollitud katset käesoleva uurimuse autor läbi ei viinud. Akadeemiline stiil oli tugev ja töö järgis LaTeX-malli korrektselt. Olulise vorminguveana paistis silma ka asjaolu, et tiitellehel kasutas mudel autorinime kärbitud kujul (``Uku Renek''), juhendaja nimena kohatäidet (``Prof. Vanem Juhendaja, PhD'') ning aastana ``2025'' (mitte 2026).
@@ -73,6 +75,8 @@ Peamised puudused olid siiski suured, kusjuures esimene neist ei ole käsitletav
     \item Eesti keele ortograafiline täpsus oli selgelt probleemne -- töös tuvastati 24 ristkontrollitud kirjaviga, sealhulgas tavasõnade valed vormid (\textit{strukuure}, \textit{kordinaadid}, \textit{konfiktide}), mittesõnad (\textit{teoosiab}, \textit{Tehisintsistendi}) ning valede tähtedega asendatud täpitähed ja nimed (vt peatükk~\ref{subsec:kirjaviga});
     \item Antigravity tööriist oli vajalik käesolevas katses saadud tulemuseni jõudmiseks -- autori varasemad katsed ilma agentse tööriistata andsid oluliselt nõrgema tulemuse.
 \end{itemize}
+
+Need puudused -- eriti fabritseeritud empiiriline osa -- ilmestavad keskset tähelepanekut, et vormiliselt veenev TI-genereeritud akadeemiline tekst ei tähenda automaatselt sisuliselt usaldusväärset tööd ning inimese põhjalik järelkontroll on hädavajalik isegi siis, kui väljund järgib lõputöö struktuuri ja akadeemilist stiili.
 
 \subsection{Claude Opus 4.6 (Cowork)} \label{subsec:opus-toolo}
 
