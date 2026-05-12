@@ -4,7 +4,7 @@ Käesolev peatükk arutleb eksperimendi tulemuste üle laiemas kontekstis, käsi
 
 \subsection{TI tugevused lõputöö kirjutamisel} \label{subsec:tugevused}
 
-Eksperimendi tulemused kinnitavad, et kaasaegsed TI mudelid koos agentsete tööriistadega suudavad pakkuda märkimisväärset abi lõputöö kirjutamise protsessis. Selle katse jooksul demonstreeris Claude Opus 4.6 + Cowork kombinatsioon eriti veenvalt, et tipptasemel mudel koos agentse tööriistaga suudab genereerida tervikliku 61-leheküljelise eestikeelse lõputöö ka ühe kasutajaviibaga ilma iteratiivse suunamiseta. Peamised tugevused jagunevad järgmiselt.
+Eksperimendi tulemused kinnitavad, et kaasaegsed TI mudelid koos agentsete tööriistadega suudavad pakkuda märkimisväärset abi lõputöö kirjutamise protsessis. Selle katse jooksul demonstreeris Claude Opus 4.6 + Cowork kombinatsioon eriti veenvalt, et tipptasemel mudel koos agentse tööriistaga suudab genereerida tervikliku 61-leheküljelise eestikeelse lõputöö ka ühe kasutajaviibaga ilma iteratiivse suunamiseta. Peatükis~\ref{subsec:opus47-juhtum} esitatud iteratiivne juhtumiuuring uuema mudeliga Claude Opus 4.7 + Claude Code näitas omakorda, et kui kasutaja juhendamine on aktiivne ja seanss kestab ühe tööpäeva, kasvab saavutatav kvaliteet väga palju. Valminud 57-leheküljeline töö sisaldas tegelikku, kompileeritavat Pythoni ja TypeScripti lähtekoodi, 32 kontrollitavat viidet ja alla 0,1 kirjaviga lehekülje kohta. Peamised tugevused jagunevad järgmiselt.
 
 \textbf{Struktureerimine ja kavandamine.} TI mudelid on eriti tugevad teksti struktureerimisel. Kõik neli testitud kombinatsiooni (arvestades GPT-5.4 Codex-laienduse kaudu saadud tulemust) suutsid luua loogilise ja akadeemilistele nõuetele vastava peatükkide jaotuse ainuüksi ühe kasutajaviibaga. Eriti kasulik on TI kasutamine töö algfaasis, kui üliõpilane vajab abi sisukorra ja peatükkide ülesehituse kavandamisel. Mudelid suudavad vaid minimaalse juhise põhjal luua detailse sisukorra koos soovitusliku leheküljemahuga iga peatüki jaoks.
 
@@ -106,7 +106,7 @@ Eksperimendi tulemuste ja praktiliste kogemuste põhjal saab anda järgmised soo
 
 \subsection{Soovitused lõputöö genereerimiseks agentsete TI tööriistadega} \label{subsec:agentsed-soovitused}
 
-Käesoleva uurimuse praktiliste kogemuste põhjal, sealhulgas Opus 4.6 mudeliga Cowork'i kaudu genereeritud paroolihalduri lõputöö (vt peatükk~\ref{subsec:opus-toolo}), saab anda järgmised soovitused agentsete TI tööriistade kasutamiseks lõputöö genereerimisel. Siin peetakse silmas tööriistu, mis suudavad projekti faile lugeda ja muuta, käsurea käske käivitada ning \LaTeX{}-projekti struktuuri järgida.
+Käesoleva uurimuse praktiliste kogemuste põhjal, sealhulgas Opus 4.6 mudeliga Cowork'i kaudu genereeritud paroolihalduri lõputöö (vt peatükk~\ref{subsec:opus-toolo}) ning Opus 4.7 mudeliga Claude Code'i kaudu läbi viidud iteratiivne juhtumiuuring (vt peatükk~\ref{subsec:opus47-juhtum}), saab anda järgmised soovitused agentsete TI tööriistade kasutamiseks lõputöö genereerimisel. Siin peetakse silmas tööriistu, mis suudavad projekti faile lugeda ja muuta, käsurea käske käivitada ning \LaTeX{}-projekti struktuuri järgida. Eraldi tähelepanu väärib peatükis~\ref{subsec:opus47-juhtum} esitatud juhtum, mis näitab, et ühe tööpäeva pikkune juhitud iteratiivne seanss võib anda olulisi täiendusi ühe viiba lähenemisele -- näiteks tegeliku, kompileeritava lähtekoodi genereerimise. Samas on oluline rõhutada, et ka selle töövoo juures jäi empiiriliste väidete (näiteks raporteeritud F1-skoorid) sõltumatu kontroll endiselt inimese ülesandeks: tehniline reprodutseeritavus ei asenda sisulist auditeerimist.
 
 
 \subsubsection{Genereerimise töövoog}
@@ -138,6 +138,8 @@ Soovitame järgmist samm-sammulist töövoogu:
     \item \textbf{Ole kursis enda tööga.} TI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
     \item \textbf{Kasuta keeruliste peatükkide jaoks tugevamat mudelit.} Keerukamate peatükkide, näiteks metoodika ja arutelu, genereerimiseks või põhjalikuks toimetamiseks tasub valida hetkel kättesaadav tugevam arutlusmudel. Lihtsamate korrektuuri- ja vormistusülesannete jaoks piisab sageli odavamast või kiiremini vastavast mudelist. Kuna mudeliperekonnad muutuvad kiiresti, tasub soovituse rakendamisel kontrollida, millised keelemudelid on praegu kättesaadavad.
 \end{itemize}
+
+TI ei korva üliõpilase sisulist tööd allikate, metoodika ja järelduste osas. Selle asemel võimaldab korrektuuri- ja vormistustööd vähema mehaanilise töö ja ajakuluga teha.
 
 \subsection{Tööriistad, mida vältida} \label{subsec:valtida}
 
