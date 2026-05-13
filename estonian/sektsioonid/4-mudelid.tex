@@ -1,14 +1,14 @@
 \section{TI mudelite võrdlus} \label{mudelid}
 
-Käesolev peatükk esitab nelja valitud TI mudeli võrdluse, keskendudes nende tehnilistele parameetritele, agentse töövoo jaoks olulistele omadustele ja kulule. Mudelite koondvõrdlus on esitatud kolme tabelina alapeatükis~\ref{subsec:koondvordlus}: tabel~\ref{tab:mudelite-vordlus-tehniline} võrdleb tehnilisi parameetreid, tabel~\ref{tab:mudelite-vordlus-hind} võrdleb API hinnakirja näitajaid ning tabel~\ref{tab:mudelite-tellimused} võrdleb lõppkasutaja kuutellimusi. Järgnevad hinnad on kõik Eestis kehtestatud 24\% käibemaksuga ja Eesti hinnastusega.
+Käesolev peatükk esitab nelja valitud TI mudeli võrdluse, keskendudes nende tehnilistele parameetritele, agentse töövoo jaoks olulistele omadustele ja kulule. Mudelite koondvõrdlus on esitatud kolme tabelina alapeatükis~\ref{subsec:koondvordlus}: tabel~\ref{tab:mudelite-vordlus-tehniline} võrdleb tehnilisi parameetreid, tabel~\ref{tab:mudelite-vordlus-hind} võrdleb API hinnakirja näitajaid ning tabel~\ref{tab:mudelite-tellimused} võrdleb lõppkasutaja kuutellimusi. Kõik järgnevad hinnad sisaldavad Eestis kehtivat 24\% käibemaksu ja lähtuvad Eesti hinnastusest.
 
 \subsection{Google Gemini 3.1 Pro} \label{subsec:gemini}
 
-Google Gemini 3.1 Pro on Google DeepMind'i arendatud multimodaalne keelemudel, mis avaldati 2026. aasta veebruaris \cite{google2026gemini}. Antud mudel kuulub Gemini mudeliperekonda.
+Google Gemini 3.1 Pro on Google DeepMindi arendatud multimodaalne keelemudel, mis avaldati 2026. aasta veebruaris \cite{google2026gemini}. See mudel kuulub Gemini mudeliperekonda.
 
 Gemini 3.1 Pro mudelil on kontekstiaken 1 miljon tokenit. Lisaks on Gemini 3.1 Pro natiivne mõtlemismudel (\textit{thinking model}), mis tähendab, et mudel kasutab sisemist ahelpõhjendamist enne vastuse andmist; see parandab oluliselt keeruliste ülesannete lahendamise kvaliteeti, sealhulgas struktureeritud teksti loomist.
 
-Kuluaspektist oli Gemini 3.1 Pro API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus-hind}). Sisendhind on astmeline ja sõltub konkreetses päringus kasutatava konteksti pikkusest -- lühema konteksti puhul (kuni 200\,000 tokenit) on sisendhind ca €2,12/MTok ja väljundi hind ca €12,70/MTok, pikema konteksti puhul vastavalt €4,23/MTok ja €19,05/MTok. Lõppkasutajale pakub Google API kõrval ka kuutellimusi: Google AI Studio Plus (7,99€), Google AI Pro (Gemini Advanced) hinnaga €21,99 kuus ja Google AI Ultra (274,99€); üksikasjad on koondatud tabelis~\ref{tab:mudelite-tellimused}. Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
+Kuluaspektist oli Gemini 3.1 Pro API baasmäärade poolest üks soodsamaid võrreldud mudeleid (vt tabel~\ref{tab:mudelite-vordlus-hind}). Sisendhind on astmeline ja sõltub konkreetses päringus kasutatava konteksti pikkusest -- lühema konteksti puhul (kuni 200\,000 tokenit) on sisendhind ca 2,12€/MTok ja väljundi hind ca 12,70€/MTok, pikema konteksti puhul vastavalt 4,23€/MTok ja 19,05€/MTok. Lõppkasutajale pakub Google API kõrval ka kuutellimusi: Google AI Studio Plus (€7,99), Google AI Pro (Gemini Advanced) hinnaga 21,99€ kuus ja Google AI Ultra (274,99€); üksikasjad on koondatud tabelis~\ref{tab:mudelite-tellimused}. Kuna agentne töövoog võib sama faili mitu korda lugeda, kirjutada ja kompileerida, käsitletakse tegelikku kogukulu koondina peatükis~\ref{subsec:hinnakujundus}.
 
 \subsection{OpenAI GPT-5.4} \label{subsec:chatgpt}
 
@@ -16,24 +16,24 @@ OpenAI GPT-5.4 on OpenAI juhtiv multimodaalne mudel, mis avaldati 2026. aasta m�
 
 GPT-5.4 API kontekstiaken on 1,05 miljonit tokenit; Codexis kirjeldab OpenAI 1M kontekstiakent eksperimentaalse toena ning standardpiiranguna 272K tokenit. Mudel pakub ka mõtlemisrežiimi (\textit{reasoning}), mille intensiivsust saab reguleerida (madal/keskmine/kõrge, väga kõrge), võimaldades kasutajal valida kiiruse ja kvaliteedi vahel.
 
-Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Pakett-API-d (\textit{Batch API}), mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid pole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (ca €8), ChatGPT Plus (ca €23) ja ChatGPT Pro (ca €229).
+Kuluaspektist paiknes GPT-5.4 API baasmäärade poolest Sonnet 4.6-ga samasse suurusjärku (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €2,64/MTok ja väljund €15,87/MTok. Lisaks pakub OpenAI Batch API-t, mis annab asünkroonsete päringute eest ligikaudu 50\% allahindlust, kuid ei ole interaktiivse agentse töövoo jaoks kasutatav, kuna vastuse ooteaeg võib ulatuda mitme tunnini. Kuutellimustena pakub OpenAI ChatGPT Go (ca 8€), ChatGPT Plus (ca 23€) ja ChatGPT Pro (ca 229€).
 
 \subsection{Anthropic Claude Sonnet 4.6} \label{subsec:claude}
 
-Anthropic Claude Sonnet 4.6 on Anthropicu arendatud keelemudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026claude}. Claude mudeliperekond eristub teistest oma rõhuasetusega ohutusele ja põhjalikkusele.
+Anthropic Claude Sonnet 4.6 on Anthropicu arendatud keelemudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026claude}. Claude'i mudeliperekond eristub teistest oma rõhuasetusega ohutusele ja põhjalikkusele.
 
 Claude Sonnet 4.6 kontekstiaken on 200\,000 tokenit (API kaudu eraldi 1M tokeni režiim, mida autor ei kasutanud), mis on neljast võrreldud keelemudelist kõige väiksem.
 
-Kuluaspektist oli Claude Sonnet 4.6 API baasmääradega võrreldav GPT-5.4 ja Gemini 3.1 Pro-ga (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend €3,17/MTok ja väljund €15,87/MTok. Kuutellimuste osas pakub Anthropic Eesti regioonis kolme taset: Claude Pro (€22), Claude Max 5× (€106) ja Claude Max 20× (€212).
+Kuluaspektist oli Claude Sonnet 4.6 API baasmääradega võrreldav GPT-5.4 ja Gemini 3.1 Pro-ga (vt tabel~\ref{tab:mudelite-vordlus-hind}): sisend 3,17€/MTok ja väljund 15,87€/MTok. Kuutellimuste osas pakub Anthropic Eesti regioonis kolme taset: Claude Pro (22€), Claude Max 5× (106€) ja Claude Max 20× (212€).
 
 
 \subsection{Anthropic Claude Opus 4.6} \label{subsec:opus}
 
 Claude Opus 4.6 on Anthropicu kõige võimekam keelemudel, mis avaldati 2026. aasta veebruaris \cite{anthropic2026opus}. Opus kuulub samasse Claude mudeliperekonda kui Sonnet, kuid on oluliselt võimekam mudel. Claude Opus 4.6 kontekstiaken on 1M tokenit, kuid mudeli peamine eelis seisneb paremates agentse töö hindamistulemustes ja sügavamas arutlusvõimekuses.
 
-Opus 4.6 jagab Sonnet 4.6-ga samu agentseid omadusi -- pikendatud mõtlemisrežiim, tööriistakasutus, arvutikasutus, selgesõnaline promptide vahemälustamine ning teksti-, pildi- ja PDF-sisendi tugi. Suurema kontekstiakna tõttu (1M vs Sonnet'i 200K) sobib Opus paremini juhtudel, kus tervet projekti tuleb hoida samaaegselt mudeli kontekstis -- näiteks kui agentne tööriist loeb iga sammu juures kõiki olemasolevaid \LaTeX{}-faile uuesti.
+Opus 4.6 jagab Sonnet 4.6-ga samu agentseid omadusi -- pikendatud mõtlemisrežiim, tööriistakasutus, arvutikasutus, selgesõnaline promptide vahemälustamine ning teksti-, pildi- ja PDF-sisendi tugi. Suurema kontekstiakna tõttu (1M vs Sonneti 200K) sobib Opus paremini juhtudel, kus tervet projekti tuleb hoida samaaegselt mudeli kontekstis -- näiteks kui agentne tööriist loeb iga sammu juures kõiki olemasolevaid \LaTeX{}-faile uuesti.
 
-Kuluaspektist oli Claude Opus 4.6 võrreldud mudelitest kõige kallim (vt tabel~\ref{tab:mudelite-vordlus-hind}) -- sisend €5,29/MTok ja väljund €26,45/MTok ehk ligikaudu 1,7 korda kallim sisendi ja väljundi pealt kui Sonnet 4.6, kuid sellega kaasnes ka kõige parem väljund. Kuutellimustega pakub Anthropic Opus 4.6-le sama Pro/Max 5×/Max 20× tasemestruktuuri kui Sonnet'ile (vt tabel~\ref{tab:mudelite-tellimused}), kuid kuna Opus tarbib päringu kohta rohkem ressurssi, on Opus 4.6 mõistlikuks praktiliseks kasutuseks reeglina vaja vähemalt Max 5× tellimust. Selle kompromissi praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
+Kuluaspektist oli Claude Opus 4.6 võrreldud mudelitest kõige kallim (vt tabel~\ref{tab:mudelite-vordlus-hind}) -- sisend 5,29€/MTok ja väljund 26,45€/MTok ehk ligikaudu 1,7 korda kallim sisendi ja väljundi pealt kui Sonnet 4.6, kuid sellega kaasnes ka kõige parem väljund. Kuutellimustega pakub Anthropic Opus 4.6-le sama Pro/Max 5×/Max 20× tasemestruktuuri kui Sonnetile (vt tabel~\ref{tab:mudelite-tellimused}), kuid kuna Opus tarbib päringu kohta rohkem ressurssi, on Opus 4.6 mõistlikuks praktiliseks kasutuseks reeglina vaja vähemalt Max 5× tellimust. Selle kompromissi praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
 
 \subsection{Mudelite koondvõrdlus} \label{subsec:koondvordlus}
 
@@ -56,9 +56,9 @@ Tabelites~\ref{tab:mudelite-vordlus-tehniline}, \ref{tab:mudelite-vordlus-hind} 
 Parameeter & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
 Avaldatud & 02/2026 & 03/2026 & 02/2026 & 02/2026 \\
 Kontekstiaken & 1M & 272K (1,05M API) & 200K (1M API) & 1M \\
-Max väljund (tokenites) & 64\,000 & 128\,000 & 128\,000 & 128\,000 \\
+Maks. väljund (tokenites) & 64\,000 & 128\,000 & 128\,000 & 128\,000 \\
 Mõtlemisrežiim & Jah (natiivne) & Jah (reguleeritav) & Jah (pikendatud) & Jah (pikendatud) \\
-Max mõtlemise tokenid & natiivne & 128\,000 & 64\,000 & 64\,000 \\
+Maks. mõtlemistokenid & natiivne & 128\,000 & 64\,000 & 64\,000 \\
 Sisendmodaalsused & Tekst, pilt, heli, video & Tekst, pilt, heli & Tekst, pilt, PDF & Tekst, pilt, PDF \\
 Tööriistakasutus & Jah & Jah & Jah & Jah \\
 \end{tblr}
@@ -106,7 +106,7 @@ Google & Google AI Studio Plus & €7,99 & Piiratud Gemini 3.1 Pro ja AI Studio 
 Google & Google AI Pro (Gemini Advanced) & €21,99 & Gemini 3.1 Pro vestlusliideses; piiratud Antigravity kasutus \\
 Google & Google AI Ultra & €274,99 & Kõrgeimad Gemini 3.1 Pro, AI Studio ja Antigravity limiidid; 30 TB salvestusruumi \\
 OpenAI & ChatGPT Go & ca €8 & GPT-5.3 Instant laiendatud kasutusega; rohkem faile, pildiloomet ja mälu kui tasuta plaanis \\
-OpenAI & ChatGPT Plus & ca €23 & GPT-5.4 piiratud kasutusega; Codex laienduse piiratud kvoot \\
+OpenAI & ChatGPT Plus & ca €23 & GPT-5.4 piiratud kasutusega; Codexi laienduse piiratud kvoot \\
 OpenAI & ChatGPT Pro & ca €229 & GPT-5.4 oluliselt suuremate kasutuspiirangutega; kõrgem mõtlemisrežiimi intensiivsus \\
 Anthropic & Claude Pro & ca €22 & Sonnet 4.6 + Opus 4.6 piiratult; Cowork piiratud kvoodiga \\
 Anthropic & Claude Max 5× & ca €106 & 5× Pro plaani kasutuspiirangud; laiem Opus 4.6 ligipääs \\
@@ -114,4 +114,4 @@ Anthropic & Claude Max 20× & ca €212 & 20× Pro plaani kasutuspiirangud; täi
 \end{tblr}
 \end{table}
 
-Tabelitest~\ref{tab:mudelite-vordlus-tehniline}--\ref{tab:mudelite-tellimused} on näha, et neli võrreldud mudelit erinevad nii tehniliste parameetrite, API hinnakirja kui ka kuutellimuste poolest märgatavalt. Gemini 3.1 Pro paistab silma kõige soodsamate API baasmäärade ja suure kontekstiaknaga, Sonnet 4.6 kõige väiksema kontekstiaknaga, GPT-5.4 keskmise hinnataseme ja Opus 4.6 kõrgeima väljundhinnaga. Tellimuste hinnad algavad 8€-st kuni ca 275€-ni kuus. Neid tuleb arvesse võtta, et otsustada, milline mudel sobib mis stsenaariumi jaoks. Ühe lühikese viibaga väljundi genereerimine on API kaudu suhteliselt odav iga mudeli puhul, kuid pikemate iteratiivsete agentsete sessioonide kogukulu sõltub eelkõige konteksti pikkusest ja iteratsioonide arvust. Eksperimendi käigus mõõdetud kulud ja nende praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
+Tabelitest~\ref{tab:mudelite-vordlus-tehniline}--\ref{tab:mudelite-tellimused} on näha, et neli võrreldud mudelit erinevad nii tehniliste parameetrite, API hinnakirja kui ka kuutellimuste poolest märgatavalt. Gemini 3.1 Pro paistab silma kõige soodsamate API baasmäärade ja suure kontekstiaknaga, Sonnet 4.6 kõige väiksema kontekstiaknaga, GPT-5.4 keskmise hinnataseme ja Opus 4.6 kõrgeima väljundhinnaga. Tellimuste hinnad jäävad vahemikku ca €8 kuni ca €275 kuus. Neid tuleb arvesse võtta, et otsustada, milline mudel sobib konkreetsesse stsenaariumi. Ühe lühikese viibaga väljundi genereerimine on API kaudu suhteliselt odav iga mudeli puhul, kuid pikemate iteratiivsete agentsete sessioonide kogukulu sõltub eelkõige konteksti pikkusest ja iteratsioonide arvust. Eksperimendi käigus mõõdetud kulud ja nende praktiline tõlgendus on esitatud peatükis~\ref{subsec:hinnakujundus}.
