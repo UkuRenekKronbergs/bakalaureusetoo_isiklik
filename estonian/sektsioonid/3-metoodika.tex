@@ -36,12 +36,68 @@ Uurimus piirdus ühe eksperimendiga: igale mudel-tööriista kombinatsioonile an
 
 Viip on teadlikult lühike ja sisaldab vaid kolme sisulist piirangut: (1) väljund peab olema LaTeX-vormingus ja kasutama töökaustas olevat UniTartuCS malli; (2) töö peab vastama Tartu Ülikooli arvutiteaduse instituudi nõuetele; (3) teema peab olema informaatikaga seotud, kuid konkreetse teemavaliku teeb mudel ise. Autori ja juhendaja nimed anti tiitellehe täitmiseks. Ülikooli lõputööde juhendeid (TÜ ATI ega LOTE juhendit), varasemaid näidistöid ega muud täiendavat konteksti viibasse ei lisatud.
 
-\textbf{Agentsete tööriistade kasutamine.} Kuna viip nõuab LaTeX-malli kasutamist, mitme faili haldamist ja kompileeritavat väljundit, ei saanud eksperimenti läbi viia puhta vestlusliidese kaudu, kus mudel ei suuda ise failisüsteemile ligi pääseda. Veebipõhistes vestlusliidestes piiravad sellist ülesannet ka failide koguse limiidid: Gemini Apps lubab samas viibas üles laadida kuni 10 toetatud faili, erandina ühe koodikausta või GitHubi repositooriumi kuni 5000 failiga \cite{google2026gemini_uploads}. Claude'i chat lubab kuni 20 faili vestluse kohta \cite{anthropic2026claude_uploads} ChatGPT piirab tavapäraseid ChatGPT üleslaadimisi kuni 80 faili kolme tunni jooksul või tasuta kontol 3 faili päevas \cite{openai2026file_uploads}. See oli üks põhjustest, et miks kasutati iga mudeliga sellele omast agentset töövoogu:
+\textbf{Agentsete tööriistade kasutamine.} Kuna viip nõuab LaTeX-malli kasutamist, mitme faili haldamist ja kompileeritavat väljundit, ei saanud eksperimenti läbi viia puhta vestlusliidese kaudu, kus mudel ei suuda ise failisüsteemile ligi pääseda. Veebipõhistes vestlusliidestes piiravad sellist ülesannet ka failide koguse limiidid: Gemini Apps lubab samas viibas üles laadida kuni 10 toetatud faili, erandina ühe koodikausta või GitHubi repositooriumi kuni 5000 failiga \cite{google2026gemini_uploads}. Claude'i chat lubab kuni 20 faili vestluse kohta \cite{anthropic2026claude_uploads}. ChatGPT piirab tavapäraseid ChatGPT üleslaadimisi kuni 80 faili kolme tunni jooksul või tasuta kontol 3 faili päevas \cite{openai2026file_uploads}. See oli üks põhjustest, miks kasutati iga mudeliga sellele omast agentset töövoogu:
 \begin{itemize}
     \item \textbf{Claude Sonnet 4.6} ja \textbf{Claude Opus 4.6} -- Anthropicu \textit{Cowork} agentne tööriist (mitte segi ajada sama ettevõtte eraldi tootega Claude Code), mis suudab lugeda, kirjutada ja kompileerida projekti \LaTeX{} faile otse failisüsteemis.
     \item \textbf{Google Gemini 3.1 Pro} -- Google'i \textit{Antigravity} agentne arenduskeskkond, mis pakub funktsionaalselt sarnast võimekust.
     \item \textbf{OpenAI GPT-5.4} -- OpenAI \textit{ChatGPT Codex} laiendusega Visual Studio Code'is.
 \end{itemize}
+
+Mudelite ja agentsete tööriistade omavaheline vastavus on koondatud joonisel~\ref{fig:mudel-tooriist-seos}. Joonis illustreerib, et iga mudelit kasutati selle pakkuja oma agentse tööriista kaudu, mis pääses ligi samale ühisele \LaTeX{}-projektifailile (UniTartuCS mall koos viibaga) ning genereeris sealt iseseisva PDF-väljundi.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+    every node/.style={font=\small},
+    mudel/.style={rectangle, rounded corners=2pt, draw=chartBlue!70!black, fill=chartBlue!12, thick, minimum width=30mm, minimum height=9mm, align=center},
+    tooriist/.style={rectangle, rounded corners=2pt, draw=chartGreen!70!black, fill=chartGreen!12, thick, minimum width=30mm, minimum height=9mm, align=center},
+    keskne/.style={rectangle, rounded corners=2pt, draw=chartOrange!80!black, fill=chartOrange!15, thick, minimum width=140mm, minimum height=9mm, align=center},
+    valjund/.style={rectangle, rounded corners=2pt, draw=chartRed!70!black, fill=chartRed!10, thick, minimum width=30mm, minimum height=9mm, align=center},
+    nool/.style={-{Latex[length=2mm]}, thick, draw=gray!60!black},
+]
+    % Mudelid rivis ülevalt teisel real
+    \node[mudel] (gemini) {Gemini 3.1 Pro};
+    \node[mudel, right=5mm of gemini] (gpt) {GPT-5.4};
+    \node[mudel, right=5mm of gpt] (sonnet) {Claude Sonnet 4.6};
+    \node[mudel, right=5mm of sonnet] (opus) {Claude Opus 4.6};
+
+    % Ühine viip mudelite kohal
+    \node[keskne, above=12mm of $(gemini.north)!0.5!(opus.north)$] (viip) {Sama eestikeelne viip + UniTartuCS \LaTeX{} mall};
+
+    % Tööriistad mudelite all
+    \node[tooriist, below=10mm of gemini] (antigravity) {Antigravity};
+    \node[tooriist, below=10mm of gpt] (codex) {ChatGPT Codex\\(VS Code)};
+    \node[tooriist, below=10mm of sonnet] (cowork1) {Cowork};
+    \node[tooriist, below=10mm of opus] (cowork2) {Cowork};
+
+    % PDFid tööriistade all
+    \node[valjund, below=10mm of antigravity] (pdf1) {PDF 1 (39 lk)};
+    \node[valjund, below=10mm of codex] (pdf2) {PDF 2 (47 lk)};
+    \node[valjund, below=10mm of cowork1] (pdf3) {PDF 3 (40 lk)};
+    \node[valjund, below=10mm of cowork2] (pdf4) {PDF 4 (61 lk)};
+
+    % Viip → iga mudel (vertikaalsed nooled)
+    \draw[nool] (viip.south -| gemini.north) -- (gemini.north);
+    \draw[nool] (viip.south -| gpt.north) -- (gpt.north);
+    \draw[nool] (viip.south -| sonnet.north) -- (sonnet.north);
+    \draw[nool] (viip.south -| opus.north) -- (opus.north);
+
+    % Mudel → tööriist
+    \draw[nool] (gemini) -- (antigravity);
+    \draw[nool] (gpt) -- (codex);
+    \draw[nool] (sonnet) -- (cowork1);
+    \draw[nool] (opus) -- (cowork2);
+
+    % Tööriist → PDF
+    \draw[nool] (antigravity) -- (pdf1);
+    \draw[nool] (codex) -- (pdf2);
+    \draw[nool] (cowork1) -- (pdf3);
+    \draw[nool] (cowork2) -- (pdf4);
+\end{tikzpicture}
+\caption{Mudel-tööriista kombinatsioonide seos peaeksperimendis. Iga mudel sai sama eestikeelse viiba koos UniTartuCS \LaTeX{} malliga oma agentse tööriista kaudu ning genereeris ühe terviku PDF-väljundi.}
+\label{fig:mudel-tooriist-seos}
+\end{figure}
+\FloatBarrier
 
 Kõigi nelja mudeli puhul piirduti ühe viibaga -- pärast viiba esitamist ei antud mudelile täiendavaid juhiseid, ei parandatud genereeritud teksti ega palutud mudelil varasemaid valikuid üle vaadata. Kui mudel ise tegi agentse tööriista raames mitu sisemist sammu (failide loomine, kompileerimine, vigade parandamine), loeti see üheks genereerimistsükliks, kuna kogu töövoo algatas sama algviip.
 

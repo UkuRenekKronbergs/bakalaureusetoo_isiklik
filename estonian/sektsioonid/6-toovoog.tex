@@ -30,7 +30,40 @@ Pärast esialgset kaardistust mindi üle iteratiivsele kirjutamisele, kus autor 
     \item \textbf{Korduv iteratsioon.} Samme 3--5 korrati iga peatüki puhul mitu korda, kuni tekst vastas soovitud kvaliteedile. Keskmiselt läbis iga peatükk mitu selget redaktsioonivooru, millest osa keskendus sisule ja struktuurile ning osa vormistusele ja keelekorrektuurile.
 \end{enumerate}
 
-Selline iteratiivne tsükkel oli aluseks iga peatüki valmimisele ning hoidis autori sisulise kirjutamise ja TI keelelise toimetamise selgelt eraldi etappidena. Eraldi väljakutse oli sellise töövoo puhul allikate kogumine ja kontrollimine, mida käsitleb järgmine alapeatükk.
+Selline iteratiivne tsükkel oli aluseks iga peatüki valmimisele ning hoidis autori sisulise kirjutamise ja TI keelelise toimetamise selgelt eraldi etappidena. Üldvaade töövoo etappidest ja autori-TI rollijaotusest iga sammu juures on esitatud joonisel~\ref{fig:toovoog}.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+    node distance=4mm and 12mm,
+    every node/.style={font=\small},
+    autor/.style={rectangle, rounded corners=2pt, draw=chartBlue!70!black, fill=chartBlue!12, thick, minimum width=46mm, minimum height=9mm, align=center},
+    ti/.style={rectangle, rounded corners=2pt, draw=chartGreen!70!black, fill=chartGreen!12, thick, minimum width=46mm, minimum height=9mm, align=center},
+    otsus/.style={diamond, aspect=2.4, draw=chartOrange!80!black, fill=chartOrange!15, thick, minimum width=46mm, minimum height=8mm, align=center, inner sep=1pt},
+    valjund/.style={rectangle, rounded corners=2pt, draw=chartRed!70!black, fill=chartRed!10, thick, minimum width=46mm, minimum height=9mm, align=center},
+    nool/.style={-{Latex[length=2mm]}, thick, draw=gray!60!black},
+    tagasi/.style={-{Latex[length=2mm]}, thick, draw=gray!60!black, dashed},
+]
+    \node[autor] (samm1) {1.~Autor: peatüki mustand\\(sisu, argumendid, allikad)};
+    \node[autor, below=of samm1] (samm2) {2.~Autor: kriitiline ülevaatus\\(probleemkohtade märkimine)};
+    \node[ti, below=of samm2] (samm3) {3.~TI: piiritletud parandused\\(stiil, vorm, \LaTeX{}, kirjavead)};
+    \node[otsus, below=8mm of samm3] (samm4) {4.~Autor: kas iga muudatus\\on aktsepteeritav?};
+    \node[valjund, below=8mm of samm4] (samm5) {5.~Versioonihaldus (Git)\\commit \(\rightarrow\) diff \(\rightarrow\) liitmine};
+
+    \draw[nool] (samm1) -- (samm2);
+    \draw[nool] (samm2) -- (samm3);
+    \draw[nool] (samm3) -- (samm4);
+    \draw[nool] (samm4) -- node[right=2pt, font=\scriptsize]{jah} (samm5);
+
+    \draw[tagasi] (samm4.west) -- ++(-22mm,0) |- node[pos=0.25, left=2pt, font=\scriptsize]{ei: täpsem käsk} (samm3.west);
+    \draw[tagasi] (samm5.east) -- ++(22mm,0) |- node[pos=0.25, right=2pt, font=\scriptsize]{järgmine voor} (samm2.east);
+\end{tikzpicture}
+\caption{Käesoleva töö kirjutamise iteratiivne töövoog. Sisuline kirjutamine ja otsused jäid autorile (sinine), TI tööriist täitis piiritletud abistavaid samme (roheline), iga muudatus läbis autori ülevaatuse (oranž) ning kõik muudatused dokumenteeriti versioonihalduses (punane).}
+\label{fig:toovoog}
+\end{figure}
+\FloatBarrier
+
+Eraldi väljakutse oli sellise töövoo puhul allikate kogumine ja kontrollimine, mida käsitleb järgmine alapeatükk.
 
 \subsection{Allikate otsimine ja bibliograafia haldamine} \label{subsec:allikad}
 
@@ -72,7 +105,7 @@ Kompileerimisvigade parandamine oli üks valdkond, kus TI pakkus kõige otsesema
 
 \subsection{Versioonihaldus GitHubi abil} \label{subsec:git}
 
-Kogu töö kirjutamise protsessi jooksul hoiti lähtefaile GitHubi repositooriumis, mis on kaitsmise ajaks tehtud avalikuks aadressil \url{https://github.com/UkuRenekKronbergs/bakalaureusetoo_isiklik}. Versioonihalduse keskne väärtus TI-toetatud kirjutamise kontekstis oli võimalus iga TI-põhise muudatuse järel vaadata \texttt{git diff} väljundit ja kontrollida täpselt, mida agentne tööriist muutis -- see muutis muudatused läbipaistvaks ja võimaldas vajadusel soovimatud muudatused tagasi pöörata. Suuremaid parandusvoore tehti eraldi arendusharus (\textit{feature branch}) ja liideti peaharusse alles pärast tervikpildi ülevaatust. Selline distsipliin (enne TI-põhist muudatust commit, seejärel muudatus, seejärel diff'i ülevaatus) on soovituslik igale üliõpilasele, kes kasutab lõputöö kirjutamisel agentseid TI tööriistu.
+Kogu töö kirjutamise protsessi jooksul hoiti lähtefaile GitHubi repositooriumis, mis on kaitsmise ajaks tehtud avalikuks aadressil \url{https://github.com/UkuRenekKronbergs/bakalaureusetoo_isiklik}. Versioonihalduse keskne väärtus TI-toetatud kirjutamise kontekstis oli võimalus iga TI-põhise muudatuse järel vaadata \texttt{git diff} väljundit ja kontrollida täpselt, mida agentne tööriist muutis. See muutis muudatused läbipaistvaks ja võimaldas vajadusel soovimatuid tegevusi tagasi pöörata.
 
 \subsection{Rollijaotus autori ja TI vahel} \label{subsec:rollijaotus}
 

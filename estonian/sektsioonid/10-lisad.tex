@@ -1,6 +1,10 @@
 \section*{Lisad} \label{lisad} \addcontentsline{toc}{section}{Lisad}
 
-\subsection*{I. Eksperimendis kasutatud viip} \label{lisa:promptid} \addcontentsline{toc}{subsection}{I. Eksperimendis kasutatud viip}
+\newcounter{lisa}
+\renewcommand{\thelisa}{\Roman{lisa}}
+
+\refstepcounter{lisa}
+\subsection*{\thelisa. Eksperimendis kasutatud viip} \label{lisa:promptid} \addcontentsline{toc}{subsection}{\thelisa. Eksperimendis kasutatud viip}
 
 Käesoleva uurimuse eksperimendis kasutati kõigi nelja mudel-tööriista kombinatsiooni puhul üht ja sama lühikest eestikeelset viipa ehk ühe kasutajaviibaga (\textit{single-prompt}) lähenemist. Viipa ei muudetud ega iteratiivselt täiendatud. Täielik viip oli järgmine:
 
@@ -29,7 +33,8 @@ Viibasse \emph{ei} lisatud:
 
 Sellise minimaalse viiba eesmärk oli hinnata, kuidas mudelid interpreteerivad võimalikult lühikest juhist ning millistele eelteadmistele nad toetuvad eestikeelse akadeemilise lõputöö loomisel.
 
-\subsection*{II. Eksperimendis genereeritud väljundfailid} \label{lisa:valjundfailid} \addcontentsline{toc}{subsection}{II. Eksperimendis genereeritud väljundfailid}
+\refstepcounter{lisa}
+\subsection*{\thelisa. Eksperimendis genereeritud väljundfailid} \label{lisa:valjundfailid} \addcontentsline{toc}{subsection}{\thelisa. Eksperimendis genereeritud väljundfailid}
 
 Eksperimendi tulemusena salvestati iga agentse mudel-tööriista kombinatsiooni kohta üks PDF-failiks kompileeritud lõputöö. Need failid paiknevad töö avalikus GitHubi repositooriumis (\url{https://github.com/UkuRenekKronbergs/bakalaureusetoo_isiklik}) kaustas \texttt{Genereeritud lõputööd}.
 
@@ -42,7 +47,8 @@ Eksperimendi tulemusena salvestati iga agentse mudel-tööriista kombinatsiooni 
 
 GPT-5.4 tavapärase vestlusliidese kaudu saadud keelduv 8-leheküljeline teostatavusjuhend ei kuulunud nelja tervikliku PDF-lõputöö hulka, kuid selle väljavõte on võrdluse huvides esitatud lisas~III.2.
 
-\subsection*{III. Genereeritud väljundite näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{III. Genereeritud väljundite näited}
+\refstepcounter{lisa}
+\subsection*{\thelisa. Genereeritud väljundite näited} \label{lisa:terviktoo} \addcontentsline{toc}{subsection}{\thelisa. Genereeritud väljundite näited}
 
 Järgnevalt on esitatud väljavõtted eksperimendi väljunditest. Nelja tervikliku PDF-lõputöö puhul on toodud sissejuhatuse algus, et illustreerida erinevusi keeles, stiilis ja teemale vastavuses. GPT-5.4 tavapärase vestlusliidese puhul on toodud keeldumise väljavõte, sest see väljund ei olnud terviklik lõputöö, vaid teostatavusjuhend.
 
@@ -82,7 +88,7 @@ Järgnevalt on esitatud väljavõtted eksperimendi väljunditest. Nelja tervikli
 \textit{``Käesoleva bakalaureusetöö eesmärk on just selle andmelünga osaline täitmine kohalikus kontekstis. Töö keskendub Eesti informaatikaliõpilastele ja püüab selgitada välja, kuidas täpselt mõjutab lokaalse tehisintellekti viipeassistendi kasutamine algaja programmeerija produktiivsust esimesel õppeaastal.''}
 \end{quote}
 
-\textit{Hinnang: vormiliselt korrektne töö, mille empiiriline osa (väidetav 30 informaatikatudengiga kvaasi-eksperiment Tartu Ülikoolis koos statistiliste tulemustega) on täielikult fabritseeritud. Tekst sisaldab 24 unikaalset kirjaviga. Käsitletakse töös akadeemilise väärkasutuse kõrge riskiga juhtumina (vt peatükk~\ref{subsec:gemini-toolo}).}
+\textit{Hinnang: vormiliselt korrektne töö, mille empiiriline osa (väidetav 30 informaatikatudengiga kvaasi-eksperiment Tartu Ülikoolis koos statistiliste tulemustega) on täielikult välja mõeldud. Tekst sisaldab 24 unikaalset kirjaviga. Käsitletakse töös akadeemilise väärkasutuse kõrge riskiga juhtumina (vt peatükk~\ref{subsec:gemini-toolo}).}
 
 \subsubsection*{III.5 Claude Opus 4.6 (Cowork) -- sissejuhatuse väljavõte (61 lk)}
 
