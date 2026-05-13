@@ -187,7 +187,7 @@
         {
             {\fontsize{16}{16}\selectfont \textbf{\@author}} \\
             \vspace{2mm}
-            {\fontsize{21}{24}\selectfont \textbf{\textsf{\@title}}} \\
+            {\fontsize{21}{30}\selectfont \textbf{\textsf{\@title}}} \\
             \vspace{3mm}
             {\fontsize{14}{16}\selectfont \textbf{\@thesis}}
         }
