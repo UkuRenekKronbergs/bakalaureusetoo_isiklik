@@ -32,15 +32,15 @@ Sama oluline on eristada vormilist veenvust sisulisest usaldusväärsusest. Gemi
 
 \subsection{Hinnakujundus ja majanduslik teostatavus} \label{subsec:hinnakujundus}
 
-Tabelis~\ref{tab:hinnavordlus} on esitatud hinnanguline kuluarvestus 25-leheküljelise bakalaureusetöö genereerimiseks iga mudeliga.
+Antud peatüki kuluarvestus piirdub peatükis~\ref{subsec:opus47-juhtum} kirjeldatud iteratiivse juhtumiuuringuga (Claude Opus 4.7 + Claude Code), kuna ainult selle töövoo tokenikasutus telemetreeriti reaalajas ning seda saab esitada mõõdetud andmetena. Põhieksperimendi nelja ühe viiba kombinatsiooni (Gemini 3.1 Pro + Antigravity, GPT-5.4 + Codex, Claude Sonnet 4.6 + Cowork, Claude Opus 4.6 + Cowork) tokenitarvet eraldi ei mõõdetud, mistõttu nendele konkreetseid kuluhinnanguid ei esitata; ametlikud baashinnakirjad on esitatud peatükis~\ref{subsec:koondvordlus} (tabel~\ref{tab:mudelite-vordlus-hind}).
 
 \begin{table}[ht]
 \centering
-\caption{Bakalaureusetöö genereerimise hinnanguline kuluarvestus (EUR, koos 24\% käibemaksuga)}
+\caption{Iteratiivse juhtumiuuringu (Opus 4.7 + Claude Code) hüpoteetiline pay-as-you-go API-kulu komponentide kaupa, kui kuutellimuse asemel oleks kasutatud ametlikku API-d (EUR, koos 24\% käibemaksuga)}
 \label{tab:hinnavordlus}
 \begin{tblr}{
     width=\linewidth,
-    colspec={X[1.6,l] X[1,c] X[1,c] X[1,c] X[1,c]},
+    colspec={X[3,l] X[1,c]},
     rows={font=\small},
     colsep=3pt,
     row{1}={font=\bfseries\small},
@@ -48,39 +48,22 @@ Tabelis~\ref{tab:hinnavordlus} on esitatud hinnanguline kuluarvestus 25-lehekül
     vlines,
     row{even}={bg=colorCellHighlight},
 }
-Kulukomponent & Gemini 3.1 Pro & GPT-5.4 & Claude Sonnet 4.6 & Claude Opus 4.6 \\
-Sisendtokenid (ca 2M) & 4,23--8,47~€ & 5,29~€ & 6,35~€ & 10,58~€ \\
-Väljundtokenid (ca 300K) & 3,81--5,71~€ & 4,76~€ & 4,76~€ & 7,93~€ \\
-Agentse tööriista sisend/väljundkorrad & mitmekordne & mitmekordne & mitmekordne & mitmekordne \\
-\textbf{Eeldatav hind} & \textbf{25--40~€} & \textbf{26--33~€} & \textbf{33--45~€} & \textbf{56--74~€} \\
+Komponent & API-kulu \\
+Claude Code (Opus 4.7) -- põhigenereerimine & ca 322~€ \\
+Codex (GPT-5.5) -- keelekorrektuur ja sõnastuse ühtlustamine & ca 46~€ \\
+Hindamise 80 API-päringut & ca 4~€ \\
+Veebiotsingu 22 kutset & alla 0,30~€ \\
+\textbf{Kokku} & \textbf{ca 371~€} \\
 \end{tblr}
 \end{table}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    thesisbar,
-    ylabel={EUR},
-    ymax=80,
-    bar width=8pt,
-    legend style={font=\small, at={(0.5,-0.30)}, anchor=north, legend columns=-1},
-]
-\addplot+[fill=chartBlue, draw=chartBlue!70!black] coordinates {(Gemini,25) (GPT,26) (Sonnet,33) (Opus,56)};
-\addplot+[fill=chartRed, draw=chartRed!70!black] coordinates {(Gemini,40) (GPT,33) (Sonnet,45) (Opus,74)};
-\legend{Vahemiku alumine piir, Vahemiku ülemine piir}
-\end{axis}
-\end{tikzpicture}
-\caption{Bakalaureusetöö genereerimise eeldatava hinna vahemik mudelite lõikes.}
-\label{fig:hinnavordlus-vahemik}
-\end{figure}
-\FloatBarrier
-
 Hinnad on esitatud eurodes, lähtudes mudelite pakkujate 2026. aasta mai ametlikest USD-hinnakirjadest \cite{openai2026pricing, anthropic2026pricing, google2026gemini_pricing} ja teisendatud kursi 1 EUR = 1,17 USD järgi (vt peatükk~\ref{subsec:koondvordlus}). Esitatud summad sisaldavad Eesti standardset 24\% käibemaksu, mis vastab eraisikust üliõpilase tegelikule kulule.
 
-Kuutellimused muudavad kulupildi mõnevõrra teistsuguseks: ChatGPT Plus ja Claude Pro maksavad Eesti regioonis ca 22--23~€ kuus (koos käibemaksuga), Google AI Pro 21,99~€ kuus (vt tabel~\ref{tab:mudelite-tellimused}). Praktikas saab üliõpilane teha põhilise töö 1--2 kuu tellimuse hinnaga, kui mahupiiranguid ei ületata (eeldusel, et ei soovita väga pikki sessioone järjest teha).
+Iteratiivse juhtumiuuringu tegelik mõõdetud tokenikasutus jagunes järgmiselt. Claude Code (Opus 4.7) tööriistas registreeriti seansi vältel ligikaudu 5,7 tuhat vahemälust välja jäänud sisendtokenit, 8,15 miljonit vahemälu loomise tokenit, 403,0 miljonit vahemälust loetud sisendtokenit ja 2,03 miljonit väljundtokenit. Anthropicu Opus 4.7 standardhinnakirjal (sisend 5~USD/MTok, vahemälu kirjutamine 6,25~USD/MTok, vahemälust lugemine 0,50~USD/MTok, väljund 25~USD/MTok) oleks see vastanud ligikaudu 303~USD-le ehk käibemaksuga ca 322~€-le. Paralleelselt kasutati keelekorrektuuri ja sõnastuse ühtlustamise jaoks OpenAI ChatGPT Codex laienduse kaudu GPT-5.5 mudelit kogumahus ligikaudu 38,7~miljonit sisendtokenit (millest 35,7~M oli vahemälust loetud) ja 0,33~M väljundtokenit, mille hüpoteetiline API-kulu OpenAI GPT-5.5 lühikese konteksti hinnaga (sisend 5~USD/MTok, vahemälust loetud sisend 0,50~USD/MTok, väljund 30~USD/MTok) oleks olnud ca 43~USD ehk käibemaksuga ca 46~€. Lisaks tehti peatükis~\ref{subsec:opus47-juhtum} kirjeldatud 80 hindamis-API-päringut (kogukulu 3,88~USD ehk ca 4~€ käibemaksuga) ning 22 veebiotsingu kutset (OpenAI hinnakirjas 10~USD/1000 kutset ehk ca 0,22~USD ehk alla 0,30~€). Komponendid kokku liites oleks kogu iteratiivse juhtumiuuringu hüpoteetiline API-kulu olnud ligikaudu 350~USD ehk Eestis ca 371~€ käibemaksuga. Suur osa sellest summast tuleneb vahemälu korduvlugemisest agentse failipõhise töövoo vältel, mistõttu sama kasutuse katmine kuutellimuse raames jääb üliõpilase jaoks sadu eurosid soodsamaks.
 
-Kokkuvõttes on TI kasutamise majanduslik kulu Sonnet-klassi kombinatsioonidega mõistlik (33--45~€ ühe lõputöö kohta), samas kui Opus-klassi mudeli kasutamine on ligikaudu 1,7 korda kallim (56--74~€). Kõik testitud TI-variandid jäävad siiski üldjuhul odavamaks kui professionaalse toimetaja teenus, mis võib bakalaureusetöö puhul maksta mitusada eurot.
+Kuutellimused muudavad kulupildi oluliselt teistsuguseks: ChatGPT Plus ja Claude Pro maksavad Eesti regioonis ca 22--23~€ kuus (koos käibemaksuga), Google AI Pro 21,99~€ kuus (vt tabel~\ref{tab:mudelite-tellimused}). Praktikas saab üliõpilane teha põhilise töö 1--2 kuu tellimuse hinnaga, kui mahupiiranguid ei ületata (eeldusel, et ei soovita väga pikki sessioone järjest teha). Ka iteratiivne juhtumiuuring viidi käesolevas töös läbi olemasoleva Claude'i ja OpenAI kuutellimuse raames, mistõttu tegelik täiendav kulu üliõpilase jaoks oli marginaalne -- eelmises lõigus arvutatud ca 371~€ kirjeldab seega pigem võrdluseks pay-as-you-go hinnatabelist tuletatud teoreetilist maksimumi kui üliõpilase tegelikku kulu.
+
+Kokkuvõttes näitab mõõdetud iteratiivse juhtumiuuringu API-kulu (ca 371~€), et isegi tipptasemel mudeli ja agentse tööriista pikem juhitud seanss jääb üldjuhul oluliselt soodsamaks kui professionaalse toimetaja teenus, mis võib bakalaureusetöö puhul maksta mitusada eurot. Kuutellimuse raames kasutamisel langeb tegelik täiendav kulu üliõpilase jaoks veelgi madalamaks ning piirdub jooksva tellimuse maksega.
 
 \subsection{Eesti keele korrektuur ja toimetamine} \label{subsec:korrektuur}
 
@@ -96,13 +79,23 @@ Järgmised hinnangud põhinevad autori mitteformaalsetel katsetel, mis jäid põ
 
 \subsection{Soovitused TI tööriista valikuks} \label{subsec:soovitused}
 
-Eksperimendi tulemuste ja praktiliste kogemuste põhjal saab anda järgmised soovitused.
+Eksperimendi ja iteratiivse juhtumiuuringu tulemuste ning praktiliste kogemuste põhjal saab anda järgmised soovitused.
 
-\textbf{Tervikuna märkimisväärselt tugevaim üldtulemus: Claude Opus 4.6 koos Coworkiga.} Käesolev eksperiment näitas, et Claude Opus 4.6 + Coworki kombinatsioon eristus teistest olulisel määral terviklikkuse, akadeemilise stiili, tehnilise detailsuse ja sisulise sügavuse poolest, kuigi väikseim kirjavigade arv oli GPT-5.4 + Codexi väljundis. Peamine puudus on märgatavalt kõrgem hind. Kuna iga kombinatsiooni kohta tehti vaid üks jooks ja keelemudelid on mitteterministlikud, tuleb seda soovitust võtta eksploratiivse viitena, mitte lõpliku üldhinnangu kinnitusena.
+\textbf{Iteratiivse koostöö parim tulemus: Claude Opus 4.7 koos Claude Code'iga.} Peatükis~\ref{subsec:opus47-juhtum} kirjeldatud juhtumiuuring näitas, et kui kasutaja võtab aktiivse rolli ja seanss kestab ühe tööpäeva (ligikaudu kaheksa tundi), suudab Opus 4.7 + Claude Code'i kombinatsioon genereerida 57-leheküljelise lõputöö koos tegeliku kompileeritava Pythoni ja TypeScripti lähtekoodiga. Tulemus on ortograafilise täpsuse, viidete usaldusväärsuse ja sisulise terviklikkuse poolest mõõdetavalt parem kui üheski neljast ühe viiba kombinatsioonist.
+
+\textbf{Ühe viibaga tugevaim üldtulemus: Claude Opus 4.6 koos Coworkiga.} Käesolev eksperiment näitas, et ühe kasutajaviibaga genereerimisel eristus Claude Opus 4.6 + Coworki kombinatsioon teistest olulisel määral terviklikkuse, akadeemilise stiili, tehnilise detailsuse ja sisulise sügavuse poolest, kuigi väikseim kirjavigade arv oli GPT-5.4 + Codexi väljundis. Peamine puudus on märgatavalt kõrgem hind. Kuna iga kombinatsiooni kohta tehti vaid üks jooks ja keelemudelid on mitteterministlikud, tuleb seda soovitust võtta eksploratiivse viitena, mitte lõpliku üldhinnangu kinnitusena.
 
 \textbf{Parim hinna-kvaliteedi suhe: Claude Sonnet 4.6 koos Coworkiga.} Claude Sonnet 4.6 + Coworki kombinatsioon on kõige sobivam valik piiratud eelarvega üliõpilase jaoks. Kombinatsioon paistis silma akadeemilise stiili, juhiste järgimise ja teksti struktureerimise poolest ning on oluliselt soodsam kui Opus. Pikendatud mõtlemisrežiim parandab keerulisemate peatükkide kvaliteeti.
 
-\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keelelise korrektuuri jaoks. Kui soov on genereerida tervikdokumenti, siis ChatGPT vestlusliidese süsteemijuhised ja ohutuspoliitika võivad selle blokeerida või suunata ingliskeelsele väljundile, samas kui ChatGPT Codexi laiendus Visual Studio Code'is andis käesolevas katses sama viibaga tervikliku eestikeelse dokumendi (vt peatükk~\ref{subsec:gpt-toolo}).
+\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keelelise korrektuuri jaoks. Kui soov on genereerida tervikdokumenti, siis ChatGPT vestlusliidese süsteemijuhised ja ohutuspoliitika võivad selle blokeerida või suunata ingliskeelsele väljundile, samas kui ChatGPT Codexi laiendus VS Code'is andis käesolevas katses sama viibaga tervikliku eestikeelse dokumendi (vt peatükk~\ref{subsec:gpt-toolo}).
+
+\textbf{Kombineeritud praktika.} Iteratiivse juhtumiuuringu praktilise kogemuse põhjal tasub kaaluda tööjaotust mitme mudeli vahel: mahukamateks sisulisteks ja struktuurseteks ülesanneteks tugevaim kättesaadav arutlusmudel (käesolevas töös Opus 4.7 koos Claude Code'iga), keelekorrektuuriks ja kirjavigade otsimiseks aga odavam ja kiirem mudel (käesolevas töös GPT-5.5 Codexi laienduse kaudu).
+
+\textbf{Autori maksimaalne kuutellimuse soovitus: ChatGPT Plus ja Claude Max 5\texttimes{} paralleelselt.} Üliõpilasele, kes soovib käesolevas töös kirjeldatud iteratiivset tööjaotust kahe pakkuja tugevamate mudelite vahel täismahus rakendada, soovitab autor pidada paralleelselt ChatGPT Plus (ca 23~€/kuu) ja Claude Max 5\texttimes{} (ca 106~€/kuu) tellimust ehk kokku ca 129~€/kuu (vt tabel~\ref{tab:mudelite-tellimused}). ChatGPT Plus annab GPT-5.4 ja Codex-laienduse piisava kasutuspiirangu juures keelekorrektuuri ja lühemate genereerimisülesannete jaoks, samas kui Claude Max 5\texttimes{} võimaldab laiemat Opus 4.6 ligipääsu ja Claude Code töövoo pikemaid sessioone ilma kvoodipiiranguid sageli ületamata.
+
+\textbf{Autori minimaalne kuutellimuse soovitus: ChatGPT Plus ja Claude Pro.} Piiratud eelarvega üliõpilasele piisab käesoleva uurimuse kogemuse põhjal paralleelsest ChatGPT Plus (ca 23~€/kuu) ja Claude Pro (ca 22~€/kuu) tellimusest ehk kokku ca 45~€/kuu (vt tabel~\ref{tab:mudelite-tellimused}). Selle kooslusega saab teha kogu põhilise iteratiivse kirjutamis- ja toimetamistöö, kuigi pikemate sessioonide jooksul võivad mahupiirangud ette tulla.
+
+\textbf{Kuutellimus on API-st oluliselt soodsam.} Käesoleva töö hinnakujunduse võrdlus (vt peatükk~\ref{subsec:hinnakujundus}) ja autori kasutuskogemus näitavad, et kuutellimusega töötamine on valdava enamuse üliõpilaste jaoks API kasutamisest mitmekordselt odavam. Kuutellimus annab fikseeritud ja prognoositava kuukulu (käesoleva töö soovitatud koosluste vahemikus ca 45--129~€/kuu), samas kui sama mahuga iteratiivse töövoo katmine API kaudu võib maksta sõltuvalt mudelist ja konteksti pikkusest mitusada eurot ning eeldab pidevat kuluseiret. API-päringuid tasub eelistada üksnes spetsiifilistel juhtudel, näiteks reprodutseeritavate empiiriliste hindamiste või automatiseeritud kvaliteedikontrolli puhul, kus iga päringu täpne kontekst ja kulu peavad olema dokumenteeritud.
 
 \subsection{Soovitused lõputöö genereerimiseks agentsete TI tööriistadega} \label{subsec:agentsed-soovitused}
 
@@ -131,23 +124,23 @@ Soovitame järgmist samm-sammulist töövoogu:
 \subsubsection{Parimad praktikad}
 
 \begin{itemize}
-    \item \textbf{Kasuta võimaluse korral pikendatud mõtlemisrežiimi.} Pikendatud mõtlemisrežiim või sellele vastav sügavama arutluse seadistus (\textit{extended thinking}) võib parandada keeruliste akadeemiliste tekstide kvaliteeti. See on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
-    \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Selle asemel, et paluda ``kirjuta sissejuhatus'', täpsusta töö maht ja peamised teemad.
+    \item \textbf{Kasuta võimaluse korral pikendatud mõtlemisrežiimi.} Pikendatud mõtlemisrežiim või muu sügavama arutluse seadistus (\textit{extended thinking}) võib parandada keeruliste akadeemiliste tekstide kvaliteeti. Sügavam arutlus on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
+    \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Üldise palve ``kirjuta sissejuhatus'' asemel täpsusta töö maht ja peamised teemad.
     \item \textbf{Kontrolli viiteid alati.} Ükski TI mudel ei genereeri 100\% korrektseid viiteid alati. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
-    \item \textbf{Ära usalda ühe kasutajaviibaga (\textit{single-prompt}) tulemust pimesi ilma kriitilise ülevaatamiseta.} Käesoleva uurimuse eksperimendis andis see lähenemine mõnel juhul tugeva vormilise tulemuse, kuid sisaldas endiselt hallutsineeritud viiteid ja kontrollimata empiirilisi väiteid (vt peatükk~\ref{eksperimendid}). Märkimisväärselt parema tulemuse saavutamiseks on mõistlik kombineerida ühe viibaga genereerimist iteratiivsete paranduste ja kasutaja ülevaatustega.
+    \item \textbf{Ära usalda ühe kasutajaviibaga (\textit{single-prompt}) tulemust pimesi ilma kriitilise ülevaatamiseta.} Käesoleva uurimuse eksperimendis andis ühe viiba lähenemine mõnel juhul tugeva vormilise tulemuse, kuid sisaldas endiselt hallutsineeritud viiteid ja kontrollimata empiirilisi väiteid (vt peatükk~\ref{eksperimendid}). Märkimisväärselt parema tulemuse saavutamiseks on mõistlik kombineerida ühe viibaga genereerimist iteratiivsete paranduste ja kasutaja ülevaatustega.
     \item \textbf{Ole kursis enda tööga.} TI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
     \item \textbf{Kasuta keeruliste peatükkide jaoks tugevamat mudelit.} Keerukamate peatükkide, näiteks metoodika ja arutelu, genereerimiseks või põhjalikuks toimetamiseks tasub valida hetkel kättesaadav tugevam arutlusmudel. Lihtsamate korrektuuri- ja vormistusülesannete jaoks piisab sageli odavamast või kiiremini vastavast mudelist. Kuna mudeliperekonnad muutuvad kiiresti, tasub soovituse rakendamisel kontrollida, millised keelemudelid on praegu kättesaadavad.
 \end{itemize}
 
-TI ei korva üliõpilase sisulist tööd allikate, metoodika ja järelduste osas. Selle asemel võimaldab korrektuuri- ja vormistustööd vähema mehaanilise töö ja ajakuluga teha.
+TI ei korva üliõpilase sisulist tööd allikate, metoodika ja järelduste osas, kuid võimaldab korrektuuri- ja vormistustööd vähema mehaanilise töö ja ajakuluga teha.
 
 \subsection{Tööriistad, mida vältida} \label{subsec:valtida}
 
 Lisaks põhieksperimendis osalenud nelja mudeli võrdlusele testis autor lühemate mitteformaalsete katsete raames ka mõnda teist tööriista, mida lõputöö kirjutamise abivahendina ei saa soovitada, vaatamata nende laialdasele kättesaadavusele üliõpilastele. Järgmised hinnangud ei põhine käesoleva uurimuse formaalsel võrdlusel, vaid autori praktilisel kasutuskogemusel ning nende arendajate avalikul dokumentatsioonil.
 
-\textbf{Perplexity ei sobi mahukate kirjutamisülesannete põhitööriistaks.} Perplexity on eelkõige TI-põhine otsingu- ja vastamissüsteem, mis sobib hästi üksikküsimuste, allikate esmase leidmise ja lühikeste kokkuvõtete jaoks. Lõputöö tervikpeatükkide genereerimisel ilmnes aga piirang: Perplexity kasutuskogemus ei ole samaväärne alusmudeli otse kasutamisega. Perplexity ametlik API-dokumentatsioon eristab otsingukonteksti suurust mudeli kontekstiaknast: otsingukontekst määrab, kui palju veebist leitud infot päringusse kaasatakse, samas kui kontekstiaken määrab maksimaalse tokenite hulga, mida mudel ühe päringu käigus töödelda saab \cite{perplexity2026pricing}. Agent API toetab küll eri pakkujate mudeleid \cite{perplexity2026models}, kuid Perplexity otsingupõhine töövoog rakendab lisaks otsingu, tsiteerimise, kulude ja päringu töötlemise piiranguid. Autori veebiliidese katsetes ei olnud võimalik pikemat töömustandit sama järjepidevalt kontekstis hoida nagu mudelite natiivsetes või failipõhistes agentsetes keskkondades. Ka DataStudiosi ülevaade rõhutab, et Perplexity failide ja vestluste puhul ei lisata kogu materjali automaatselt vastuse koostamise hetkel mudeli konteksti, vaid süsteem valib ja lisab aktiivsesse päringusse ainult asjakohaseid lõike \cite{datastudios2025perplexity}. Seetõttu võib pikema vestluse või suurema dokumendimaterjali korral kaduda osa varem kokkulepitud tingimustest, struktuurist või piirangutest. Kokkuvõttes sobib Perplexity hästi infootsinguks ja lühikeste küsimuste lahendamiseks, kuid mitte lõputöö genereerimise põhitööriistaks, kus on vaja mahukat, püsivat ja täpselt kontrollitavat projektikonteksti.
+\textbf{Perplexity ei sobi mahukate kirjutamisülesannete põhitööriistaks.} Perplexity on eelkõige TI-põhine otsingu- ja vastamissüsteem, mis sobib hästi üksikküsimuste, allikate esmase leidmise ja lühikeste kokkuvõtete jaoks. Lõputöö tervikpeatükkide genereerimisel ilmnes aga piirang: Perplexity kasutuskogemus ei ole samaväärne alusmudeli otse kasutamisega. Perplexity ametlik API-dokumentatsioon eristab otsingukonteksti suurust mudeli kontekstiaknast: otsingukontekst määrab, kui palju veebist leitud infot päringusse kaasatakse, samas kui kontekstiaken määrab maksimaalse tokenite hulga, mida mudel ühe päringu käigus töödelda saab \cite{perplexity2026pricing}. Agent API toetab küll eri pakkujate mudeleid \cite{perplexity2026models}, kuid Perplexity otsingupõhine töövoog rakendab lisaks otsingu, tsiteerimise, kulude ja päringu töötlemise piiranguid. Autori veebiliidese katsetes ei olnud võimalik pikemat töömustandit sama järjepidevalt kontekstis hoida nagu mudelite natiivsetes või failipõhistes agentsetes keskkondades. Ka DataStudiosi ülevaade rõhutab, et Perplexity failide ja vestluste puhul ei lisata kogu materjali automaatselt vastuse koostamise hetkel mudeli konteksti, vaid süsteem valib ja lisab aktiivsesse päringusse ainult asjakohaseid lõike \cite{datastudios2025perplexity}. Sellisest valikulisest kontekstist tulenevalt võib pikema vestluse või suurema dokumendimaterjali korral kaduda osa varem kokkulepitud tingimustest, struktuurist või piirangutest. Kokkuvõttes sobib Perplexity hästi infootsinguks ja lühikeste küsimuste lahendamiseks, kuid mitte lõputöö genereerimise põhitööriistaks, kus on vaja mahukat, püsivat ja täpselt kontrollitavat projektikonteksti.
 
-\textbf{GitHub Copilot Pro ei sobi akadeemilise teksti genereerimiseks.} GitHub Copilot Pro, mida Tartu Ülikool pakub üliõpilastele tasuta GitHub Education programmi kaudu, on mõeldud eelkõige koodi kirjutamise abivahendiks \cite{github2026copilot}. GitHubi enda dokumentatsiooni kohaselt on Copilot Chat mõeldud ainult kodeerimisega seotud päringutele ning juhiste piiramine kodeerimisülesannetega parandab mudeli väljundi kvaliteeti \cite{github2026copilot_responsible}. Lõputöö genereerimise kontekstis osutus see aga ebapiisavaks. Copiloti mudelid tundusid oluliselt piiratumad -- nad kippusid andma lühikesi, pealiskaudseid vastuseid ja vältisid pikemate akadeemiliste tekstilõikude genereerimist. Nguyen ja Nadi \cite{nguyen2022empirical} on oma empiirilises uurimuses näidanud, et Copiloti soovitustel on tähemärkide pikkuse piirang, mis takistab pikema väljundi genereerimist, ning keerulisemate ülesannete korral langeb soovituste kvaliteet märgatavalt. Lisaks rakendab GitHub Copilotile päringupõhiseid limiite (\textit{rate limits}), mis piiravad kasutamise intensiivsust \cite{github2026copilot_ratelimits}. Kokkuvõttes on tööriist optimeeritud lühikeste koodilõikude ja kooditäienduste jaoks, mitte terviklike akadeemiliste tekstide loomiseks. Seetõttu ei saa GitHub Copilot Pro-d soovitada lõputöö kirjutamise abivahendina, vaatamata sellele, et see on üliõpilastele tasuta kättesaadav.
+\textbf{GitHub Copilot Pro ei sobi akadeemilise teksti genereerimiseks.} GitHub Copilot Pro, mida Tartu Ülikool pakub üliõpilastele tasuta GitHub Education programmi kaudu, on mõeldud eelkõige koodi kirjutamise abivahendiks \cite{github2026copilot}. GitHubi enda dokumentatsiooni kohaselt on Copilot Chat mõeldud ainult kodeerimisega seotud päringutele ning juhiste piiramine kodeerimisülesannetega parandab mudeli väljundi kvaliteeti \cite{github2026copilot_responsible}. Lõputöö genereerimise kontekstis osutus kodeerimisele orienteeritud Copilot aga ebapiisavaks. Copiloti mudelid tundusid oluliselt piiratumad -- nad kippusid andma lühikesi, pealiskaudseid vastuseid ja vältisid pikemate akadeemiliste tekstilõikude genereerimist. Nguyen ja Nadi \cite{nguyen2022empirical} on oma empiirilises uurimuses näidanud, et Copiloti soovitustel on tähemärkide pikkuse piirang, mis takistab pikema väljundi genereerimist, ning keerulisemate ülesannete korral langeb soovituste kvaliteet märgatavalt. Lisaks rakendab GitHub Copilotile päringupõhiseid limiite (\textit{rate limits}), mis piiravad kasutamise intensiivsust \cite{github2026copilot_ratelimits}. Kokkuvõttes on tööriist optimeeritud lühikeste koodilõikude ja kooditäienduste jaoks, mitte terviklike akadeemiliste tekstide loomiseks. Eeltoodud piirangute tõttu ei saa GitHub Copilot Pro-d soovitada lõputöö kirjutamise abivahendina, vaatamata tasuta kättesaadavusele üliõpilastele.
 
 \subsection{Tulevikuväljavaated} \label{subsec:tulevikuvaljavaated}
 
