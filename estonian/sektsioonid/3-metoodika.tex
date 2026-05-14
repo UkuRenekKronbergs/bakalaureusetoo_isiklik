@@ -10,7 +10,7 @@ Uurimuse jaoks mudelite valimisel lähtuti järgmistest kriteeriumidest:
 
 \begin{enumerate}
     \item \textbf{Eesti keele tugi} -- mudel peab suutma genereerida grammatiliselt korrektset eesti keelt ning mõistma eestikeelset sisendit.
-    \item \textbf{Kontekstiakna suurus} -- bakalaureusetöö genereerimine eeldab mahuka konteksti (juhendid, varasemalt genereeritud osad, \LaTeX{}-mall) töötlemist, mistõttu on vajalik piisavalt suur kontekstiaken.
+    \item \textbf{Kontekstiakna suurus} -- bakalaureusetöö genereerimine eeldab mahuka konteksti (juhendid, varem genereeritud osad, \LaTeX{}-mall) töötlemist, mistõttu on vajalik piisavalt suur kontekstiaken.
     \item \textbf{Agentsus ja dokumentatsioon} -- mudel-tööriista kombinatsioon peab võimaldama agentset töövoogu ning selle kohta peab olema piisavalt dokumentatsiooni. Agentsuse all mõistetakse siin võimet täita kasutaja eesmärki mitmes järjestikuses sammus, kasutades vajadusel tööriistu ja failisüsteemi: lugeda olemasolevaid faile, luua või muuta \LaTeX{}-faile, käivitada kompileerimist ning parandada tekkinud vigu ilma iga sammu jaoks eraldi kasutajaviipa vajamata.
     \item \textbf{Väljundi kvaliteet} -- mudel peab suutma genereerida akadeemilisele tekstile omast stiili, struktuuri ja sisu, mis vastab Tartu Ülikooli bakalaureusetöö nõuetele.
     \item \textbf{Väljundi järjepidevus} -- mudel peab suutma hoida järjepidevat stiili, teemat ja struktuuri kogu töö ulatuses, mis on eriti oluline pikemate tekstide puhul.
@@ -28,7 +28,7 @@ Kuna käesolev eksperiment nõudis failisüsteemi ligipääsu ja \LaTeX{} kompil
 
 Uurimus piirdus ühe eksperimendiga: igale mudel-tööriista kombinatsioonile anti üks ja sama lühike eestikeelne kasutajaviip ning lasti agentsel tööriistal genereerida terviklik bakalaureusetöö ilma järelküsimuste, iteratiivse suunamise või peatükkide kaupa juhendamiseta. Selline ühe kasutajaviibaga lähenemine valiti teadlikult kahel põhjusel. Esimene põhjus on see, et lähenemine kajastab kõige ausamalt seda, kuidas keelemudelit kasutaks üliõpilane, kes soovib lõputöö kirjutamist TI-le täielikult delegeerida -- see on stsenaarium, mida akadeemilise aususe kontekstis on oluline hinnata. Teine põhjus on see, et identne minimaalne sisend võimaldab nelja mudel-tööriista kombinatsiooni väljundeid kõige otsesemalt võrrelda, kuna ühtegi kombinatsiooni ei eelistata täiendava konteksti, viibadisaini (\textit{prompt engineering}) ega iteratiivse parandamise kaudu. Kuna iga kombinatsiooni kohta tehti üks jooks, on saadud näitajad eksploratiivsed -- need iseloomustavad konkreetset katset, mitte üldist mudelivõimekust.
 
-\textbf{Kasutatud viip.} Kõigile mudelitele anti järgmine eestikeelne viip (täistekst on esitatud lisas~I):
+\textbf{Kasutatud viip.} Kõigile mudelitele anti järgmine eestikeelne viip (täistekst on esitatud lisas~\ref{lisa:promptid}):
 
 \begin{quote}
 \textit{``Sa oled kogenud akadeemiline kirjutaja. Loo täielik bakalaureusetöö LaTeX-vormingus (lisasin töökausta vajaliku malli), mis vastab Tartu Ülikooli arvutiteaduse instituudi nõuetele. Teema peab olema informaatikaga seotud ja vali ise. Autor on Uku Renek Kronbergs ja juhendaja Alo Peets (MSc).''}
@@ -133,6 +133,6 @@ Juhiste järgimine & Väljundkeel (eesti/inglise), \LaTeX{}-vormingu kasutamine,
 \end{tblr}
 \end{table}
 
-Iga kriteeriumi kvantitatiivsed mõõtmised tehti genereeritud PDF-failidest teksti ekstraheerimise teel, jättes välja tiitellehe, kirjanduse loendi ning koodinäited juhtudel, kus see oli metoodiliselt põhjendatud. Hindamise viis läbi käesoleva bakalaureusetöö autor. Ühe hindaja kasutamise piirangut on täpsemalt käsitletud peatükis~\ref{arutelu}.
+Iga kriteeriumi kvantitatiivsed mõõtmised tehti genereeritud PDF-failidest teksti ekstraheerimise teel, jättes välja tiitellehe, kirjanduse loendi ning koodinäited juhtudel, kus see oli metoodiliselt põhjendatud. Hindamise tegi käesoleva bakalaureusetöö autor. Ühe hindaja kasutamise piirangut on täpsemalt käsitletud peatükis~\ref{arutelu}.
 
-Käesolev töö ei sisalda eksplitsiitset kontrollgruppi -- ei inimkirjutatud bakalaureusetöö võrdluspunkti ega mudelite mitteagentset baasväljundit (peale GPT-5.4 vestlusliidese erandi, vt peatükk~\ref{subsec:gpt-toolo}). Valitud uurimisruum on neli mudel-tööriista kombinatsiooni sama lühikese eestikeelse viiba korral ning eesmärk on neid omavahel võrrelda, mitte hinnata absoluutse bakalaureusetöö kvaliteediläve suhtes. Kontrollgrupi puudumisest tulenevat üldistamispiirangut on käsitletud peatükis~\ref{subsec:puudujaagid}.
+Käesolev töö ei sisalda eksplitsiitset kontrollrühma -- puudub nii inimkirjutatud bakalaureusetöö võrdluspunkt kui ka mudelite mitteagentne baasväljund (peale GPT-5.4 vestlusliidese erandi katkendi, vt peatükk~\ref{subsec:gpt-toolo}). Kontrollrühma puudumisest tulenevat üldistamist on käsitletud peatükis~\ref{subsec:puudujaagid}.
