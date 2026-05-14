@@ -4,7 +4,7 @@ Peatükis~\ref{eksperimendid} kirjeldatud eksperiment uuris ühe kasutajaviibaga
 
 \subsection{Kasutatud TI tööriist ja mudel} \label{subsec:tooriist-mudel}
 
-Käesoleva bakalaureusetöö kirjutamise käigus kasutati agentse TI tööriistana Anthropicu \textbf{Claude Code'i} -- agentset kodeerimis- ja tekstiloomise tööriista, mis integreerub otse arenduskeskkondadesse nagu VS Code \cite{anthropic2026claudecode} ning saab erinevalt vestlusliidesepõhistest tööriistadest iseseisvalt lugeda ja kirjutada faile, käivitada käsurea käske ning hallata projekti failisüsteemi. Tööriist töötas autori kohalikus arenduskeskkonnas (VS Code Windowsis) ning sellel oli ligipääs projektikaustale \LaTeX{}-allikfailide, bibliograafia, jooniste ja kompileeritud PDF-i näol. Peamise mudelina kasutati Claude Opus 4.6 maksimaalse mõtlemisrežiimiga. Käesoleva bakalaureusetöö kirjutamiseks valiti seega Claude Code, mitte põhieksperimendis kasutatud Cowork (vt peatükk~\ref{subsec:opus-toolo}). Cowork on sama tootja lähedase ülesehitusega tööriist, kuid see on suunatud pigem vestluspõhisele ühe ülesande täitmisele ning oleks pikema iteratiivse toimetamise jaoks olnud ebaefektiivsem. Claude Code seevastu pakub tihedat lõimingut VS Code'i arenduskeskkonna ja Giti tööriistadega, mis sobib paremini paljudest sammudest koosneva iteratiivse töövooga.
+Käesoleva bakalaureusetöö kirjutamise käigus kasutati agentse TI tööriistana Anthropicu \textbf{Claude Code'i} -- agentset kodeerimis- ja tekstiloomise tööriista, mis integreerub otse arenduskeskkondadesse nagu VS Code \cite{anthropic2026claudecode} ning saab erinevalt vestlusliidesepõhistest tööriistadest iseseisvalt lugeda ja kirjutada faile, käivitada käsurea käske ning hallata projekti failisüsteemi. Tööriist töötas autori kohalikus arenduskeskkonnas (VS Code Windowsis) ning sellel oli ligipääs projektikaustale \LaTeX{}-allikfailide, bibliograafia, jooniste ja kompileeritud PDF-i näol. Peamise mudelina kasutati Claude Opus 4.6 maksimaalse mõtlemisrežiimiga. Kirjutamiseks valiti seega Claude Code, mitte põhieksperimendis kasutatud Cowork (vt peatükk~\ref{subsec:opus-toolo}). Cowork on sama tootja lähedase ülesehitusega tööriist, kuid see on suunatud pigem vestluspõhisele ühe ülesande täitmisele ning oleks pikema iteratiivse toimetamise jaoks olnud ebaefektiivsem. Claude Code seevastu pakub tihedat lõimingut VS Code'i arenduskeskkonna ja Giti tööriistadega, mis sobib paremini paljudest sammudest koosneva iteratiivse töövooga.
 
 Claude Code'i oli töö kirjutamise ajal võimalik kasutada nii Visual Studio Code'i laiendusena kui ka eraldiseisva töölauarakendusena. Autori praktilise kogemuse põhjal olid vastused töölauarakendust kasutades märgatavalt kiiremad kui VS Code'i laienduse kaudu -- sama mudeli ja sama päringu puhul reageeris töölauarakendus tajutavalt kohesemalt, mis oli eriti märgatav pikemate parandusvoorude ja kompileerimistsüklite puhul. Seetõttu kasutati pikemateks parandusvoorudeks Claude Code'i töölauarakendust, samas kui VS Code'i laiendus jäi kasutusse siis, kui samas sessioonis oli vaja otse toimetada koodi või \LaTeX{}-vorminduse üksikasju arenduskeskkonnas.
 
@@ -27,7 +27,7 @@ Pärast esialgset kaardistust mindi üle iteratiivsele kirjutamisele, kus autor 
     \item \textbf{Manuaalne ülevaatus.} Autor luges iga peatüki kriitiliselt üle, tuvastas probleemid (kohmakad laused, ebatäpsed väited, numbriliste andmete ebakõlad, puuduvad viited, korduvused) ja märkis kohad, mida tuleb parandada.
     \item \textbf{Konkreetsed parandusepalved TI-le.} Autor palus agentsel TI tööriistal teha konkreetseid, kitsalt piiritletud parandusi: tükeldada liiga pikki lauseid, ühtlustada lauseehitust, kontrollida viidete formaati ja järjekorda ning parandada \LaTeX{}-vormistust. Töö hilisemas faasis lasti käesolev töö mitmel keelemudelil üle vaadata, et leida kirja- ja vormistusvigu.
     \item \textbf{Autori otsus iga muudatuse kohta.} TI soovitatud muudatused vaatas autor enne vastuvõtmist üle. Eriti jälgiti seda, et TI ei lisaks uusi faktiväiteid, mida autor ei saaks allikast kinnitada.
-    \item \textbf{Korduv iteratsioon.} Samme 3--5 korrati iga peatüki puhul mitu korda, kuni tekst vastas soovitud kvaliteedile. Keskmiselt läbis iga peatükk mitu selget redaktsioonivooru, millest osa keskendus sisule ja struktuurile ning osa vormistusele ja keelekorrektuurile.
+    \item \textbf{Korduv iteratsioon.} Samme 3--5 korrati iga peatüki puhul mitu korda, kuni tekst vastas soovitud kvaliteedile. Keskmiselt läbis iga peatükk mitu selget redaktsioonivooru.
 \end{enumerate}
 
 Iteratiivne tsükkel oli aluseks iga peatüki valmimisele ning hoidis autori sisulise kirjutamise ja TI keelelise toimetamise selgelt eraldi etappidena. Üldvaade töövoo etappidest ja autori-TI rollijaotusest iga sammu juures on esitatud joonisel~\ref{fig:toovoog}.
@@ -67,13 +67,12 @@ Eraldi väljakutse oli sellise töövoo puhul allikate kogumine ja kontrollimine
 
 \subsection{Allikate otsimine ja bibliograafia haldamine} \label{subsec:allikad}
 
-Allikate kogumine ja kontrollimine toimus teadlikult eraldiseisva töövooguna, et vältida põhieksperimendis täheldatud hallutsineeritud viidete probleemi (vt peatükk~\ref{subsec:viiteanaluus}). TI-le ei delegeeritud viidete ``välja mõtlemist'', vaid allikatöö järgis järgmist distsipliini.
+Allikate kogumine ja kontrollimine toimus teadlikult eraldiseisva töövoona, et vältida põhieksperimendis täheldatud hallutsineeritud viidete probleemi (vt peatükk~\ref{subsec:viiteanaluus}). TI-le ei delegeeritud viidete ``välja mõtlemist'', vaid allikatöö järgis järgmist distsipliini.
 
 \begin{itemize}
     \item \textbf{Allikate otsimine toimus inimese juhtimisel.} Autor otsis iga väite kinnitamiseks allikaid käsitsi Google Scholari, arXivi, ACL Anthology ja ACM Digital Library kaudu, eelistades eelretsenseeritud ajakirju, konverentsiartikleid ja mudelite ametlikke dokumentatsioonilehti.
-    \item \textbf{Iga viide lisati BibTeX-faili käsitsi}, kasutades Zoterost saadud ekspordikirjet või väljaandja veebilehelt saadud viitekirjet. Enne lisamist kontrolliti, et DOI või URL viiks olemasoleva tööni.
+    \item \textbf{Iga viide lisati BibTeX-faili käsitsi}, kasutades Zoterost saadud ekspordikirjet või väljaandja veebilehelt saadud viitekirjet.
     \item \textbf{TI roll piirdus formaadi kontrolliga.} Claude Code'il paluti kontrollida, kas kõik tekstis esinevad \texttt{\textbackslash cite\{\}} võtmed leiduvad BibTeX-failis, kas BibTeX-kirjed on süntaktiliselt korrektsed ja kas välju (\texttt{url}, \texttt{doi}, \texttt{howpublished}) on täidetud ühtselt.
-    \item \textbf{Viidete sisulise kontrolli tegi autor.} Iga tsiteeritud väite puhul avas autor allika ja veendus, et allikas tegelikult toetab väidet, mille kõrval viide seisab. Käsitsi tehtud kontroll takistas nii hallutsinatsioonide kui ka valede parafraaside levimist.
 \end{itemize}
 
 Kirjeldatud töövoo tulemusena sisaldab käesoleva töö bibliograafia vaid olemasolevaid ja kontrollitud allikaid, erinevalt põhieksperimendi genereeritud töödest, kus 0--22\% viidetest olid hallutsineeritud (kõige sagedamini väljamõeldud autorid või kahest eri paberist kombineeritud metaandmed).
@@ -85,23 +84,22 @@ Peatükkides~\ref{subsec:kirjaviga}--\ref{subsec:akadeem-stiil} esitatud arvulis
 \begin{enumerate}
     \item \textbf{PDF-ist teksti ekstraheerimine.} Iga genereeritud tervikliku töö PDF-fail (vt lisa~\ref{lisa:valjundfailid}) muudeti tekstiks, jättes välja tiitellehe ja kirjanduse loendi juhtudel, kus see oli metoodiliselt põhjendatud.
     \item \textbf{Automaatne eelotsing TI abiga.} Claude Code'il paluti otsida eraldatud tekstist konkreetseid mustreid: tõenäolised kirjavead, ülakomaga võõrsõnad (\texttt{[a-zA-Z]+'[a-zõäöü]}), tüüpilised arvutiteaduse ingliskeelsed terminid (\textit{prompt}, \textit{pipeline}, \textit{benchmark}, \textit{over-reliance} jt) ning esimese isiku asesõnad. Iga leid esitati autorile koos konteksti reaga.
-    \item \textbf{Inimese lõplik otsus iga leiu kohta.} Autor otsustas iga TI tuvastatud kandidaadi kohta eraldi, kas tegemist on tõepoolest kirjaveaga, anglitsismiga või esimese isiku asesõnaga, või näiteks kontekstis sobiva tsitaadi või pärisnimega. See kaheetapiline lähenemine (masin tuvastab kandidaadid, inimene kinnitab) vähendas nii väärnegatiivide kui ka väärpositiivide hulka võrreldes puhtalt käsitsi loendusega.
-    \item \textbf{Tulemuste sidususe kontroll tabelite vahel.} Kogunenud arvulisi tulemusi võrreldi korduvalt tabelite (nt tab.~\ref{tab:kirjavead}, tab.~\ref{tab:viited}) vahel, et tagada iga peatüki sees ja peatükkide vahel ühtsed arvud. Claude Code'ilt paluti ka selle kontrolli jaoks abi, lastes mudelil hoiatada vastuoludest (nt kui sama mudeli kohta on eri tabelites erinev veaarv).
+    \item \textbf{Inimese lõplik otsus iga leiu kohta.} Autor otsustas iga TI tuvastatud kandidaadi kohta eraldi, kas tegemist on tõepoolest kirjaveaga, anglitsismiga või esimese isiku asesõnaga, või näiteks kontekstis sobiva tsitaadi või pärisnimega. See kaheetapiline lähenemine (masin tuvastab kandidaadid, inimene kinnitab) vähendas nii väärnegatiivide kui ka väärpositiivide hulka võrreldes puhtalt käsitsi loendusega. Lisaks vaatas autor käsitsi kiirelt üle kõik tekstid, et leida TI poolt märkamata vead.
 \end{enumerate}
 
-Kirjeldatud tööjaotus vähendas analüüsile kulunud aega, kuid säilitas autori täieliku kontrolli iga arvu üle, mida töös esitatakse.
+Kirjeldatud tööjaotus vähendas analüüsile kulunud aega, kuid säilitas autori piisava kontrolli iga arvu üle, mida töös esitatakse.
 
 \subsection{Kompileerimine, vormistuse kontroll ja kvaliteedi hindamine} \label{subsec:kompileerimine}
 
 \LaTeX{}-töös tähendab kirjutamine pidevat kompileerimist ning vigade ja hoiatuste lahendamist. Käesoleva töö puhul seati sisse järgmine kompileerimistsükkel, mis toimis kogu kirjutamise jooksul.
 
 \begin{itemize}
-    \item Kohalik kompileerimine toimus \texttt{latexmk}-i abil, mis käivitas \texttt{lualatex}-i (vt \texttt{.latexmkrc} repositooriumi juurkaustas); bibliograafia koostamiseks kasutati \texttt{biber}it. Varu- ja võrdluskompileerimist tehti aeg-ajalt ka Overleafi kaudu.
-    \item Kompileerimisvigade (nt tabelite üleulatumine lehekülje piiridest, lahtiste rühmade ebakõla, puuduvad \texttt{\textbackslash cite}-võtmed) diagnostika tehti valdavalt koos Claude Code'iga -- autor andis tööriistale \texttt{thesis.log} faili sisu või vigaste ridade väljavõtte ja palus pakkuda minimaalset parandust. Muudatus rakendati failile alles siis, kui autor oli selle üle vaadanud.
-    \item Kvaliteedi hindamiseks vaadati iga olulisema muudatuse järel kompileeritud PDF üle, pöörates tähelepanu sisukorra järjepidevusele, tabelite mahtumisele leheküljele, jooniste paigutusele ning ristviidete (\texttt{\textbackslash ref}) töötamisele.
+    \item Kohalik kompileerimine toimus \texttt{latexmk}-i abil, mis käivitas \texttt{lualatex}-i (vt \texttt{.latexmkrc} repositooriumi juurkaustas); bibliograafia koostamiseks kasutati \texttt{biber}it.
+    \item Kompileerimisvigade (nt tabelite üleulatumine lehekülje piiridest, lahtiste rühmade ebakõla, puuduvad \texttt{\textbackslash cite}-võtmed) diagnostika tehti valdavalt koos Claude Code'iga -- autor andis tööriistale \texttt{thesis.log} faili sisu või vigaste ridade väljavõtte ja palus parandust. Muudatus rakendati failile alles siis, kui autor oli selle üle vaadanud.
+    \item Kvaliteedi hindamiseks vaadati iga olulisema muudatuse järel kompileeritud PDF üle, pöörates tähelepanu jooniste paigutusele ning ristviidete (\texttt{\textbackslash ref}) töötamisele.
 \end{itemize}
 
-Kompileerimisvigade parandamine oli üks valdkond, kus TI pakkus kõige otsesemat produktiivsuse kasvu -- peenete \LaTeX{} vigade otsimine, mis vastasel juhul oleks võtnud tunde käsitsi tööd, lahendati sageli mõne minutiga, kui logifail anti mudelile analüüsimiseks.
+Kompileerimisvigade parandamine oli üks valdkond, kus TI pakkus väga kõrged produktiivsuse kasvu -- peenete \LaTeX{} vigade otsimine lahendati sageli mõne minuti või sekundiga, kui logifail või veakood anti mudelile analüüsimiseks.
 
 \subsection{Versioonihaldus GitHubi abil} \label{subsec:git}
 
