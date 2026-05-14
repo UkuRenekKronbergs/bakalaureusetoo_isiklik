@@ -1,108 +1,89 @@
-# Arvutiteaduse instituudi bakalaureuse- ja magistriõppe lõputööde LaTeX mall
+# Teostatavusuuring: TI abil eestikeelse tehnilise informaatika lõputöö genereerimine
 
-Siin asub arvutiteaduse instituudi bakalaureuse- ja magistriõppe lõputööde LaTeX mall. See mall on mõeldud abistava juhendina, kuidas Teie võite oma lõputööd vormistada. Konkreetsete reeglite jaoks tuleks vaadata [Tartu Ülikooli arvutiteaduse instituudis kaitsvate lõputööde nõuete ja hindamise](https://cs.ut.ee/en/content/thesis-deadlines-and-guidelines) dokumenti.
+See repositoorium sisaldab Uku Renek Kronbergsi 2026. aasta bakalaureusetöö LaTeX-lähtekoodi, valminud PDF-i ning töö eksperimendis kasutatud TI-ga genereeritud näidislõputöid.
 
-## Ülesseadmine
+Töö uurib, kas ja millistel tingimustel suudavad kaasaegsed suured keelemudelid koos agentsete tööriistadega genereerida eestikeelse tehnilise informaatika lõputöö. Fookus ei ole ainult mudelitel eraldi, vaid mudeli ja tööriista kombinatsioonidel.
 
-### Overleaf
+## Töö lühikokkuvõte
 
-Laadige käesolev repositooriumi kood alla ZIP-failina (*Code* → *zip*). Seejärel, Overleaf keskkonnas, looge uus project ning valige *Upload Project*. Laadige eelnevalt allalaetud ZIP-fail üles. Seejärel valige juurkaustas olev `thesis.tex` fail ja kompilleerige projekt sealt.
+Bakalaureusetöös võrreldakse nelja mudel-tööriista kombinatsiooni:
 
-Ärge unustage, et Tartu Ülikooli üliõpilasena on Teil võimalik tasuta kasutada Overleafi preemium-paketti: https://www.overleaf.com/edu/unitartu
+- Google Gemini 3.1 Pro + Antigravity
+- OpenAI GPT-5.4 + ChatGPT Codex Visual Studio Code'is
+- Anthropic Claude Sonnet 4.6 + Cowork
+- Anthropic Claude Opus 4.6 + Cowork
 
-### Visual Studio Code
+Kõigile kombinatsioonidele anti sama lühike eestikeelne viip, mis palus luua UniTartuCS mallil põhineva täieliku LaTeX-vormingus bakalaureusetöö ning valida ise informaatikaga seotud teema. Kuna iga kombinatsiooni kohta tehti üks jooks, käsitletakse tulemusi eksploratiivse hinnanguna, mitte lõpliku mudelite paremusjärjestusena.
 
-Selleks, et kasutada seda malli **Visual Studio Code** töökeskkonnas, kõigepealt tõmmake ja paigaldage see töökeskkond: https://code.visualstudio.com/
+Täiendava juhtumiuuringuna käsitletakse ka ühe tööpäeva pikkust iteratiivset seanssi Claude Opus 4.7 + Claude Code kombinatsiooniga.
 
-Visual Studio (VS) Code on paljude võimsate laiendustega kergeloomuline töökeskkond. Selleks, et VS Code keskkonnas LaTeX-iga tööd teha, tuleks paigaldada järgnevad töökeskkonna laiendused:
-* **LaTeX Workshop** – Põhiline laiendus, mis võimaldab LaTeX-iga tööd teha.
-* **Hide Gitignored** – See laiendus peidab ära töökeskkonna failivaaturi paneelist suurearvulised LaTeX-i tööfailid.
+## Repositooriumi struktuur
 
-Te peate ka LaTeX-i eraldi oma arvutisse paigaldama.
+| Tee | Sisu |
+| --- | --- |
+| `thesis.tex` | Põhifail, millest lõputöö kompileeritakse. |
+| `thesis.pdf` | Käesoleva bakalaureusetöö kompileeritud PDF. |
+| `estonian/põhi.tex` | Töö metaandmed ja peatükkide kaasamine. |
+| `estonian/sektsioonid/` | Lõputöö peatükid, lisad ja litsentsitekst. |
+| `estonian/viited.bib` | Töö bibliograafiakirjed. |
+| `estonian/seadistus.tex` | Viitamisstiil, värvid, graafikute seadistus ja lisapaketid. |
+| `unitartucs/` | Tartu Ülikooli arvutiteaduse instituudi LaTeX-malli failid. |
+| `Genereeritud lõputööd/` | Eksperimendis mudelite loodud PDF-väljundid. |
+| `.latexmkrc` | Kohaliku kompileerimise seadistus `latexmk` jaoks. |
 
-#### Windowsil
+## Genereeritud väljundid
 
-Tõmmake alla [Tex Live](https://www.tug.org/texlive/windows.html#:~:text=install%2Dtl%2Dwindows.exe) tarkvara. Paigaldamisel te võite valida *Advanced* seadistused ja muuta *full scheme* (8 GB) valiku *basic scheme* (~400 MB) valiku peale. Olenemata valikust peate te käsitsi paigaldama ka `latexmk` ja `latexmk.windows` paketid.
+Kaustas `Genereeritud lõputööd/` on eksperimendi tulemusena salvestatud PDF-id:
 
-Kui te valisite *basic scheme* valiku, siis peate te paigaldama ka järgnevad paketid:
-```
-xcolor, parskip, etoolbox, microtype, kastrup, newtx, xpatch, xkeyval, xstring, fontaxes, tex-gyre, titlesec, caption, wrapfig, collectbox, adjustbox, footmisc, fancyvrb, fvextra, upquote, lineno, csquotes, cachefile, float, fp, latex2pydata, minted.windows, newfloat, pgf, pgfopts, minted, logreq, biblatex, biber.windows, biber, babel-estonian, hyphen-Estonian, euenc, tipa, xunicode, fontspec, lua-ul, tabularray, ninecolors, xurl
-```
+| Fail | Kombinatsioon | Teema | Maht |
+| --- | --- | --- | --- |
+| `Gemini_3.1_Pro_Antigravity.pdf` | Gemini 3.1 Pro + Antigravity | GenAI ja algajad programmeerijad | 39 lk |
+| `GPT_5.4_Visual_Studio_Codex.pdf` | GPT-5.4 + Codex VS Code'is | RAG-põhine küsimus-vastuse süsteem | 47 lk |
+| `Sonnet_4.6_Cowork.pdf` | Claude Sonnet 4.6 + Cowork | LLM-id koodiülevaatuses | 40 lk |
+| `Opus_4.6_Cowork.pdf` | Claude Opus 4.6 + Cowork | Turvaline paroolihaldur | 61 lk |
+| `Opus_4.7_genereeitud_too_1_toopaev.pdf` | Claude Opus 4.7 + Claude Code ja OpenAI GPT-5.5 + Codex| Iteratiivne ühe tööpäeva juhtumiuuring | 57 lk |
 
-Kui VS Code töökeskond ütleb, et ta ei leia üles konkreetset paketti, siis kasutage Tex Live tarkvara, et see paigaldada.
+## Kompileerimine
 
-Siin on ka üks põhjalik õpetus: https://blog.jakelee.co.uk/getting-latex-working-in-vscode-on-windows/
+Projekt kasutab UniTartuCS LaTeX-malli ning on seadistatud eesti keeles kompileerimiseks.
 
-#### Linuxil
+Vajalikud tööriistad:
 
-Ubuntu Linuxis on vaja paigaldada vajalikud paketid järgmise käsuga:
-```
-sudo apt install --no-install-recommends --no-install-suggests texlive-plain-generic texlive-latex-extra texlive-lang-european latexmk texlive-luatex ttf-mscorefonts-installer texlive-bibtex-extra biber python3-pygments
-```
+- TeX Live või muu täielik LaTeX-i distributsioon
+- `latexmk`
+- `lualatex`
+- `biber`
+- Python ja Pygments, sest mall kasutab `minted` paketti
 
-## Kasutamine
+Kompileerimiseks käivita repositooriumi juurkaustas:
 
-1. Avage juurkaustas olev `thesis.tex` ja kommenteerige sisse see rida, mis keeles Te oma lõputööd teete.
-2. Minge, vastavalt oma keelevalikule, `estonian` või `english` kausta. Sealt leiate faili `põhi.tex` või `main.tex`. Selles failis täidke ära oma lõputööga seonduv info. Seal defineeritakse ka lõputöö dokumendis sisalduvi sektsioone.
-3. Kaustas `sektsioonid` või `sections` on Teie lõputöö sektsioonide failid.
-4. Kaustas `joonised` või `figures` on Teie lõputöö joonised.
-5. Failis `seadistus.tex` või `config.tex` saate seadistada oma lõputöö seadeid. Näiteks valida, millist viitamisstiili kasutada soovite.
-6. Failis `viited.bib` või `references.bib` on Teie lõputöö bibliograafiakirjed (soovitatav Zoterost eksportida).
-
-## Mured ja kontaktinfo
-
-Probleemide või küsimuste korral võtke ühendust ati.study@ut.ee
-
----
-# The LaTeX Thesis Template for the Bachelor's and Master's Theses at the Institute of Computer Science
-
-Here are the LaTeX thesis templates for to help with writing your bachelor's or master's thesis at the Institute of Computer Science. The template is for guidance on how Your thesis could be formatted. For specific rules, refer to the [Guidelines for preparing and grading of graduation theses at the Institute of Computer Science of the University of Tartu](https://cs.ut.ee/en/content/thesis-deadlines-and-guidelines) document
-
-## Setup
-
-### Overleaf
-
-Download the contents of this repository as a ZIP file (*Code* → *zip*). Then, in Overleaf, create a new project and choose *Upload Project*. Upload the downloaded ZIP file. Then choose the `thesis.tex` file in the root folder and compile from there.
-
-Keep in mind that as a student of the University of Tartu, you have free access to Overleaf Premium : https://www.overleaf.com/edu/unitartu
-
-### Visual Studio Code
-
-To use this template with **Visual Studio Code**, first download and install the IDE: https://code.visualstudio.com/
-
-Visual Studio (VS) Code is a lightweight IDE with very powerful extensions. To work with LaTeX in VS Code, install the following extensions from within the IDE:
-* **LaTeX Workshop** – The main extension that allows working with LaTeX.
-* **Hide Gitignored** – This will hide all the many working files of LaTeX from your IDE-s Expolorer panel.
-
-You also need to separately install LaTeX itself on your computer.
-
-#### On Windows
-Download the [Tex Live](https://www.tug.org/texlive/windows.html#:~:text=install%2Dtl%2Dwindows.exe) software. When installing, you can select *Advaned* and change *full scheme* (8 GB) to *basic scheme* (~400 MB). Regardless of your choice, you have to install the packages `latexmk` and `latexmk.windows` manually.
-
-If you chose the *basic scheme*, you need to also install the following packages:
-```
-xcolor, parskip, etoolbox, microtype, kastrup, newtx, xpatch, xkeyval, xstring, fontaxes, tex-gyre, titlesec, caption, wrapfig, collectbox, adjustbox, footmisc, fancyvrb, fvextra, upquote, lineno, csquotes, cachefile, float, fp, latex2pydata, minted.windows, newfloat, pgf, pgfopts, minted, logreq, biblatex, biber.windows, biber, babel-estonian, hyphen-Estonian, euenc, tipa, xunicode, fontspec, lua-ul, tabularray, ninecolors, xurl
-```
-If at any time VS Code tells you that it cannot find a specific package, use the Tex Live software to install it.
-
-There is a comprehensive tutorial also here: https://blog.jakelee.co.uk/getting-latex-working-in-vscode-on-windows/
-
-#### On Linux
-
-On Ubuntu Linux, you need to install the necessary packages with the following command:
-```
-sudo apt install --no-install-recommends --no-install-suggests texlive-plain-generic texlive-latex-extra texlive-lang-european latexmk texlive-luatex ttf-mscorefonts-installer texlive-bibtex-extra biber python3-pygments
+```bash
+latexmk thesis.tex
 ```
 
-## Usage
+Fail `.latexmkrc` kasutab `lualatex`-i ning lisab `--shell-escape` lipu, mida on vaja `minted` paketi jaoks.
 
-1. Open the `thesis.tex` from the root folder and comment in Your chosen thesis language. In subsequent instructions, let's assume You chose English.
-2. Open the folder `english` and find the file `main.tex`. In that file, fill in the information about Your thesis. That file also defines what sections will be included in your document.
-3. The folder `sections` stores the files for Your sections.
-4. The folder `figures` stores Your figure files.
-5. The `config.tex` file allows You to specify some settings for Your thesis. For example, which reference style You want to use.
-6. The `references.bib` file stores Your bibliography entries (ones you can export from Zotero)
+Abifailide eemaldamiseks:
 
-## Issues and Contact
+```bash
+latexmk -c
+```
 
-In case of problems or questions, contact ati.study@ut.ee
+## Peatükkide ülevaade
+
+- `1-sissejuhatus.tex` kirjeldab probleemi, eesmärki ja uurimisküsimusi.
+- `2-taust.tex` annab ülevaate suurtest keelemudelitest, eesti keele toest ja TI kasutamisest akadeemilises kirjutamises.
+- `3-metoodika.tex` kirjeldab mudelite valikut, ühe kasutajaviibaga eksperimenti ja hindamiskriteeriume.
+- `4-mudelid.tex` võrdleb valitud mudel-tööriista kombinatsioone.
+- `5-eksperimendid.tex` esitab põhitulemused ja mudelite genereeritud tööde analüüsi.
+- `6-toovoog.tex` kirjeldab käesoleva bakalaureusetöö enda kirjutamise töövoogu.
+- `7-arutelu.tex` tõlgendab tulemusi, piiranguid ja praktilisi soovitusi.
+- `8-kokkuvote.tex` võtab töö järeldused kokku.
+- `10-lisad.tex` sisaldab eksperimendi viipa, väljundfailide nimekirja ja näitekatkendeid.
+- `11-litsents.tex` sisaldab lõputöö lihtlitsentsi.
+
+
+Autor: Uku Renek Kronbergs
+Juhendaja: Alo Peets (MSc)
+Õppekava: Informaatika
+Ülikool: Tartu Ülikool, arvutiteaduse instituut
