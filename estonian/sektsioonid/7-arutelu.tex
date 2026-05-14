@@ -4,15 +4,15 @@ Käesolev peatükk käsitleb eksperimendi tulemusi, analüüsib TI kasutamise pr
 
 \subsection{TI tugevused lõputöö kirjutamisel} \label{subsec:tugevused}
 
-Eksperimendi tulemused kinnitavad, et kaasaegsed TI mudelid koos agentsete tööriistadega suudavad pakkuda märkimisväärset abi lõputöö kirjutamise protsessis. Käesoleva uurimuse katsetes demonstreeris Claude Opus 4.6 + Coworki kombinatsioon eriti veenvalt, et tipptasemel mudel koos agentse tööriistaga suudab genereerida tervikliku 61-leheküljelise eestikeelse lõputöö isegi ühe kasutajaviibaga. Peatükis~\ref{subsec:opus47-juhtum} esitatud iteratiivne juhtumiuuring uuema mudeliga Claude Opus 4.7 + Claude Code näitas omakorda, et kui kasutaja juhendamine on aktiivne ja seanss kestab ühe tööpäeva, tõuseb saavutatav kvaliteet märgatavalt. Valminud 57-leheküljeline töö sisaldas tegelikku, kompileeritavat Pythoni ja TypeScripti lähtekoodi, 32 kontrollitavat viidet ja alla 0,1 kirjaviga lehekülje kohta. Peamised tugevused jagunevad järgmiselt.
+Eksperimendi tulemused kinnitavad, et kaasaegsed TI mudelid koos agentsete tööriistadega suudavad pakkuda märkimisväärset abi lõputöö kirjutamise protsessis. Käesoleva uurimuse katsetes demonstreeris Claude Opus 4.6 + Coworki kombinatsioon eriti veenvalt, et tipptasemel mudel koos agentse tööriistaga suudab genereerida tervikliku 61-leheküljelise eestikeelse lõputöö isegi ühe kasutajaviibaga. Peatükis~\ref{subsec:opus47-juhtum} esitatud iteratiivne juhtumiuuring uuema mudeliga Claude Opus 4.7 + Claude Code näitas omakorda, et kui kasutaja juhendamine on aktiivne ja seanss kestab ühe tööpäeva, tõuseb saavutatav kvaliteet märgatavalt. Valminud 57-leheküljeline töö sisaldas tegelikku, kompileeritavat Pythoni ja TypeScripti lähtekoodi, 32 kontrollitavat viidet. Peamised tugevused jagunevad järgmiselt.
 
 \textbf{Struktureerimine ja kavandamine.} TI mudelid on eriti tugevad teksti struktureerimisel. Kõik neli testitud kombinatsiooni (arvestades GPT-5.4 Codex-laienduse kaudu saadud tulemust) suutsid luua loogilise ja akadeemilistele nõuetele vastava peatükkide jaotuse ainuüksi ühe kasutajaviibaga. Eriti kasulik on TI kasutamine töö algfaasis, kui üliõpilane vajab abi sisukorra ja peatükkide ülesehituse kavandamisel. Mudelid suudavad vaid minimaalse juhise põhjal luua detailse sisukorra koos soovitusliku leheküljemahuga iga peatüki jaoks.
 
-\textbf{Mustandi loomine.} TI suudab genereerida tekstimustandeid, mis on piisavalt hea kvaliteediga, et neid edasi töödelda. See kiirendab kirjutamisprotsessi oluliselt, kuna üliõpilane ei pea alustama tühjalt lehelt, vaid saab toimetada ja täiendada olemasolevat teksti. Esialgse kasutuskogemuse põhjal võib TI-mustandi kasutamine säästa hinnanguliselt 50--80\% kirjutamisele kuluvast ajast, kuigi täpse ajavõidu mõõtmine vajab edaspidi süstemaatilisi kasutajakatseid.
+\textbf{Mustandi loomine.} TI suudab genereerida tekstimustandeid, mis on piisavalt hea kvaliteediga, et neid edasi töödelda. See kiirendab kirjutamisprotsessi oluliselt, kuna üliõpilane ei pea alustama tühjalt lehelt, vaid saab toimetada ja täiendada olemasolevat teksti.
 
 \textbf{Keeleline toimetamine.} Kõik neli mudelit suudavad keelelist toimetamist toetada -- parandada grammatikavigu, lauseehitust ja ühtlustada stiili, kuid täpsus erineb mudeliti. See on eriti väärtuslik eesti keele kontekstis, kus spetsiifilisi akadeemilise toimetamise teenuseid on vähe.
 
-\textbf{\LaTeX{}-vormindamine.} Oluline praktiline eelis on mudelite võimekus genereerida teksti otse \LaTeX{}-vormingus, mis hõlmab korrektset viitamissüntaksit, tabeleid, jooniste viiteid ja matemaatilisi valemeid. See säästab üliõpilasele märkimisväärset vormistusaega. Võrdluseks, Microsoft Wordi puhul peab üliõpilane vormistuse -- stiilid, ristviited, pealkirjade numeratsioon ja bibliograafia -- enamasti käsitsi seadistama, kuna TI mudelid ei saa \texttt{.docx}-faili sisemist struktuuri samamoodi manipuleerida nagu tekstipõhist \LaTeX{}-lähtekoodi. See teeb Wordi TI-toetatud akadeemilise kirjutamise kontekstis oluliselt aeganõudvamaks ja veaohtlikumaks valikuks.
+\textbf{\LaTeX{}-vormindamine.} Oluline praktiline eelis on mudelite võimekus genereerida teksti otse \LaTeX{}-vormingus, mis hõlmab korrektset viitamissüntaksit, tabeleid, jooniste viiteid ja matemaatilisi valemeid. See säästab üliõpilasele märkimisväärset vormistusaega. Võrdluseks, Microsoft Wordi puhul peab üliõpilane vormistuse -- stiilid, ristviited, pealkirjade numeratsioon ja bibliograafia -- enamasti käsitsi seadistama.
 
 \subsection{TI puudujäägid ja piirangud} \label{subsec:puudujaagid}
 
@@ -68,9 +68,9 @@ Eraldi väärib tähelepanu TI mudelite kasutamine eestikeelse teksti korrektuur
 
 Järgmised hinnangud põhinevad autori mitteformaalsetel katsetel, mis jäid põhieksperimendi raamistikust välja ning mille täpsem metoodika vajab edaspidi süstemaatilist vormistamist. Need on esitatud suunavate tähelepanekutena.
 
-\textbf{Grammatikakontroll.} Kõik neli mudelit suudavad tuvastada ja parandada enamiku grammatikavigadest eesti keeles. Claude Opus 4.6 oli kõige täpsem, tuvastades enamiku sisestatud vigadest; Sonnet 4.6 ja GPT-5.4 tuvastasid palju, kuid jätsid osa keerulisemaid vigu märkamata; Gemini 3.1 Pro tulemus oli nõrgim, jättes tuvastamata ka lihtsamaid morfoloogiavigu.
+\textbf{Grammatikakontroll.} Kõik neli mudelit suudavad tuvastada ja parandada enamiku grammatikavigadest eesti keeles. GPT-5.4 oli kõige täpsem, tuvastades enamiku sisestatud vigadest; Opus 4.6 ja Sonnet 4.6 tuvastasid palju, kuid jätsid osa keerulisemaid vigu märkamata; Gemini 3.1 Pro tulemus oli nõrgim, jättes tuvastamata ka lihtsamaid morfoloogiavigu.
 
-\textbf{Stiilikontroll.} Mudelid suudavad hinnata teksti vastavust akadeemilisele stiilile ja pakkuda parandusettepanekuid. See hõlmab liiga vaba keele tuvastamist, passiivi kasutamise soovitusi ja liigsete korduste märkamist. Claude Opus 4.6 oli selles osas kõige põhjalikum, pakkudes detailsemaid selgitusi paranduste kohta.
+\textbf{Stiilikontroll.} Mudelid suudavad hinnata teksti vastavust akadeemilisele stiilile ja pakkuda parandusettepanekuid. See hõlmab liiga vaba keele tuvastamist, passiivi kasutamise soovitusi ja liigsete korduste märkamist.
 
 \textbf{Terminoloogiakontroll.} Mudelid suudavad kontrollida tehnilise terminoloogia ühtlust ja korrektsust, kuid siin on täpsus oluliselt madalam kui grammatikakontrollis. Terminoloogilist kontrolli ei saa täielikult TI-le delegeerida -- valdkonnaspetsiifiline inimekspertiis on endiselt vajalik.
 
@@ -78,13 +78,9 @@ Järgmised hinnangud põhinevad autori mitteformaalsetel katsetel, mis jäid põ
 
 Eksperimendi ja iteratiivse juhtumiuuringu tulemuste ning praktiliste kogemuste põhjal saab anda järgmised soovitused.
 
-\textbf{Iteratiivse koostöö parim tulemus: Claude Opus 4.7 koos Claude Code'iga.} Peatükis~\ref{subsec:opus47-juhtum} kirjeldatud juhtumiuuring näitas, et kui kasutaja võtab aktiivse rolli ja seanss kestab ühe tööpäeva (ligikaudu kaheksa tundi), suudab Opus 4.7 + Claude Code'i kombinatsioon genereerida 57-leheküljelise lõputöö koos tegeliku kompileeritava Pythoni ja TypeScripti lähtekoodiga. Tulemus on ortograafilise täpsuse, viidete usaldusväärsuse ja sisulise terviklikkuse poolest mõõdetavalt parem kui kõigi nelja ühe viiba kombinatsiooni tulemus.
+\textbf{Parim tulemus: iteratiivne töövoog Claude Opus 4.7 koos Claude Code'iga.} Peatükis~\ref{subsec:opus47-juhtum} kirjeldatud juhtumiuuring näitas, et kui kasutaja võtab aktiivse rolli ja seanss kestab ühe tööpäeva (ligikaudu kaheksa tundi), suudab Opus 4.7 + Claude Code'i kombinatsioon genereerida 57-leheküljelise lõputöö koos tegeliku kompileeritava Pythoni ja TypeScripti lähtekoodiga. Tulemus on ortograafilise täpsuse, viidete usaldusväärsuse ja sisulise terviklikkuse poolest mõõdetavalt parem kui kõigi nelja ühe viiba kombinatsiooni tulemus.
 
 \textbf{Ühe viibaga tugevaim üldtulemus: Claude Opus 4.6 koos Coworkiga.} Käesolev eksperiment näitas, et ühe kasutajaviibaga genereerimisel eristus Claude Opus 4.6 + Coworki kombinatsioon teistest olulisel määral terviklikkuse, akadeemilise stiili, tehnilise detailsuse ja sisulise sügavuse poolest, kuigi väikseim kirjavigade arv oli GPT-5.4 + Codexi väljundis. Peamine puudus on märgatavalt kõrgem hind. Kuna iga kombinatsiooni kohta tehti vaid üks jooks ja keelemudelid on mitteterministlikud, tuleb seda soovitust käsitada eksploratiivse viitena, mitte lõpliku üldhinnanguna.
-
-\textbf{Parim hinna-kvaliteedi suhe: Claude Sonnet 4.6 koos Coworkiga.} Claude Sonnet 4.6 + Coworki kombinatsioon on kõige sobivam valik piiratud eelarvega üliõpilase jaoks. Kombinatsioon paistis silma akadeemilise stiili, juhiste järgimise ja teksti struktureerimise poolest ning on oluliselt soodsam kui Opus. Pikendatud mõtlemisrežiim parandab keerulisemate peatükkide kvaliteeti.
-
-\textbf{Lühikeste lõikude jaoks: GPT-5.4.} GPT-5.4 sobib hästi lühikeste tekstilõikude genereerimiseks ja keelelise korrektuuri jaoks. Kui eesmärk on genereerida tervikdokument, võivad ChatGPT vestlusliidese süsteemijuhised ja ohutuspoliitika selle blokeerida või suunata mudeli ingliskeelsele väljundile, samas kui ChatGPT Codexi laiendus VS Code'is andis käesolevas katses sama viibaga tervikliku eestikeelse dokumendi (vt peatükk~\ref{subsec:gpt-toolo}).
 
 \textbf{Kombineeritud praktika.} Iteratiivse juhtumiuuringu praktilise kogemuse põhjal tasub kaaluda tööjaotust mitme mudeli vahel: mahukamateks sisulisteks ja struktuurseteks ülesanneteks kasutada tugevaimat kättesaadavat arutlusmudelit (käesolevas töös Opus 4.7 koos Claude Code'iga), keelekorrektuuriks ja kirjavigade otsimiseks aga odavamat ja kiiremat mudelit (käesolevas töös GPT-5.5 Codexi laienduse kaudu).
 
@@ -98,33 +94,12 @@ Eksperimendi ja iteratiivse juhtumiuuringu tulemuste ning praktiliste kogemuste 
 
 Käesoleva uurimuse praktiliste kogemuste põhjal saab anda järgmised soovitused agentsete TI tööriistade kasutamiseks lõputöö genereerimisel.
 
-
-\subsubsection{Genereerimise töövoog}
-
-Soovitatav on järgmine samm-sammuline töövoog:
-
-\begin{enumerate}
-    \item \textbf{Kasuta \LaTeX{}-malli algusest peale.} Paigalda ülikooli \LaTeX{}-mall (nt UniTartuCS) projektikausta enne genereerimise alustamist. Failipõhise ligipääsuga agentne tööriist saab seejärel malli struktuuri tuvastada ja järgida.
-    \item \textbf{Genereeri sisukord ja struktuur.} Alusta sisukorra ja peatükkide ülesehituse genereerimisega. Anna mudelile ette teema, uurimisküsimused ja mahunõuded. Kontrolli ja kinnita struktuur enne edasi liikumist.
-    \item \textbf{Genereeri peatükid järjest.} Genereeri iga peatükk eraldi, alustades sissejuhatusest. Iga järgmise peatüki genereerimisel on eelnevad peatükid kontekstis, mis tagab sidususe.
-    \item \textbf{Genereeri tabelid ja joonised eraldi.} Tabelite ja jooniste \LaTeX{}-kood on keerulisem ja vajab eraldi tähelepanu. Genereeri need eraldi sammuna ja kontrolli visuaalset tulemust.
-    \item \textbf{Lisa viited ise või kontrolli neid põhjalikult.} Ära lase mudelil viiteid ``välja mõelda''. Viidete hallutsineerimise riski vähendamiseks järgi järgmist malli:
-    \begin{itemize}
-        \item otsi ise allikaid;
-        \item lisa leitud allikate andmed BibTeX-faili;
-        \item palu mudelil viiteid tekstis kasutada ainult olemasolevatest allikatest.
-    \end{itemize}
-    \item \textbf{Kompileeri regulaarselt.} Kasuta tööriista või arenduskeskkonna võimalust käivitada käsud \texttt{pdflatex} ja \texttt{biber}, et kontrollida, kas genereeritud \LaTeX{}-kood kompileerub vigadeta.
-    \item \textbf{Vaata üle ja paranda.} Iga genereeritud peatüki järel vaata tekst üle, märgi probleemkohad ja palu mudelil need parandada. Ära jäta ülevaatamist töö lõppu.
-\end{enumerate}
-
 \subsubsection{Parimad praktikad}
 
 \begin{itemize}
     \item \textbf{Kasuta võimaluse korral pikendatud mõtlemisrežiimi.} Pikendatud mõtlemisrežiim või muu sügavama arutluse seadistus (\textit{extended thinking}) võib parandada keeruliste akadeemiliste tekstide kvaliteeti. Sügavam arutlus on eriti kasulik sissejuhatuse, metoodika ja arutelu peatükkide jaoks.
     \item \textbf{Anna konkreetseid juhiseid.} Mida konkreetsemad on juhised, seda parem on tulemus. Üldise palve ``kirjuta sissejuhatus'' asemel täpsusta töö maht ja peamised teemad.
     \item \textbf{Kontrolli viiteid alati.} Ükski TI mudel ei genereeri alati 100\% korrektseid viiteid. Kontrolli iga viite olemasolu ja korrektsust käsitsi.
-    \item \textbf{Ära usalda ühe kasutajaviibaga (\textit{single-prompt}) tulemust ilma kriitilise ülevaatamiseta.} Käesoleva uurimuse eksperimendis andis ühe viiba lähenemine mõnel juhul tugeva vormilise tulemuse, kuid sisaldas endiselt hallutsineeritud viiteid ja kontrollimata empiirilisi väiteid (vt peatükk~\ref{eksperimendid}). Märkimisväärselt parema tulemuse saavutamiseks on mõistlik kombineerida ühe viibaga genereerimist iteratiivsete paranduste ja kasutajapoolse ülevaatusega.
     \item \textbf{Ole oma tööga kursis.} TI on abivahend, mitte autor. Üliõpilane peab iga genereeritud lõigu sisuliselt üle vaatama ja vajadusel ümber kirjutama.
     \item \textbf{Kasuta keeruliste peatükkide jaoks tugevamat mudelit.} Keerukamate peatükkide, näiteks metoodika ja arutelu, genereerimiseks või põhjalikuks toimetamiseks tasub valida parajasti kättesaadav tugevam arutlusmudel. Lihtsamate korrektuuri- ja vormistusülesannete jaoks piisab sageli odavamast või kiiremast mudelist. Kuna mudeliperekonnad muutuvad kiiresti, tasub soovituse rakendamisel kontrollida, millised keelemudelid on parajasti kättesaadavad.
 \end{itemize}
