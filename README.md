@@ -1,4 +1,4 @@
-# Teostatavusuuring: TI abil eestikeelse tehnilise informaatika lõputöö genereerimine
+# Teostatavusuuring: tehisintellekti abil eestikeelse tehnilise informaatika lõputöö genereerimine
 
 See repositoorium sisaldab Uku Renek Kronbergsi 2026. aasta bakalaureusetöö LaTeX-lähtekoodi, valminud PDF-i ning töö eksperimendis kasutatud TI-ga genereeritud näidislõputöid.
 
@@ -41,7 +41,7 @@ Kaustas `Genereeritud lõputööd/` on eksperimendi tulemusena salvestatud PDF-i
 | `GPT_5.4_Visual_Studio_Codex.pdf` | GPT-5.4 + Codex VS Code'is | RAG-põhine küsimus-vastuse süsteem | 47 lk |
 | `Sonnet_4.6_Cowork.pdf` | Claude Sonnet 4.6 + Cowork | LLM-id koodiülevaatuses | 40 lk |
 | `Opus_4.6_Cowork.pdf` | Claude Opus 4.6 + Cowork | Turvaline paroolihaldur | 61 lk |
-| `Opus_4.7_genereeitud_too_1_toopaev.pdf` | Claude Opus 4.7 + Claude Code ja OpenAI GPT-5.5 + Codex| Iteratiivne ühe tööpäeva juhtumiuuring | 57 lk |
+| `Opus_4.7_genereeritud_too_1_toopaev.pdf` | Claude Opus 4.7 + Claude Code ja OpenAI GPT-5.5 + Codex | Iteratiivne ühe tööpäeva juhtumiuuring | 57 lk |
 
 ## Kompileerimine
 
@@ -76,7 +76,7 @@ latexmk -c
 - `3-metoodika.tex` kirjeldab mudelite valikut, ühe kasutajaviibaga eksperimenti ja hindamiskriteeriume.
 - `4-mudelid.tex` võrdleb valitud mudel-tööriista kombinatsioone.
 - `5-eksperimendid.tex` esitab põhitulemused ja mudelite genereeritud tööde analüüsi.
-- `6-toovoog.tex` kirjeldab käesoleva bakalaureusetöö enda kirjutamise töövoogu.
+- `6-toovoog.tex` kirjeldab käesoleva bakalaureusetöö kirjutamise töövoogu.
 - `7-arutelu.tex` tõlgendab tulemusi, piiranguid ja praktilisi soovitusi.
 - `8-kokkuvote.tex` võtab töö järeldused kokku.
 - `10-lisad.tex` sisaldab eksperimendi viipa, väljundfailide nimekirja ja näitekatkendeid.
